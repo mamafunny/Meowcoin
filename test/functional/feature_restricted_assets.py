@@ -331,7 +331,7 @@ class RestrictedAssetsTest(RavenTestFramework):
             else:
                 assert_happening(t['Removed'])
 
-        # special case: make sure transfer fails if the asset change address isn't verified (even if the rvn change address is)
+        # special case: make sure transfer fails if the asset change address isn't verified (even if the mewc change address is)
         rvn_change_address = n0.getnewaddress()
         asset_change_address = n0.getnewaddress()
         assert_raises_rpc_error(-20, "bad-txns-null-verifier-address-failed-verification", n0.transfer, asset_name, 100, address, "", 0, rvn_change_address, asset_change_address)

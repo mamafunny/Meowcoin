@@ -63,7 +63,7 @@ BOOST_FIXTURE_TEST_SUITE(restricted_tests, BasicTestingSetup)
         BOOST_TEST_MESSAGE("Running Verify New Restricted transaction");
 
         /// Create CTxOut to use in the tests ///
-        // Create filler rvn tx
+        // Create filler mewc tx
         CScript rvnTransfer = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         CTxOut rvnOut(1*COIN, rvnTransfer);
 

@@ -274,7 +274,7 @@ class RawAssetTransactionsTest(RavenTestFramework):
                 tx.vout[n].scriptPubKey = hex_str_to_bytes(tampered_script)
         tx_bad_issue = bytes_to_hex_str(tx.serialize())
         tx_bad_issue_signed = n0.signrawtransaction(tx_bad_issue)['hex']
-        assert_raises_rpc_error(-26, "bad-txns-op-rvn-asset-not-in-right-script-location",
+        assert_raises_rpc_error(-26, "bad-txns-op-mewc-asset-not-in-right-script-location",
                                 n0.sendrawtransaction, tx_bad_issue_signed)
 
         ########################################
@@ -1496,7 +1496,7 @@ class RawAssetTransactionsTest(RavenTestFramework):
         balance2 = float(n2.getwalletinfo()['balance'])
 
         ########################################
-        # rvn for assets
+        # mewc for assets
 
         # n1 buys 400 ANDUIN from n2 for 4000 MEWC
         price = 4000
@@ -1545,7 +1545,7 @@ class RawAssetTransactionsTest(RavenTestFramework):
         assert_equal(starting_amount - amount, int(n2.listmyassets()[anduin]))
 
         ########################################
-        # rvn for owner
+        # mewc for owner
 
         # n2 buys JAINA! from n1 for 20000 MEWC
         price = 20000

@@ -456,7 +456,7 @@ class RewardsTest(RavenTestFramework):
                                 "For security of the rewards payout, it is recommended to wait until chain is 60 blocks ahead of the snapshot height. You can modify this by using the -minrewardsheight.",
                                 n0.distributereward, "STOCK6", tgt_block_height, "MEWC", 2000, owner_addr0)
 
-    # Attempts a payout using a custom rewards height of 15, and they have low rvn balance
+    # Attempts a payout using a custom rewards height of 15, and they have low mewc balance
     def payout_custom_height_set_with_low_funds(self):
         self.log.info("Running payout before minimum rewards height is reached with custom min height value set!")
         n0, n1, n2 = self.nodes[0], self.nodes[1], self.nodes[2]
@@ -510,7 +510,7 @@ class RewardsTest(RavenTestFramework):
 
         assert_equal(n2.getreceivedbyaddress(shareholder_addr0, 1), 2000)
 
-    # Attempts a payout using a custom rewards height of 15, and they have low rvn balance
+    # Attempts a payout using a custom rewards height of 15, and they have low mewc balance
     def payout_with_insufficient_asset_amount(self):
         self.log.info("Running payout before minimum rewards height is reached with custom min height value set!")
         n0, n1, n2 = self.nodes[0], self.nodes[1], self.nodes[2]
