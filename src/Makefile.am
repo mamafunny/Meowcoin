@@ -37,7 +37,7 @@ if ENABLE_ZMQ
 LIBMEOWCOIN_ZMQ=libmeowcoin_zmq.a
 endif
 if BUILD_MEOWCOIN_LIBS
-LIBMEOWCOINCONSENSUS=libmeowconsensus.la
+LIBMEOWCOINCONSENSUS=libmeowcoinconsensus.la
 endif
 if ENABLE_WALLET
 LIBMEOWCOIN_WALLET=libmeowcoin_wallet.a
@@ -544,16 +544,16 @@ meowcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 # meowconsensus library #
 if BUILD_MEOWCOIN_LIBS
 include_HEADERS = script/meowconsensus.h
-libmeowconsensus_la_SOURCES = $(crypto_libmeowcoin_crypto_a_SOURCES) $(libmeowcoin_consensus_a_SOURCES)
+libmeowcoinconsensus_la_SOURCES = $(crypto_libmeowcoin_crypto_a_SOURCES) $(libmeowcoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libmeowconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libmeowcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libmeowconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libmeowconsensus_la_LIBADD = $(LIBSECP256K1) $(BOOST_LIBS)
-libmeowconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_MEOWCOIN_INTERNAL
-libmeowconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libmeowcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libmeowcoinconsensus_la_LIBADD = $(LIBSECP256K1) $(BOOST_LIBS)
+libmeowcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_MEOWCOIN_INTERNAL
+libmeowcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #

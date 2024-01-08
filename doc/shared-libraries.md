@@ -44,6 +44,6 @@ The interface is defined in the C header `meowconsensus.h` located in  `src/scri
 
 ### Example Implementations
 - [NMeow](https://github.com/NicolasDorier/NMeow/blob/master/NMeow/Script.cs#L814) (.NET Bindings)
-- [node-libmeowconsensus](https://github.com/bitpay/node-libmeowconsensus) (Node.js Bindings)
-- [java-libmeowconsensus](https://github.com/dexX7/java-libmeowconsensus) (Java Bindings)
+- [node-libmeowcoinconsensus](https://github.com/bitpay/node-libmeowcoinconsensus) (Node.js Bindings)
+- [java-libmeowcoinconsensus](https://github.com/dexX7/java-libmeowcoinconsensus) (Java Bindings)
 - [meowconsensus-php](https://github.com/Bit-Wasp/meowconsensus-php) (PHP Bindings)

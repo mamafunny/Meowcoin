@@ -15,7 +15,7 @@ export PYTHONPATH
 
 if BUILD_MEOWCOIN_LIBS
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libmeowconsensus.pc
+pkgconfig_DATA = libmeowcoinconsensus.pc
 endif
 
 MEOWCOIND_BIN=$(top_builddir)/src/$(MEOWCOIN_DAEMON_NAME)$(EXEEXT)

@@ -1082,7 +1082,7 @@ AC_MSG_CHECKING([whether to build libraries])
 AM_CONDITIONAL([BUILD_MEOWCOIN_LIBS], [test x$build_meowcoin_libs = xyes])
 if test x$build_meowcoin_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libmeowconsensus.pc:libmeowconsensus.pc.in])
+  AC_CONFIG_FILES([libmeowcoinconsensus.pc:libmeowcoinconsensus.pc.in])
 fi
 AC_MSG_RESULT($build_meowcoin_libs)
 
