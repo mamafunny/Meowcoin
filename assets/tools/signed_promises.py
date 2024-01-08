@@ -23,7 +23,7 @@ import json
 import hashlib
 
 
-cli = "meowcoin-cli"
+cli = "raven-cli"
 mode =  "-testnet"
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
@@ -90,7 +90,7 @@ def get_signed_assets(assets):
     list_of_unsigned_assets = []
     print(assets)
     for key,value in assets.iteritems():
-        if key == 'MEOWCOIN_WITH_METADATA':
+        if key == 'RAVEN_WITH_METADATA':
             print("Key " + key)
             #print("Value " + value)
             print("Reading metadata for " + str(key))

@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -37,7 +37,7 @@
 
 extern uint64_t nHashesPerSec;
 
-std::map<std::string, CBlock> mapHVNKAWBlockTemplates;
+std::map<std::string, CBlock> mapRVNKAWBlockTemplates;
 
 unsigned int ParseConfirmTarget(const UniValue& value)
 {
@@ -179,7 +179,7 @@ UniValue generatetoaddress(const JSONRPCRequest& request)
             "\nMine blocks immediately to a specified address (before the RPC call returns)\n"
             "\nArguments:\n"
             "1. nblocks      (numeric, required) How many blocks are generated immediately.\n"
-            "2. address      (string, required) The address to send the newly generated meowcoin to.\n"
+            "2. address      (string, required) The address to send the newly generated raven to.\n"
             "3. maxtries     (numeric, optional) How many iterations to try (default = 1000000).\n"
             "\nResult:\n"
             "[ blockhashes ]     (array) hashes of blocks generated\n"
@@ -222,7 +222,7 @@ UniValue getmininginfo(const JSONRPCRequest& request)
             "  \"pooledtx\": n              (numeric) The size of the mempool\n"
             "  \"chain\": \"xxxx\",           (string) current network name as defined in BIP70 (main, test, regtest)\n"
             "  \"warnings\": \"...\"          (string) any network and blockchain warnings\n"
-            "  \"errors\": \"...\"            (string) DEPRECATED. Same as warnings. Only shown when meowcoind is started with -deprecatedrpc=getmininginfo\n"
+            "  \"errors\": \"...\"            (string) DEPRECATED. Same as warnings. Only shown when ravend is started with -deprecatedrpc=getmininginfo\n"
             "}\n"
             "\nExamples:\n"
             + HelpExampleCli("getmininginfo", "")
@@ -320,10 +320,10 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
             "\nIf the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.\n"
             "It returns data needed to construct a block to work on.\n"
             "For full specification, see BIPs 22, 23, 9, and 145:\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0022.mediawiki\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0023.mediawiki\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0145.mediawiki\n"
+            "    https://github.com/raven/bips/blob/master/bip-0022.mediawiki\n"
+            "    https://github.com/raven/bips/blob/master/bip-0023.mediawiki\n"
+            "    https://github.com/raven/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes\n"
+            "    https://github.com/raven/bips/blob/master/bip-0145.mediawiki\n"
 
             "\nArguments:\n"
             "1. template_request         (json object, optional) A json object in the following spec\n"
@@ -370,8 +370,6 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
             "      \"flags\" : \"xx\"                  (string) key name is to be ignored, and value included in scriptSig\n"
             "  },\n"
             "  \"coinbasevalue\" : n,              (numeric) maximum allowable input to coinbase transaction, including the generation award and transaction fees (in satoshis)\n"
-            "  \"CommunityAutonomousAddress\" : n, (string) Community Autonomous Address\n"
-            "  \"CommunityAutonomousValue\" : n,   (numeric) Community Autonomous Value, 10% of the coinbase\n"
             "  \"coinbasetxn\" : { ... },          (json object) information for coinbase transaction\n"
             "  \"target\" : \"xxxx\",                (string) The hash target\n"
             "  \"mintime\" : xxx,                  (numeric) The minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)\n"
@@ -465,10 +463,10 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
         throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
 
     if (g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL) == 0 && !gArgs.GetBoolArg("-bypassdownload", false))
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Meowcoin is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Raven is not connected!");
 
     if (IsInitialBlockDownload() && !gArgs.GetBoolArg("-bypassdownload", false))
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Meowcoin is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Raven is downloading blocks...");
 
     static unsigned int nTransactionsUpdatedLast;
 
@@ -537,7 +535,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     {
         // Clear pindexPrev so future calls make a new block, despite any failures from here on
         pindexPrev = nullptr;
-        mapHVNKAWBlockTemplates.clear();
+        mapRVNKAWBlockTemplates.clear();
 
         // Store the pindexBest used before CreateNewBlock, to avoid races
         nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
@@ -690,8 +688,6 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     result.push_back(Pair("transactions", transactions));
     result.push_back(Pair("coinbaseaux", aux));
     result.push_back(Pair("coinbasevalue", (int64_t)pblock->vtx[0]->vout[0].nValue));
-    result.push_back(Pair("CommunityAutonomousAddress", GetParams().CommunityAutonomousAddress()));
-    result.push_back(Pair("CommunityAutonomousValue", (int64_t)pblock->vtx[0]->vout[1].nValue) );
     result.push_back(Pair("longpollid", chainActive.Tip()->GetBlockHash().GetHex() + i64tostr(nTransactionsUpdatedLast)));
     result.push_back(Pair("target", hashTarget.GetHex()));
     result.push_back(Pair("mintime", (int64_t)pindexPrev->GetMedianTimePast()+1));
@@ -722,8 +718,8 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
         std::string address = gArgs.GetArg("-miningaddress", "");
         if (IsValidDestinationString(address)) {
             static std::string lastheader = "";
-            if (mapHVNKAWBlockTemplates.count(lastheader)) {
-                if (pblock->nTime - 30 < mapHVNKAWBlockTemplates.at(lastheader).nTime) {
+            if (mapRVNKAWBlockTemplates.count(lastheader)) {
+                if (pblock->nTime - 30 < mapRVNKAWBlockTemplates.at(lastheader).nTime) {
                     result.pushKV("pprpcheader", lastheader);
                     result.pushKV("pprpcepoch", ethash::get_epoch_number(pblock->nHeight));
                     return result;
@@ -733,7 +729,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
             pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
             result.pushKV("pprpcheader", pblock->GetKAWPOWHeaderHash().GetHex());
             result.pushKV("pprpcepoch", ethash::get_epoch_number(pblock->nHeight));
-            mapHVNKAWBlockTemplates[pblock->GetKAWPOWHeaderHash().GetHex()] = *pblock;
+            mapRVNKAWBlockTemplates[pblock->GetKAWPOWHeaderHash().GetHex()] = *pblock;
             lastheader = pblock->GetKAWPOWHeaderHash().GetHex();
         }
     }
@@ -862,11 +858,11 @@ static UniValue pprpcsb(const JSONRPCRequest& request) {
     if (!ParseUInt64(str_nonce, &nonce, 16))
         throw JSONRPCError(RPC_INVALID_PARAMS, "Invalid hex nonce");
 
-    if (!mapHVNKAWBlockTemplates.count(header_hash))
+    if (!mapRVNKAWBlockTemplates.count(header_hash))
         throw JSONRPCError(RPC_INVALID_PARAMS, "Block header hash not found in block data");
 
     std::shared_ptr<CBlock> blockptr = std::make_shared<CBlock>();
-    *blockptr = mapHVNKAWBlockTemplates.at(header_hash);
+    *blockptr = mapRVNKAWBlockTemplates.at(header_hash);
 
     blockptr->nNonce64 = nonce;
     blockptr->mix_hash = uint256S(mix_hash);
@@ -937,7 +933,7 @@ UniValue submitblock(const JSONRPCRequest& request)
         throw std::runtime_error(
             "submitblock \"hexdata\"  ( \"dummy\" )\n"
             "\nAttempts to submit new block to network.\n"
-            "See https://en.meowcoin.it/wiki/BIP_0022 for full specification.\n"
+            "See https://en.bitcoin.it/wiki/BIP_0022 for full specification.\n"
 
             "\nArguments\n"
             "1. \"hexdata\"        (string, required) the hex-encoded block data to submit\n"
@@ -1029,7 +1025,7 @@ UniValue estimatefee(const JSONRPCRequest& request)
 
     if (!IsDeprecatedRPCEnabled("estimatefee")) {
         throw JSONRPCError(RPC_METHOD_DEPRECATED, "estimatefee is deprecated and will be fully removed in v0.17. "
-            "To use estimatefee in v0.16, restart meowcoind with -deprecatedrpc=estimatefee.\n"
+            "To use estimatefee in v0.16, restart ravend with -deprecatedrpc=estimatefee.\n"
             "Projects should transition to using estimatesmartfee before upgrading to v0.17");
     }
 
@@ -1216,7 +1212,7 @@ UniValue getgenerate(const JSONRPCRequest& request)
         throw std::runtime_error(
             "getgenerate\n"
             "\nReturn if the server is set to generate coins or not. The default is false.\n"
-            "It is set with the command line argument -gen (or " + std::string(MEOWCOIN_CONF_FILENAME) + " setting gen)\n"
+            "It is set with the command line argument -gen (or " + std::string(RAVEN_CONF_FILENAME) + " setting gen)\n"
             "It can also be set with the setgenerate call.\n"
             "\nResult\n"
             "true|false      (boolean) If the server is set to generate coins or not\n"
@@ -1271,7 +1267,7 @@ UniValue setgenerate(const JSONRPCRequest& request)
     gArgs.SoftSetArg("-genproclimit", itostr(nGenProcLimit));
     //mapArgs["-gen"] = (fGenerate ? "1" : "0");
     //mapArgs ["-genproclimit"] = itostr(nGenProcLimit);
-    int numCores = GenerateMeowcoins(fGenerate, nGenProcLimit, GetParams());
+    int numCores = GenerateRavens(fGenerate, nGenProcLimit, GetParams());
 
     nGenProcLimit = nGenProcLimit >= 0 ? nGenProcLimit : numCores;
     std::string msg = std::to_string(nGenProcLimit) + " of " + std::to_string(numCores);

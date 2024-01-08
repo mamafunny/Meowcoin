@@ -1,12 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_SCRIPT_SIGN_H
-#define MEOWCOIN_SCRIPT_SIGN_H
+#ifndef RAVEN_SCRIPT_SIGN_H
+#define RAVEN_SCRIPT_SIGN_H
 
 #include "script/interpreter.h"
 
@@ -83,4 +82,4 @@ SignatureData CombineSignatures(const CScript& scriptPubKey, const BaseSignature
 SignatureData DataFromTransaction(const CMutableTransaction& tx, unsigned int nIn);
 void UpdateTransaction(CMutableTransaction& tx, unsigned int nIn, const SignatureData& data);
 
-#endif // MEOWCOIN_SCRIPT_SIGN_H
+#endif // RAVEN_SCRIPT_SIGN_H

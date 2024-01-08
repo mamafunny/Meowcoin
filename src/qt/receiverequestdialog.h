@@ -1,11 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_QT_RECEIVEREQUESTDIALOG_H
-#define MEOWCOIN_QT_RECEIVEREQUESTDIALOG_H
+#ifndef RAVEN_QT_RECEIVEREQUESTDIALOG_H
+#define RAVEN_QT_RECEIVEREQUESTDIALOG_H
 
 #include "walletmodel.h"
 
@@ -70,4 +69,4 @@ private:
     SendCoinsRecipient info;
 };
 
-#endif // MEOWCOIN_QT_RECEIVEREQUESTDIALOG_H
+#endif // RAVEN_QT_RECEIVEREQUESTDIALOG_H

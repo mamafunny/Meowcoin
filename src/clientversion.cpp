@@ -1,6 +1,5 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +11,7 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both meowcoind and meowcoin-qt, to make it harder for attackers to
+ * for both ravend and raven-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
 const std::string CLIENT_NAME("Meowcoin");
@@ -47,8 +46,8 @@ const std::string CLIENT_NAME("Meowcoin");
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "25a2dbf41"
-#define GIT_COMMIT_DATE "Mon, 7 Dec 2020 13:37:01 -0700"
+#define GIT_COMMIT_ID "7864c39c2b"
+#define GIT_COMMIT_DATE "Tue, 16 Aug 2022 11:40:20 -0500"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \
@@ -85,8 +84,8 @@ std::string FormatFullVersion()
     return CLIENT_BUILD;
 }
 
-/** 
- * Format the subversion field according to BIP 14 spec (https://github.com/Bitcoin/bips/blob/master/bip-0014.mediawiki) 
+/**
+ * Format the subversion field according to BIP 14 spec (https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki)
  */
 std::string FormatSubVersion(const std::string& name, int nClientVersion, const std::vector<std::string>& comments)
 {

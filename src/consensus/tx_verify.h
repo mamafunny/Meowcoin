@@ -1,11 +1,10 @@
 // Copyright (c) 2017-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2020 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_CONSENSUS_TX_VERIFY_H
-#define MEOWCOIN_CONSENSUS_TX_VERIFY_H
+#ifndef RAVEN_CONSENSUS_TX_VERIFY_H
+#define RAVEN_CONSENSUS_TX_VERIFY_H
 
 #include "amount.h"
 
@@ -38,9 +37,9 @@ namespace Consensus {
  */
 bool CheckTxInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, int nSpendHeight, CAmount& txfee);
 
-/** MEOWCOIN START */
+/** MEWC START */
 bool CheckTxAssets(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, CAssetsCache* assetCache, bool fCheckMempool, std::vector<std::pair<std::string, uint256> >& vPairReissueAssets, const bool fRunningUnitTests = false, std::set<CMessage>* setMessages = nullptr, int64_t nBlocktime = 0,  std::vector<std::pair<std::string, CNullAssetTxData>>* myNullAssetData = nullptr);
-/** MEOWCOIN END */
+/** MEWC END */
 } // namespace Consensus
 
 /** Auxiliary functions for transaction validation (ideally should not be exposed) */
@@ -91,4 +90,4 @@ bool EvaluateSequenceLocks(const CBlockIndex& block, std::pair<int, int64_t> loc
  */
 bool SequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeights, const CBlockIndex& block);
 
-#endif // MEOWCOIN_CONSENSUS_TX_VERIFY_H
+#endif // RAVEN_CONSENSUS_TX_VERIFY_H

@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "meowcoinunits.h"
+#include "ravenunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -20,6 +20,7 @@
 #include "assetrecord.h"
 
 #include <QAbstractItemDelegate>
+#include <QDateTime>
 #include <QPainter>
 #include <QDesktopServices>
 #include <QMouseEvent>
@@ -27,7 +28,7 @@
 #include <utiltime.h>
 
 #define DECORATION_SIZE 54
-#define NUM_ITEMS 5
+#define NUM_ITEMS 8
 
 #include <QDebug>
 #include <QTimer>
@@ -45,7 +46,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(MeowcoinUnits::MEWC),
+        QAbstractItemDelegate(parent), unit(RavenUnits::MEWC),
         platformStyle(_platformStyle)
     {
 
@@ -154,7 +155,7 @@ class AssetViewDelegate : public QAbstractItemDelegate
 Q_OBJECT
 public:
     explicit AssetViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-            QAbstractItemDelegate(parent), unit(MeowcoinUnits::MEWC),
+            QAbstractItemDelegate(parent), unit(RavenUnits::MEWC),
             platformStyle(_platformStyle)
     {
 
@@ -298,7 +299,7 @@ public:
 
 };
 #include "overviewpage.moc"
-#include "meowcoingui.h"
+#include "ravengui.h"
 #include <QFontDatabase>
 
 OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -367,7 +368,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 
     /** Update the labels colors */
     ui->assetBalanceLabel->setStyleSheet(STRING_LABEL_COLOR);
-    ui->meowcoinBalancesLabel->setStyleSheet(STRING_LABEL_COLOR);
+    ui->rvnBalancesLabel->setStyleSheet(STRING_LABEL_COLOR);
     ui->labelBalanceText->setStyleSheet(STRING_LABEL_COLOR);
     ui->labelPendingText->setStyleSheet(STRING_LABEL_COLOR);
     ui->labelImmatureText->setStyleSheet(STRING_LABEL_COLOR);
@@ -377,7 +378,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     ui->recentTransactionsLabel->setStyleSheet(STRING_LABEL_COLOR);
 
     /** Update the labels font */
-    ui->meowcoinBalancesLabel->setFont(GUIUtil::getTopLabelFont());
+    ui->rvnBalancesLabel->setFont(GUIUtil::getTopLabelFont());
     ui->assetBalanceLabel->setFont(GUIUtil::getTopLabelFont());
     ui->recentTransactionsLabel->setFont(GUIUtil::getTopLabelFont());
 
@@ -415,6 +416,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     sendAction = new QAction(tr("Send Asset"), this);
     QAction *copyAmountAction = new QAction(tr("Copy Amount"), this);
     QAction *copyNameAction = new QAction(tr("Copy Name"), this);
+    copyHashAction = new QAction(tr("Copy Hash"), this);
     issueSub = new QAction(tr("Issue Sub Asset"), this);
     issueUnique = new QAction(tr("Issue Unique Asset"), this);
     reissue = new QAction(tr("Reissue Asset"), this);
@@ -426,6 +428,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     reissue->setObjectName("Reissue");
     copyNameAction->setObjectName("Copy Name");
     copyAmountAction->setObjectName("Copy Amount");
+    copyHashAction->setObjectName("Copy Hash");
     openURL->setObjectName("Browse");
 
     // context menu
@@ -434,7 +437,9 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     contextMenu->addAction(issueSub);
     contextMenu->addAction(issueUnique);
     contextMenu->addAction(reissue);
+    contextMenu->addSeparator();
     contextMenu->addAction(openURL);
+    contextMenu->addAction(copyHashAction);
     contextMenu->addSeparator();
     contextMenu->addAction(copyNameAction);
     contextMenu->addAction(copyAmountAction);
@@ -475,6 +480,7 @@ void OverviewPage::handleAssetRightClicked(const QModelIndex &index)
         // Grab the data elements from the index that we need to disable and enable menu items
         QString name = index.data(AssetTableModel::AssetNameRole).toString();
         QString ipfshash = index.data(AssetTableModel::AssetIPFSHashRole).toString();
+        QString ipfsbrowser = walletModel->getOptionsModel()->getIpfsUrl();
 
         if (IsAssetNameAnOwner(name.toStdString())) {
             name = name.left(name.size() - 1);
@@ -484,10 +490,16 @@ void OverviewPage::handleAssetRightClicked(const QModelIndex &index)
         }
 
         // If the ipfs hash isn't there or doesn't start with Qm, disable the action item
-        if (ipfshash.count() > 0 && ipfshash.indexOf("Qm") == 0) {
+        if (ipfshash.count() > 0 && ipfshash.indexOf("Qm") == 0 && ipfsbrowser.indexOf("http") == 0 ) {
             openURL->setDisabled(false);
         } else {
             openURL->setDisabled(true);
+        }
+
+        if (ipfshash.count() > 0) {
+            copyHashAction->setDisabled(false);
+        } else {
+            copyHashAction->setDisabled(true);
         }
 
         if (!index.data(AssetTableModel::AdministratorRole).toBool()) {
@@ -521,8 +533,10 @@ void OverviewPage::handleAssetRightClicked(const QModelIndex &index)
                 GUIUtil::setClipboard(index.data(AssetTableModel::AssetNameRole).toString());
             else if (action->objectName() == "Copy Amount")
                 GUIUtil::setClipboard(index.data(AssetTableModel::FormattedAmountRole).toString());
+            else if (action->objectName() == "Copy Hash")
+                GUIUtil::setClipboard(ipfshash);
             else if (action->objectName() == "Browse") {
-                QDesktopServices::openUrl(QUrl::fromUserInput("https://cloudflare-ipfs.com/ipfs/" + ipfshash));
+                QDesktopServices::openUrl(QUrl::fromUserInput(ipfsbrowser.replace("%s", ipfshash)));
             }
         }
     }
@@ -547,14 +561,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(MeowcoinUnits::formatWithUnit(unit, balance, false, MeowcoinUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(MeowcoinUnits::formatWithUnit(unit, unconfirmedBalance, false, MeowcoinUnits::separatorAlways));
-    ui->labelImmature->setText(MeowcoinUnits::formatWithUnit(unit, immatureBalance, false, MeowcoinUnits::separatorAlways));
-    ui->labelTotal->setText(MeowcoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, MeowcoinUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(MeowcoinUnits::formatWithUnit(unit, watchOnlyBalance, false, MeowcoinUnits::separatorAlways));
-    ui->labelWatchPending->setText(MeowcoinUnits::formatWithUnit(unit, watchUnconfBalance, false, MeowcoinUnits::separatorAlways));
-    ui->labelWatchImmature->setText(MeowcoinUnits::formatWithUnit(unit, watchImmatureBalance, false, MeowcoinUnits::separatorAlways));
-    ui->labelWatchTotal->setText(MeowcoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelBalance->setText(RavenUnits::formatWithUnit(unit, balance, false, RavenUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(RavenUnits::formatWithUnit(unit, unconfirmedBalance, false, RavenUnits::separatorAlways));
+    ui->labelImmature->setText(RavenUnits::formatWithUnit(unit, immatureBalance, false, RavenUnits::separatorAlways));
+    ui->labelTotal->setText(RavenUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, RavenUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(RavenUnits::formatWithUnit(unit, watchOnlyBalance, false, RavenUnits::separatorAlways));
+    ui->labelWatchPending->setText(RavenUnits::formatWithUnit(unit, watchUnconfBalance, false, RavenUnits::separatorAlways));
+    ui->labelWatchImmature->setText(RavenUnits::formatWithUnit(unit, watchImmatureBalance, false, RavenUnits::separatorAlways));
+    ui->labelWatchTotal->setText(RavenUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, RavenUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -689,16 +703,28 @@ void OverviewPage::assetSearchChanged()
 {
     if (!assetFilter)
         return;
-    assetFilter->setAssetNamePrefix(ui->assetSearch->text());
+    assetFilter->setAssetNameContains(ui->assetSearch->text());
 }
 
 void OverviewPage::openIPFSForAsset(const QModelIndex &index)
 {
     // Get the ipfs hash of the asset clicked
     QString ipfshash = index.data(AssetTableModel::AssetIPFSHashRole).toString();
+    QString ipfsbrowser = walletModel->getOptionsModel()->getIpfsUrl();
 
     // If the ipfs hash isn't there or doesn't start with Qm, disable the action item
-    if (ipfshash.count() > 0 && ipfshash.indexOf("Qm") == 0) {
-        QDesktopServices::openUrl(QUrl::fromUserInput("https://cloudflare-ipfs.com/ipfs/" + ipfshash));
+    if (ipfshash.count() > 0 && ipfshash.indexOf("Qm") == 0 && ipfsbrowser.indexOf("http") == 0)
+    {
+        QUrl ipfsurl = QUrl::fromUserInput(ipfsbrowser.replace("%s", ipfshash));
+
+        // Create the box with everything.
+        if(QMessageBox::Yes == QMessageBox::question(this,
+                                                        tr("Open IPFS content?"),
+                                                        tr("Open the following IPFS content in your default browser?\n")
+                                                        + ipfsurl.toString()
+                                                    ))
+        {
+        QDesktopServices::openUrl(ipfsurl);
+        }
     }
 }

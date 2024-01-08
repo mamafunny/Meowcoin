@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2021 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +13,7 @@ forward all unrecognized arguments onto the individual test scripts.
 Functional tests are disabled on Windows by default. Use --force to run them anyway.
 
 For a description of arguments recognized by test scripts, see
-`test/functional/test_framework/test_framework.py:MeowcoinTestFramework.main`.
+`test/functional/test_framework/test_framework.py:RavenTestFramework.main`.
 
 
 """
@@ -91,7 +90,8 @@ BASE_SCRIPTS= [
     'feature_assets_mempool.py',
     'feature_restricted_assets.py',
     'feature_raw_restricted_assets.py',
-    'wallet_bip44.py',
+    'wallet_bip44.py',    
+    'wallet_bip44_multilanguage.py',
     'mining_prioritisetransaction.py',
     'feature_maxreorgdepth.py 4 --height=60 --tip_age=0 --should_reorg=0',      # Don't Reorg
     'feature_maxreorgdepth.py 3 --height=60 --tip_age=0 --should_reorg=1',      # Reorg (low peer count)
@@ -151,7 +151,7 @@ BASE_SCRIPTS= [
     'feature_notifications.py',
     'rpc_net.py',
     'rpc_misc.py',
-    'interface_meowcoin_cli.py',
+    'interface_raven_cli.py',
     'mempool_resurrect.py',
     'rpc_signrawtransaction.py',
     'wallet_resendtransactions.py',
@@ -253,23 +253,23 @@ def main():
     logging.basicConfig(format='%(message)s', level=logging_level)
 
     # Create base test directory
-    tmpdir = "%s/meowcoin_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
+    tmpdir = "%s/raven_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
     os.makedirs(tmpdir)
     logging.debug("Temporary test directory at %s" % tmpdir)
 
     # Don't run tests on Windows by default
     if config["environment"]["EXEEXT"] == ".exe" and not args.force:
-        # https://github.com/JustAResearcher/Meowcoin/commit/d52802551752140cf41f0d9a225a43e84404d3e9
-        # https://github.com/Bitcoin/bitcoin/pull/5677#issuecomment-136646964
+        # https://github.com/bitcoin/bitcoin/commit/d52802551752140cf41f0d9a225a43e84404d3e9
+        # https://github.com/bitcoin/bitcoin/pull/5677#issuecomment-136646964
         print("Tests currently disabled on Windows by default. Use --force option to enable")
         sys.exit(0)
 
-    # Check that the build was configured with wallet, utils, and meowcoind
+    # Check that the build was configured with wallet, utils, and ravend
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_cli = config["components"].getboolean("ENABLE_UTILS")
-    enable_meowcoind = config["components"].getboolean("ENABLE_MEOWCOIND")
-    if not (enable_wallet and enable_cli and enable_meowcoind):
-        print("No functional tests to run. Wallet, utils, and meowcoind must all be enabled")
+    enable_ravend = config["components"].getboolean("ENABLE_RAVEND")
+    if not (enable_wallet and enable_cli and enable_ravend):
+        print("No functional tests to run. Wallet, utils, and ravend must all be enabled")
         print("Rerun `configure` with --enable-wallet, --with-cli and --with-daemon and rerun make")
         sys.exit(0)
 
@@ -361,12 +361,12 @@ def main():
 
 
 def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, jobs=1, enable_coverage=False, args=None, combined_logs_len=0, failfast=False, last_loop=False):
-    # Warn if meowcoind is already running (unix only)
+    # Warn if ravend is already running (unix only)
     if args is None:
         args = []
     try:
-        if subprocess.check_output(["pidof", "meowcoind"]) is not None:
-            print("%sWARNING!%s There is already a meowcoind process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
+        if subprocess.check_output(["pidof", "ravend"]) is not None:
+            print("%sWARNING!%s There is already a ravend process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except (OSError, subprocess.SubprocessError):
         pass
 
@@ -376,9 +376,9 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, j
         print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
 
     #Set env vars
-    if "MEOWCOIND" not in os.environ:
-        os.environ["MEOWCOIND"] = build_dir + '/src/meowcoind' + exeext
-        os.environ["MEOWCOINCLI"] = build_dir + '/src/meowcoin-cli' + exeext
+    if "RAVEND" not in os.environ:
+        os.environ["RAVEND"] = build_dir + '/src/ravend' + exeext
+        os.environ["RAVENCLI"] = build_dir + '/src/raven-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 
@@ -667,7 +667,7 @@ class RPCCoverage:
     Coverage calculation works by having each test script subprocess write
     coverage files into a particular directory. These files contain the RPC
     commands invoked during testing, as well as a complete listing of RPC
-    commands per `meowcoin-cli help` (`rpc_interface.txt`).
+    commands per `raven-cli help` (`rpc_interface.txt`).
 
     After all tests complete, the commands run are combined and diff'd against
     the complete list to calculate uncovered RPC commands.

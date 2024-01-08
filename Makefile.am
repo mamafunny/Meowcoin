@@ -1,6 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,21 +13,21 @@ endif
 override GZIP_ENV = "-9n"
 export PYTHONPATH
 
-if BUILD_MEOWCOIN_LIBS
+if BUILD_RAVEN_LIBS
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libmeowcoinconsensus.pc
+pkgconfig_DATA = libravenconsensus.pc
 endif
 
-MEOWCOIND_BIN=$(top_builddir)/src/$(MEOWCOIN_DAEMON_NAME)$(EXEEXT)
-MEOWCOIN_QT_BIN=$(top_builddir)/src/qt/$(MEOWCOIN_GUI_NAME)$(EXEEXT)
-meowcoin_cli_BIN=$(top_builddir)/src/$(meowcoin_cli_NAME)$(EXEEXT)
-MEOWCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
-meowcoin_cli_INSTALL=$(top_builddir)/contrib/install_cli.sh
+RAVEND_BIN=$(top_builddir)/src/$(RAVEN_DAEMON_NAME)$(EXEEXT)
+RAVEN_QT_BIN=$(top_builddir)/src/qt/$(RAVEN_GUI_NAME)$(EXEEXT)
+RAVEN_CLI_BIN=$(top_builddir)/src/$(RAVEN_CLI_NAME)$(EXEEXT)
+RAVEN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
+RAVEN_CLI_INSTALL=$(top_builddir)/contrib/install_cli.sh
 
 empty :=
 space := $(empty) $(empty)
 
-OSX_APP=Meowcoin-Qt.app
+OSX_APP=Raven-Qt.app
 OSX_VOLNAME = $(subst $(space),-,$(PACKAGE_NAME))
 OSX_DMG = $(OSX_VOLNAME).dmg
 OSX_BACKGROUND_SVG=background.svg
@@ -37,14 +36,14 @@ OSX_BACKGROUND_IMAGE_DPIS=36 72
 OSX_DSSTORE_GEN=$(top_srcdir)/contrib/macdeploy/custom_dsstore.py
 OSX_DEPLOY_SCRIPT=$(top_srcdir)/contrib/macdeploy/macdeployqtplus
 OSX_FANCY_PLIST=$(top_srcdir)/contrib/macdeploy/fancy.plist
-OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/meowcoin.icns
+OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/raven.icns
 OSX_PLIST=$(top_builddir)/share/qt/Info.plist #not installed
 OSX_QT_TRANSLATIONS = da,de,es,hu,ru,uk,zh_CN,zh_TW
 
 DIST_DOCS = $(wildcard doc/*.md) $(wildcard doc/release-notes/*.md)
-DIST_CONTRIB = $(top_srcdir)/contrib/meowcoin-cli.bash-completion \
-	       $(top_srcdir)/contrib/meowcoin-tx.bash-completion \
-	       $(top_srcdir)/contrib/meowcoind.bash-completion \
+DIST_CONTRIB = $(top_srcdir)/contrib/raven-cli.bash-completion \
+	       $(top_srcdir)/contrib/raven-tx.bash-completion \
+	       $(top_srcdir)/contrib/ravend.bash-completion \
 	       $(top_srcdir)/contrib/init \
 	       $(top_srcdir)/contrib/rpm
 DIST_SHARE = \
@@ -54,7 +53,7 @@ DIST_SHARE = \
 BIN_CHECKS=$(top_srcdir)/contrib/devtools/symbol-check.py \
            $(top_srcdir)/contrib/devtools/security-check.py
 
-WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/meowcoin.ico \
+WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/raven.ico \
   $(top_srcdir)/share/pixmaps/nsis-header.bmp \
   $(top_srcdir)/share/pixmaps/nsis-wizard.bmp \
   $(top_srcdir)/doc/README_windows.txt
@@ -66,18 +65,18 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/detached-sig-create.sh
 
 COVERAGE_INFO = baseline.info \
-  test_meowcoin_filtered.info total_coverage.info \
+  test_raven_filtered.info total_coverage.info \
   baseline_filtered.info functional_test.info functional_test_filtered.info \
-  test_meowcoin_coverage.info test_meowcoin.info
+  test_raven_coverage.info test_raven.info
 
 dist-hook:
 	-$(GIT) archive --format=tar HEAD -- src/clientversion.cpp | $(AMTAR) -C $(top_distdir) -xf -
 
-$(MEOWCOIN_WIN_INSTALLER): all-recursive
+$(RAVEN_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIND_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIN_QT_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(meowcoin_cli_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(RAVEND_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(RAVEN_QT_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(RAVEN_CLI_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) -V2 $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 	@echo built $@
@@ -94,23 +93,23 @@ $(OSX_APP)/Contents/Info.plist: $(OSX_PLIST)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/Resources/meowcoin.icns: $(OSX_INSTALLER_ICONS)
+$(OSX_APP)/Contents/Resources/raven.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/install_cli.sh: $(meowcoin_cli_INSTALL)
+$(OSX_APP)/Contents/MacOS/install_cli.sh: $(RAVEN_CLI_INSTALL)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/Meowcoin-Qt: $(MEOWCOIN_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Raven-Qt: $(RAVEN_QT_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
-$(OSX_APP)/Contents/MacOS/meowcoind: $(MEOWCOIND_BIN)
+$(OSX_APP)/Contents/MacOS/ravend: $(RAVEND_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
-$(OSX_APP)/Contents/MacOS/meowcoin-cli: $(meowcoin_cli_BIN)
+$(OSX_APP)/Contents/MacOS/raven-cli: $(RAVEN_CLI_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -119,9 +118,9 @@ $(OSX_APP)/Contents/Resources/Base.lproj/InfoPlist.strings:
 	echo '{	CFBundleDisplayName = "$(PACKAGE_NAME)"; CFBundleName = "$(PACKAGE_NAME)"; }' > $@
 
 OSX_APP_BUILT=$(OSX_APP)/Contents/PkgInfo $(OSX_APP)/Contents/Resources/empty.lproj \
-  $(OSX_APP)/Contents/Resources/meowcoin.icns $(OSX_APP)/Contents/Info.plist \
-  $(OSX_APP)/Contents/MacOS/Meowcoin-Qt $(OSX_APP)/Contents/Resources/Base.lproj/InfoPlist.strings \
-  $(OSX_APP)/Contents/MacOS/meowcoind $(OSX_APP)/Contents/MacOS/meowcoin-cli $(OSX_APP)/Contents/MacOS/install_cli.sh
+  $(OSX_APP)/Contents/Resources/raven.icns $(OSX_APP)/Contents/Info.plist \
+  $(OSX_APP)/Contents/MacOS/Raven-Qt $(OSX_APP)/Contents/Resources/Base.lproj/InfoPlist.strings \
+  $(OSX_APP)/Contents/MacOS/ravend $(OSX_APP)/Contents/MacOS/raven-cli $(OSX_APP)/Contents/MacOS/install_cli.sh
 
 osx_volname:
 	echo $(OSX_VOLNAME) >$@
@@ -146,7 +145,7 @@ $(APP_DIST_DIR)/Applications:
 	@rm -f $@
 	@cd $(@D); $(LN_S) /Applications $(@F)
 
-$(APP_DIST_EXTRAS): $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Meowcoin-Qt
+$(APP_DIST_EXTRAS): $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Raven-Qt
 
 $(OSX_DMG): $(APP_DIST_EXTRAS)
 	$(GENISOIMAGE) -no-cache-inodes -D -l -probe -V "$(OSX_VOLNAME)" -no-pad -r -dir-mode 0755 -apple -o $@ dist
@@ -161,7 +160,7 @@ $(APP_DIST_DIR)/.background/$(OSX_BACKGROUND_IMAGE): $(OSX_BACKGROUND_IMAGE_DPIF
 $(APP_DIST_DIR)/.DS_Store: $(OSX_DSSTORE_GEN)
 	$(PYTHON) $< "$@" "$(OSX_VOLNAME)"
 
-$(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Meowcoin-Qt: $(OSX_APP_BUILT) $(OSX_PACKAGING)
+$(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Raven-Qt: $(OSX_APP_BUILT) $(OSX_PACKAGING)
 	INSTALLNAMETOOL=$(INSTALLNAMETOOL)  OTOOL=$(OTOOL) STRIP=$(STRIP) $(PYTHON) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) -translations-dir=$(QT_TRANSLATION_DIR) -add-qt-tr $(OSX_QT_TRANSLATIONS) -verbose 2
 
 deploydir: $(APP_DIST_EXTRAS)
@@ -172,16 +171,16 @@ appbundle: $(OSX_APP_BUILT)
 deploy: $(OSX_DMG)
 endif
 if TARGET_WINDOWS
-deploy: $(MEOWCOIN_WIN_INSTALLER)
+deploy: $(RAVEN_WIN_INSTALLER)
 endif
 
-$(MEOWCOIN_QT_BIN): FORCE
+$(RAVEN_QT_BIN): FORCE
 	$(MAKE) -C src qt/$(@F)
 
-$(MEOWCOIND_BIN): FORCE
+$(RAVEND_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
-$(meowcoin_cli_BIN): FORCE
+$(RAVEN_CLI_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
 if USE_LCOV
@@ -194,16 +193,16 @@ baseline_filtered.info: baseline.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
-test_meowcoin.info: baseline_filtered.info
+test_raven.info: baseline_filtered.info
 	$(MAKE) -C src/ check
-	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src -t test_meowcoin -o $@
+	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src -t test_raven -o $@
 	$(LCOV) -z $(LCOV_OPTS) -d $(abs_builddir)/src
 
-test_meowcoin_filtered.info: test_meowcoin.info
+test_raven_filtered.info: test_raven.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
-functional_test.info: test_meowcoin_filtered.info
+functional_test.info: test_raven_filtered.info
 	-@TIMEOUT=15 test/functional/test_runner.py $(EXTENDED_FUNCTIONAL_TESTS)
 	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src --t functional-tests -o $@
 	$(LCOV) -z $(LCOV_OPTS) -d $(abs_builddir)/src
@@ -212,13 +211,13 @@ functional_test_filtered.info: functional_test.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
-test_meowcoin_coverage.info: baseline_filtered.info test_meowcoin_filtered.info
-	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_meowcoin_filtered.info -o $@
+test_raven_coverage.info: baseline_filtered.info test_raven_filtered.info
+	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_raven_filtered.info -o $@
 
-total_coverage.info: test_meowcoin_filtered.info functional_test_filtered.info
-	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_meowcoin_filtered.info -a functional_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
+total_coverage.info: test_raven_filtered.info functional_test_filtered.info
+	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_raven_filtered.info -a functional_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-test_meowcoin.coverage/.dirstamp:  test_meowcoin_coverage.info
+test_raven.coverage/.dirstamp:  test_raven_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
 	@touch $@
 
@@ -226,7 +225,7 @@ total.coverage/.dirstamp: total_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
 	@touch $@
 
-cov: test_meowcoin.coverage/.dirstamp total.coverage/.dirstamp
+cov: test_raven.coverage/.dirstamp total.coverage/.dirstamp
 
 endif
 
@@ -235,8 +234,8 @@ dist_noinst_SCRIPTS = autogen.sh
 EXTRA_DIST = $(DIST_SHARE) test/functional/test_runner.py test/functional $(DIST_CONTRIB) $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING) $(BIN_CHECKS)
 
 EXTRA_DIST += \
-    test/util/meowcoin-util-test.py \
-    test/util/data/meowcoin-util-test.json \
+    test/util/raven-util-test.py \
+    test/util/data/raven-util-test.json \
     test/util/data/blanktxv1.hex \
     test/util/data/blanktxv1.json \
     test/util/data/blanktxv2.hex \
@@ -287,7 +286,7 @@ EXTRA_DIST += \
     test/util/data/txcreatesignv1.json \
     test/util/data/txcreatesignv2.hex
 
-CLEANFILES = $(OSX_DMG) $(MEOWCOIN_WIN_INSTALLER)
+CLEANFILES = $(OSX_DMG) $(RAVEN_WIN_INSTALLER)
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 
@@ -309,5 +308,5 @@ clean-docs:
 	rm -rf doc/doxygen
 
 clean-local: clean-docs
-	rm -rf coverage_percent.txt test_meowcoin.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
+	rm -rf coverage_percent.txt test_raven.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
 	rm -rf test/functional/__pycache__

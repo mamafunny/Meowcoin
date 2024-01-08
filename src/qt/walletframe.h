@@ -1,16 +1,15 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_QT_WALLETFRAME_H
-#define MEOWCOIN_QT_WALLETFRAME_H
+#ifndef RAVEN_QT_WALLETFRAME_H
+#define RAVEN_QT_WALLETFRAME_H
 
 #include <QFrame>
 #include <QMap>
 
-class MeowcoinGUI;
+class RavenGUI;
 class ClientModel;
 class PlatformStyle;
 class SendCoinsRecipient;
@@ -23,9 +22,9 @@ QT_END_NAMESPACE
 
 /**
  * A container for embedding all wallet-related
- * controls into MeowcoinGUI. The purpose of this class is to allow future
+ * controls into RavenGUI. The purpose of this class is to allow future
  * refinements of the wallet controls with minimal need for further
- * modifications to MeowcoinGUI, thus greatly simplifying merges while
+ * modifications to RavenGUI, thus greatly simplifying merges while
  * reducing the risk of breaking top-level stuff.
  */
 class WalletFrame : public QFrame
@@ -33,7 +32,7 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
-    explicit WalletFrame(const PlatformStyle *platformStyle, MeowcoinGUI *_gui = 0);
+    explicit WalletFrame(const PlatformStyle *platformStyle, RavenGUI *_gui = 0);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -53,7 +52,7 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *walletStack;
-    MeowcoinGUI *gui;
+    RavenGUI *gui;
     ClientModel *clientModel;
     QMap<QString, WalletView*> mapWalletViews;
 
@@ -78,16 +77,17 @@ public Q_SLOTS:
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
 
+    /** Encrypt the wallet */
+    void encryptWallet(bool status);
     /** Backup the wallet */
     void backupWallet();
     /** Change encrypted wallet passphrase */
     void changePassphrase();
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
-    /** Lock the wallet */
-    void lockWallet();
-    /** Get the mnemonic phrase */
-    void getMnemonic();
+    
+    /** Show the 12-words **/
+    void getMyWords();
 
     /** Show used sending addresses */
     void usedSendingAddresses();
@@ -96,14 +96,14 @@ public Q_SLOTS:
     /** Pass on signal over requested out-of-sync-warning information */
     void outOfSyncWarningClicked();
 
-    /** MEOWCOIN START */
+    /** MEWC START */
 
     /** Switch to assets page */
     void gotoAssetsPage();
     void gotoCreateAssetsPage();
     void gotoManageAssetsPage();
     void gotoRestrictedAssetsPage();
-    /** MEOWCOIN END */
+    /** MEWC END */
 };
 
-#endif // MEOWCOIN_QT_WALLETFRAME_H
+#endif // RAVEN_QT_WALLETFRAME_H

@@ -1,12 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_STREAMS_H
-#define MEOWCOIN_STREAMS_H
+#ifndef RAVEN_STREAMS_H
+#define RAVEN_STREAMS_H
 
 #include "support/allocators/zeroafterfree.h"
 #include "serialize.h"
@@ -708,4 +707,4 @@ public:
     }
 };
 
-#endif // MEOWCOIN_STREAMS_H
+#endif // RAVEN_STREAMS_H

@@ -1,12 +1,12 @@
 # Block and Transaction Broadcasting with ZeroMQ
 
-[ZeroMQ](http://zeromq.org/) is a lightweight wrapper around TCP
+[ZeroMQ](https://zeromq.org/) is a lightweight wrapper around TCP
 connections, inter-process communication, and shared-memory,
 providing various message-oriented semantics such as publish/subscribe,
 request/reply, and push/pull.
 
-The Meowcoin Core daemon can be configured to act as a trusted "border
-router", implementing the meowcoin wire protocol and relay, making
+The Raven Core daemon can be configured to act as a trusted "border
+router", implementing the raven wire protocol and relay, making
 consensus decisions, maintaining the local blockchain database,
 broadcasting locally generated transactions into the network, and
 providing a queryable RPC interface to interact on a polled basis for
@@ -33,19 +33,22 @@ buffering or reassembly.
 
 ## Prerequisites
 
-The ZeroMQ feature in Meowcoin Core requires ZeroMQ API version 4.x or
-newer. Typically, it is packaged by distributions as something like
+The ZeroMQ feature in Raven Core requires the ZeroMQ API >= 4.0.0
+[libzmq](https://github.com/zeromq/libzmq/releases).
+For version information, see [dependencies.md](dependencies.md).
+Typically, it is packaged by distributions as something like
 *libzmq3-dev*. The C++ wrapper for ZeroMQ is *not* needed.
 
-In order to run the example Python client scripts in contrib/ one must
-also install *python3-zmq*, though this is not necessary for daemon
+In order to run the example Python client scripts in the `contrib/zmq/`
+directory, one must also install [PyZMQ](https://github.com/zeromq/pyzmq)
+(generally with `pip install pyzmq`), though this is not necessary for daemon
 operation.
 
 ## Enabling
 
 By default, the ZeroMQ feature is automatically compiled in if the
 necessary prerequisites are found.  To disable, use --disable-zmq
-during the *configure* step of building meowcoind:
+during the *configure* step of building ravend:
 
     $ ./configure --disable-zmq (other options)
 
@@ -63,11 +66,12 @@ Currently, the following notifications are supported:
 
 The socket type is PUB and the address must be a valid ZeroMQ socket
 address. The same address can be used in more than one notification.
+The same notification can be specified more than once.
 
 For instance:
 
-    $ meowcoind -zmqpubhashtx=tcp://127.0.0.1:28766 \
-               -zmqpubrawtx=ipc:///tmp/meowcoind.tx.raw
+    $ ravend -zmqpubhashtx=tcp://127.0.0.1:28766 \
+               -zmqpubrawtx=ipc:///tmp/ravend.tx.raw
 
 Each PUB notification has a topic and body, where the header
 corresponds to the notification type. For instance, for the
@@ -75,7 +79,7 @@ notification `-zmqpubhashtx` the topic is `hashtx` (no null
 terminator) and the body is the transaction hash (32
 bytes).
 
-These options can also be provided in meowcoin.conf.
+These options can also be provided in raven.conf.
 
 ZeroMQ endpoint specifiers for TCP (and others) are documented in the
 [ZeroMQ API](http://api.zeromq.org/4-0:_start).
@@ -87,20 +91,24 @@ arriving. Please see `contrib/zmq/zmq_sub.py` for a working example.
 
 ## Remarks
 
-From the perspective of meowcoind, the ZeroMQ socket is write-only; PUB
+From the perspective of ravend, the ZeroMQ socket is write-only; PUB
 sockets don't even have a read function. Thus, there is no state
-introduced into meowcoind directly. Furthermore, no information is
+introduced into ravend directly. Furthermore, no information is
 broadcast that wasn't already received from the public P2P network.
 
 No authentication or authorization is done on connecting clients; it
 is assumed that the ZeroMQ port is exposed only to trusted entities,
 using other means such as firewalling.
 
-Note that when the block chain tip changes, a reorganisation may occur
-and just the tip will be notified. It is up to the subscriber to
-retrieve the chain from the last known block to the new tip.
+Note that for `*block` topics, when the block chain tip changes,
+a reorganisation may occur and just the tip will be notified.
+It is up to the subscriber to retrieve the chain from the last known
+block to the new tip. Also note that no notification will occur if the tip
+was in the active chain--as would be the case after calling invalidateblock RPC.
+In contrast, the `sequence` topic publishes all block connections and
+disconnections.
 
 There are several possibilities that ZMQ notification can get lost
 during transmission depending on the communication type your are
-using. Meowcoind appends an up-counting sequence number to each
+using. Ravend appends an up-counting sequence number to each
 notification which allows listeners to detect lost notifications.

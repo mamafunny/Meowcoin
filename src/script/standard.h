@@ -1,12 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_SCRIPT_STANDARD_H
-#define MEOWCOIN_SCRIPT_STANDARD_H
+#ifndef RAVEN_SCRIPT_STANDARD_H
+#define RAVEN_SCRIPT_STANDARD_H
 
 #include "script/interpreter.h"
 #include "uint256.h"
@@ -66,12 +65,12 @@ enum txnouttype
     TX_NULL_DATA = 5, //!< unspendable OP_RETURN script that carries data
     TX_WITNESS_V0_SCRIPTHASH = 6,
     TX_WITNESS_V0_KEYHASH = 7,
-    /** MEOWCOIN START */
+    /** MEWC START */
     TX_NEW_ASSET = 8,
     TX_REISSUE_ASSET = 9,
     TX_TRANSFER_ASSET = 10,
-    TX_RESTRICTED_ASSET_DATA = 11, //!< unspendable OP_MEOWCOIN_ASSET script that carries data
-    /** MEOWCOIN END */
+    TX_RESTRICTED_ASSET_DATA = 11, //!< unspendable OP_RAVEN_ASSET script that carries data
+    /** MEWC END */
 };
 
 class CNoDestination {
@@ -127,7 +126,7 @@ bool ExtractDestination(const CScript& scriptPubKey, CTxDestination& addressRet)
 bool ExtractDestinations(const CScript& scriptPubKey, txnouttype& typeRet, std::vector<CTxDestination>& addressRet, int& nRequiredRet);
 
 /**
- * Generate a Meowcoin scriptPubKey for the given CTxDestination. Returns a P2PKH
+ * Generate a Raven scriptPubKey for the given CTxDestination. Returns a P2PKH
  * script for a CKeyID destination, a P2SH script for a CScriptID, and an empty
  * script for CNoDestination.
  */
@@ -149,4 +148,4 @@ CScript GetScriptForNullAssetDataDestination(const CTxDestination &dest);
  */
 CScript GetScriptForWitness(const CScript& redeemscript);
 
-#endif // MEOWCOIN_SCRIPT_STANDARD_H
+#endif // RAVEN_SCRIPT_STANDARD_H

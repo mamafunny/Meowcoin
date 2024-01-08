@@ -1,13 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_QT_TRANSACTIONTABLEMODEL_H
-#define MEOWCOIN_QT_TRANSACTIONTABLEMODEL_H
+#ifndef RAVEN_QT_TRANSACTIONTABLEMODEL_H
+#define RAVEN_QT_TRANSACTIONTABLEMODEL_H
 
-#include "meowcoinunits.h"
+#include "ravenunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>
@@ -103,7 +102,7 @@ private:
     QString formatTxDate(const TransactionRecord *wtx) const;
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
-    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, MeowcoinUnits::SeparatorStyle separators=MeowcoinUnits::separatorStandard) const;
+    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, RavenUnits::SeparatorStyle separators=RavenUnits::separatorStandard) const;
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txWatchonlyDecoration(const TransactionRecord *wtx) const;
@@ -122,4 +121,4 @@ public Q_SLOTS:
     friend class TransactionTablePriv;
 };
 
-#endif // MEOWCOIN_QT_TRANSACTIONTABLEMODEL_H
+#endif // RAVEN_QT_TRANSACTIONTABLEMODEL_H

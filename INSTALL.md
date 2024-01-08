@@ -1,5 +1,5 @@
-Building Meowcoin
+Building Raven
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Meowcoin Core reference implementation of Meowcoin.
+elements of the Raven Core reference implementation of Raven.

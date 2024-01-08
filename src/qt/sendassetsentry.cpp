@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "sendassetsentry.h"
@@ -50,9 +50,9 @@ SendAssetsEntry::SendAssetsEntry(const PlatformStyle *_platformStyle, const QStr
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
 
-    // normal meowcoin address field
+    // normal raven address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying meowcoin address(es)
+    // just a label for displaying raven address(es)
     ui->payTo_is->setFont(GUIUtil::fixedPitchFont());
 
     // Connect signals
@@ -236,7 +236,7 @@ bool SendAssetsEntry::validate()
     if (!ui->memoBox->text().isEmpty()) {
         if (!AreMessagesDeployed()) {
             ui->messageTextLabel->show();
-            ui->messageTextLabel->setText(tr("Memos can only be added once HIP5 is voted in"));
+            ui->messageTextLabel->setText(tr("Memos can only be added once RIP5 is voted in"));
             ui->memoBox->setStyleSheet(STYLE_INVALID);
             retval = false;
         }
@@ -374,9 +374,10 @@ void SendAssetsEntry::onAssetSelected(int index)
     // If the name
     if (index == 0) {
         ui->assetAmountLabel->clear();
-        if(!ui->administratorCheckbox->isChecked())
-            ui->payAssetAmount->setDisabled(false);
+//        if(!ui->administratorCheckbox->isChecked())
+//            ui->payAssetAmount->setDisabled(false);
         ui->payAssetAmount->clear();
+        ui->payAssetAmount->setDisabled(true);
         return;
     }
 
@@ -385,6 +386,12 @@ void SendAssetsEntry::onAssetSelected(int index)
     if (IsAssetNameAnOwner(name.toStdString())) {
         fIsOwnerAsset = true;
         name = name.split("!").first();
+    }
+
+    // Check to see if the asset selected is an messenger asset
+    bool fIsMessengerAsset = false;
+    if (IsAssetNameAnMsgChannel(name.toStdString())) {
+        fIsMessengerAsset = true;
     }
 
     LOCK(cs_main);
@@ -442,10 +449,18 @@ void SendAssetsEntry::onAssetSelected(int index)
     ui->messageLabel->hide();
     ui->messageTextLabel->hide();
 
-    // If it is an ownership asset lock the amount
+    // If it is not an ownership asset unlock the amount
     if (!fIsOwnerAsset) {
         ui->payAssetAmount->setUnit(asset.units);
+        ui->payAssetAmount->setSingleStep(1);
         ui->payAssetAmount->setDisabled(false);
+        ui->payAssetAmount->setValue(0);
+    }
+    // If it is messanger channel set amount to 1 and keep locked.
+    if (fIsMessengerAsset) {
+        ui->payAssetAmount->setUnit(asset.units);
+        ui->payAssetAmount->setDisabled(true);
+        ui->payAssetAmount->setValue(1);
     }
 }
 
@@ -534,8 +549,8 @@ void SendAssetsEntry::switchAdministratorList(bool fSwitchStatus)
 
             stringModel->setStringList(list);
             ui->assetSelectionBox->lineEdit()->setPlaceholderText(tr("Select an asset to transfer"));
-            ui->payAssetAmount->clear();
-            ui->payAssetAmount->setUnit(MAX_UNIT);
+//            ui->payAssetAmount->clear();
+//            ui->payAssetAmount->setUnit(MAX_UNIT);
             ui->assetAmountLabel->clear();
             ui->assetSelectionBox->setFocus();
         } else {

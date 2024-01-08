@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 
 #include "addressbookpage.h"
 #include "askpassphrasedialog.h"
-#include "meowcoingui.h"
+#include "ravengui.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -76,12 +76,12 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     addWidget(assetsPage);
     addWidget(createAssetsPage);
     addWidget(manageAssetsPage);
     addWidget(restrictedAssetsPage);
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
@@ -98,7 +98,7 @@ WalletView::WalletView(const PlatformStyle *_platformStyle, QWidget *parent):
     // Pass through messages from transactionView
     connect(transactionView, SIGNAL(message(QString,QString,unsigned int)), this, SIGNAL(message(QString,QString,unsigned int)));
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     connect(assetsPage, SIGNAL(message(QString,QString,unsigned int)), this, SIGNAL(message(QString,QString,unsigned int)));
     connect(createAssetsPage, SIGNAL(message(QString,QString,unsigned int)), this, SIGNAL(message(QString,QString,unsigned int)));
     connect(manageAssetsPage, SIGNAL(message(QString,QString,unsigned int)), this, SIGNAL(message(QString,QString,unsigned int)));
@@ -114,7 +114,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setMeowcoinGUI(MeowcoinGUI *gui)
+void WalletView::setRavenGUI(RavenGUI *gui)
 {
     if (gui)
     {
@@ -170,7 +170,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
     usedReceivingAddressesPage->setModel(_walletModel ? _walletModel->getAddressTableModel() : nullptr);
     usedSendingAddressesPage->setModel(_walletModel ? _walletModel->getAddressTableModel() : nullptr);
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     assetsPage->setModel(_walletModel);
     createAssetsPage->setModel(_walletModel);
     manageAssetsPage->setModel(_walletModel);
@@ -186,7 +186,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
         updateEncryptionStatus();
 
         // update HD status
-        Q_EMIT hdEnabledStatusChanged(_walletModel->hd44Enabled() ? MeowcoinGUI::HD44_ENABLED : _walletModel->hdEnabled() ? MeowcoinGUI::HD_ENABLED : MeowcoinGUI::HD_DISABLED);
+        Q_EMIT hdEnabledStatusChanged(_walletModel->hd44Enabled() ? RavenGUI::HD44_ENABLED : _walletModel->hdEnabled() ? RavenGUI::HD_ENABLED : RavenGUI::HD_DISABLED);
 
         // Balloon pop-up for new transaction
         connect(_walletModel->getTransactionTableModel(), SIGNAL(rowsInserted(QModelIndex,int,int)),
@@ -210,7 +210,7 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
     if (!ttm || ttm->processingQueuedTransactions())
         return;
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     // With the addition of asset transactions, there can be multiple transaction that need notifications
     // so we need to loop through all new transaction that were added to the transaction table and display
     // notifications for each individual transaction
@@ -227,7 +227,7 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
         Q_EMIT incomingTransaction(date, walletModel->getOptionsModel()->getDisplayUnit(), amount, type, address, label,
                                    assetName);
     }
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     /** Everytime we get an new transaction. We should check to see if assets are enabled or not */
     overviewPage->showAssets();
@@ -303,6 +303,17 @@ void WalletView::updateEncryptionStatus()
     Q_EMIT encryptionStatusChanged(walletModel->getEncryptionStatus());
 }
 
+void WalletView::encryptWallet(bool status)
+{
+    if(!walletModel)
+        return;
+    AskPassphraseDialog dlg(status ? AskPassphraseDialog::Encrypt : AskPassphraseDialog::Decrypt, this);
+    dlg.setModel(walletModel);
+    dlg.exec();
+
+    updateEncryptionStatus();
+}
+
 void WalletView::backupWallet()
 {
     QString filename = GUIUtil::getSaveFileName(this,
@@ -341,21 +352,14 @@ void WalletView::unlockWallet()
         dlg.exec();
     }
 }
-
-void WalletView::lockWallet()
-{
-    if (!walletModel)
-        return;
-
-    walletModel->setWalletLocked(true);
-}
-
-void WalletView::getMnemonic()
+void WalletView::getMyWords()
 {
     // Create the box and set the default text.
     QMessageBox box;
-    box.setWindowTitle(tr("Recovery information"));
+    box.setWindowTitle(tr("Recovery information. (Will close after 5 min)"));
     box.setText(tr("No words available."));
+    box.setStandardButtons(QMessageBox::Close);
+    box.button(QMessageBox::Close)->animateClick(300000);
 
     // Check for HD-wallet and set text if not HD-wallet.
     if(!walletModel->hd44Enabled())
@@ -367,7 +371,7 @@ void WalletView::getMnemonic()
     // Make sure wallet is unlocked before trying to fetch the words.
     // When unlocked, set the text to 12words and passphrase.
     if (walletModel->getEncryptionStatus() != WalletModel::Locked)
-        box.setText(walletModel->getMnemonic());
+        box.setText(walletModel->getMyWords());
 
     // Show the box
     box.exec();
@@ -422,7 +426,7 @@ void WalletView::requestedSyncWarningInfo()
 }
 
 bool fFirstVisit = true;
-/** MEOWCOIN START */
+/** MEWC START */
 void WalletView::gotoAssetsPage()
 {
     if (fFirstVisit){
@@ -447,4 +451,4 @@ void WalletView::gotoRestrictedAssetsPage()
 {
     setCurrentWidget(restrictedAssetsPage);
 }
-/** MEOWCOIN END */
+/** MEWC END */

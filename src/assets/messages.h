@@ -1,10 +1,10 @@
-// Copyright (c) 2018-2019 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2018-2020 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef MEOWCOINCOIN_MESSAGES_H
-#define MEOWCOINCOIN_MESSAGES_H
+#ifndef RAVENCOIN_MESSAGES_H
+#define RAVENCOIN_MESSAGES_H
 
 #include <uint256.h>
 #include <serialize.h>
@@ -140,4 +140,4 @@ public:
     std::string createJsonString();
 };
 
-#endif //MEOWCOINCOIN_MESSAGES_H
+#endif //RAVENCOIN_MESSAGES_H

@@ -1,12 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_POLICY_POLICY_H
-#define MEOWCOIN_POLICY_POLICY_H
+#ifndef RAVEN_POLICY_POLICY_H
+#define RAVEN_POLICY_POLICY_H
 
 #include "consensus/consensus.h"
 #include "feerate.h"
@@ -19,7 +18,7 @@ class CCoinsViewCache;
 class CTxOut;
 
 /** Default for -blockmaxweight, which controls the range of block weights the mining code will create **/
-// Deprecated with HIP2 implementation
+// Deprecated with RIP2 implementation
 //static const unsigned int DEFAULT_BLOCK_MAX_WEIGHT = MAX_BLOCK_WEIGHT - 4000;
 ///** Default for -blockmintxfee, which sets the minimum feerate for a transaction in blocks created by mining code **/
 static const unsigned int DEFAULT_BLOCK_MIN_TX_FEE = 1000;
@@ -106,4 +105,4 @@ extern unsigned int nBytesPerSigOp;
 int64_t GetVirtualTransactionSize(int64_t nWeight, int64_t nSigOpCost);
 int64_t GetVirtualTransactionSize(const CTransaction& tx, int64_t nSigOpCost = 0);
 
-#endif // MEOWCOIN_POLICY_POLICY_H
+#endif // RAVEN_POLICY_POLICY_H

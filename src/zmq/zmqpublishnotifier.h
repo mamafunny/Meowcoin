@@ -1,11 +1,10 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H
-#define MEOWCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H
+#ifndef RAVEN_ZMQ_ZMQPUBLISHNOTIFIER_H
+#define RAVEN_ZMQ_ZMQPUBLISHNOTIFIER_H
 
 #include "zmqabstractnotifier.h"
 
@@ -61,4 +60,4 @@ public:
     bool NotifyMessage(const CMessage& message) override;
 };
 
-#endif // MEOWCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H
+#endif // RAVEN_ZMQ_ZMQPUBLISHNOTIFIER_H

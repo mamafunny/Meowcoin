@@ -1,10 +1,10 @@
-// Copyright (c) 2019 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2019 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef MEOWCOINCOIN_RESTRICTEDDB_H
-#define MEOWCOINCOIN_RESTRICTEDDB_H
+#ifndef RAVENCOIN_RESTRICTEDDB_H
+#define RAVENCOIN_RESTRICTEDDB_H
 
 #include <dbwrapper.h>
 
@@ -56,4 +56,4 @@ public:
 };
 
 
-#endif //MEOWCOINCOIN_RESTRICTEDDB_H
+#endif //RAVENCOIN_RESTRICTEDDB_H

@@ -1,11 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/meowcoin-config.h"
+#include "config/raven-config.h"
 #endif
 
 #include "rpcconsole.h"
@@ -31,6 +30,7 @@
 #include <wallet/wallet.h>
 #endif
 
+#include <QDateTime>
 #include <QDir>
 #include <QKeyEvent>
 #include <QMenu>
@@ -772,7 +772,7 @@ void RPCConsole::buildParameterlist(QString arg)
     // Append repair parameter to command line.
     args.append(arg);
 
-    // Send command-line arguments to MeowcoinGUI::handleRestart()
+    // Send command-line arguments to RavenGUI::handleRestart()
     Q_EMIT handleRestart(args);
 }
 

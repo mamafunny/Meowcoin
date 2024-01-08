@@ -1,11 +1,10 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_BLOOM_H
-#define MEOWCOIN_BLOOM_H
+#ifndef RAVEN_BLOOM_H
+#define RAVEN_BLOOM_H
 
 #include "serialize.h"
 
@@ -142,4 +141,4 @@ private:
     int nHashFuncs;
 };
 
-#endif // MEOWCOIN_BLOOM_H
+#endif // RAVEN_BLOOM_H

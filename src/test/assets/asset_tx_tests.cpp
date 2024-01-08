@@ -1,11 +1,10 @@
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <assets/assets.h>
 
-#include <test/test_meowcoin.h>
+#include <test/test_raven.h>
 
 #include <boost/test/unit_test.hpp>
 
@@ -15,6 +14,10 @@
 #include <consensus/validation.h>
 #include <consensus/tx_verify.h>
 #include <validation.h>
+#ifdef ENABLE_WALLET
+#include <wallet/db.h>
+#include <wallet/wallet.h>
+#endif
 
 BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
 
@@ -25,7 +28,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("MEOWCOINTEST", 1000);
+        CAssetTransfer asset("RAVENTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -73,7 +76,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("MEOWCOINTEST", 1000);
+        CAssetTransfer asset("RAVENTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -100,8 +103,8 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         in.prevout = outpoint;
 
         // Create CTxOut that will only send 100 of the asset
-        // This should fail because 900 MEOWCOIN doesn't have a destination
-        CAssetTransfer assetTransfer("MEOWCOINTEST", 100);
+        // This should fail because 900 RAVEN doesn't have a destination
+        CAssetTransfer assetTransfer("RAVENTEST", 100);
         CScript scriptLess = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         assetTransfer.ConstructTransaction(scriptLess);
 
@@ -130,7 +133,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("MEOWCOINTEST", 1000);
+        CAssetTransfer asset("RAVENTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -159,7 +162,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         // Create CTxOut that will only send 100 of the asset 10 times total = 1000
         for (int i = 0; i < 10; i++)
         {
-            CAssetTransfer asset2("MEOWCOINTEST", 100);
+            CAssetTransfer asset2("RAVENTEST", 100);
             CScript scriptPubKey2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             asset2.ConstructTransaction(scriptPubKey2);
 
@@ -191,7 +194,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("MEOWCOINTEST", 1000);
+        CAssetTransfer asset("RAVENTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -220,7 +223,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         // Create CTxOut that will only send 100 of the asset 12 times, total = 1200
         for (int i = 0; i < 12; i++)
         {
-            CAssetTransfer asset2("MEOWCOINTEST", 100);
+            CAssetTransfer asset2("RAVENTEST", 100);
             CScript scriptPubKey2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             asset2.ConstructTransaction(scriptPubKey2);
 
@@ -252,15 +255,15 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKeys
-        CAssetTransfer asset("MEOWCOINTEST", 1000);
+        CAssetTransfer asset("RAVENTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
-        CAssetTransfer asset2("MEOWCOINTESTTEST", 1000);
+        CAssetTransfer asset2("RAVENTESTTEST", 1000);
         CScript scriptPubKey2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset2.ConstructTransaction(scriptPubKey2);
 
-        CAssetTransfer asset3("MEOWCOINTESTTESTTEST", 1000);
+        CAssetTransfer asset3("RAVENTESTTESTTEST", 1000);
         CScript scriptPubKey3 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset3.ConstructTransaction(scriptPubKey3);
 
@@ -317,7 +320,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         for (int i = 0; i < 10; i++)
         {
             // Add the first asset
-            CAssetTransfer outAsset("MEOWCOINTEST", 100);
+            CAssetTransfer outAsset("RAVENTEST", 100);
             CScript outScript = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset.ConstructTransaction(outScript);
 
@@ -328,7 +331,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx.vout.emplace_back(txOutNew);
 
             // Add the second asset
-            CAssetTransfer outAsset2("MEOWCOINTESTTEST", 100);
+            CAssetTransfer outAsset2("RAVENTESTTEST", 100);
             CScript outScript2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset2.ConstructTransaction(outScript2);
 
@@ -339,7 +342,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx.vout.emplace_back(txOutNew2);
 
             // Add the third asset
-            CAssetTransfer outAsset3("MEOWCOINTESTTESTTEST", 100);
+            CAssetTransfer outAsset3("RAVENTESTTESTTEST", 100);
             CScript outScript3 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset3.ConstructTransaction(outScript3);
 
@@ -358,8 +361,8 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         CTransaction tx(mutTx);
         CValidationState state;
 
-        // The inputs are spending 3000 Assets (1000 of each MEOWCOIN, MEOWCOINTEST, MEOWCOINTESTTEST)
-        // The outputs are spending 100 Assets to 10 destinations (10 * 100 = 1000) (of each MEOWCOIN, MEOWCOINTEST, MEOWCOINTESTTEST)
+        // The inputs are spending 3000 Assets (1000 of each RAVEN, RAVENTEST, RAVENTESTTEST)
+        // The outputs are spending 100 Assets to 10 destinations (10 * 100 = 1000) (of each RAVEN, RAVENTEST, RAVENTESTTEST)
         // This test should pass because for each asset that is spent. It is assigned a destination
         std::vector<std::pair<std::string, uint256>> vReissueAssets;
         BOOST_CHECK_MESSAGE(Consensus::CheckTxAssets(tx, state, coins, nullptr, false, vReissueAssets, true), state.GetDebugMessage());
@@ -372,7 +375,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         for (int i = 0; i < 9; i++)
         {
             // Add the first asset
-            CAssetTransfer outAsset("MEOWCOINTEST", 100);
+            CAssetTransfer outAsset("RAVENTEST", 100);
             CScript outScript = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset.ConstructTransaction(outScript);
 
@@ -383,7 +386,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx2.vout.emplace_back(txOutNew);
 
             // Add the second asset
-            CAssetTransfer outAsset2("MEOWCOINTESTTEST", 100);
+            CAssetTransfer outAsset2("RAVENTESTTEST", 100);
             CScript outScript2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset2.ConstructTransaction(outScript2);
 
@@ -394,7 +397,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx2.vout.emplace_back(txOutNew2);
 
             // Add the third asset
-            CAssetTransfer outAsset3("MEOWCOINTESTTESTTEST", 100);
+            CAssetTransfer outAsset3("RAVENTESTTESTTEST", 100);
             CScript outScript3 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset3.ConstructTransaction(outScript3);
 
@@ -540,5 +543,68 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         BOOST_CHECK(fCheck);
         BOOST_CHECK(state.GetRejectReason() == "bad-txns-asset-reissued-amount-isn't-zero");
     }
+
+#ifdef ENABLE_WALLET
+    BOOST_AUTO_TEST_CASE(asset_tx_enforce_coinbase_test)
+    {
+        BOOST_TEST_MESSAGE("Running Asset TX Enforce Coinbase Test");
+
+        SelectParams(CBaseChainParams::MAIN);
+
+        // Build wallet
+        bitdb.MakeMock();
+        std::unique_ptr<CWalletDBWrapper> dbw(new CWalletDBWrapper(&bitdb, "wallet_test.dat"));
+        CWallet wallet(std::move(dbw));
+        bool firstRun;
+        wallet.LoadWallet(firstRun);
+
+        // Build coinbasescript
+        std::shared_ptr<CReserveScript> coinbaseScript;
+        wallet.GetScriptForMining(coinbaseScript);
+
+        // Create coinbase transaction.
+        CMutableTransaction coinbaseTx;
+        coinbaseTx.vin.resize(1);
+        coinbaseTx.vin[0].prevout.SetNull();
+
+        // Resize the coinbase vout to allow for an additional transaction
+        coinbaseTx.vout.resize(2);
+
+        // Add in the initial coinbase data
+        coinbaseTx.vout[0].scriptPubKey = coinbaseScript->reserveScript;
+        coinbaseTx.vout[0].nValue = GetBlockSubsidy(100, GetParams().GetConsensus());
+        coinbaseTx.vin[0].scriptSig = CScript() << 100 << OP_0;
+
+        // Create a transfer asset
+        CAssetTransfer transferAsset("COINBASE_TEST", 100);
+        CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
+        transferAsset.ConstructTransaction(scriptPubKey);
+
+        // Add the transfer asset script into the coinbase
+        coinbaseTx.vout[1].scriptPubKey = scriptPubKey;
+        coinbaseTx.vout[1].nValue = 0;
+
+        // Create the transaction and state objects
+        CTransaction tx(coinbaseTx);
+        CValidationState state;
+
+        // Setting the coinbase check to true
+        // This check should now fail on the CheckTransaction call
+        SetEnforcedCoinbase(true);
+        bool fCheck = CheckTransaction(tx, state, true);
+        BOOST_CHECK(!fCheck);
+        BOOST_CHECK(state.GetRejectReason() == "bad-txns-coinbase-contains-asset-txes");
+
+        // Setting the coinbase check to false
+        // This check should now pass the CheckTransaction call
+        SetEnforcedCoinbase(false);
+        fCheck = CheckTransaction(tx, state, true);
+        BOOST_CHECK(fCheck);
+
+        // Remove wallet used for testing
+        bitdb.Flush(true);
+        bitdb.Reset();
+    }
+#endif
 
 BOOST_AUTO_TEST_SUITE_END()

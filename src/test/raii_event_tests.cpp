@@ -1,6 +1,5 @@
 // Copyright (c) 2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +13,7 @@
 
 #include "support/events.h"
 
-#include "test/test_meowcoin.h"
+#include "test/test_raven.h"
 
 #include <vector>
 

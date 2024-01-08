@@ -1,12 +1,11 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_RPCCLIENT_H
-#define MEOWCOIN_RPCCLIENT_H
+#ifndef RAVEN_RPCCLIENT_H
+#define RAVEN_RPCCLIENT_H
 
 #include <univalue.h>
 
@@ -21,4 +20,4 @@ UniValue RPCConvertNamedValues(const std::string& strMethod, const std::vector<s
  */
 UniValue ParseNonRFCJSONValue(const std::string& strVal);
 
-#endif // MEOWCOIN_RPCCLIENT_H
+#endif // RAVEN_RPCCLIENT_H

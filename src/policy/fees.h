@@ -1,11 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef MEOWCOIN_POLICYESTIMATOR_H
-#define MEOWCOIN_POLICYESTIMATOR_H
+#ifndef RAVEN_POLICYESTIMATOR_H
+#define RAVEN_POLICYESTIMATOR_H
 
 #include "amount.h"
 #include "feerate.h"
@@ -302,4 +301,4 @@ static const std::array<int, 9> confTargets = { {2, 4, 6, 12, 24, 48, 144, 504, 
 int getConfTargetForIndex(int index);
 int getIndexForConfTarget(int target);
 
-#endif /*MEOWCOIN_POLICYESTIMATOR_H */
+#endif /*RAVEN_POLICYESTIMATOR_H */

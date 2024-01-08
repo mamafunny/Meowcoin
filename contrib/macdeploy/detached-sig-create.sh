@@ -1,13 +1,13 @@
 #!/bin/sh
 # Copyright (c) 2014-2015 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Meowcoin__Core developers
+# Copyright (c) 2017-2019 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 set -e
 
 ROOTDIR=dist
-BUNDLE="${ROOTDIR}/Meowcoin-Qt.app"
+BUNDLE="${ROOTDIR}/Raven-Qt.app"
 CODESIGN=codesign
 TEMPDIR=sign.temp
 TEMPLIST=${TEMPDIR}/signatures.txt

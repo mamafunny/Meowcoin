@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,15 +13,15 @@ received a VERACK.
 This test connects to a node and sends it a few messages, trying to entice it
 into sending us something it shouldn't.
 
-Also test that nodes that send unsupported service bits to meowcoind are disconnected
+Also test that nodes that send unsupported service bits to ravend are disconnected
 and don't receive a VERACK. Unsupported service bits are currently 1 << 5 and
 1 << 7 (until August 1st 2018).
 
-UPDATE: Meowcoin HIP-2 uses bit 1 << 5.  Currently there are no unsupported service bits.
+UPDATE: Raven RIP-2 uses bit 1 << 5.  Currently there are no unsupported service bits.
 """
 
 from test_framework.mininode import NodeConnCB, NodeConn, MsgVerack, MsgPing, MsgGetAddr, NetworkThread, mininode_lock
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import logger, p2p_port, wait_until, time
 
 banscore = 10
@@ -70,7 +69,7 @@ class CLazyNode(NodeConnCB):
 # anyway, and eventually get disconnected.
 class CNodeNoVersionBan(CLazyNode):
     # send a bunch of veracks without sending a message. This should get us disconnected.
-    # NOTE: implementation-specific check here. Remove if meowcoind ban behavior changes
+    # NOTE: implementation-specific check here. Remove if ravend ban behavior changes
     def on_open(self, conn):
         super().on_open(conn)
         for _ in range(banscore):
@@ -100,7 +99,7 @@ class CNodeNoVerackIdle(CLazyNode):
         conn.send_message(MsgPing())
         conn.send_message(MsgGetAddr())
 
-class P2PLeakTest(MeowcoinTestFramework):
+class P2PLeakTest(RavenTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.extra_args = [['-banscore='+str(banscore)]]

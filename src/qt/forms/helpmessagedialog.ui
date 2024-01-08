@@ -52,13 +52,13 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../meowcoin.qrc">:/icons/meowcoin</pixmap>
+        <pixmap resource="../raven.qrc">:/icons/raven</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
        <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set> 
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
        </property>
       </widget>
      </item>
@@ -150,7 +150,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../meowcoin.qrc"/>
+  <include location="../raven.qrc"/>
  </resources>
  <connections>
   <connection>

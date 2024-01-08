@@ -1,10 +1,9 @@
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOINCOIN_REWARDS_H
-#define MEOWCOINCOIN_REWARDS_H
+#ifndef RAVENCOIN_REWARDS_H
+#define RAVENCOIN_REWARDS_H
 
 #include "amount.h"
 #include "tinyformat.h"
@@ -168,4 +167,4 @@ void CheckRewardDistributions(CWallet * p_wallet);
 
 
 
-#endif //MEOWCOINCOIN_REWARDS_H
+#endif //RAVENCOIN_REWARDS_H

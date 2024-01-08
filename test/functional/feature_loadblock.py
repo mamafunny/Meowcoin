@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017-2019 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,10 +19,10 @@ import subprocess
 import sys
 import tempfile
 import urllib
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import assert_equal, wait_until
 
-class LoadblockTest(MeowcoinTestFramework):
+class LoadblockTest(RavenTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

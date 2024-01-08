@@ -1,13 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2020 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "miner.h"
 
 #include "amount.h"
-#include "base58.h"
 #include "chain.h"
 #include "chainparams.h"
 #include "coins.h"
@@ -42,7 +41,7 @@
 extern std::vector<CWalletRef> vpwallets;
 //////////////////////////////////////////////////////////////////////////////
 //
-// MeowcoinMiner
+// RavenMiner
 //
 
 //
@@ -171,45 +170,19 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     nLastBlockTx = nBlockTx;
     nLastBlockWeight = nBlockWeight;
 
-    //MEOWCOIN START
-    // Coinbase TX is created
+    // Create coinbase transaction.
     CMutableTransaction coinbaseTx;
     coinbaseTx.vin.resize(1);
     coinbaseTx.vin[0].prevout.SetNull();
-	//vout
-	CAmount nSubsidy 					= GetBlockSubsidy(nHeight, chainparams.GetConsensus());
-	CAmount nCommunityAutonomousAmount 	= GetParams().CommunityAutonomousAmount();
-	
-    coinbaseTx.vout.resize(2);
+    coinbaseTx.vout.resize(1);
     coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
-    coinbaseTx.vout[0].nValue = nFees + ( (100-nCommunityAutonomousAmount) * nSubsidy / 100 );
-	
-    // Assign the set % in chainparams.cpp to the TX
-	std::string  GetCommunityAutonomousAddress 	= GetParams().CommunityAutonomousAddress();
-	CTxDestination destCommunityAutonomous = DecodeDestination(GetCommunityAutonomousAddress);
-    if (!IsValidDestination(destCommunityAutonomous)) {
-		LogPrintf("IsValidDestination: Invalid Meowcoin address %s \n", GetCommunityAutonomousAddress);
-    }
-    // We need to parse the address ready to send to it
-    CScript scriptPubKeyCommunityAutonomous = GetScriptForDestination(destCommunityAutonomous);
-	
-    coinbaseTx.vout[1].scriptPubKey = scriptPubKeyCommunityAutonomous;
-    coinbaseTx.vout[1].nValue = nSubsidy*nCommunityAutonomousAmount/100;
-	LogPrintf("nSubsidy: ====================================================\n");
-	LogPrintf("Miner: %ld \n", coinbaseTx.vout[0].nValue);
-	LogPrintf("scriptPubKeyIn: %s \n", HexStr(scriptPubKeyIn));
-	
-	LogPrintf("GetCommunityAutonomousAddress: %s \n", GetCommunityAutonomousAddress);
-	LogPrintf("scriptPubKeyCommunityAutonomous: %s \n", HexStr(scriptPubKeyCommunityAutonomous));
-	LogPrintf("nCommunityAutonomousAmount: %ld \n", coinbaseTx.vout[1].nValue);
+    coinbaseTx.vout[0].nValue = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
-	
     pblock->vtx[0] = MakeTransactionRef(std::move(coinbaseTx));
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
     pblocktemplate->vTxFees[0] = -nFees;
 
     LogPrintf("CreateNewBlock(): block weight: %u txs: %u fees: %ld sigops %d\n", GetBlockWeight(*pblock), nBlockTx, nFees, nBlockSigOpsCost);
-    //MEWC END
 
     // Fill in header
     pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
@@ -562,11 +535,11 @@ CWallet *GetFirstWallet() {
     return(NULL);
 }
 
-void static MeowcoinMiner(const CChainParams& chainparams)
+void static RavenMiner(const CChainParams& chainparams)
 {
-    LogPrintf("MeowcoinMiner -- started\n");
+    LogPrintf("RavenMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("meowcoin-miner");
+    RenameThread("raven-miner");
 
     unsigned int nExtraNonce = 0;
 
@@ -578,7 +551,7 @@ void static MeowcoinMiner(const CChainParams& chainparams)
 
 
     if (!EnsureWalletIsAvailable(pWallet, false)) {
-        LogPrintf("MeowcoinMiner -- Wallet not available\n");
+        LogPrintf("RavenMiner -- Wallet not available\n");
     }
 #endif
 
@@ -640,13 +613,13 @@ void static MeowcoinMiner(const CChainParams& chainparams)
 
             if (!pblocktemplate.get())
             {
-                LogPrintf("MeowcoinMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                LogPrintf("RavenMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
                 return;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            LogPrintf("MeowcoinMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("RavenMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                 ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //
@@ -667,7 +640,7 @@ void static MeowcoinMiner(const CChainParams& chainparams)
                         pblock->mix_hash = mix_hash;
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("MeowcoinMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrintf("RavenMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -714,17 +687,17 @@ void static MeowcoinMiner(const CChainParams& chainparams)
     }
     catch (const boost::thread_interrupted&)
     {
-        LogPrintf("MeowcoinMiner -- terminated\n");
+        LogPrintf("RavenMiner -- terminated\n");
         throw;
     }
     catch (const std::runtime_error &e)
     {
-        LogPrintf("MeowcoinMiner -- runtime error: %s\n", e.what());
+        LogPrintf("RavenMiner -- runtime error: %s\n", e.what());
         return;
     }
 }
 
-int GenerateMeowcoins(bool fGenerate, int nThreads, const CChainParams& chainparams)
+int GenerateRavens(bool fGenerate, int nThreads, const CChainParams& chainparams)
 {
 
     static boost::thread_group* minerThreads = NULL;
@@ -751,7 +724,7 @@ int GenerateMeowcoins(bool fGenerate, int nThreads, const CChainParams& chainpar
     nHashesPerSec = 0;
 
     for (int i = 0; i < nThreads; i++){
-        minerThreads->create_thread(boost::bind(&MeowcoinMiner, boost::cref(chainparams)));
+        minerThreads->create_thread(boost::bind(&RavenMiner, boost::cref(chainparams)));
     }
 
     return(numCores);

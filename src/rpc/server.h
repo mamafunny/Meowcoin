@@ -1,12 +1,11 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_RPCSERVER_H
-#define MEOWCOIN_RPCSERVER_H
+#ifndef RAVEN_RPCSERVER_H
+#define RAVEN_RPCSERVER_H
 
 #include "amount.h"
 #include "rpc/protocol.h"
@@ -139,7 +138,7 @@ public:
 };
 
 /**
- * Meowcoin RPC command dispatcher.
+ * Raven RPC command dispatcher.
  */
 class CRPCTable
 {
@@ -186,7 +185,7 @@ extern uint256 ParseHashO(const UniValue& o, std::string strKey);
 extern std::vector<unsigned char> ParseHexV(const UniValue& v, std::string strName);
 extern std::vector<unsigned char> ParseHexO(const UniValue& o, std::string strKey);
 
-extern CAmount AmountFromValue(const UniValue& value, bool p_isMEWC = true);
+extern CAmount AmountFromValue(const UniValue& value, bool p_isRVN = true);
 extern std::string HelpExampleCli(const std::string& methodname, const std::string& args);
 extern std::string HelpExampleRpc(const std::string& methodname, const std::string& args);
 
@@ -201,4 +200,4 @@ std::string JSONRPCExecBatch(const JSONRPCRequest& jreq, const UniValue& vReq);
 // Retrieves any serialization flags requested in command line argument
 int RPCSerializationFlags();
 
-#endif // MEOWCOIN_RPCSERVER_H
+#endif // RAVEN_RPCSERVER_H

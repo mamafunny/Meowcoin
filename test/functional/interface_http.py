@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,11 +8,11 @@
 
 import http.client
 import urllib.parse
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import str_to_b64str, assert_equal
 
 # noinspection PyUnresolvedReferences
-class HTTPBasicsTest (MeowcoinTestFramework):
+class HTTPBasicsTest (RavenTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
 
@@ -91,7 +90,7 @@ class HTTPBasicsTest (MeowcoinTestFramework):
         conn.request('POST', '/', '{"method": "getbestblockhash"}', headers)
         out1 = conn.getresponse().read()
         assert(b'"error":null' in out1)
-        assert(conn.sock is not None) #connection must be closed because meowcoind should use keep-alive by default
+        assert(conn.sock is not None) #connection must be closed because ravend should use keep-alive by default
 
         # Check excessive request size
         conn = http.client.HTTPConnection(urlNode2.hostname, urlNode2.port)

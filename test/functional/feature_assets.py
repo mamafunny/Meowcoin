@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """Testing asset use cases"""
 
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import assert_equal, assert_is_hash_string, assert_does_not_contain_key, assert_raises_rpc_error, JSONRPCException, Decimal
 
 import string
 
 
-class AssetTest(MeowcoinTestFramework):
+class AssetTest(RavenTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
@@ -137,13 +136,13 @@ class AssetTest(MeowcoinTestFramework):
         assert_equal(n0.listassetbalancesbyaddress(address0)["MY_ASSET"], 2000)
 
         self.log.info("Checking listassets()...")
-        n0.issue("MEOWCOIN1", 1000)
-        n0.issue("MEOWCOIN2", 1000)
-        n0.issue("MEOWCOIN3", 1000)
+        n0.issue("RAVEN1", 1000)
+        n0.issue("RAVEN2", 1000)
+        n0.issue("RAVEN3", 1000)
         n0.generate(1)
         self.sync_all()
 
-        n0.listassets(asset="MEOWCOIN*", verbose=False, count=2, start=-2)
+        n0.listassets(asset="RAVEN*", verbose=False, count=2, start=-2)
 
         self.log.info("Creating some sub-assets...")
         n0.issue(asset_name="MY_ASSET/SUB1", qty=1000, to_address=address0, change_address=address0, units=4, reissuable=True, has_ipfs=True, ipfs_hash=ipfs_hash)
@@ -162,10 +161,10 @@ class AssetTest(MeowcoinTestFramework):
         assert_equal(assetdata["has_ipfs"], 1)
         assert_equal(assetdata["ipfs_hash"], ipfs_hash)
 
-        meowcoin_assets = n0.listassets(asset="MEOWCOIN*", verbose=False, count=2, start=-2)
-        assert_equal(len(meowcoin_assets), 2)
-        assert_equal(meowcoin_assets[0], "MEOWCOIN2")
-        assert_equal(meowcoin_assets[1], "MEOWCOIN3")
+        raven_assets = n0.listassets(asset="RAVEN*", verbose=False, count=2, start=-2)
+        assert_equal(len(raven_assets), 2)
+        assert_equal(raven_assets[0], "RAVEN2")
+        assert_equal(raven_assets[1], "RAVEN3")
         self.sync_all()
 
     def issue_param_checks(self):

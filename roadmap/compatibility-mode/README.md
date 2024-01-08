@@ -6,20 +6,20 @@ The Meowcoin asset platform could have an uphill climb getting adoption because 
 Direct use of the RPC transfer call for moving assets has been possible from the day that assets launched on Meowcoin - November 5, 2018.  But expecting each and every exchange to modify their infrastructure to handle assets with different RPC calls might slow down Meowcoin asset adoption.
 
 ## The solution - Compatibility Mode - Emulation
-The solution is to speed up adoption is to run meowcoind in compatibility mode that emulates the RPC capabilities of meowcoind, for an asset instead of MEWC.  Exchanges that have already added MEWC, can add asset exchange quickly an easily using emulation for every asset they'd like to add.
+The solution is to speed up adoption is to run ravend in compatibility mode that emulates the RPC capabilities of ravend, for an asset instead of MEWC.  Exchanges that have already added MEWC, can add asset exchange quickly an easily using emulation for every asset they'd like to add.
 
 As an example, normally the rpc call for transferring MEWC is   
 ```sendfrom "fromaccount" "toaddress" amount ( minconf "comment" "comment_to" )```   
-Ordinarily this call to meowcoind (port 8766) will transfer MEWC
+Ordinarily this call to ravend (port 8766) will transfer MEWC
 
 Configuring a different port for sending the TRONCO token will allow the same RPC call to transfer TRONCO instead of MEWC.  The advantage is that the only change needed for compatibility with a system that can already handle BTC and MEWC is to use the port configured for TRONCO, or whatever asset you'd like.
 
 ### Configuration
 Every Bitcoin-type, or Meowcoin-type coin uses a different RPC port.  For example, the standard RPC port for Bitcoin is 8332, and the standard RPC port for Meowcoin is 8766.
 
-An exchange can configure multiple Meowcoin assets by selecting a different port for each asset.  Once configured, meowcoind will emulate a meowcoind daemon with RPC calls that send the specified asset, instead of MEWC.
+An exchange can configure multiple Meowcoin assets by selecting a different port for each asset.  Once configured, ravend will emulate a ravend daemon with RPC calls that send the specified asset, instead of MEWC.
 
-Configuration is done in ```meowcoin.conf```  
+Configuration is done in ```raven.conf```  
 ```emulate=TRONCO:8888,FREE_HUGS:8889,MAIN/SUB:8890```
 
 Each emulated asset must have its own port that is available on the machine.

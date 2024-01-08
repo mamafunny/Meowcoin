@@ -1,11 +1,10 @@
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <assets/assets.h>
 
-#include <test/test_meowcoin.h>
+#include <test/test_raven.h>
 
 #include <boost/test/unit_test.hpp>
 #include "core_write.cpp"
@@ -48,23 +47,19 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         BOOST_CHECK(!IsAssetNameValid("A._BC", type));
         BOOST_CHECK(!IsAssetNameValid("AB_.C", type));
 
-        //- Versions of MEOWCOIN NOT allowed
-        BOOST_CHECK(!IsAssetNameValid("RVN", type));
+        //- Versions of RAVENCOIN NOT allowed
+        BOOST_CHECK(!IsAssetNameValid("MEWC", type));
         BOOST_CHECK(!IsAssetNameValid("RAVEN", type));
         BOOST_CHECK(!IsAssetNameValid("RAVENCOIN", type));
-        BOOST_CHECK(!IsAssetNameValid("MEWC", type));
-        BOOST_CHECK(!IsAssetNameValid("MEOWCOIN", type));
 
-        //- Versions of MEOWCOIN ALLOWED
+        //- Versions of RAVENCOIN ALLOWED
         BOOST_CHECK(IsAssetNameValid("RAVEN.COIN", type));
-        BOOST_CHECK(IsAssetNameValid("MEOWCOIN.COIN", type));
         BOOST_CHECK(IsAssetNameValid("RAVEN_COIN", type));
-        BOOST_CHECK(IsAssetNameValid("MEOWCOIN_COIN", type));
         BOOST_CHECK(IsAssetNameValid("RVNSPYDER", type));
         BOOST_CHECK(IsAssetNameValid("SPYDERRVN", type));
         BOOST_CHECK(IsAssetNameValid("RAVENSPYDER", type));
         BOOST_CHECK(IsAssetNameValid("SPYDERAVEN", type));
-        BOOST_CHECK(IsAssetNameValid("BLACK_MEOWCOIN", type));
+        BOOST_CHECK(IsAssetNameValid("BLACK_RAVENS", type));
         BOOST_CHECK(IsAssetNameValid("SERVNOT", type));
 
         // subs

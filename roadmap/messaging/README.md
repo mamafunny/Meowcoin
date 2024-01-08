@@ -1,6 +1,6 @@
 # Messaging
 
-Messaging is described here in the [KAAAWWWW! protocol](https://medium.com/@tronblack/ravencoin-kaaawww-2f72077aece).
+Messaging is described here in the [KAAAWWWW! protocol](https://medium.com/@tronblack/meowcoin-kaaawww-2f72077aece).
 
 ### Messaging Components
 #### Protocol

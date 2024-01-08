@@ -1,11 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_QT_GUICONSTANTS_H
-#define MEOWCOIN_QT_GUICONSTANTS_H
+#ifndef RAVEN_QT_GUICONSTANTS_H
+#define RAVEN_QT_GUICONSTANTS_H
 
 /* Milliseconds between model updates */
 static const int MODEL_UPDATE_DELAY = 250;
@@ -13,7 +12,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* MeowcoinGUI -- Size of icons in status bar */
+/* RavenGUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -30,8 +29,6 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define COLOR_BAREADDRESS QColor(140, 140, 140)
 /* Transaction list -- TX status decoration - open until date */
 #define COLOR_TX_STATUS_OPENUNTILDATE QColor(64, 64, 255)
-/* Transaction list -- TX status decoration - offline */
-#define COLOR_TX_STATUS_OFFLINE QColor(192, 192, 192)
 /* Transaction list -- TX status decoration - danger, tx needs attention */
 #define COLOR_TX_STATUS_DANGER QColor(200, 100, 100)
 /* Transaction list -- TX status decoration - default color */
@@ -117,9 +114,15 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Meowcoin"
-#define QAPP_ORG_DOMAIN "meowcoin.org"
-#define QAPP_APP_NAME_DEFAULT "Meowcoin-Qt"
-#define QAPP_APP_NAME_TESTNET "Meowcoin-Qt-testnet"
+#define QAPP_ORG_NAME "Raven"
+#define QAPP_ORG_DOMAIN "raven.org"
+#define QAPP_APP_NAME_DEFAULT "Raven-Qt"
+#define QAPP_APP_NAME_TESTNET "Raven-Qt-testnet"
 
-#endif // MEOWCOIN_QT_GUICONSTANTS_H
+/* Default third party browser urls */
+#define DEFAULT_THIRD_PARTY_BROWSERS "https://api.meowcoin.org/tx/%s|https://rvn.cryptoscope.io/tx/?txid=%s|https://blockbook.meowcoin.org/tx/%s|https://explorer.mangofarmassets.com/tx/%s|https://www.assetsexplorer.com/tx/%s|https://explorer.ravenland.org/tx/%s"
+
+/* Default IPFS viewer */
+#define DEFAULT_IPFS_VIEWER "https://ipfs.io/ipfs/%s"
+
+#endif // RAVEN_QT_GUICONSTANTS_H

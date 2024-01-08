@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: meowcoind.service
-Upstart: meowcoind.conf
-OpenRC:  meowcoind.openrc
-         meowcoind.openrcconf
-CentOS:  meowcoind.init
-OS X:    org.meowcoin.meowcoind.plist
+SystemD: ravend.service
+Upstart: ravend.conf
+OpenRC:  ravend.openrc
+         ravend.openrcconf
+CentOS:  ravend.init
+OS X:    org.raven.ravend.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

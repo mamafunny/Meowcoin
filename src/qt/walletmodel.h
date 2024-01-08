@@ -1,10 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_QT_WALLETMODEL_H
-#define MEOWCOIN_QT_WALLETMODEL_H
+#ifndef RAVEN_QT_WALLETMODEL_H
+#define RAVEN_QT_WALLETMODEL_H
 
 #include "paymentrequestplus.h"
 #include "walletmodeltransaction.h"
@@ -162,7 +162,7 @@ public:
     }
 };
 
-/** Interface to meowcoin wallet from Qt view code. */
+/** Interface to Raven wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -267,10 +267,10 @@ public:
     void getOutputs(const std::vector<COutPoint>& vOutpoints, std::vector<COutput>& vOutputs);
     bool isSpent(const COutPoint& outpoint) const;
     void listCoins(std::map<QString, std::vector<COutput> >& mapCoins) const;
-    /** MEOWCOIN START */
+    /** MEWC START */
     // Map of asset name to map of address to CTxOut
     void listAssets(std::map<QString, std::map<QString, std::vector<COutput> > >& mapCoins) const;
-    /** MEOWCOIN END */
+    /** MEWC END */
     bool isLockedCoin(uint256 hash, unsigned int n) const;
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
@@ -289,7 +289,7 @@ public:
 
     bool hdEnabled() const;
     bool hd44Enabled() const;
-    QString getMnemonic() const;
+    QString getMyWords() const;
 
     int getDefaultConfirmTarget() const;
 
@@ -369,4 +369,4 @@ public Q_SLOTS:
     void pollBalanceChanged();
 };
 
-#endif // MEOWCOIN_QT_WALLETMODEL_H
+#endif // RAVEN_QT_WALLETMODEL_H

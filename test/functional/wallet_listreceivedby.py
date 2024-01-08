@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """Test the listreceivedbyaddress RPC."""
 
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import assert_array_result, Decimal
 
 def get_sub_array_from_array(object_array, to_match):
@@ -29,7 +28,7 @@ def get_sub_array_from_array(object_array, to_match):
 
 
 # noinspection PyTypeChecker,PyTypeChecker,PyTypeChecker,PyTypeChecker
-class ReceivedByTest(MeowcoinTestFramework):
+class ReceivedByTest(RavenTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.enable_mocktime()

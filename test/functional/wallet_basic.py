@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """Test the wallet."""
 
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import connect_nodes_bi, assert_fee_amount, assert_equal, assert_raises_rpc_error, Decimal, count_bytes, sync_mempools, sync_blocks, time, assert_array_result
 
-class WalletTest(MeowcoinTestFramework):
+class WalletTest(RavenTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
@@ -148,7 +147,7 @@ class WalletTest(MeowcoinTestFramework):
         assert_equal(self.nodes[2].getbalance(), 9994)
         assert_equal(self.nodes[2].getbalance("from1"), 9994-21)
 
-        # Send 10 NEOPX normal
+        # Send 10 MEWC normal
         address = self.nodes[0].getnewaddress("test")
         fee_per_byte = Decimal('0.001') / 1000
         self.nodes[2].settxfee(fee_per_byte * 1000)

@@ -1,13 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "meowcoinaddressvalidator.h"
-#include "meowcoinunits.h"
+#include "ravenaddressvalidator.h"
+#include "ravenunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -213,11 +212,11 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a meowcoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Raven address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(GetParams()))));
 #endif
-    widget->setValidator(new MeowcoinAddressEntryValidator(parent));
-    widget->setCheckValidator(new MeowcoinAddressCheckValidator(parent));
+    widget->setValidator(new RavenAddressEntryValidator(parent));
+    widget->setCheckValidator(new RavenAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -229,10 +228,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseMeowcoinURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseRavenURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no meowcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("meowcoin"))
+    // return if URI is not valid or is no raven: URI
+    if(!uri.isValid() || uri.scheme() != QString("raven"))
         return false;
 
     SendCoinsRecipient rv;
@@ -272,7 +271,7 @@ bool parseMeowcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!MeowcoinUnits::parse(MeowcoinUnits::MEWC, i->second, &rv.amount))
+                if(!RavenUnits::parse(RavenUnits::MEWC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -290,33 +289,33 @@ bool parseMeowcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseMeowcoinURI(QString uri, SendCoinsRecipient *out)
+bool parseRavenURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert meowcoin:// to meowcoin:
+    // Convert raven:// to raven:
     //
-    //    Cannot handle this later, because meowcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because raven:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("meowcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("raven://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "meowcoin:");
+        uri.replace(0, 10, "raven:");
     }
     QUrl uriInstance(uri);
-    return parseMeowcoinURI(uriInstance, out);
+    return parseRavenURI(uriInstance, out);
 }
 
-QString formatMeowcoinURI(const SendCoinsRecipient &info)
+QString formatRavenURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("meowcoin:%1").arg(info.address);
+    QString ret = QString("raven:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(MeowcoinUnits::format(MeowcoinUnits::MEWC, info.amount, false, MeowcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(RavenUnits::format(RavenUnits::MEWC, info.amount, false, RavenUnits::separatorNever));
         paramCount++;
     }
- 
+
     if (!info.label.isEmpty())
-    { 
+    {
         QString lbl(QUrl::toPercentEncoding(info.label));
         ret += QString("%1label=%2").arg(paramCount == 0 ? "?" : "&").arg(lbl);
         paramCount++;
@@ -501,13 +500,20 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openMeowcoinConf()
+bool openRavenConf()
 {
-    fs::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", MEOWCOIN_CONF_FILENAME));
+    boost::filesystem::path pathConfig = GetConfigFile(RAVEN_CONF_FILENAME);
 
-    /* Open meowcoin.conf with the associated application */
-    if (fs::exists(pathConfig))
-        return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
+    /* Create the file */
+    boost::filesystem::ofstream configFile(pathConfig, std::ios_base::app);
+    
+    if (!configFile.good())
+        return false;
+    
+    configFile.close();
+    
+    /* Open raven.conf with the associated application */
+    return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
 
 void SubstituteFonts(const QString& language)
@@ -591,139 +597,20 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
     return QObject::eventFilter(obj, evt);
 }
 
-void TableViewLastColumnResizingFixer::connectViewHeadersSignals()
-{
-    connect(tableView->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), this, SLOT(on_sectionResized(int,int,int)));
-    connect(tableView->horizontalHeader(), SIGNAL(geometriesChanged()), this, SLOT(on_geometriesChanged()));
-}
-
-// We need to disconnect these while handling the resize events, otherwise we can enter infinite loops.
-void TableViewLastColumnResizingFixer::disconnectViewHeadersSignals()
-{
-    disconnect(tableView->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), this, SLOT(on_sectionResized(int,int,int)));
-    disconnect(tableView->horizontalHeader(), SIGNAL(geometriesChanged()), this, SLOT(on_geometriesChanged()));
-}
-
-// Setup the resize mode, handles compatibility for Qt5 and below as the method signatures changed.
-// Refactored here for readability.
-void TableViewLastColumnResizingFixer::setViewHeaderResizeMode(int logicalIndex, QHeaderView::ResizeMode resizeMode)
-{
-#if QT_VERSION < 0x050000
-    tableView->horizontalHeader()->setResizeMode(logicalIndex, resizeMode);
-#else
-    tableView->horizontalHeader()->setSectionResizeMode(logicalIndex, resizeMode);
-#endif
-}
-
-void TableViewLastColumnResizingFixer::resizeColumn(int nColumnIndex, int width)
-{
-    tableView->setColumnWidth(nColumnIndex, width);
-    tableView->horizontalHeader()->resizeSection(nColumnIndex, width);
-}
-
-int TableViewLastColumnResizingFixer::getColumnsWidth()
-{
-    int nColumnsWidthSum = 0;
-    for (int i = 0; i < columnCount; i++)
-    {
-        nColumnsWidthSum += tableView->horizontalHeader()->sectionSize(i);
-    }
-    return nColumnsWidthSum;
-}
-
-int TableViewLastColumnResizingFixer::getAvailableWidthForColumn(int column)
-{
-    int nResult = lastColumnMinimumWidth;
-    int nTableWidth = tableView->horizontalHeader()->width();
-
-    if (nTableWidth > 0)
-    {
-        int nOtherColsWidth = getColumnsWidth() - tableView->horizontalHeader()->sectionSize(column);
-        nResult = std::max(nResult, nTableWidth - nOtherColsWidth);
-    }
-
-    return nResult;
-}
-
-// Make sure we don't make the columns wider than the table's viewport width.
-void TableViewLastColumnResizingFixer::adjustTableColumnsWidth()
-{
-    disconnectViewHeadersSignals();
-    resizeColumn(lastColumnIndex, getAvailableWidthForColumn(lastColumnIndex));
-    connectViewHeadersSignals();
-
-    int nTableWidth = tableView->horizontalHeader()->width();
-    int nColsWidth = getColumnsWidth();
-    if (nColsWidth > nTableWidth)
-    {
-        resizeColumn(secondToLastColumnIndex,getAvailableWidthForColumn(secondToLastColumnIndex));
-    }
-}
-
-// Make column use all the space available, useful during window resizing.
-void TableViewLastColumnResizingFixer::stretchColumnWidth(int column)
-{
-    disconnectViewHeadersSignals();
-    resizeColumn(column, getAvailableWidthForColumn(column));
-    connectViewHeadersSignals();
-}
-
-// When a section is resized this is a slot-proxy for ajustAmountColumnWidth().
-void TableViewLastColumnResizingFixer::on_sectionResized(int logicalIndex, int oldSize, int newSize)
-{
-    adjustTableColumnsWidth();
-    int remainingWidth = getAvailableWidthForColumn(logicalIndex);
-    if (newSize > remainingWidth)
-    {
-       resizeColumn(logicalIndex, remainingWidth);
-    }
-}
-
-// When the table's geometry is ready, we manually perform the stretch of the "Message" column,
-// as the "Stretch" resize mode does not allow for interactive resizing.
-void TableViewLastColumnResizingFixer::on_geometriesChanged()
-{
-    if ((getColumnsWidth() - this->tableView->horizontalHeader()->width()) != 0)
-    {
-        disconnectViewHeadersSignals();
-        resizeColumn(secondToLastColumnIndex, getAvailableWidthForColumn(secondToLastColumnIndex));
-        connectViewHeadersSignals();
-    }
-}
-
-/**
- * Initializes all internal variables and prepares the
- * the resize modes of the last 2 columns of the table and
- */
-TableViewLastColumnResizingFixer::TableViewLastColumnResizingFixer(QTableView* table, int lastColMinimumWidth, int allColsMinimumWidth, QObject *parent) :
-    QObject(parent),
-    tableView(table),
-    lastColumnMinimumWidth(lastColMinimumWidth),
-    allColumnsMinimumWidth(allColsMinimumWidth)
-{
-    columnCount = tableView->horizontalHeader()->count();
-    lastColumnIndex = columnCount - 1;
-    secondToLastColumnIndex = columnCount - 2;
-    tableView->horizontalHeader()->setMinimumSectionSize(allColumnsMinimumWidth);
-    setViewHeaderResizeMode(columnCount - 3, QHeaderView::ResizeToContents);
-    setViewHeaderResizeMode(secondToLastColumnIndex, QHeaderView::ResizeToContents);
-    setViewHeaderResizeMode(lastColumnIndex, QHeaderView::Stretch);
-}
-
 #ifdef WIN32
 fs::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Meowcoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Raven.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Meowcoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Meowcoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Raven (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Raven (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Meowcoin*.lnk
+    // check for Raven*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -813,8 +700,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "meowcoin.desktop";
-    return GetAutostartDir() / strprintf("meowcoin-%s.lnk", chain);
+        return GetAutostartDir() / "raven.desktop";
+    return GetAutostartDir() / strprintf("raven-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -854,13 +741,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a meowcoin.desktop file to the autostart directory:
+        // Write a raven.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Meowcoin\n";
+            optionFile << "Name=Raven\n";
         else
-            optionFile << strprintf("Name=Meowcoin (%s)\n", chain);
+            optionFile << strprintf("Name=Raven (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -886,7 +773,7 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
         return nullptr;
     }
     
-    // loop through the list of startup items and try to find the meowcoin app
+    // loop through the list of startup items and try to find the raven app
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
@@ -920,38 +807,38 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef meowcoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (meowcoinAppUrl == nullptr) {
+    CFURLRef ravenAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (ravenAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, meowcoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, ravenAppUrl);
 
-    CFRelease(meowcoinAppUrl);
+    CFRelease(ravenAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef meowcoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (meowcoinAppUrl == nullptr) {
+    CFURLRef ravenAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (ravenAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, meowcoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, ravenAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add meowcoin app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, meowcoinAppUrl, nullptr, nullptr);
+        // add raven app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, ravenAppUrl, nullptr, nullptr);
     }
     else if(!fAutoStart && foundItem) {
         // remove item
         LSSharedFileListItemRemove(loginItems, foundItem);
     }
     
-    CFRelease(meowcoinAppUrl);
+    CFRelease(ravenAppUrl);
     return true;
 }
 #pragma GCC diagnostic pop
@@ -1149,5 +1036,37 @@ void concatenate(QPainter* painter, QString& catString, int static_width, int le
     if (catString.size() != start_name_length)
         catString.append("...");
 }
+
+QDateTime StartOfDay(const QDate& date)
+{
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
+    return date.startOfDay();
+#else
+    return QDateTime(date);
+#endif
+}
+
+bool HasPixmap(const QLabel* label)
+{
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+    return !label->pixmap(Qt::ReturnByValue).isNull();
+#else
+    return label->pixmap() != nullptr;
+#endif
+}
+
+QImage GetImage(const QLabel* label)
+{
+    if (!HasPixmap(label)) {
+        return QImage();
+    }
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+    return label->pixmap(Qt::ReturnByValue).toImage();
+#else
+    return label->pixmap()->toImage();
+#endif
+}
+
 
 } // namespace GUIUtil

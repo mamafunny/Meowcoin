@@ -1,11 +1,10 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MEOWCOIN_HTTPSERVER_H
-#define MEOWCOIN_HTTPSERVER_H
+#ifndef RAVEN_HTTPSERVER_H
+#define RAVEN_HTTPSERVER_H
 
 #include <string>
 #include <stdint.h>
@@ -152,4 +151,4 @@ private:
 
 std::string urlDecode(const std::string &urlEncoded);
 
-#endif // MEOWCOIN_HTTPSERVER_H
+#endif // RAVEN_HTTPSERVER_H

@@ -1,11 +1,11 @@
-// Copyright (c) 2019 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2019-2021 The Raven Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "restrictedfreezeaddress.h"
 #include "ui_restrictedfreezeaddress.h"
 
-#include "meowcoinunits.h"
+#include "ravenunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -177,7 +177,7 @@ void FreezeAddress::check()
 
     bool failed = false;
     if (!IsAssetNameAnRestricted(restricted_asset.toStdString())){
-        showWarning(tr("Must have a restricteds asset selected"));
+        showWarning(tr("Must have a restricted asset selected"));
         failed = true;
     }
 

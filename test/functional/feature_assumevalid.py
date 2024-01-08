@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2021 The Raven Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +8,7 @@
 Test logic for skipping signature validation on old blocks.
 
 Test logic for skipping signature validation on blocks which we've assumed
-valid (https://github.com/Bitcoin/bitcoin/pull/9484)
+valid (https://github.com/bitcoin/bitcoin/pull/9484)
 
 We build a chain that includes and invalid signature for one of the
 transactions:
@@ -39,7 +38,7 @@ from test_framework.blocktools import create_block, create_coinbase
 from test_framework.key import ECKey
 from test_framework.mininode import CBlockHeader, COutPoint, CTransaction, CTxIn, CTxOut, NetworkThread, NodeConn, NodeConnCB, MsgBlock, MsgHeaders
 from test_framework.script import CScript, OP_TRUE
-from test_framework.test_framework import MeowcoinTestFramework
+from test_framework.test_framework import RavenTestFramework
 from test_framework.util import p2p_port, assert_equal
 
 
@@ -50,7 +49,7 @@ class BaseNode(NodeConnCB):
         self.send_message(headers_message)
 
 
-class AssumeValidTest(MeowcoinTestFramework):
+class AssumeValidTest(RavenTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
