@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
+// Copyright (c) 2017-2021 The Meow Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -54,7 +54,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "The Times 03/Jan/2018 Bitcoin is name of the game for new generation of firms";
+    const char* pszTimestamp = "The WSJ 08/28/2022 Investors Ramp Up Bets Against Stock Market";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -137,69 +137,69 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 1814;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;  //Assets (RIP2)
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1540944000; // Oct 31, 2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1572480000; // Oct 31, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1540944000; // October 31, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1572480000; // October 31, 2019
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1814;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;  // Assets (RIP5)
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1578920400; // UTC: Mon Jan 13 2020 13:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1610542800; // UTC: Wed Jan 13 2021 13:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1578920400; // UTC: Monday, January 13, 2020, 13:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1610542800; // UTC: Wednesday, January 13, 2021, 13:00:00
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1714; // Approx 85% of 2016
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].bit = 8;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].nStartTime = 1588788000; // UTC: Wed May 06 2020 18:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].nTimeout = 1620324000; // UTC: Thu May 06 2021 18:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].nStartTime = 1588788000; // UTC: Wednesday, May 6, 2020, 18:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].nTimeout = 1620324000; // UTC: Thursday, May 6, 2021, 18:00:00
         consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].nOverrideRuleChangeActivationThreshold = 1714; // Approx 85% of 2016
         consensus.vDeployments[Consensus::DEPLOYMENT_TRANSFER_SCRIPT_SIZE].nOverrideMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 9;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1593453600; // UTC: Mon Jun 29 2020 18:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1624989600; // UTC: Mon Jun 29 2021 18:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1593453600; // UTC: Monday, June 29, 2020, 18:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1624989600; // UTC: Monday, June 29, 2021, 18:00:00
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411; // Approx 70% of 2016
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].bit = 10;
-        consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].nStartTime = 1597341600; // UTC: Thu Aug 13 2020 18:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].nTimeout = 1628877600; // UTC: Fri Aug 13 2021 18:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].nStartTime = 1597341600; // UTC: Thursday, August 13, 2020, 18:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].nTimeout = 1628877600; // UTC: Friday, August 13, 2021, 18:00:00
         consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].nOverrideRuleChangeActivationThreshold = 1411; // Approx 70% of 2016
         consensus.vDeployments[Consensus::DEPLOYMENT_COINBASE_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
+	    consensus.BIP34LockedIn = 6048; // Locked_in at height 6048
+
 
         // The best chain should have at least this much work
-        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000355cd0ac1503c83052"); // Block 2383567
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000859d8e6ba8224a4"); // Block 50000
 
         // By default assume that the signatures in ancestors of this block are valid. Block# 1040000
-        consensus.defaultAssumeValid = uint256S("0x0000000000018d2fdcf4ac8eaac8db059584bd2840be5629562bb8599d39998c"); // Block 2383560
+        consensus.defaultAssumeValid = uint256S("0x0000000000043a9280011ff1382e99ade4d90d51821cc4dadfb20bd1a0905b1c"); // Block 50000
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x52; // R
-        pchMessageStart[1] = 0x41; // A
-        pchMessageStart[2] = 0x56; // V
-        pchMessageStart[3] = 0x4e; // N
-        nDefaultPort = 8767;
+        pchMessageStart[0] = 0x4d; // M
+        pchMessageStart[1] = 0x45; // E
+        pchMessageStart[2] = 0x57; // W
+        pchMessageStart[3] = 0x43; // C
+        nDefaultPort = 8788;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1514999494, 25023712, 0x1e00ffff, 4, 5000 * COIN);
+        genesis = CreateGenesisBlock(1661730843, 351574, 0x1e00ffff, 4, 5000 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0000006b444bc2f2ffe627be9d9e7e7a0730000870ef6eb6da46c8eae389df90"));
-        assert(genesis.hashMerkleRoot == uint256S("28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000000edd819220359469c54f2614b5602ebc775ea67a64602f354bdaa320f70"));
+        assert(genesis.hashMerkleRoot == uint256S("0xe8916cf6592c8433d598c3a5fe60a9741fd2a997b39d93af2d789cdd9d9a7390"));
 
-        vSeeds.emplace_back("seed-raven.bitactivate.com", false);
-        vSeeds.emplace_back("seed-raven.meowcoin.com", false);
-        vSeeds.emplace_back("seed-raven.meowcoin.org", false);
+        vSeeds.emplace_back("seed-mainnet-mewc.meowcoin.cc", false);
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,50);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,112);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        // Raven BIP44 cointype in mainnet is '175'
-        nExtCoinType = 175;
+        // Meow BIP44 cointype in mainnet is '1669'
+        nExtCoinType = 1669;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -210,25 +210,29 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                { 535721, uint256S("0x000000000001217f58a594ca742c8635ecaaaf695d1a63f6ab06979f1c159e04")},
-                { 697376, uint256S("0x000000000000499bf4ebbe61541b02e4692b33defc7109d8f12d2825d4d2dfa0")},
-                { 740000, uint256S("0x00000000000027d11bf1e7a3b57d3c89acc1722f39d6e08f23ac3a07e16e3172")},
-                { 909251, uint256S("0x000000000000694c9a363eff06518aa7399f00014ce667b9762f9a4e7a49f485")},
-                { 1040000, uint256S("0x000000000000138e2690b06b1ddd8cf158c3a5cf540ee5278debdcdffcf75839")},
-                { 1186833, uint256S("0x0000000000000d4840d4de1f7d943542c2aed532bd5d6527274fc0142fa1a410")},
-                { 2383550, uint256S("0x0000000000008927ed21a1e3bb87d3e1020646e8cc94354a1f8fc608395e15dc")}
+                {0, uint256S("0x000000edd819220359469c54f2614b5602ebc775ea67a64602f354bdaa320f70")},
+                {1, uint256S("0x003c8dc5fc743a984caab5d48ccac176504b04efc165670b5dc54e4b8c08a014")},
+                {100, uint256S("0x008d078cc061d3f5b35fb650f6bc8f0f1dd72d134e5bfcdf45b6db79d781fb37")},
+                {500, uint256S("0x000000047104eb030474b4f0c260dbbcdf7fa7441288a19c08c8be64cc1aec49")},
+                {1500, uint256S("0x000000015ce99dc668585599606c31892d3be2e93e0ee6bb51d599c2fffd5b93")},
+                {5000, uint256S("0x0000000000591321b74c0bdb697b859f6553ac69db64632d1353ad2debd6a6d8")},
+                {8000, uint256S("0x00000000004bdac507d8db8dd8b80670705259f80e8c08b32ae4ea395e00ef66")},
+                {12000, uint256S("0x00000000001a45336692852c86060c48ea1b20d9dfbf97f77433b2fe38351fd9")},
+                {15000, uint256S("0x0000000000063b1ef11f2032a117d84fe098efd655832de7b06559b9a214663b")},
+                {25000, uint256S("0x0000000000095ef1f2e4e24d990552587e773be85e4bfbfdae467d4a57f58d6b")},
+                {50000, uint256S("0x0000000000043a9280011ff1382e99ade4d90d51821cc4dadfb20bd1a0905b1c")}
             }
         };
 
 		// 20969961 transactions as of block #2383625 at 2022-07-28 22:02:22 (UTC)
 		// previously set at 6709969 txns by time 1577939273 ==>
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Raven chain
+            // Update as we know more about the contents of the Meow chain
             // Stats as of 0x00000000000016ec03d8d93f9751323bcc42137b1b4df67e6a11c4394fd8e5ad window size 43200
-            1659045742, // * UNIX timestamp of last known number of transactions
-            20969961,    // * total number of transactions between genesis and that timestamp
+            1665504479, // * UNIX timestamp of last known number of transactions
+            99360,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            5.7       // * estimated number of transactions per second after that timestamp
+            0.03289449084985968       // * estimated number of transactions per second after that timestamp
         };
 
         /** MEWC Start **/
@@ -243,32 +247,39 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
-        // Burn Addresses
-        strIssueAssetBurnAddress = "RXissueAssetXXXXXXXXXXXXXXXXXhhZGt";
-        strReissueAssetBurnAddress = "RXReissueAssetXXXXXXXXXXXXXXVEFAWu";
-        strIssueSubAssetBurnAddress = "RXissueSubAssetXXXXXXXXXXXXXWcwhwL";
-        strIssueUniqueAssetBurnAddress = "RXissueUniqueAssetXXXXXXXXXXWEAe58";
-        strIssueMsgChannelAssetBurnAddress = "RXissueMsgChanneLAssetXXXXXXSjHvAY";
-        strIssueQualifierAssetBurnAddress = "RXissueQuaLifierXXXXXXXXXXXXUgEDbC";
-        strIssueSubQualifierAssetBurnAddress = "RXissueSubQuaLifierXXXXXXXXXVTzvv5";
-        strIssueRestrictedAssetBurnAddress = "RXissueRestrictedXXXXXXXXXXXXzJZ1q";
-        strAddNullQualifierTagBurnAddress = "RXaddTagBurnXXXXXXXXXXXXXXXXZQm5ya";
+        // 40% of 5000 COIN to Donation
+	    nCommunityAutonomousAmount = 40;
 
-            //Global Burn Address
-        strGlobalBurnAddress = "RXBurnXXXXXXXXXXXXXXXXXXXXXXWUo9FV";
+        // Burn Addresses
+        strIssueAssetBurnAddress = "MCissueAssetXXXXXXXXXXXXXXXXa1oUfD";
+        strReissueAssetBurnAddress = "MCReissueAssetXXXXXXXXXXXXXXUdjigq";
+        strIssueSubAssetBurnAddress = "MCissueSubAssetXXXXXXXXXXXXXbCnNFk";
+        strIssueUniqueAssetBurnAddress = "MCissueUniqueAssetXXXXXXXXXXSVUgF5";
+        strIssueMsgChannelAssetBurnAddress = "MCissueMsgChanneLAssetXXXXXXUe6Pvr";
+        strIssueQualifierAssetBurnAddress = "MCissueQuaLifierXXXXXXXXXXXXWLyvs5";
+        strIssueSubQualifierAssetBurnAddress = "MCissueSubQuaLifierXXXXXXXXXVHmaXW";
+        strIssueRestrictedAssetBurnAddress = "MCissueRestrictedXXXXXXXXXXXXfEYLU";
+        strAddNullQualifierTagBurnAddress = "MCaddTagBurnXXXXXXXXXXXXXXXXUrKr7b";
+
+        //Global Burn Address
+        strGlobalBurnAddress = "MCBurnXXXXXXXXXXXXXXXXXXXXXXUkdzqy";
+
+        // Donation Address
+        strCommunityAutonomousAddress = "MPyNGZSSZ4rbjkVJRLn3v64pMcktpEYJnU";
+
 
         // DGW Activation
-        nDGWActivationBlock = 338778;
+        nDGWActivationBlock = 1;
 
         nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
         nMinReorganizationPeers = 4;
         nMinReorganizationAge = 60 * 60 * 12; // 12 hours
 
-        nAssetActivationHeight = 435456; // Asset activated block height
-        nMessagingActivationBlock = 1092672; // Messaging activated block height
-        nRestrictedActivationBlock = 1092672; // Restricted activated block height
+        nAssetActivationHeight = 1; // Asset activated block height
+        nMessagingActivationBlock = 1; // Messaging activated block height
+        nRestrictedActivationBlock = 1; // Restricted activated block height
 
-        nKAAAWWWPOWActivationTime = 1588788000; // UTC: Wed May 06 2020 18:00:00
+        nKAAAWWWPOWActivationTime = 1662493424; // UTC: Wed May 06 2020 18:00:00
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
         /** MEWC End **/
     }
@@ -414,9 +425,9 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.emplace_back("seed-testnet-raven.bitactivate.com", false);
-        vSeeds.emplace_back("seed-testnet-raven.meowcoin.com", false);
-        vSeeds.emplace_back("seed-testnet-raven.meowcoin.org", false);
+        vSeeds.emplace_back("seed-testnet-meow.bitactivate.com", false);
+        vSeeds.emplace_back("seed-testnet-meow.meowcoin.com", false);
+        vSeeds.emplace_back("seed-testnet-meow.meowcoin.org", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -424,7 +435,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        // Raven BIP44 cointype in testnet
+        // Meow BIP44 cointype in testnet
         nExtCoinType = 1;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -444,7 +455,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Raven chain
+            // Update as we know more about the contents of the Meow chain
             // Stats as of 00000023b66f46d74890287a7b1157dd780c7c5fdda2b561eb96684d2b39d62e window size 43200
             1543633332, // * UNIX timestamp of last known number of transactions
             146666,     // * total number of transactions between genesis and that timestamp
@@ -651,7 +662,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        // Raven BIP44 cointype in regtest
+        // Meow BIP44 cointype in regtest
         nExtCoinType = 1;
 
         /** MEWC Start **/
