@@ -13,16 +13,16 @@ endif
 override GZIP_ENV = "-9n"
 export PYTHONPATH
 
-if BUILD_RAVEN_LIBS
+if BUILD_MEOWCOIN_LIBS
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libmeowconsensus.pc
 endif
 
-RAVEND_BIN=$(top_builddir)/src/$(RAVEN_DAEMON_NAME)$(EXEEXT)
-RAVEN_QT_BIN=$(top_builddir)/src/qt/$(RAVEN_GUI_NAME)$(EXEEXT)
-RAVEN_CLI_BIN=$(top_builddir)/src/$(RAVEN_CLI_NAME)$(EXEEXT)
-RAVEN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
-RAVEN_CLI_INSTALL=$(top_builddir)/contrib/install_cli.sh
+MEOWCOIND_BIN=$(top_builddir)/src/$(MEOWCOIN_DAEMON_NAME)$(EXEEXT)
+MEOWCOIN_QT_BIN=$(top_builddir)/src/qt/$(MEOWCOIN_GUI_NAME)$(EXEEXT)
+MEOWCOIN_CLI_BIN=$(top_builddir)/src/$(MEOWCOIN_CLI_NAME)$(EXEEXT)
+MEOWCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
+MEOWCOIN_CLI_INSTALL=$(top_builddir)/contrib/install_cli.sh
 
 empty :=
 space := $(empty) $(empty)
@@ -72,11 +72,11 @@ COVERAGE_INFO = baseline.info \
 dist-hook:
 	-$(GIT) archive --format=tar HEAD -- src/clientversion.cpp | $(AMTAR) -C $(top_distdir) -xf -
 
-$(RAVEN_WIN_INSTALLER): all-recursive
+$(MEOWCOIN_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(RAVEND_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(RAVEN_QT_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(RAVEN_CLI_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIND_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIN_QT_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIN_CLI_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) -V2 $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 	@echo built $@
@@ -97,19 +97,19 @@ $(OSX_APP)/Contents/Resources/meowcoin.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/install_cli.sh: $(RAVEN_CLI_INSTALL)
+$(OSX_APP)/Contents/MacOS/install_cli.sh: $(MEOWCOIN_CLI_INSTALL)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/Meowcoin-Qt: $(RAVEN_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Meowcoin-Qt: $(MEOWCOIN_QT_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
-$(OSX_APP)/Contents/MacOS/meowcoind: $(RAVEND_BIN)
+$(OSX_APP)/Contents/MacOS/meowcoind: $(MEOWCOIND_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
-$(OSX_APP)/Contents/MacOS/meowcoin-cli: $(RAVEN_CLI_BIN)
+$(OSX_APP)/Contents/MacOS/meowcoin-cli: $(MEOWCOIN_CLI_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -171,16 +171,16 @@ appbundle: $(OSX_APP_BUILT)
 deploy: $(OSX_DMG)
 endif
 if TARGET_WINDOWS
-deploy: $(RAVEN_WIN_INSTALLER)
+deploy: $(MEOWCOIN_WIN_INSTALLER)
 endif
 
-$(RAVEN_QT_BIN): FORCE
+$(MEOWCOIN_QT_BIN): FORCE
 	$(MAKE) -C src qt/$(@F)
 
-$(RAVEND_BIN): FORCE
+$(MEOWCOIND_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
-$(RAVEN_CLI_BIN): FORCE
+$(MEOWCOIN_CLI_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
 if USE_LCOV
@@ -286,7 +286,7 @@ EXTRA_DIST += \
     test/util/data/txcreatesignv1.json \
     test/util/data/txcreatesignv2.hex
 
-CLEANFILES = $(OSX_DMG) $(RAVEN_WIN_INSTALLER)
+CLEANFILES = $(OSX_DMG) $(MEOWCOIN_WIN_INSTALLER)
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 

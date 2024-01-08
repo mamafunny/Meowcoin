@@ -1,33 +1,33 @@
 # /etc/conf.d/meowcoind: config file for /etc/init.d/meowcoind
 
 # Config file location
-#RAVEND_CONFIGFILE="/etc/meowcoin/meowcoin.conf"
+#MEOWCOIND_CONFIGFILE="/etc/meowcoin/meowcoin.conf"
 
-# What directory to write pidfile to?  (created and owned by $RAVEND_USER)
-#RAVEND_PIDDIR="/var/run/meowcoind"
+# What directory to write pidfile to?  (created and owned by $MEOWCOIND_USER)
+#MEOWCOIND_PIDDIR="/var/run/meowcoind"
 
 # What filename to give the pidfile
-#RAVEND_PIDFILE="${RAVEND_PIDDIR}/meowcoind.pid"
+#MEOWCOIND_PIDFILE="${MEOWCOIND_PIDDIR}/meowcoind.pid"
 
 # Where to write meowcoind data (be mindful that the blockchain is large)
-#RAVEND_DATADIR="/var/lib/meowcoind"
+#MEOWCOIND_DATADIR="/var/lib/meowcoind"
 
 # User and group to own meowcoind process
-#RAVEND_USER="meowcoin"
-#RAVEND_GROUP="meowcoin"
+#MEOWCOIND_USER="meowcoin"
+#MEOWCOIND_GROUP="meowcoin"
 
 # Path to meowcoind executable
-#RAVEND_BIN="/usr/bin/meowcoind"
+#MEOWCOIND_BIN="/usr/bin/meowcoind"
 
 # Nice value to run meowcoind under
-#RAVEND_NICE=0
+#MEOWCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)
-#RAVEND_OPTS=""
+#MEOWCOIND_OPTS=""
 
 # The timeout in seconds OpenRC will wait for meowcoind to terminate
 # after a SIGTERM has been raised.
 # Note that this will be mapped as argument to start-stop-daemon's
 # '--retry' option, which means you can specify a retry schedule
 # here. For more information see man 8 start-stop-daemon.
-RAVEND_SIGTERM_TIMEOUT=60
+MEOWCOIND_SIGTERM_TIMEOUT=60

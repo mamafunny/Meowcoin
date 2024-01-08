@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_THREADINTERRUPT_H
-#define RAVEN_THREADINTERRUPT_H
+#ifndef MEOWCOIN_THREADINTERRUPT_H
+#define MEOWCOIN_THREADINTERRUPT_H
 
 #include <atomic>
 #include <chrono>
@@ -32,4 +32,4 @@ private:
     std::atomic<bool> flag;
 };
 
-#endif //RAVEN_THREADINTERRUPT_H
+#endif //MEOWCOIN_THREADINTERRUPT_H

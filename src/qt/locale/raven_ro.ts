@@ -164,7 +164,7 @@
         <translation>Confirmă criptarea portofelului</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR MEOWCOINS&lt;/b&gt;!</source>
         <translation>Atenţie: dacă criptezi portofelul şi pierzi parola, &lt;b&gt;VEI PIERDE TOATE MONEDELE&lt;/b&gt;!</translation>
     </message>
     <message>

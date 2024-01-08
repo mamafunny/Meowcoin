@@ -16,10 +16,10 @@ AC_CONFIG_HEADERS([src/config/meowcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-RAVEN_DAEMON_NAME=meowcoind
-RAVEN_GUI_NAME=meowcoin-qt
-RAVEN_CLI_NAME=meowcoin-cli
-RAVEN_TX_NAME=meowcoin-tx
+MEOWCOIN_DAEMON_NAME=meowcoind
+MEOWCOIN_GUI_NAME=meowcoin-qt
+MEOWCOIN_CLI_NAME=meowcoin-cli
+MEOWCOIN_TX_NAME=meowcoin-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -29,9 +29,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef RAVEN_CONFIG_H])
-AH_TOP([#define RAVEN_CONFIG_H])
-AH_BOTTOM([#endif //RAVEN_CONFIG_H])
+AH_TOP([#ifndef MEOWCOIN_CONFIG_H])
+AH_TOP([#define MEOWCOIN_CONFIG_H])
+AH_BOTTOM([#endif //MEOWCOIN_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -723,7 +723,7 @@ AC_SUBST(LIBMEMENV)
 
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
-    RAVEN_FIND_BDB48
+    MEOWCOIN_FIND_BDB48
 fi
 
 dnl Check for libminiupnpc (optional)
@@ -755,10 +755,10 @@ if test x$have_miniupnpc != xno; then
 fi
 fi
 
-RAVEN_QT_INIT
+MEOWCOIN_QT_INIT
 
 dnl sets $meow_enable_qt, $meow_enable_qt_test, $meow_enable_qt_dbus
-RAVEN_QT_CONFIGURE([$use_pkgconfig], [qt5])
+MEOWCOIN_QT_CONFIGURE([$use_pkgconfig], [qt5])
 
 if test x$build_meow_cli$build_meow_tx$build_meowcoind$meow_enable_qt$use_tests$use_bench = xnononononono; then
     use_boost=no
@@ -942,9 +942,9 @@ if test x$use_pkgconfig = xyes; then
     [
       PKG_CHECK_MODULES([SSL], [libssl],, [AC_MSG_ERROR(openssl  not found.)])
       PKG_CHECK_MODULES([CRYPTO], [libcrypto],,[AC_MSG_ERROR(libcrypto  not found.)])
-      RAVEN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [RAVEN_QT_FAIL(libprotobuf not found)])])
+      MEOWCOIN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [MEOWCOIN_QT_FAIL(libprotobuf not found)])])
       if test x$use_qr != xno; then
-        RAVEN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+        MEOWCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
       fi
       if test x$build_meow_cli$build_meow_tx$build_meowcoind$meow_enable_qt$use_tests != xnonononono; then
         PKG_CHECK_MODULES([EVENT], [libevent],, [AC_MSG_ERROR(libevent not found.)])
@@ -1002,10 +1002,10 @@ else
     esac
   fi
 
-  RAVEN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], RAVEN_QT_FAIL(libprotobuf not found)))
+  MEOWCOIN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], MEOWCOIN_QT_FAIL(libprotobuf not found)))
   if test x$use_qr != xno; then
-    RAVEN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
-    RAVEN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
+    MEOWCOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
+    MEOWCOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
   fi
 fi
 
@@ -1064,22 +1064,22 @@ AM_CONDITIONAL([EMBEDDED_UNIVALUE],[test x$need_bundled_univalue = xyes])
 AC_SUBST(UNIVALUE_CFLAGS)
 AC_SUBST(UNIVALUE_LIBS)
 
-RAVEN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
+MEOWCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
 AC_MSG_CHECKING([whether to build meowcoind])
-AM_CONDITIONAL([BUILD_RAVEND], [test x$build_meowcoind = xyes])
+AM_CONDITIONAL([BUILD_MEOWCOIND], [test x$build_meowcoind = xyes])
 AC_MSG_RESULT($build_meowcoind)
 
 AC_MSG_CHECKING([whether to build meowcoin-cli])
-AM_CONDITIONAL([BUILD_RAVEN_CLI], [test x$build_meow_cli = xyes])
+AM_CONDITIONAL([BUILD_MEOWCOIN_CLI], [test x$build_meow_cli = xyes])
 AC_MSG_RESULT($build_meow_cli)
 
 AC_MSG_CHECKING([whether to build meowcoin-tx])
-AM_CONDITIONAL([BUILD_RAVEN_TX], [test x$build_meow_tx = xyes])
+AM_CONDITIONAL([BUILD_MEOWCOIN_TX], [test x$build_meow_tx = xyes])
 AC_MSG_RESULT($build_meow_tx)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_RAVEN_LIBS], [test x$build_meow_libs = xyes])
+AM_CONDITIONAL([BUILD_MEOWCOIN_LIBS], [test x$build_meow_libs = xyes])
 if test x$build_meow_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
   AC_CONFIG_FILES([libmeowconsensus.pc:libmeowconsensus.pc.in])
@@ -1240,10 +1240,10 @@ AC_SUBST(COPYRIGHT_YEAR, _COPYRIGHT_YEAR)
 AC_SUBST(COPYRIGHT_HOLDERS, "_COPYRIGHT_HOLDERS")
 AC_SUBST(COPYRIGHT_HOLDERS_SUBSTITUTION, "_COPYRIGHT_HOLDERS_SUBSTITUTION")
 AC_SUBST(COPYRIGHT_HOLDERS_FINAL, "_COPYRIGHT_HOLDERS_FINAL")
-AC_SUBST(RAVEN_DAEMON_NAME)
-AC_SUBST(RAVEN_GUI_NAME)
-AC_SUBST(RAVEN_CLI_NAME)
-AC_SUBST(RAVEN_TX_NAME)
+AC_SUBST(MEOWCOIN_DAEMON_NAME)
+AC_SUBST(MEOWCOIN_GUI_NAME)
+AC_SUBST(MEOWCOIN_CLI_NAME)
+AC_SUBST(MEOWCOIN_TX_NAME)
 
 AC_SUBST(RELDFLAGS)
 AC_SUBST(COMPAT_LDFLAGS)

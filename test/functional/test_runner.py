@@ -267,7 +267,7 @@ def main():
     # Check that the build was configured with wallet, utils, and meowcoind
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_cli = config["components"].getboolean("ENABLE_UTILS")
-    enable_meowcoind = config["components"].getboolean("ENABLE_RAVEND")
+    enable_meowcoind = config["components"].getboolean("ENABLE_MEOWCOIND")
     if not (enable_wallet and enable_cli and enable_meowcoind):
         print("No functional tests to run. Wallet, utils, and meowcoind must all be enabled")
         print("Rerun `configure` with --enable-wallet, --with-cli and --with-daemon and rerun make")
@@ -376,9 +376,9 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, j
         print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
 
     #Set env vars
-    if "RAVEND" not in os.environ:
-        os.environ["RAVEND"] = build_dir + '/src/meowcoind' + exeext
-        os.environ["RAVENCLI"] = build_dir + '/src/meowcoin-cli' + exeext
+    if "MEOWCOIND" not in os.environ:
+        os.environ["MEOWCOIND"] = build_dir + '/src/meowcoind' + exeext
+        os.environ["MEOWCOINCLI"] = build_dir + '/src/meowcoin-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 

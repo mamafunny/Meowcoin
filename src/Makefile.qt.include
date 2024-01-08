@@ -186,7 +186,7 @@ QT_MOC_CPP = \
   qt/moc_sendassetsentry.cpp \
   qt/moc_mnemonicdialog.cpp
 
-RAVEN_MM = \
+MEOWCOIN_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm
 
@@ -207,7 +207,7 @@ PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
 
-RAVEN_QT_H = \
+MEOWCOIN_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
@@ -391,7 +391,7 @@ RES_ICONS = \
   qt/res/fonts/OpenSans-SemiBoldItalic.ttf
 
 
-RAVEN_QT_BASE_CPP = \
+MEOWCOIN_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
   qt/meowaddressvalidator.cpp \
   qt/meowamountfield.cpp \
@@ -417,9 +417,9 @@ RAVEN_QT_BASE_CPP = \
   qt/trafficgraphwidget.cpp \
   qt/utilitydialog.cpp
 
-RAVEN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+MEOWCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
 
-RAVEN_QT_WALLET_CPP = \
+MEOWCOIN_QT_WALLET_CPP = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -460,28 +460,28 @@ RAVEN_QT_WALLET_CPP = \
   qt/walletview.cpp \
   qt/mnemonicdialog.cpp
 
-RAVEN_QT_CPP = $(RAVEN_QT_BASE_CPP)
+MEOWCOIN_QT_CPP = $(MEOWCOIN_QT_BASE_CPP)
 if TARGET_WINDOWS
-RAVEN_QT_CPP += $(RAVEN_QT_WINDOWS_CPP)
+MEOWCOIN_QT_CPP += $(MEOWCOIN_QT_WINDOWS_CPP)
 endif
 if ENABLE_WALLET
-RAVEN_QT_CPP += $(RAVEN_QT_WALLET_CPP)
+MEOWCOIN_QT_CPP += $(MEOWCOIN_QT_WALLET_CPP)
 endif
 
 RES_IMAGES = 
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-RAVEN_RC = qt/res/meowcoin-qt-res.rc
+MEOWCOIN_RC = qt/res/meowcoin-qt-res.rc
 
-RAVEN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+MEOWCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
 
-qt_libmeowqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES) $(RAVEN_QT_INCLUDES) \
+qt_libmeowqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) $(MEOWCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 qt_libmeowqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libmeowqt_a_SOURCES = $(RAVEN_QT_CPP) $(RAVEN_QT_H) $(QT_FORMS_UI) \
+qt_libmeowqt_a_SOURCES = $(MEOWCOIN_QT_CPP) $(MEOWCOIN_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
 nodist_qt_libmeowqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
@@ -501,25 +501,25 @@ $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
 # meowcoin-qt binary #
-qt_meow_qt_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES) $(RAVEN_QT_INCLUDES) \
+qt_meow_qt_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) $(MEOWCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 qt_meow_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
 qt_meow_qt_SOURCES = qt/meowcoin.cpp
 if TARGET_DARWIN
-  qt_meow_qt_SOURCES += $(RAVEN_MM)
+  qt_meow_qt_SOURCES += $(MEOWCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_meow_qt_SOURCES += $(RAVEN_RC)
+  qt_meow_qt_SOURCES += $(MEOWCOIN_RC)
 endif
-qt_meow_qt_LDADD = qt/libmeowqt.a $(LIBRAVEN_SERVER)
+qt_meow_qt_LDADD = qt/libmeowqt.a $(LIBMEOWCOIN_SERVER)
 if ENABLE_WALLET
-qt_meow_qt_LDADD += $(LIBRAVEN_WALLET)
+qt_meow_qt_LDADD += $(LIBMEOWCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_meow_qt_LDADD += $(LIBRAVEN_ZMQ) $(ZMQ_LIBS)
+qt_meow_qt_LDADD += $(LIBMEOWCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_meow_qt_LDADD += $(LIBRAVEN_CLI) $(LIBRAVEN_COMMON) $(LIBRAVEN_UTIL) $(LIBRAVEN_CONSENSUS) $(LIBRAVEN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+qt_meow_qt_LDADD += $(LIBMEOWCOIN_CLI) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 qt_meow_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
@@ -534,7 +534,7 @@ $(srcdir)/qt/meowstrings.cpp: $(libmeow_server_a_SOURCES) $(libmeow_wallet_a_SOU
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: $(srcdir)/qt/meowstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(RAVEN_QT_BASE_CPP) qt/meowcoin.cpp $(RAVEN_QT_WINDOWS_CPP) $(RAVEN_QT_WALLET_CPP) $(RAVEN_QT_H) $(RAVEN_MM)
+translate: $(srcdir)/qt/meowstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(MEOWCOIN_QT_BASE_CPP) qt/meowcoin.cpp $(MEOWCOIN_QT_WINDOWS_CPP) $(MEOWCOIN_QT_WALLET_CPP) $(MEOWCOIN_QT_H) $(MEOWCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/meow_en.ts
 
@@ -555,7 +555,7 @@ CLEAN_QT = $(nodist_qt_libmeowqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/
 CLEANFILES += $(CLEAN_QT)
 
 meow_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libmeowqt_a_OBJECTS) $(qt_meow_qt_OBJECTS) qt/meowcoin-qt$(EXEEXT) $(LIBRAVENQT)
+	rm -f $(CLEAN_QT) $(qt_libmeowqt_a_OBJECTS) $(qt_meow_qt_OBJECTS) qt/meowcoin-qt$(EXEEXT) $(LIBMEOWCOINQT)
 
 meow_qt : qt/meowcoin-qt$(EXEEXT)
 

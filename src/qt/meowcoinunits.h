@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_RAVENUNITS_H
-#define RAVEN_QT_RAVENUNITS_H
+#ifndef MEOWCOIN_QT_MEOWCOINUNITS_H
+#define MEOWCOIN_QT_MEOWCOINUNITS_H
 
 #include "amount.h"
 
@@ -136,4 +136,4 @@ private:
 };
 typedef MeowUnits::Unit MeowUnit;
 
-#endif // RAVEN_QT_RAVENUNITS_H
+#endif // MEOWCOIN_QT_MEOWCOINUNITS_H

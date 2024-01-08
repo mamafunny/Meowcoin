@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_SCRIPT_STANDARD_H
-#define RAVEN_SCRIPT_STANDARD_H
+#ifndef MEOWCOIN_SCRIPT_STANDARD_H
+#define MEOWCOIN_SCRIPT_STANDARD_H
 
 #include "script/interpreter.h"
 #include "uint256.h"
@@ -69,7 +69,7 @@ enum txnouttype
     TX_NEW_ASSET = 8,
     TX_REISSUE_ASSET = 9,
     TX_TRANSFER_ASSET = 10,
-    TX_RESTRICTED_ASSET_DATA = 11, //!< unspendable OP_RAVEN_ASSET script that carries data
+    TX_RESTRICTED_ASSET_DATA = 11, //!< unspendable OP_MEOWCOIN_ASSET script that carries data
     /** MEWC END */
 };
 
@@ -148,4 +148,4 @@ CScript GetScriptForNullAssetDataDestination(const CTxDestination &dest);
  */
 CScript GetScriptForWitness(const CScript& redeemscript);
 
-#endif // RAVEN_SCRIPT_STANDARD_H
+#endif // MEOWCOIN_SCRIPT_STANDARD_H

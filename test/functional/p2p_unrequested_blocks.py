@@ -69,7 +69,7 @@ from test_framework.blocktools import create_block, create_coinbase
 class AcceptBlockTest(MeowTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("RAVEND", "meowcoind"),
+                          default=os.getenv("MEOWCOIND", "meowcoind"),
                           help="meowcoind binary to test")
 
     def set_test_params(self):

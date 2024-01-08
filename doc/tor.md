@@ -1,4 +1,4 @@
-TOR SUPPORT IN RAVEN
+TOR SUPPORT IN MEOWCOIN
 ======================
 
 It is possible to run Meowcoin as a Tor hidden service, and connect to such services.

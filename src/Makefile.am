@@ -19,28 +19,28 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-RAVEN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+MEOWCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-RAVEN_INCLUDES += -I$(srcdir)/secp256k1/include
-RAVEN_INCLUDES += $(UNIVALUE_CFLAGS)
+MEOWCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+MEOWCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBRAVEN_SERVER=libmeow_server.a
-LIBRAVEN_COMMON=libmeow_common.a
-LIBRAVEN_CONSENSUS=libmeow_consensus.a
-LIBRAVEN_CLI=libmeow_cli.a
-LIBRAVEN_UTIL=libmeow_util.a
-LIBRAVEN_CRYPTO=crypto/libmeow_crypto.a
-LIBRAVENQT=qt/libmeowqt.a
+LIBMEOWCOIN_SERVER=libmeow_server.a
+LIBMEOWCOIN_COMMON=libmeow_common.a
+LIBMEOWCOIN_CONSENSUS=libmeow_consensus.a
+LIBMEOWCOIN_CLI=libmeow_cli.a
+LIBMEOWCOIN_UTIL=libmeow_util.a
+LIBMEOWCOIN_CRYPTO=crypto/libmeow_crypto.a
+LIBMEOWCOINQT=qt/libmeowqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBRAVEN_ZMQ=libmeow_zmq.a
+LIBMEOWCOIN_ZMQ=libmeow_zmq.a
 endif
-if BUILD_RAVEN_LIBS
-LIBRAVENCONSENSUS=libmeowconsensus.la
+if BUILD_MEOWCOIN_LIBS
+LIBMEOWCOINCONSENSUS=libmeowconsensus.la
 endif
 if ENABLE_WALLET
-LIBRAVEN_WALLET=libmeow_wallet.a
+LIBMEOWCOIN_WALLET=libmeow_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -49,37 +49,37 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBRAVEN_CRYPTO) \
-  $(LIBRAVEN_UTIL) \
-  $(LIBRAVEN_COMMON) \
-  $(LIBRAVEN_CONSENSUS) \
-  $(LIBRAVEN_SERVER) \
-  $(LIBRAVEN_CLI) \
-  $(LIBRAVEN_WALLET) \
-  $(LIBRAVEN_ZMQ)
+  $(LIBMEOWCOIN_CRYPTO) \
+  $(LIBMEOWCOIN_UTIL) \
+  $(LIBMEOWCOIN_COMMON) \
+  $(LIBMEOWCOIN_CONSENSUS) \
+  $(LIBMEOWCOIN_SERVER) \
+  $(LIBMEOWCOIN_CLI) \
+  $(LIBMEOWCOIN_WALLET) \
+  $(LIBMEOWCOIN_ZMQ)
 
-lib_LTLIBRARIES = $(LIBRAVENCONSENSUS)
+lib_LTLIBRARIES = $(LIBMEOWCOINCONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_RAVEND
+if BUILD_MEOWCOIND
   bin_PROGRAMS += meowcoind
 endif
 
-if BUILD_RAVEN_CLI
+if BUILD_MEOWCOIN_CLI
   bin_PROGRAMS += meowcoin-cli
 endif
 
-if BUILD_RAVEN_TX
+if BUILD_MEOWCOIN_TX
   bin_PROGRAMS += meowcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
 # meowcoin core #
-RAVEN_CORE_H = \
+MEOWCOIN_CORE_H = \
   addrdb.h \
   addressindex.h \
   algo/sph_groestl.h \
@@ -243,7 +243,7 @@ obj/build.h: FORCE
 libmeow_util_a-clientversion.$(OBJEXT): obj/build.h
 
 # server: shared between meowcoind and meowcoin-qt
-libmeow_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libmeow_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libmeow_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_server_a_SOURCES = \
   addrdb.cpp \
@@ -297,10 +297,10 @@ libmeow_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  $(RAVEN_CORE_H)
+  $(MEOWCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libmeow_zmq_a_CPPFLAGS = $(RAVEN_INCLUDES) $(ZMQ_CFLAGS)
+libmeow_zmq_a_CPPFLAGS = $(MEOWCOIN_INCLUDES) $(ZMQ_CFLAGS)
 libmeow_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
@@ -311,7 +311,7 @@ endif
 
 # wallet: shared between meowcoind and meowcoin-qt, but only linked
 # when wallet enabled
-libmeow_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+libmeow_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 libmeow_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_wallet_a_SOURCES = \
   wallet/crypter.cpp \
@@ -324,7 +324,7 @@ libmeow_wallet_a_SOURCES = \
   wallet/wallet.cpp \
   wallet/walletdb.cpp \
   wallet/bip39.cpp \
-  $(RAVEN_CORE_H)
+  $(MEOWCOIN_CORE_H)
 
 # crypto primitives library
 crypto_libmeow_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
@@ -376,7 +376,7 @@ crypto_libmeow_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
 # consensus: shared between all executables that validate any consensus rules.
-libmeow_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+libmeow_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 libmeow_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_consensus_a_SOURCES = \
   amount.h \
@@ -413,10 +413,10 @@ libmeow_consensus_a_SOURCES = \
   version.h \
   LibBoolEE.cpp \
   LibBoolEE.h \
-  $(RAVEN_CORE_H)
+  $(MEOWCOIN_CORE_H)
 
 # common: shared between meowcoind, and meowcoin-qt and non-server tools
-libmeow_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+libmeow_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 libmeow_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_common_a_SOURCES = \
   base58.cpp \
@@ -435,12 +435,12 @@ libmeow_common_a_SOURCES = \
   script/sign.cpp \
   script/standard.cpp \
   warnings.cpp \
-  $(RAVEN_CORE_H)
+  $(MEOWCOIN_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libmeow_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+libmeow_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 libmeow_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_util_a_SOURCES = \
   support/lockedpool.cpp \
@@ -458,7 +458,7 @@ libmeow_util_a_SOURCES = \
   utilmoneystr.cpp \
   utilstrencodings.cpp \
   utiltime.cpp \
-  $(RAVEN_CORE_H)
+  $(MEOWCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
 libmeow_util_a_SOURCES += compat/glibc_compat.cpp
@@ -466,18 +466,18 @@ AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
 # cli: shared between meowcoin-cli and meowcoin-qt
-libmeow_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+libmeow_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 libmeow_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_cli_a_SOURCES = \
   rpc/client.cpp \
-  $(RAVEN_CORE_H)
+  $(MEOWCOIN_CORE_H)
 
 nodist_libmeow_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # meowcoind binary #
 meowcoind_SOURCES = meowcoind.cpp
-meowcoind_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+meowcoind_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 meowcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 meowcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -486,14 +486,14 @@ meowcoind_SOURCES += meowcoind-res.rc
 endif
 
 meowcoind_LDADD = \
-  $(LIBRAVEN_SERVER) \
-  $(LIBRAVEN_COMMON) \
+  $(LIBMEOWCOIN_SERVER) \
+  $(LIBMEOWCOIN_COMMON) \
   $(LIBUNIVALUE) \
-  $(LIBRAVEN_UTIL) \
-  $(LIBRAVEN_WALLET) \
-  $(LIBRAVEN_ZMQ) \
-  $(LIBRAVEN_CONSENSUS) \
-  $(LIBRAVEN_CRYPTO) \
+  $(LIBMEOWCOIN_UTIL) \
+  $(LIBMEOWCOIN_WALLET) \
+  $(LIBMEOWCOIN_ZMQ) \
+  $(LIBMEOWCOIN_CONSENSUS) \
+  $(LIBMEOWCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
@@ -503,7 +503,7 @@ meowcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUP
 
 # meowcoin-cli binary #
 meow_cli_SOURCES = meowcoin-cli.cpp
-meow_cli_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES) $(EVENT_CFLAGS)
+meow_cli_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) $(EVENT_CFLAGS)
 meow_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 meow_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -512,17 +512,17 @@ meow_cli_SOURCES += meowcoin-cli-res.rc
 endif
 
 meow_cli_LDADD = \
-  $(LIBRAVEN_CLI) \
+  $(LIBMEOWCOIN_CLI) \
   $(LIBUNIVALUE) \
-  $(LIBRAVEN_UTIL) \
-  $(LIBRAVEN_CRYPTO)
+  $(LIBMEOWCOIN_UTIL) \
+  $(LIBMEOWCOIN_CRYPTO)
 
 meow_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # meowcoin-tx binary #
 meow_tx_SOURCES = meowcoin-tx.cpp
-meow_tx_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+meow_tx_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
 meow_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 meow_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -532,17 +532,17 @@ endif
 
 meow_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBRAVEN_COMMON) \
-  $(LIBRAVEN_UTIL) \
-  $(LIBRAVEN_CONSENSUS) \
-  $(LIBRAVEN_CRYPTO) \
+  $(LIBMEOWCOIN_COMMON) \
+  $(LIBMEOWCOIN_UTIL) \
+  $(LIBMEOWCOIN_CONSENSUS) \
+  $(LIBMEOWCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
 meow_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # meowconsensus library #
-if BUILD_RAVEN_LIBS
+if BUILD_MEOWCOIN_LIBS
 include_HEADERS = script/meowconsensus.h
 libmeowconsensus_la_SOURCES = $(crypto_libmeow_crypto_a_SOURCES) $(libmeow_consensus_a_SOURCES)
 
@@ -552,7 +552,7 @@ endif
 
 libmeowconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
 libmeowconsensus_la_LIBADD = $(LIBSECP256K1) $(BOOST_LIBS)
-libmeowconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_RAVEN_INTERNAL
+libmeowconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_MEOWCOIN_INTERNAL
 libmeowconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif

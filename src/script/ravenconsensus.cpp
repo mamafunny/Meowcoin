@@ -126,5 +126,5 @@ int meowconsensus_verify_script(const unsigned char *scriptPubKey, unsigned int 
 unsigned int meowconsensus_version()
 {
     // Just use the API version for now
-    return RAVENCONSENSUS_API_VER;
+    return MEOWCOINCONSENSUS_API_VER;
 }

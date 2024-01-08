@@ -160,7 +160,7 @@
         <translation>Potvrdite enkripciju novčanika</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR MEOWCOINS&lt;/b&gt;!</source>
         <translation>Pažnja: Ukoliko enkriptujete novčanik a zatim izgubite vašu lozinku, izgubićete&lt;b&gt;SVA VAŠA SREDSTVA&lt;/b&gt;!</translation>
     </message>
     <message>

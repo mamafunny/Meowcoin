@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=meowcoind
-# you can override the lockfile via RAVEND_LOCKFILE in /etc/sysconfig/meowcoind
-lockfile=${RAVEND_LOCKFILE-/var/lock/subsys/meowcoind}
+# you can override the lockfile via MEOWCOIND_LOCKFILE in /etc/sysconfig/meowcoind
+lockfile=${MEOWCOIND_LOCKFILE-/var/lock/subsys/meowcoind}
 
-# meowcoind defaults to /usr/bin/meowcoind, override with RAVEND_BIN
-meowcoind=${RAVEND_BIN-/usr/bin/meowcoind}
+# meowcoind defaults to /usr/bin/meowcoind, override with MEOWCOIND_BIN
+meowcoind=${MEOWCOIND_BIN-/usr/bin/meowcoind}
 
-# meowcoind opts default to -disablewallet, override with RAVEND_OPTS
-meowcoind_opts=${RAVEND_OPTS--disablewallet}
+# meowcoind opts default to -disablewallet, override with MEOWCOIND_OPTS
+meowcoind_opts=${MEOWCOIND_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
