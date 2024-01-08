@@ -27,9 +27,9 @@ mode = "-main"
 rpc_port = 8766
 
 #mode = "-testnet"
-#rpc_port = 18770
+#rpc_port = 4568
 #mode =  "-regtest"
-#rpc_port = 18444
+#rpc_port = 19444
 
 #Set this information in your meow.conf file (in datadir, not testnet6)
 rpc_user = 'rpcuser'
