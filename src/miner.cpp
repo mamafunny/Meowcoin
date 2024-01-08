@@ -6,6 +6,7 @@
 
 #include "miner.h"
 
+#include "base58.h"
 #include "amount.h"
 #include "chain.h"
 #include "chainparams.h"
