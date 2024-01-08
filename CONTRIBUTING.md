@@ -1,7 +1,7 @@
-Contributing to Raven Core
+Contributing to Meow Core
 ============================
 
-The Raven Core project operates an open contributor model where anyone is
+The Meow Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -60,12 +60,12 @@ the pull request affects. Valid areas as:
   - *Consensus* for changes to consensus critical code
   - *Depends* for changes to depends
   - *Docs* for changes to the documentation
-  - *GUI* for changes to raven-qt
+  - *GUI* for changes to meow-qt
   - *Mining* for changes to the mining code
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST/ZMQ* for changes to the RPC, REST or ZMQ APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the raven unit tests or QA tests
+  - *Tests* for changes to the meow unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -85,7 +85,7 @@ Examples:
     Trivial: Fix typo in init.cpp
 
 Note that translations should not be submitted as pull requests, please see
-[Translation Process](https://github.com/RavenProject/Meowcoin/blob/master/doc/translation_process.md) 
+[Translation Process](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_process.md) 
 for more information on helping with translations.
 
 If a pull request is specifically not to be considered for merging (yet) please
@@ -275,7 +275,7 @@ about:
 Release Policy
 --------------
 
-The RavenQT-SIG selects a release manager for each Meowcoin release.
+The MeowQT-SIG selects a release manager for each Meowcoin release.
 
 Copyright
 ---------

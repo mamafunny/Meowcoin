@@ -3,9 +3,9 @@ Release Process
 
 Before every release candidate:
 
-* Update translations see [translation_process.md](https://github.com/RavenProject/Meowcoin/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations see [translation_process.md](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/RavenProject/Meowcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/MeowProject/Meowcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -28,9 +28,9 @@ Before every major release:
 ### First time / New builders
 
 
-    git clone https://github.com/RavenProject/Meowcoin.git
+    git clone https://github.com/MeowProject/Meowcoin.git
 
-### Raven maintainers/release engineers, suggestion for writing release notes
+### Meow maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -56,15 +56,15 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer raven-osx-unsigned.tar.gz to osx for signing
-    tar xf raven-osx-unsigned.tar.gz
+    transfer meow-osx-unsigned.tar.gz to osx for signing
+    tar xf meow-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf raven-win-unsigned.tar.gz
+    tar xf meow-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
@@ -79,14 +79,14 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-raven-${VERSION}-aarch64-linux-gnu.tar.gz
-raven-${VERSION}-arm-linux-gnueabihf.tar.gz
-raven-${VERSION}-x86_64-linux-gnu.tar.gz
-raven-${VERSION}-osx64.tar.gz
-raven-${VERSION}-osx.dmg
-raven-${VERSION}.tar.gz
-raven-${VERSION}-win64-setup.exe
-raven-${VERSION}-win64.zip
+meow-${VERSION}-aarch64-linux-gnu.tar.gz
+meow-${VERSION}-arm-linux-gnueabihf.tar.gz
+meow-${VERSION}-x86_64-linux-gnu.tar.gz
+meow-${VERSION}-osx64.tar.gz
+meow-${VERSION}-osx.dmg
+meow-${VERSION}.tar.gz
+meow-${VERSION}-win64-setup.exe
+meow-${VERSION}-win64.zip
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -102,12 +102,12 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Announce the release:
 
-  - ravencore.org blog post
+  - meowcore.org blog post
 
   - Optionally twitter, reddit /r/Meowcoin, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/RavenProject/Meowcoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/MeowProject/Meowcoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

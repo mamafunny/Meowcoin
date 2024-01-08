@@ -31,33 +31,33 @@ RUN apt-get update && \
 	apt-get clean
 
 #Copy source dir
-COPY . /home/raven/build/Meowcoin/
-WORKDIR /home/raven/build/Meowcoin
+COPY . /home/meow/build/Meowcoin/
+WORKDIR /home/meow/build/Meowcoin
 
 #build db4 from source
-WORKDIR /home/raven/build/Meowcoin/contrib
+WORKDIR /home/meow/build/Meowcoin/contrib
 RUN ./install_db4.sh ../../
 
-# build Ravencore
-WORKDIR /home/raven/build/Meowcoin
-RUN ./autogen.sh && ./configure --disable-tests BDB_LIBS="-L/home/raven/build/db4/lib -ldb_cxx-4.8" BDB_CFLAGS="-I/home/raven/build/db4/include" --with-gui=no  && make -j4
+# build Meowcore
+WORKDIR /home/meow/build/Meowcoin
+RUN ./autogen.sh && ./configure --disable-tests BDB_LIBS="-L/home/meow/build/db4/lib -ldb_cxx-4.8" BDB_CFLAGS="-I/home/meow/build/db4/include" --with-gui=no  && make -j4
 
 FROM base AS final
 
 #Add our service account user
-RUN useradd -ms /bin/bash raven && \
-	mkdir /var/lib/raven && \
-	chown raven:raven /var/lib/raven && \
-	ln -s /var/lib/raven /home/raven/.raven && \
-	chown -h raven:raven /home/raven/.raven
+RUN useradd -ms /bin/bash meow && \
+	mkdir /var/lib/meow && \
+	chown meow:meow /var/lib/meow && \
+	ln -s /var/lib/meow /home/meow/.meow && \
+	chown -h meow:meow /home/meow/.meow
 
-VOLUME /var/lib/raven
+VOLUME /var/lib/meow
 
 #Copy the compiled binaries from the build
-COPY --from=build /home/raven/build/Meowcoin/src/ravend /usr/local/bin/ravend
-COPY --from=build /home/raven/build/Meowcoin/src/raven-cli /usr/local/bin/raven-cli
+COPY --from=build /home/meow/build/Meowcoin/src/meowd /usr/local/bin/meowd
+COPY --from=build /home/meow/build/Meowcoin/src/meow-cli /usr/local/bin/meow-cli
 
-WORKDIR /home/raven
-USER raven
+WORKDIR /home/meow
+USER meow
 
-CMD /usr/local/bin/ravend -datadir=/var/lib/raven -printtoconsole -onlynet=ipv4
+CMD /usr/local/bin/meowd -datadir=/var/lib/meow -printtoconsole -onlynet=ipv4

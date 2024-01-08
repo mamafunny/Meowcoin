@@ -1,3 +1,3 @@
 Releases have been moved to:
 
-https://github.com/RavenProject/Meowcoin/releases/latest
+https://github.com/MeowProject/Meowcoin/releases/latest

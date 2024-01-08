@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Set DISTNAME, BRANCH and MAKEOPTS to the desired settings
-DISTNAME=raven-2.0.3
+DISTNAME=meow-2.0.3
 MAKEOPTS="-j4"
 BRANCH=master
 clear
@@ -29,7 +29,7 @@ cd ~/
 # Removes any existing builds and starts clean WARNING
 rm -rf ~/meowcoin ~/sign ~/release
 
-git clone https://github.com/ravenproject/meowcoin
+git clone https://github.com/meowproject/meowcoin
 cd ~/meowcoin
 git checkout $BRANCH
 
@@ -72,11 +72,11 @@ export PATH=$PWD/depends/x86_64-linux-gnu/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-linux-gnu/share/config.site ./configure --prefix=/
 make dist
-SOURCEDIST=`echo raven-*.tar.gz`
+SOURCEDIST=`echo meow-*.tar.gz`
 mkdir -p ~/meowcoin/temp
 cd ~/meowcoin/temp
 tar xf ../$SOURCEDIST
-find raven-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+find meow-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
 cd ~/meowcoin
 mv $SOURCEDIST ~/release
 rm -rf temp
@@ -210,7 +210,7 @@ make $MAKEOPTS
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f raven-*setup*.exe ~/release/unsigned/
+cp -f meow-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win64
 make install DESTDIR=~/win64/$DISTNAME
 cd ~/win64
@@ -226,7 +226,7 @@ rm -rf win64
 cp -rf meowcoin/contrib/windeploy ~/sign/win64
 cd ~/sign/win64/windeploy
 mkdir -p unsigned
-mv ~/meowcoin/raven-*setup-unsigned.exe unsigned/
+mv ~/meowcoin/meow-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win64-unsigned.tar.gz
 cd ~/sign
 rm -rf win64
@@ -253,7 +253,7 @@ make $MAKEOPTS
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f raven-*setup*.exe ~/release/unsigned/
+cp -f meow-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win32
 make install DESTDIR=~/win32/$DISTNAME
 cd ~/win32
@@ -269,7 +269,7 @@ rm -rf win32
 cp -rf meowcoin/contrib/windeploy ~/sign/win32
 cd ~/sign/win32/windeploy
 mkdir -p unsigned
-mv ~/meowcoin/raven-*setup-unsigned.exe unsigned/
+mv ~/meowcoin/meow-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win32-unsigned.tar.gz
 cd ~/sign
 rm -rf win32
@@ -310,7 +310,7 @@ cd unsigned-app-$DISTNAME
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-osx-unsigned.tar.gz
 cd ~/meowcoin
 make deploy
-$PWD/depends/x86_64-apple-darwin14/native/bin/dmg dmg "Raven-Core.dmg" ~/release/unsigned/$DISTNAME-osx-unsigned.dmg
+$PWD/depends/x86_64-apple-darwin14/native/bin/dmg dmg "Meow-Core.dmg" ~/release/unsigned/$DISTNAME-osx-unsigned.dmg
 rm -rf unsigned-app-$DISTNAME dist osx_volname dpi36.background.tiff dpi72.background.tiff
 cd ~/OSX
 find . -name "lib*.la" -delete

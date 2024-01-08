@@ -1,4 +1,4 @@
-Raven Core integration/staging tree
+Meow Core integration/staging tree
 =====================================
 
 https://meowcoin.org
@@ -21,15 +21,15 @@ out collectively by the network.
 License
 -------
 
-Raven Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Meow Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/RavenProject/Meowcoin/tags) are created
-regularly to indicate new official, stable release versions of Raven Core.
+completely stable. [Tags](https://github.com/MeowProject/Meowcoin/tags) are created
+regularly to indicate new official, stable release versions of Meow Core.
 
 Active development is done in the `develop` branch. 
 
@@ -73,7 +73,7 @@ A digital peer to peer network for the facilitation of asset transfer.
 
 
 
-In the fictional world of Westeros, ravens are used as messengers who carry statements of truth. Meowcoin is a use case specific blockchain designed to carry statements of truth about who owns what assets. 
+In the fictional world of Westeros, meows are used as messengers who carry statements of truth. Meowcoin is a use case specific blockchain designed to carry statements of truth about who owns what assets. 
 
 
 

@@ -149,7 +149,7 @@
     <name>RPCConsole</name>
     </context>
 <context>
-    <name>RavenGUI</name>
+    <name>MeowGUI</name>
     </context>
 <context>
     <name>ReceiveCoinsDialog</name>
@@ -215,6 +215,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>raven-core</name>
+    <name>meow-core</name>
     </context>
 </TS>

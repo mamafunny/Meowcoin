@@ -1,8 +1,8 @@
-/usr/bin/raven-cli		--	gen_context(system_u:object_r:raven_exec_t,s0)
-/usr/sbin/ravend		--	gen_context(system_u:object_r:raven_exec_t,s0)
-/usr/lib(64)?/raven/ravend		--	gen_context(system_u:object_r:raven_exec_t,s0)
+/usr/bin/meow-cli		--	gen_context(system_u:object_r:meow_exec_t,s0)
+/usr/sbin/meowd		--	gen_context(system_u:object_r:meow_exec_t,s0)
+/usr/lib(64)?/meow/meowd		--	gen_context(system_u:object_r:meow_exec_t,s0)
 
-/etc/raven(/.*)?		gen_context(system_u:object_r:raven_conf_t,s0)
-/var/lib/raven(/.*)?		gen_context(system_u:object_r:raven_var_lib_t,s0)
+/etc/meow(/.*)?		gen_context(system_u:object_r:meow_conf_t,s0)
+/var/lib/meow(/.*)?		gen_context(system_u:object_r:meow_var_lib_t,s0)
 
-(/var)?/run/ravend(/.*)?   gen_context(system_u:object_r:raven_var_run_t,s0)
+(/var)?/run/meowd(/.*)?   gen_context(system_u:object_r:meow_var_run_t,s0)

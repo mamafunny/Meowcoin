@@ -1,6 +1,6 @@
 [Protocol]
-exec=raven-qt '%u'
-protocol=raven
+exec=meow-qt '%u'
+protocol=meow
 input=none
 output=none
 helper=true

@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Raven Core developers
+// Copyright (c) 2017-2021 The Meow Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "ravenunits.h"
+#include "meowunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -46,7 +46,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(RavenUnits::MEWC),
+        QAbstractItemDelegate(parent), unit(MeowUnits::MEWC),
         platformStyle(_platformStyle)
     {
 
@@ -155,7 +155,7 @@ class AssetViewDelegate : public QAbstractItemDelegate
 Q_OBJECT
 public:
     explicit AssetViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-            QAbstractItemDelegate(parent), unit(RavenUnits::MEWC),
+            QAbstractItemDelegate(parent), unit(MeowUnits::MEWC),
             platformStyle(_platformStyle)
     {
 
@@ -299,7 +299,7 @@ public:
 
 };
 #include "overviewpage.moc"
-#include "ravengui.h"
+#include "meowgui.h"
 #include <QFontDatabase>
 
 OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -561,14 +561,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(RavenUnits::formatWithUnit(unit, balance, false, RavenUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(RavenUnits::formatWithUnit(unit, unconfirmedBalance, false, RavenUnits::separatorAlways));
-    ui->labelImmature->setText(RavenUnits::formatWithUnit(unit, immatureBalance, false, RavenUnits::separatorAlways));
-    ui->labelTotal->setText(RavenUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(RavenUnits::formatWithUnit(unit, watchOnlyBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchPending->setText(RavenUnits::formatWithUnit(unit, watchUnconfBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchImmature->setText(RavenUnits::formatWithUnit(unit, watchImmatureBalance, false, RavenUnits::separatorAlways));
-    ui->labelWatchTotal->setText(RavenUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, RavenUnits::separatorAlways));
+    ui->labelBalance->setText(MeowUnits::formatWithUnit(unit, balance, false, MeowUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(MeowUnits::formatWithUnit(unit, unconfirmedBalance, false, MeowUnits::separatorAlways));
+    ui->labelImmature->setText(MeowUnits::formatWithUnit(unit, immatureBalance, false, MeowUnits::separatorAlways));
+    ui->labelTotal->setText(MeowUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, MeowUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(MeowUnits::formatWithUnit(unit, watchOnlyBalance, false, MeowUnits::separatorAlways));
+    ui->labelWatchPending->setText(MeowUnits::formatWithUnit(unit, watchUnconfBalance, false, MeowUnits::separatorAlways));
+    ui->labelWatchImmature->setText(MeowUnits::formatWithUnit(unit, watchImmatureBalance, false, MeowUnits::separatorAlways));
+    ui->labelWatchTotal->setText(MeowUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, MeowUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

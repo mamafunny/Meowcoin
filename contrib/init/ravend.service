@@ -1,15 +1,15 @@
 [Unit]
-Description=Raven's distributed currency daemon
+Description=Meow's distributed currency daemon
 After=network.target
 
 [Service]
-User=raven
-Group=raven
+User=meow
+Group=meow
 
 Type=forking
-PIDFile=/var/lib/ravend/ravend.pid
-ExecStart=/usr/bin/ravend -daemon -pid=/var/lib/ravend/ravend.pid \
--conf=/etc/raven/raven.conf -datadir=/var/lib/ravend -disablewallet
+PIDFile=/var/lib/meowd/meowd.pid
+ExecStart=/usr/bin/meowd -daemon -pid=/var/lib/meowd/meowd.pid \
+-conf=/etc/meow/meow.conf -datadir=/var/lib/meowd -disablewallet
 
 Restart=always
 PrivateTmp=true

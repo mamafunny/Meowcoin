@@ -189,7 +189,7 @@
     <name>RPCConsole</name>
     </context>
 <context>
-    <name>RavenGUI</name>
+    <name>MeowGUI</name>
     <message>
         <source>Error</source>
         <translation>نقص</translation>
@@ -283,7 +283,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>raven-core</name>
+    <name>meow-core</name>
     <message>
         <source>Insufficient funds</source>
         <translation>ناکافی فنڈز</translation>

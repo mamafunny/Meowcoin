@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: ravend.service
-Upstart: ravend.conf
-OpenRC:  ravend.openrc
-         ravend.openrcconf
-CentOS:  ravend.init
-OS X:    org.raven.ravend.plist
+SystemD: meowd.service
+Upstart: meowd.conf
+OpenRC:  meowd.openrc
+         meowd.openrcconf
+CentOS:  meowd.init
+OS X:    org.meow.meowd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

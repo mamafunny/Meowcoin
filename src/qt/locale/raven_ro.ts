@@ -62,12 +62,12 @@
         <translation>Primește Adrese</translation>
     </message>
     <message>
-        <source>These are your Raven addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Acestea sunt adresele Raven pentru efectuarea plăților . Intotdeauna verifică cantitatea si adresa de primire inainte de a efectua tranzactia</translation>
+        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Acestea sunt adresele Meow pentru efectuarea plăților . Intotdeauna verifică cantitatea si adresa de primire inainte de a efectua tranzactia</translation>
     </message>
     <message>
-        <source>These are your Raven addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Acestea sunt adresele Raven pentru a primi plățile.Este recomandat să folosești o noua adresă pentru fiecare tranzacție</translation>
+        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Acestea sunt adresele Meow pentru a primi plățile.Este recomandat să folosești o noua adresă pentru fiecare tranzacție</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -593,7 +593,7 @@
     </message>
 </context>
 <context>
-    <name>RavenGUI</name>
+    <name>MeowGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Semnează &amp;mesajul...</translation>
@@ -659,8 +659,8 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Raven address</source>
-        <translation>Trimite monedele către o adresă Raven</translation>
+        <source>Send coins to a Meow address</source>
+        <translation>Trimite monedele către o adresă Meow</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -679,8 +679,8 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <source>Raven</source>
-        <translation>Raven</translation>
+        <source>Meow</source>
+        <translation>Meow</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -707,12 +707,12 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
-        <source>Sign messages with your Raven addresses to prove you own them</source>
-        <translation>Semnează mesajele cu adresa ta de Raven pentru a face dovada că îți aparțin.</translation>
+        <source>Sign messages with your Meow addresses to prove you own them</source>
+        <translation>Semnează mesajele cu adresa ta de Meow pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Raven addresses</source>
-        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Raven specificată.</translation>
+        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
+        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Meow specificată.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -723,12 +723,12 @@
         <translation>&amp;Ajutor</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and raven: URIs)</source>
-        <translation>Cerere plată (generează coduri QR și raven: URIs)</translation>
+        <source>Request payments (generates QR codes and meow: URIs)</source>
+        <translation>Cerere plată (generează coduri QR și meow: URIs)</translation>
     </message>
     <message>
-        <source>Open a raven: URI or payment request</source>
-        <translation>Deschide un raven: URI sau cerere de plată</translation>
+        <source>Open a meow: URI or payment request</source>
+        <translation>Deschide un meow: URI sau cerere de plată</translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -899,10 +899,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>raven-core</name>
+    <name>meow-core</name>
     <message>
-        <source>Raven Core</source>
-        <translation>Raven Core</translation>
+        <source>Meow Core</source>
+        <translation>Meow Core</translation>
     </message>
     <message>
         <source>Information</source>

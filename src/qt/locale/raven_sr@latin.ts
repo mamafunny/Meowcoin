@@ -249,7 +249,7 @@
     <name>RPCConsole</name>
     </context>
 <context>
-    <name>RavenGUI</name>
+    <name>MeowGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Usklađivanje sa mrežom...</translation>
@@ -283,16 +283,16 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Raven address</source>
-        <translation>Pošalji novčiće na Raven adresu</translation>
+        <source>Send coins to a Meow address</source>
+        <translation>Pošalji novčiće na Meow adresu</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Proveri poruku...</translation>
     </message>
     <message>
-        <source>Raven</source>
-        <translation>Raven</translation>
+        <source>Meow</source>
+        <translation>Meow</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -445,10 +445,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>raven-core</name>
+    <name>meow-core</name>
     <message>
-        <source>Raven Core</source>
-        <translation>Raven Core</translation>
+        <source>Meow Core</source>
+        <translation>Meow Core</translation>
     </message>
     <message>
         <source>Information</source>

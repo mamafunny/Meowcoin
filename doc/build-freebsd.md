@@ -43,7 +43,7 @@ Make the directory for sources and go into it.
 
 __Download Meowcoin source.__
 
-`git clone https://github.com/RavenProject/Meowcoin`
+`git clone https://github.com/MeowProject/Meowcoin`
 
 `cd Meowcoin`
 
@@ -68,11 +68,11 @@ _Adjust to own needs. `--prefix=/usr/local` will install the binaries to `/usr/l
 
 `gmake -j8`  # 8 for 8 build threads, adjust to fit your setup.
 
-You can now start raven-qt from the build directory.
+You can now start meow-qt from the build directory.
 
-`src/qt/raven-qt`
+`src/qt/meow-qt`
 
-ravend and raven-cli are in `src/`
+meowd and meow-cli are in `src/`
 
 
 __Optional:__
