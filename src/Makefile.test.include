@@ -5,8 +5,8 @@
 
 TESTS += test/test_meow
 bin_PROGRAMS += test/test_meow
-noinst_PROGRAMS += test/test_meow_fuzzy
-noinst_PROGRAMS += test/test_meow_hash
+noinst_PROGRAMS += test/test_meowcoin_fuzzy
+noinst_PROGRAMS += test/test_meowcoin_hash
 TEST_SRCDIR = test
 TEST_BINARY=test/test_meow$(EXEEXT)
 
@@ -91,7 +91,7 @@ MEOWCOIN_TESTS =\
   test/streams_tests.cpp \
   test/test_meow.cpp \
   test/test_meow.h \
-  test/test_meow_main.cpp \
+  test/test_meowcoin_main.cpp \
   test/timedata_tests.cpp \
   test/torcontrol_tests.cpp \
   test/transaction_tests.cpp \
@@ -110,31 +110,31 @@ MEOWCOIN_TESTS += \
   wallet/test/crypto_tests.cpp
 endif
 
-test_test_meow_SOURCES = $(MEOWCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_meow_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
-test_test_meow_LDADD =
+test_test_meowcoin_SOURCES = $(MEOWCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_meowcoin_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
+test_test_meowcoin_LDADD =
 if ENABLE_WALLET
-test_test_meow_LDADD += $(LIBMEOWCOIN_WALLET)
+test_test_meowcoin_LDADD += $(LIBMEOWCOIN_WALLET)
 endif
-test_test_meow_LDADD += $(LIBMEOWCOIN_SERVER) $(LIBMEOWCOIN_CLI) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) \
+test_test_meowcoin_LDADD += $(LIBMEOWCOIN_SERVER) $(LIBMEOWCOIN_CLI) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) \
   $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS) $(EVENT_PTHREADS_LIBS)
-test_test_meow_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_meowcoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
-test_test_meow_LDADD += $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-test_test_meow_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+test_test_meowcoin_LDADD += $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+test_test_meowcoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 if ENABLE_ZMQ
-test_test_meow_LDADD += $(ZMQ_LIBS)
+test_test_meowcoin_LDADD += $(ZMQ_LIBS)
 endif
 #
 
-# test_meow_fuzzy binary #
-test_test_meow_fuzzy_SOURCES = test/test_meow_fuzzy.cpp
-test_test_meow_fuzzy_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
-test_test_meow_fuzzy_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-test_test_meow_fuzzy_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# test_meowcoin_fuzzy binary #
+test_test_meowcoin_fuzzy_SOURCES = test/test_meowcoin_fuzzy.cpp
+test_test_meowcoin_fuzzy_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
+test_test_meowcoin_fuzzy_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_meowcoin_fuzzy_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-test_test_meow_fuzzy_LDADD = \
+test_test_meowcoin_fuzzy_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBMEOWCOIN_SERVER) \
   $(LIBMEOWCOIN_COMMON) \
@@ -143,26 +143,26 @@ test_test_meow_fuzzy_LDADD = \
   $(LIBMEOWCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-test_test_meow_fuzzy_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+test_test_meowcoin_fuzzy_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# test_meow_hash binary #
-test_test_meow_hash_SOURCES = test/test_meow_hash.cpp
-test_test_meow_hash_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
-test_test_meow_hash_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-test_test_meow_hash_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_AP_LDFLAGS)
+# test_meowcoin_hash binary #
+test_test_meowcoin_hash_SOURCES = test/test_meowcoin_hash.cpp
+test_test_meowcoin_hash_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES)
+test_test_meowcoin_hash_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_meowcoin_hash_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_AP_LDFLAGS)
 
-test_test_meow_hash_LDADD = \
+test_test_meowcoin_hash_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBMEOWCOIN_COMMON) \
   $(LIBMEOWCOIN_UTIL) \
   $(LIBMEOWCOIN_CONSENSUS) \
   $(LIBMEOWCOIN_CRYPTO)
 
-test_test_meow_hash_LDADD += $(CRYPTO_LIBS)
+test_test_meowcoin_hash_LDADD += $(CRYPTO_LIBS)
 #
 
-nodist_test_test_meow_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_meowcoin_SOURCES = $(GENERATED_TEST_FILES)
 
 $(MEOWCOIN_TESTS): $(GENERATED_TEST_FILES)
 
@@ -170,13 +170,13 @@ CLEAN_MEOWCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
 CLEANFILES += $(CLEAN_MEOWCOIN_TEST)
 
-meow_test: $(TEST_BINARY)
+meowcoin_test: $(TEST_BINARY)
 
-meow_test_check: $(TEST_BINARY) FORCE
+meowcoin_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-meow_test_clean : FORCE
-	rm -f $(CLEAN_MEOWCOIN_TEST) $(test_test_meow_OBJECTS) $(TEST_BINARY)
+meowcoin_test_clean : FORCE
+	rm -f $(CLEAN_MEOWCOIN_TEST) $(test_test_meowcoin_OBJECTS) $(TEST_BINARY)
 
 check-local:
 	@echo "Running test/util/meowcoin-util-test.py..."

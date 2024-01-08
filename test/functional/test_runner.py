@@ -151,7 +151,7 @@ BASE_SCRIPTS= [
     'feature_notifications.py',
     'rpc_net.py',
     'rpc_misc.py',
-    'interface_meow_cli.py',
+    'interface_meowcoin_cli.py',
     'mempool_resurrect.py',
     'rpc_signrawtransaction.py',
     'wallet_resendtransactions.py',
@@ -253,7 +253,7 @@ def main():
     logging.basicConfig(format='%(message)s', level=logging_level)
 
     # Create base test directory
-    tmpdir = "%s/meow_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
+    tmpdir = "%s/meowcoin_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
     os.makedirs(tmpdir)
     logging.debug("Temporary test directory at %s" % tmpdir)
 

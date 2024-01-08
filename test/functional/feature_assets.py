@@ -161,10 +161,10 @@ class AssetTest(MeowTestFramework):
         assert_equal(assetdata["has_ipfs"], 1)
         assert_equal(assetdata["ipfs_hash"], ipfs_hash)
 
-        meow_assets = n0.listassets(asset="MEOWCOIN*", verbose=False, count=2, start=-2)
-        assert_equal(len(meow_assets), 2)
-        assert_equal(meow_assets[0], "MEOWCOIN2")
-        assert_equal(meow_assets[1], "MEOWCOIN3")
+        meowcoin_assets = n0.listassets(asset="MEOWCOIN*", verbose=False, count=2, start=-2)
+        assert_equal(len(meowcoin_assets), 2)
+        assert_equal(meowcoin_assets[0], "MEOWCOIN2")
+        assert_equal(meowcoin_assets[1], "MEOWCOIN3")
         self.sync_all()
 
     def issue_param_checks(self):

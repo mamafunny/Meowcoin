@@ -596,7 +596,7 @@ Low-level RPC changes
 - #10152 `080d7c7` [trivial] remove unused line in Travis config (jnewbery)
 - #10159 `df1ca9e` [tests] color test results and sort alphabetically (jnewbery)
 - #10124 `88799ea` [test] Suppress test logging spam (jnewbery)
-- #10142 `ed09dd3` Run meow_test-qt under minimal QPA platform (ryanofsky)
+- #10142 `ed09dd3` Run meowcoin_test-qt under minimal QPA platform (ryanofsky)
 - #9949 `a27dbc5` [bench] Avoid function call arguments which are pointers to uninitialized values (practicalswift)
 - #10187 `b44adf9` tests: Fix test_runner return value in case of skipped test (laanwj)
 - #10197 `d86bb07` [tests] Functional test warnings (jnewbery)

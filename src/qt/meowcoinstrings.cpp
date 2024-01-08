@@ -8,7 +8,7 @@
 #else
 #define UNUSED
 #endif
-static const char UNUSED *meow_strings[] = {
+static const char UNUSED *meowcoin_strings[] = {
 QT_TRANSLATE_NOOP("meowcoin-core", "Meowcoin Core"),
 QT_TRANSLATE_NOOP("meowcoin-core", "The %s developers"),
 QT_TRANSLATE_NOOP("meowcoin-core", ""

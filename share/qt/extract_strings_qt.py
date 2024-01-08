@@ -77,7 +77,7 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *meow_strings[] = {\n')
+f.write('static const char UNUSED *meowcoin_strings[] = {\n')
 f.write('QT_TRANSLATE_NOOP("meowcoin-core", "%s"),\n' % (os.getenv('PACKAGE_NAME'),))
 f.write('QT_TRANSLATE_NOOP("meowcoin-core", "%s"),\n' % (os.getenv('COPYRIGHT_HOLDERS'),))
 if os.getenv('COPYRIGHT_HOLDERS_SUBSTITUTION') != os.getenv('PACKAGE_NAME'):

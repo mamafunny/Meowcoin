@@ -1,6 +1,6 @@
 RASBERRY PI BUILD NOTES
 ====================
-Origin: traysi.org/meow_rpi.php
+Origin: traysi.org/meowcoin_rpi.php
 
 # Install necessary packages:
 ```

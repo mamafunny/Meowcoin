@@ -302,20 +302,20 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 AC_ARG_WITH([cli],
   [AS_HELP_STRING([--with-cli],
   [build meowcoin-cli (default=yes)])],
-  [build_meow_cli=$withval],
-  [build_meow_cli=yes])
+  [build_meowcoin_cli=$withval],
+  [build_meowcoin_cli=yes])
 
 AC_ARG_WITH([tx],
   [AS_HELP_STRING([--with-tx],
   [build meowcoin-tx (default=no)])],
-  [build_meow_tx=$withval],
-  [build_meow_tx=no])
+  [build_meowcoin_tx=$withval],
+  [build_meowcoin_tx=no])
 
 AC_ARG_WITH([libs],
   [AS_HELP_STRING([--with-libs],
   [build libraries (default=yes)])],
-  [build_meow_libs=$withval],
-  [build_meow_libs=yes])
+  [build_meowcoin_libs=$withval],
+  [build_meowcoin_libs=yes])
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
@@ -757,10 +757,10 @@ fi
 
 MEOWCOIN_QT_INIT
 
-dnl sets $meow_enable_qt, $meow_enable_qt_test, $meow_enable_qt_dbus
+dnl sets $meowcoin_enable_qt, $meowcoin_enable_qt_test, $meowcoin_enable_qt_dbus
 MEOWCOIN_QT_CONFIGURE([$use_pkgconfig], [qt5])
 
-if test x$build_meow_cli$build_meow_tx$build_meowcoind$meow_enable_qt$use_tests$use_bench = xnononononono; then
+if test x$build_meowcoin_cli$build_meowcoin_tx$build_meowcoind$meowcoin_enable_qt$use_tests$use_bench = xnononononono; then
     use_boost=no
 else
     use_boost=yes
@@ -946,7 +946,7 @@ if test x$use_pkgconfig = xyes; then
       if test x$use_qr != xno; then
         MEOWCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
       fi
-      if test x$build_meow_cli$build_meow_tx$build_meowcoind$meow_enable_qt$use_tests != xnonononono; then
+      if test x$build_meowcoin_cli$build_meowcoin_tx$build_meowcoind$meowcoin_enable_qt$use_tests != xnonononono; then
         PKG_CHECK_MODULES([EVENT], [libevent],, [AC_MSG_ERROR(libevent not found.)])
         if test x$TARGET_OS != xwindows; then
           PKG_CHECK_MODULES([EVENT_PTHREADS], [libevent_pthreads],, [AC_MSG_ERROR(libevent_pthreads not found.)])
@@ -971,7 +971,7 @@ else
   AC_CHECK_HEADER([openssl/ssl.h],, AC_MSG_ERROR(libssl headers missing),)
   AC_CHECK_LIB([ssl],         [main],SSL_LIBS=-lssl, AC_MSG_ERROR(libssl missing))
 
-  if test x$build_meow_cli$build_meow_tx$build_meowcoind$meow_enable_qt$use_tests != xnonononono; then
+  if test x$build_meowcoin_cli$build_meowcoin_tx$build_meowcoind$meowcoin_enable_qt$use_tests != xnonononono; then
     AC_CHECK_HEADER([event2/event.h],, AC_MSG_ERROR(libevent headers missing),)
     AC_CHECK_LIB([event],[main],EVENT_LIBS=-levent,AC_MSG_ERROR(libevent missing))
     if test x$TARGET_OS != xwindows; then
@@ -1020,7 +1020,7 @@ dnl univalue check
 
 need_bundled_univalue=yes
 
-if test x$build_meow_cli$build_meow_tx$build_meowcoind$meow_enable_qt$use_tests$use_bench = xnonononono; then
+if test x$build_meowcoin_cli$build_meowcoin_tx$build_meowcoind$meowcoin_enable_qt$use_tests$use_bench = xnonononono; then
   need_bundled_univalue=no
 else
 
@@ -1071,20 +1071,20 @@ AM_CONDITIONAL([BUILD_MEOWCOIND], [test x$build_meowcoind = xyes])
 AC_MSG_RESULT($build_meowcoind)
 
 AC_MSG_CHECKING([whether to build meowcoin-cli])
-AM_CONDITIONAL([BUILD_MEOWCOIN_CLI], [test x$build_meow_cli = xyes])
-AC_MSG_RESULT($build_meow_cli)
+AM_CONDITIONAL([BUILD_MEOWCOIN_CLI], [test x$build_meowcoin_cli = xyes])
+AC_MSG_RESULT($build_meowcoin_cli)
 
 AC_MSG_CHECKING([whether to build meowcoin-tx])
-AM_CONDITIONAL([BUILD_MEOWCOIN_TX], [test x$build_meow_tx = xyes])
-AC_MSG_RESULT($build_meow_tx)
+AM_CONDITIONAL([BUILD_MEOWCOIN_TX], [test x$build_meowcoin_tx = xyes])
+AC_MSG_RESULT($build_meowcoin_tx)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_MEOWCOIN_LIBS], [test x$build_meow_libs = xyes])
-if test x$build_meow_libs = xyes; then
+AM_CONDITIONAL([BUILD_MEOWCOIN_LIBS], [test x$build_meowcoin_libs = xyes])
+if test x$build_meowcoin_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
   AC_CONFIG_FILES([libmeowconsensus.pc:libmeowconsensus.pc.in])
 fi
-AC_MSG_RESULT($build_meow_libs)
+AC_MSG_RESULT($build_meowcoin_libs)
 
 AC_LANG_POP
 
@@ -1146,13 +1146,13 @@ fi
 
 dnl these are only used when qt is enabled
 BUILD_TEST_QT=""
-if test x$meow_enable_qt != xno; then
+if test x$meowcoin_enable_qt != xno; then
   dnl enable dbus support
   AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
-  if test x$meow_enable_qt_dbus != xno; then
+  if test x$meowcoin_enable_qt_dbus != xno; then
     AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
   fi
-  AC_MSG_RESULT($meow_enable_qt_dbus)
+  AC_MSG_RESULT($meowcoin_enable_qt_dbus)
 
   dnl enable qr support
   AC_MSG_CHECKING([whether to build GUI with support for QR codes])
@@ -1176,7 +1176,7 @@ if test x$meow_enable_qt != xno; then
   fi
 
   AC_MSG_CHECKING([whether to build test_meow-qt])
-  if test x$use_gui_tests$meow_enable_qt_test = xyesyes; then
+  if test x$use_gui_tests$meowcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
   else
@@ -1202,7 +1202,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test x$build_meow_cli$build_meow_tx$build_meow_libs$build_meowcoind$meow_enable_qt$use_bench$use_tests = xnonononononono; then
+if test x$build_meowcoin_cli$build_meowcoin_tx$build_meowcoin_libs$build_meowcoind$meowcoin_enable_qt$use_bench$use_tests = xnonononononono; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --with-cli --with-tx --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
 fi
 
@@ -1211,7 +1211,7 @@ AM_CONDITIONAL([BUILD_DARWIN], [test x$BUILD_OS = xdarwin])
 AM_CONDITIONAL([TARGET_WINDOWS], [test x$TARGET_OS = xwindows])
 AM_CONDITIONAL([ENABLE_WALLET],[test x$enable_wallet = xyes])
 AM_CONDITIONAL([ENABLE_TESTS],[test x$BUILD_TEST = xyes])
-AM_CONDITIONAL([ENABLE_QT],[test x$meow_enable_qt = xyes])
+AM_CONDITIONAL([ENABLE_QT],[test x$meowcoin_enable_qt = xyes])
 AM_CONDITIONAL([ENABLE_QT_TESTS],[test x$BUILD_TEST_QT = xyes])
 AM_CONDITIONAL([ENABLE_BENCH],[test x$use_bench = xyes])
 AM_CONDITIONAL([USE_QRCODE], [test x$use_qr = xyes])
@@ -1330,12 +1330,12 @@ esac
 
 echo
 echo "Options used to compile and link:"
-echo "  build meowcoin-cli = $build_meow_cli"
-echo "  build meowcoin-tx  = $build_meow_tx"
+echo "  build meowcoin-cli = $build_meowcoin_cli"
+echo "  build meowcoin-tx  = $build_meowcoin_tx"
 echo "  with wallet     = $enable_wallet"
-echo "  with gui / qt   = $meow_enable_qt"
-if test x$meow_enable_qt != xno; then
-    echo "    qt version    = $meow_qt_got_major_vers"
+echo "  with gui / qt   = $meowcoin_enable_qt"
+if test x$meowcoin_enable_qt != xno; then
+    echo "    qt version    = $meowcoin_qt_got_major_vers"
     echo "    with qr       = $use_qr"
 fi
 echo "  with zmq        = $use_zmq"
