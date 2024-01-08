@@ -31,33 +31,33 @@ RUN apt-get update && \
 	apt-get clean
 
 #Copy source dir
-COPY . /home/meow/build/Meowcoin/
-WORKDIR /home/meow/build/Meowcoin
+COPY . /home/meowcoin/build/Meowcoin/
+WORKDIR /home/meowcoin/build/Meowcoin
 
 #build db4 from source
-WORKDIR /home/meow/build/Meowcoin/contrib
+WORKDIR /home/meowcoin/build/Meowcoin/contrib
 RUN ./install_db4.sh ../../
 
 # build Meowcore
-WORKDIR /home/meow/build/Meowcoin
-RUN ./autogen.sh && ./configure --disable-tests BDB_LIBS="-L/home/meow/build/db4/lib -ldb_cxx-4.8" BDB_CFLAGS="-I/home/meow/build/db4/include" --with-gui=no  && make -j4
+WORKDIR /home/meowcoin/build/Meowcoin
+RUN ./autogen.sh && ./configure --disable-tests BDB_LIBS="-L/home/meowcoin/build/db4/lib -ldb_cxx-4.8" BDB_CFLAGS="-I/home/meowcoin/build/db4/include" --with-gui=no  && make -j4
 
 FROM base AS final
 
 #Add our service account user
-RUN useradd -ms /bin/bash meow && \
-	mkdir /var/lib/meow && \
-	chown meow:meow /var/lib/meow && \
-	ln -s /var/lib/meow /home/meow/.meow && \
-	chown -h meow:meow /home/meow/.meow
+RUN useradd -ms /bin/bash meowcoin && \
+	mkdir /var/lib/meowcoin && \
+	chown meowcoin:meowcoin /var/lib/meowcoin && \
+	ln -s /var/lib/meowcoin /home/meowcoin/.meowcoin && \
+	chown -h meowcoin:meowcoin /home/meowcoin/.meowcoin
 
-VOLUME /var/lib/meow
+VOLUME /var/lib/meowcoin
 
 #Copy the compiled binaries from the build
-COPY --from=build /home/meow/build/Meowcoin/src/meowd /usr/local/bin/meowd
-COPY --from=build /home/meow/build/Meowcoin/src/meow-cli /usr/local/bin/meow-cli
+COPY --from=build /home/meowcoin/build/Meowcoin/src/meowcoind /usr/local/bin/meowcoind
+COPY --from=build /home/meowcoin/build/Meowcoin/src/meowcoin-cli /usr/local/bin/meowcoin-cli
 
-WORKDIR /home/meow
-USER meow
+WORKDIR /home/meowcoin
+USER meowcoin
 
-CMD /usr/local/bin/meowd -datadir=/var/lib/meow -printtoconsole -onlynet=ipv4
+CMD /usr/local/bin/meowcoind -datadir=/var/lib/meowcoin -printtoconsole -onlynet=ipv4

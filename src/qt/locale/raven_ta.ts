@@ -459,8 +459,8 @@
         <translation>&amp;செய்தியை சரிசெய்...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -715,10 +715,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow மையம்</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin மையம்</translation>
     </message>
     <message>
         <source>(default: %u)</source>

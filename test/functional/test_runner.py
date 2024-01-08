@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2021 The Meow Core developers
+# Copyright (c) 2017-2021 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -264,12 +264,12 @@ def main():
         print("Tests currently disabled on Windows by default. Use --force option to enable")
         sys.exit(0)
 
-    # Check that the build was configured with wallet, utils, and meowd
+    # Check that the build was configured with wallet, utils, and meowcoind
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_cli = config["components"].getboolean("ENABLE_UTILS")
-    enable_meowd = config["components"].getboolean("ENABLE_RAVEND")
-    if not (enable_wallet and enable_cli and enable_meowd):
-        print("No functional tests to run. Wallet, utils, and meowd must all be enabled")
+    enable_meowcoind = config["components"].getboolean("ENABLE_RAVEND")
+    if not (enable_wallet and enable_cli and enable_meowcoind):
+        print("No functional tests to run. Wallet, utils, and meowcoind must all be enabled")
         print("Rerun `configure` with --enable-wallet, --with-cli and --with-daemon and rerun make")
         sys.exit(0)
 
@@ -361,12 +361,12 @@ def main():
 
 
 def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, jobs=1, enable_coverage=False, args=None, combined_logs_len=0, failfast=False, last_loop=False):
-    # Warn if meowd is already running (unix only)
+    # Warn if meowcoind is already running (unix only)
     if args is None:
         args = []
     try:
-        if subprocess.check_output(["pidof", "meowd"]) is not None:
-            print("%sWARNING!%s There is already a meowd process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
+        if subprocess.check_output(["pidof", "meowcoind"]) is not None:
+            print("%sWARNING!%s There is already a meowcoind process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except (OSError, subprocess.SubprocessError):
         pass
 
@@ -377,8 +377,8 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, use_term_control, j
 
     #Set env vars
     if "RAVEND" not in os.environ:
-        os.environ["RAVEND"] = build_dir + '/src/meowd' + exeext
-        os.environ["RAVENCLI"] = build_dir + '/src/meow-cli' + exeext
+        os.environ["RAVEND"] = build_dir + '/src/meowcoind' + exeext
+        os.environ["RAVENCLI"] = build_dir + '/src/meowcoin-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 
@@ -667,7 +667,7 @@ class RPCCoverage:
     Coverage calculation works by having each test script subprocess write
     coverage files into a particular directory. These files contain the RPC
     commands invoked during testing, as well as a complete listing of RPC
-    commands per `meow-cli help` (`rpc_interface.txt`).
+    commands per `meowcoin-cli help` (`rpc_interface.txt`).
 
     After all tests complete, the commands run are combined and diff'd against
     the complete list to calculate uncovered RPC commands.

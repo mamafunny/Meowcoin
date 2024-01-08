@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -525,7 +525,7 @@ void ReissueAssetDialog::CheckFormState()
     const CTxDestination dest = DecodeDestination(ui->addressText->text().toStdString());
     if (!ui->addressText->text().isEmpty()) {
         if (!IsValidDestination(dest)) {
-            showMessage(tr("Invalid Meow Destination Address"));
+            showMessage(tr("Invalid Meowcoin Destination Address"));
             return;
         }
     }
@@ -560,7 +560,7 @@ void ReissueAssetDialog::CheckFormState()
 
             if (fHasQuantity && !IsValidDestination(dest)) {
                 ui->addressText->setStyleSheet(STYLE_INVALID);
-                showMessage(tr("Warning: Invalid Meow address"));
+                showMessage(tr("Warning: Invalid Meowcoin address"));
                 return;
             }
 
@@ -1241,7 +1241,7 @@ void ReissueAssetDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!IsValidDestination(dest)) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Meow address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Meowcoin address"));
         }
         else // Valid address
         {

@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Meow Core developers
+# Copyright (c) 2017-2019 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -66,19 +66,19 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_RAVEND
-  bin_PROGRAMS += meowd
+  bin_PROGRAMS += meowcoind
 endif
 
 if BUILD_RAVEN_CLI
-  bin_PROGRAMS += meow-cli
+  bin_PROGRAMS += meowcoin-cli
 endif
 
 if BUILD_RAVEN_TX
-  bin_PROGRAMS += meow-tx
+  bin_PROGRAMS += meowcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# meow core #
+# meowcoin core #
 RAVEN_CORE_H = \
   addrdb.h \
   addressindex.h \
@@ -242,7 +242,7 @@ obj/build.h: FORCE
 	  "$(abs_top_srcdir)"
 libmeow_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between meowd and meow-qt
+# server: shared between meowcoind and meowcoin-qt
 libmeow_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libmeow_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_server_a_SOURCES = \
@@ -309,7 +309,7 @@ libmeow_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between meowd and meow-qt, but only linked
+# wallet: shared between meowcoind and meowcoin-qt, but only linked
 # when wallet enabled
 libmeow_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
 libmeow_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -415,7 +415,7 @@ libmeow_consensus_a_SOURCES = \
   LibBoolEE.h \
   $(RAVEN_CORE_H)
 
-# common: shared between meowd, and meow-qt and non-server tools
+# common: shared between meowcoind, and meowcoin-qt and non-server tools
 libmeow_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
 libmeow_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_common_a_SOURCES = \
@@ -465,7 +465,7 @@ libmeow_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between meow-cli and meow-qt
+# cli: shared between meowcoin-cli and meowcoin-qt
 libmeow_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
 libmeow_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libmeow_cli_a_SOURCES = \
@@ -475,17 +475,17 @@ libmeow_cli_a_SOURCES = \
 nodist_libmeow_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# meowd binary #
-meowd_SOURCES = meowd.cpp
-meowd_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
-meowd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-meowd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# meowcoind binary #
+meowcoind_SOURCES = meowcoind.cpp
+meowcoind_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
+meowcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+meowcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-meowd_SOURCES += meowd-res.rc
+meowcoind_SOURCES += meowcoind-res.rc
 endif
 
-meowd_LDADD = \
+meowcoind_LDADD = \
   $(LIBRAVEN_SERVER) \
   $(LIBRAVEN_COMMON) \
   $(LIBUNIVALUE) \
@@ -499,16 +499,16 @@ meowd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-meowd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+meowcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# meow-cli binary #
-meow_cli_SOURCES = meow-cli.cpp
+# meowcoin-cli binary #
+meow_cli_SOURCES = meowcoin-cli.cpp
 meow_cli_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES) $(EVENT_CFLAGS)
 meow_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 meow_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-meow_cli_SOURCES += meow-cli-res.rc
+meow_cli_SOURCES += meowcoin-cli-res.rc
 endif
 
 meow_cli_LDADD = \
@@ -520,14 +520,14 @@ meow_cli_LDADD = \
 meow_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# meow-tx binary #
-meow_tx_SOURCES = meow-tx.cpp
+# meowcoin-tx binary #
+meow_tx_SOURCES = meowcoin-tx.cpp
 meow_tx_CPPFLAGS = $(AM_CPPFLAGS) $(RAVEN_INCLUDES)
 meow_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 meow_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-meow_tx_SOURCES += meow-tx-res.rc
+meow_tx_SOURCES += meowcoin-tx-res.rc
 endif
 
 meow_tx_LDADD = \
@@ -583,12 +583,12 @@ CLEANFILES += obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/meow-config.h: config/stamp-h1
+config/meowcoin-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/meow-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/meowcoin-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/meow-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/meow-config.h.in
+$(top_srcdir)/$(subdir)/config/meowcoin-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/meowcoin-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

@@ -5,18 +5,18 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with `make check`.
 
-To run the meowd tests manually, launch `src/test/test_meow`. To recompile
+To run the meowcoind tests manually, launch `src/test/test_meow`. To recompile
 after a test file was modified, run `make` and then run the test again. If you
 modify a non-test file, use `make -C src/test` to recompile only what's needed
-to run the meowd tests.
+to run the meowcoind tests.
 
-To add more meowd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more meowcoind tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the `test/` directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the meow-qt tests manually, launch `src/qt/test/test_meow-qt`
+To run the meowcoin-qt tests manually, launch `src/qt/test/test_meow-qt`
 
-To add more meow-qt tests, add them to the `src/qt/test/` directory and
+To add more meowcoin-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.
 
 To display progress information the unit tests should be run as follows:
@@ -32,7 +32,7 @@ Additional optional parameters are available. To display all optional parameters
 To display what individual tests are running (as they are running) use the
 `--log_level=message` parameter.  
 
-By default the log messages from the Meow Core application are not echoed 
+By default the log messages from the Meowcoin Core application are not echoed 
 when running the unit tests.  If it is desired to print this log data change 
 the following from 'false' to 'true' in the `test_meow.cpp` file and uncomment
 three lines in the `script\interpreter.cpp\ VerifyScript` method and recompile:
@@ -64,7 +64,7 @@ To run just the 'getarg_tests' (verbosely):
 ### Note on adding test cases
 
 The sources in this directory are unit test cases.  Boost includes a
-unit testing framework, and since meow already uses boost, it makes
+unit testing framework, and since meowcoin already uses boost, it makes
 sense to simply use this framework rather than require developers to
 configure some other framework (we want as few impediments to creating
 unit tests as possible).

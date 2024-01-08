@@ -152,7 +152,7 @@
         <translation>仅支付全额的%1</translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
+        <source>Warning: Invalid Meowcoin address</source>
         <translation>警告：比特币地址无效</translation>
     </message>
     </context>
@@ -211,7 +211,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Transaction too large for fee policy</source>
         <translation>根据费率标准，本次转账超额</translation>

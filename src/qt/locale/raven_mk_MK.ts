@@ -379,7 +379,7 @@
         <translation>Повторно индексирање на блокови од дискот...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
+        <source>Send coins to a Meowcoin address</source>
         <translation>Испрати биткоини на Биткоин адреса</translation>
     </message>
     <message>
@@ -387,7 +387,7 @@
         <translation>&amp;Потврди порака...</translation>
     </message>
     <message>
-        <source>Meow</source>
+        <source>Meowcoin</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -593,13 +593,13 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Опции:</translation>
     </message>
     <message>
-        <source>Meow Core</source>
+        <source>Meowcoin Core</source>
         <translation>Биткоин Core</translation>
     </message>
     <message>

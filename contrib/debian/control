@@ -1,4 +1,4 @@
-Source: meow
+Source: meowcoin
 Section: utils
 Priority: optional
 Maintainer: Matt Corallo <matt@mattcorallo.com>
@@ -30,41 +30,41 @@ Homepage: https://meowcoin.org/
 Vcs-Git: git://github.com/MeowProject/Meowcoin.git
 Vcs-Browser: https://github.com/MeowProject/Meowcoin
 
-Package: meowd
+Package: meowcoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Meow is a free open source peer-to-peer electronic cash system that
+ Meowcoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides the daemon, meowd, and the CLI tool
- meow-cli to interact with the daemon.
+ This package provides the daemon, meowcoind, and the CLI tool
+ meowcoin-cli to interact with the daemon.
 
-Package: meow-qt
+Package: meowcoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Meow is a free open source peer-to-peer electronic cash system that
+ Meowcoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides Meow-Qt, a GUI for Meow based on Qt.
+ This package provides Meowcoin-Qt, a GUI for Meowcoin based on Qt.
 
-Package: meow-tx
+Package: meowcoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Meow is a free open source peer-to-peer electronic cash system that
+ Meowcoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides meow-tx, a command-line transaction creation
- tool which can be used without a meow daemon.  Some means of
+ This package provides meowcoin-tx, a command-line transaction creation
+ tool which can be used without a meowcoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

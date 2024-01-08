@@ -52,7 +52,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../meow.qrc">:/icons/meow</pixmap>
+        <pixmap resource="../meowcoin.qrc">:/icons/meowcoin</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -150,7 +150,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../meow.qrc"/>
+  <include location="../meowcoin.qrc"/>
  </resources>
  <connections>
   <connection>

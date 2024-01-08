@@ -299,8 +299,8 @@
         <translation>Ví</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
-        <translation>Kết nối đến máy chủ Meow thông qua SOCKS5 proxy.</translation>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
+        <translation>Kết nối đến máy chủ Meowcoin thông qua SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -547,8 +547,8 @@
         <translation>Đánh chỉ số (indexing) lại các khối (blocks) trên ổ đĩa ...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Gửi coins đến tài khoản Meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Gửi coins đến tài khoản Meowcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -563,8 +563,8 @@
         <translation>&amp;Tin nhắn xác thực</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -591,12 +591,12 @@
         <translation>Mã hoá các khoá bí mật trong Ví của bạn.</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Dùng địa chỉ Meow của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Dùng địa chỉ Meowcoin của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ Meow xác định.</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ Meowcoin xác định.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -607,8 +607,8 @@
         <translation>Trợ &amp;giúp</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Meow: URLs)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Meowcoin: URLs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -619,8 +619,8 @@
         <translation>Hiện thỉ danh sách các địa chỉ và nhãn đã dùng để nhận.</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Mở meow:URL hoặc yêu cầu thanh toán</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Mở meowcoin:URL hoặc yêu cầu thanh toán</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1001,14 +1001,14 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Lựa chọn:</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>(default: %u)</source>

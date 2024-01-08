@@ -411,8 +411,8 @@
         <translation>დაუდასტურებელი ხურდის გამოყენების აკრძალვის შემდეგ მათი გამოყენება შეუძლებელი იქნება, სანამ ტრანსაქციას არ ექნება ერთი დასტური მაინც. ეს აისახება თქვენი ნაშთის დათვლაზეც.</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>როუტერში Meow-კლიენტის პორტის ავტომატური გახსნა. მუშაობს, თუ თქვენს როუტერს ჩართული აქვს UPnP.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>როუტერში Meowcoin-კლიენტის პორტის ავტომატური გახსნა. მუშაობს, თუ თქვენს როუტერს ჩართული აქვს UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -518,8 +518,8 @@
         <translation>ფორმა</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>ნაჩვენები ინფორმაცია შეიძლება მოძველებული იყოს. თქვენი საფულე ავტომატურად სინქრონიზდება Meow-ის ქსელთან კავშირის დამყარების შემდეგ, ეს პროცესი ჯერ არ არის დასრულებული.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>ნაჩვენები ინფორმაცია შეიძლება მოძველებული იყოს. თქვენი საფულე ავტომატურად სინქრონიზდება Meowcoin-ის ქსელთან კავშირის დამყარების შემდეგ, ეს პროცესი ჯერ არ არის დასრულებული.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -763,8 +763,8 @@
         <translation>დისკზე ბლოკების რეინდექსაცია...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>მონეტების გაგზავნა Meow-მისამართზე</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>მონეტების გაგზავნა Meowcoin-მისამართზე</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -783,8 +783,8 @@
         <translation>&amp;ვერიფიკაცია</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -811,12 +811,12 @@
         <translation>თქვენი საფულის პირადი გასაღებების დაშიფრვა</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>მესიჯებზე ხელმოწერა თქვენი Meow-მისამართებით იმის დასტურად, რომ ის თქვენია</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>მესიჯებზე ხელმოწერა თქვენი Meowcoin-მისამართებით იმის დასტურად, რომ ის თქვენია</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>შეამოწმეთ, რომ მესიჯები ხელმოწერილია მითითებული Meow-მისამართით</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>შეამოწმეთ, რომ მესიჯები ხელმოწერილია მითითებული Meowcoin-მისამართით</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -827,8 +827,8 @@
         <translation>&amp;დახმარება</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და meow: ბმულები)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და meowcoin: ბმულები)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -839,8 +839,8 @@
         <translation>გამოყენებული მიღების მისამართებისა და ნიშნულების სიის ჩვენება</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>meow: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>meowcoin: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -946,7 +946,7 @@
         <translation>ად&amp;რე გამოყენებული მიღების მისამართის გამოყენება (არ არის რეკომენდებული)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meow network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
         <translation>არააუცილებელი მესიჯი, რომელიც ერთვის გადახდის მოთხოვნას და ნაჩვენები იქნება მოთხოვნის გახსნისას. შენიშვნა: მესიჯი არ გაყვება გადახდას ბითქოინის ქსელში.</translation>
     </message>
     <message>
@@ -1167,7 +1167,7 @@
         <translation>შეიყვანეთ ამ მისამართის ნიშნული გამოყენებული მისამართების სიაში დასამატებლად</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
         <translation>მესიჯი, რომელიც თან ერთვის მონეტებს:  URI, რომელიც შეინახება ტრანსაქციასთან ერთად თქვენთვის. შენიშვნა: მესიჯი არ გაყვება გადახდას ბითქოინის ქსელში.</translation>
     </message>
     <message>
@@ -1224,7 +1224,7 @@
         <translation>მიმდინარე ხელმოწერის კოპირება კლიპბორდში</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
+        <source>Sign the message to prove you own this Meowcoin address</source>
         <translation>მოაწერეთ ხელი იმის დასადასტურებლად, რომ ეს მისამართი თქვენია</translation>
     </message>
     <message>
@@ -1244,8 +1244,8 @@
         <translation>მესიჯის &amp;ვერიფიკაცია</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>შეამოწმეთ, რომ მესიჯი ხელმოწერილია მითითებული Meow-მისამართით</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>შეამოწმეთ, რომ მესიჯი ხელმოწერილია მითითებული Meowcoin-მისამართით</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1303,7 +1303,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>ოპციები:</translation>
@@ -1329,8 +1329,8 @@
         <translation>რეზიდენტულად გაშვება და კომანდების მიღება</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

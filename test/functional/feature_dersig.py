@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Meow Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -129,9 +129,9 @@ class BIP66Test(MeowTestFramework):
         wait_until(lambda: "reject" in node0.last_message.keys(), lock=mininode_lock, err_msg="last_message")
         with mininode_lock:
             # We can receive different reject messages depending on whether
-            # meowd is running with multiple script check threads. If script
+            # meowcoind is running with multiple script check threads. If script
             # check threads are not in use, then transaction script validation
-            # happens sequentially, and meowd produces more specific reject
+            # happens sequentially, and meowcoind produces more specific reject
             # reasons.
             assert node0.last_message["reject"].code in [REJECT_INVALID, REJECT_NONSTANDARD]
             assert_equal(node0.last_message["reject"].data, block.sha256)

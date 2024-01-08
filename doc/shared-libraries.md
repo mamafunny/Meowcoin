@@ -3,7 +3,7 @@ Shared Libraries
 
 ## meowconsensus
 
-The purpose of this library is to make the verification functionality that is critical to Meow's consensus available to other applications, e.g. to language bindings.
+The purpose of this library is to make the verification functionality that is critical to Meowcoin's consensus available to other applications, e.g. to language bindings.
 
 ### API
 

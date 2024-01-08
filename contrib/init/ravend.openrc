@@ -2,26 +2,26 @@
 
 # backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/meow/.meow" ]; then
-	RAVEND_DEFAULT_DATADIR="/var/lib/meow/.meow"
+if [ -d "/var/lib/meowcoin/.meowcoin" ]; then
+	RAVEND_DEFAULT_DATADIR="/var/lib/meowcoin/.meowcoin"
 else
-	RAVEND_DEFAULT_DATADIR="/var/lib/meowd"
+	RAVEND_DEFAULT_DATADIR="/var/lib/meowcoind"
 fi
 
-RAVEND_CONFIGFILE=${RAVEND_CONFIGFILE:-/etc/meow/meow.conf}
-RAVEND_PIDDIR=${RAVEND_PIDDIR:-/var/run/meowd}
-RAVEND_PIDFILE=${RAVEND_PIDFILE:-${RAVEND_PIDDIR}/meowd.pid}
+RAVEND_CONFIGFILE=${RAVEND_CONFIGFILE:-/etc/meowcoin/meowcoin.conf}
+RAVEND_PIDDIR=${RAVEND_PIDDIR:-/var/run/meowcoind}
+RAVEND_PIDFILE=${RAVEND_PIDFILE:-${RAVEND_PIDDIR}/meowcoind.pid}
 RAVEND_DATADIR=${RAVEND_DATADIR:-${RAVEND_DEFAULT_DATADIR}}
-RAVEND_USER=${RAVEND_USER:-${RAVEN_USER:-meow}}
-RAVEND_GROUP=${RAVEND_GROUP:-meow}
-RAVEND_BIN=${RAVEND_BIN:-/usr/bin/meowd}
+RAVEND_USER=${RAVEND_USER:-${RAVEN_USER:-meowcoin}}
+RAVEND_GROUP=${RAVEND_GROUP:-meowcoin}
+RAVEND_BIN=${RAVEND_BIN:-/usr/bin/meowcoind}
 RAVEND_NICE=${RAVEND_NICE:-${NICELEVEL:-0}}
 RAVEND_OPTS="${RAVEND_OPTS:-${RAVEN_OPTS}}"
 
-name="Meow Core Daemon"
-description="Meow cryptocurrency P2P network daemon"
+name="Meowcoin Core Daemon"
+description="Meowcoin cryptocurrency P2P network daemon"
 
-command="/usr/bin/meowd"
+command="/usr/bin/meowcoind"
 command_args="-pid=\"${RAVEND_PIDFILE}\" \
 		-conf=\"${RAVEND_CONFIGFILE}\" \
 		-datadir=\"${RAVEND_DATADIR}\" \
@@ -71,7 +71,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${RAVEND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run meowd."
+		eerror "ERROR: You must set a secure rpcpassword to run meowcoind."
 		eerror "The setting must appear in ${RAVEND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -84,7 +84,7 @@ checkconfig()
 		eerror "It is recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Meow Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Meowcoin Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -50,7 +50,7 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a meow wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a meowcoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);

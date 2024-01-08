@@ -1,2 +1,2 @@
-contrib/meowd.bash-completion	meowd
-contrib/meow-cli.bash-completion	meow-cli
+contrib/meowcoind.bash-completion	meowcoind
+contrib/meowcoin-cli.bash-completion	meowcoin-cli

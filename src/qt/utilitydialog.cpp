@@ -1,10 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Meow Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/meow-config.h"
+#include "config/meowcoin-config.h"
 #endif
 
 #include "utilitydialog.h"
@@ -71,7 +71,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, bool about) :
     } else {
         setWindowTitle(tr("Command-line options"));
         QString header = tr("Usage:") + "\n" +
-            "  meow-qt [" + tr("command-line options") + "]                     " + "\n";
+            "  meowcoin-qt [" + tr("command-line options") + "]                     " + "\n";
         QTextCursor cursor(ui->helpMessage->document());
         cursor.insertText(version);
         cursor.insertBlock();

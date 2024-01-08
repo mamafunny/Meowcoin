@@ -23,7 +23,7 @@ import json
 import hashlib
 
 
-cli = "meow-cli"
+cli = "meowcoin-cli"
 mode =  "-testnet"
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'

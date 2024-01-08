@@ -215,8 +215,8 @@
         <translation>Abrir &amp;URL...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Enviando monedas a una dirección de Meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Enviando monedas a una dirección de Meowcoin</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -231,8 +231,8 @@
         <translation>&amp;Verificar Mensaje...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -331,10 +331,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Insufficient funds</source>

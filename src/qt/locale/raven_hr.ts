@@ -54,8 +54,8 @@
         <translation>&amp;Odaberi</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ovo su vaše Meow adrese za slanje novca. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ovo su vaše Meowcoin adrese za slanje novca. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -177,11 +177,11 @@
     </message>
     <message>
         <source>The label associated with this address list entry</source>
-        <translation>Oznaka meow adrese</translation>
+        <translation>Oznaka meowcoin adrese</translation>
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation>Meow adresa. Izmjene adrese su moguće samo za adrese za slanje.</translation>
+        <translation>Meowcoin adresa. Izmjene adrese su moguće samo za adrese za slanje.</translation>
     </message>
     <message>
         <source>&amp;Address</source>
@@ -339,8 +339,8 @@
         <translation>&amp;Trošenje nepotvrđenih vraćenih iznosa</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatski otvori port Meow klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatski otvori port Meowcoin klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -414,8 +414,8 @@
         <translation>Oblik</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s Meow mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s Meowcoin mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
     </message>
     <message>
         <source>Total:</source>
@@ -619,8 +619,8 @@
         <translation>Re-indeksiranje blokova na disku...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Slanje novca na meow adresu</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Slanje novca na meowcoin adresu</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -639,8 +639,8 @@
         <translation>&amp;Potvrdite poruku...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -667,12 +667,12 @@
         <translation>Šifriranje privatnih ključeva koji u novčaniku</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Poruku potpišemo s meow adresom, kako bi dokazali vlasništvo nad tom adresom</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Poruku potpišemo s meowcoin adresom, kako bi dokazali vlasništvo nad tom adresom</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Provjeravanje poruke, kao dokaz, da je potpisana navedenom meow adresom</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Provjeravanje poruke, kao dokaz, da je potpisana navedenom meowcoin adresom</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -683,8 +683,8 @@
         <translation>&amp;Pomoć</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Zatraži uplatu (stvara QR kod i meow: URI adresu)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Zatraži uplatu (stvara QR kod i meowcoin: URI adresu)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -695,8 +695,8 @@
         <translation>Prikaži popis korištenih adresa i oznaka za primanje novca</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Otvori meow: URI adresu ili zahtjev za uplatu</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Otvori meowcoin: URI adresu ili zahtjev za uplatu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1021,7 +1021,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Postavke:</translation>
@@ -1043,8 +1043,8 @@
         <translation>Izvršavaj u pozadini kao uslužnik i prihvaćaj komande</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Block creation options:</source>

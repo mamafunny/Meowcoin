@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -212,7 +212,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Meow address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Meowcoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(GetParams()))));
 #endif
     widget->setValidator(new MeowAddressEntryValidator(parent));
@@ -230,8 +230,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no meow: URI
-    if(!uri.isValid() || uri.scheme() != QString("meow"))
+    // return if URI is not valid or is no meowcoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("meowcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -291,13 +291,13 @@ bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseMeowURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert meow:// to meow:
+    // Convert meowcoin:// to meowcoin:
     //
-    //    Cannot handle this later, because meow:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because meowcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("meow://", Qt::CaseInsensitive))
+    if(uri.startsWith("meowcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "meow:");
+        uri.replace(0, 10, "meowcoin:");
     }
     QUrl uriInstance(uri);
     return parseMeowURI(uriInstance, out);
@@ -305,7 +305,7 @@ bool parseMeowURI(QString uri, SendCoinsRecipient *out)
 
 QString formatMeowURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("meow:%1").arg(info.address);
+    QString ret = QString("meowcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -512,7 +512,7 @@ bool openMeowConf()
     
     configFile.close();
     
-    /* Open meow.conf with the associated application */
+    /* Open meowcoin.conf with the associated application */
     return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
 
@@ -602,15 +602,15 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Meow.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Meowcoin.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Meow (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Meow (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Meowcoin (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Meowcoin (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Meow*.lnk
+    // check for Meowcoin*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -700,8 +700,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "meow.desktop";
-    return GetAutostartDir() / strprintf("meow-%s.lnk", chain);
+        return GetAutostartDir() / "meowcoin.desktop";
+    return GetAutostartDir() / strprintf("meowcoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -741,13 +741,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a meow.desktop file to the autostart directory:
+        // Write a meowcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Meow\n";
+            optionFile << "Name=Meowcoin\n";
         else
-            optionFile << strprintf("Name=Meow (%s)\n", chain);
+            optionFile << strprintf("Name=Meowcoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -773,7 +773,7 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
         return nullptr;
     }
     
-    // loop through the list of startup items and try to find the meow app
+    // loop through the list of startup items and try to find the meowcoin app
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
@@ -830,7 +830,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, meowAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add meow app to startup item list
+        // add meowcoin app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, meowAppUrl, nullptr, nullptr);
     }
     else if(!fAutoStart && foundItem) {

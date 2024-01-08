@@ -3,7 +3,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install -y curl g++-aarch64-linux-gnu g++-7-aarch64-linux-gnu gcc-7-aarch64-linux-gnu binutils-aarch64-linux-gnu g++-arm-linux-gnueabihf g++-7-arm-linux-gnueabihf gcc-7-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-7-multilib gcc-7-multilib binutils-gold git pkg-config autoconf libtool automake bsdmainutils ca-certificates python
 git clone https://github.com/meowproject/meowcoin
 mkdir -p release
@@ -38,11 +38,11 @@ export PATH=$PWD/depends/x86_64-linux-gnu/native/bin:$PATH
 sudo ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-linux-gnu/share/config.site ./configure --prefix=/
 make dist
-SOURCEDIST=`echo meow-*.tar.gz`
+SOURCEDIST=`echo meowcoin-*.tar.gz`
 mkdir -p temp
 cd temp
 tar xf ../$SOURCEDIST
-find meow-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+find meowcoin-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
 cd ~/meowcoin
 mv $SOURCEDIST ~/release
 sudo rm -rf temp
@@ -57,7 +57,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install -y curl g++-aarch64-linux-gnu g++-7-aarch64-linux-gnu gcc-7-aarch64-linux-gnu binutils-aarch64-linux-gnu g++-arm-linux-gnueabihf g++-7-arm-linux-gnueabihf gcc-7-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-7-multilib gcc-7-multilib binutils-gold git pkg-config autoconf libtool automake bsdmainutils ca-certificates python
 git clone https://github.com/meowproject/meowcoin
 mkdir -p release
@@ -122,7 +122,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install -y curl g++-aarch64-linux-gnu g++-7-aarch64-linux-gnu gcc-7-aarch64-linux-gnu binutils-aarch64-linux-gnu g++-arm-linux-gnueabihf g++-7-arm-linux-gnueabihf gcc-7-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-7-multilib gcc-7-multilib binutils-gold git pkg-config autoconf libtool automake bsdmainutils ca-certificates python
 git clone https://github.com/meowproject/meowcoin
 mkdir -p release
@@ -156,7 +156,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install -y curl g++-aarch64-linux-gnu g++-7-aarch64-linux-gnu gcc-7-aarch64-linux-gnu binutils-aarch64-linux-gnu g++-arm-linux-gnueabihf g++-7-arm-linux-gnueabihf gcc-7-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-7-multilib gcc-7-multilib binutils-gold git pkg-config autoconf libtool automake bsdmainutils ca-certificates python
 git clone https://github.com/meowproject/meowcoin
 mkdir -p release
@@ -190,7 +190,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install -y build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git python nsis rename zip
 sudo apt install -y g++-mingw-w64-x86-64
 sudo update-alternatives --config x86_64-w64-mingw32-g++ # Set the default mingw32 g++ compiler option to posix.
@@ -209,7 +209,7 @@ make -j4
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f meow-*setup*.exe ~/release/unsigned/
+cp -f meowcoin-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win64
 sudo make install DESTDIR=~/win64/$DISTNAME
 cd ~/win64
@@ -225,7 +225,7 @@ sudo rm -rf win64
 cp -rf meowcoin/contrib/windeploy ~/sign/win64
 cd ~/sign/win64/windeploy
 mkdir unsigned
-mv ~/meowcoin/meow-*setup-unsigned.exe unsigned/
+mv ~/meowcoin/meowcoin-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win64-unsigned.tar.gz
 cd ~/sign
 sudo rm -rf win64
@@ -233,7 +233,7 @@ cd ~/meowcoin
 sudo rm -rf release
 make clean
 export PATH=$PATH_orig
-#transfer ~/sign/meow-*-win*-unsigned.tar.gz to the signing machine
+#transfer ~/sign/meowcoin-*-win*-unsigned.tar.gz to the signing machine
 ```
 
 
@@ -243,7 +243,7 @@ From an Ubuntu 16.04 xenial machine !important (openssl 1.0.2 required)
 This process requires core to have a pvk file (kept secret)and a cert in PEM format(from comodo) as a part of the repo at contrib/windeploy
 ```
 cd ~/
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils libcurl4-openssl-dev curl libssl-dev autoconf
 wget https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 wget http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
@@ -255,14 +255,14 @@ make
 sudo make install
 cd ~/
 mkdir win64 && cd win64/
-#transfer meow-*-win*-unsigned.tar.gz to ~/win64/  
+#transfer meowcoin-*-win*-unsigned.tar.gz to ~/win64/  
 tar xf $DISTNAME-win*-unsigned.tar.gz
 rm $DISTNAME-win*-unsigned.tar.gz
 ./detached-sig-create.sh -key /path/to/codesign.pvk
 #Enter the passphrase for the key when prompted
 tar xf signature-win.tar.gz 
 osslsigncode attach-signature -in "unsigned/$DISTNAME-win64-setup-unsigned.exe" -out "$DISTNAME-win64-setup.exe" -sigin "win/$DISTNAME-win64-setup-unsigned.exe.pem"
-#transfer meow-*-win*-setup.exe back to the Ubuntu18 build machine to the folder ~/release (to shasum with the rest of the releases)
+#transfer meowcoin-*-win*-setup.exe back to the Ubuntu18 build machine to the folder ~/release (to shasum with the rest of the releases)
 ```
 
 
@@ -272,7 +272,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install -y build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git python nsis rename zip
 sudo apt install -y g++-mingw-w64-i686 mingw-w64-i686-dev
 sudo update-alternatives --config i686-w64-mingw32-g++  # Set the default mingw32 g++ compiler option to posix.
@@ -291,7 +291,7 @@ make -j4
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f meow-*setup*.exe ~/release/unsigned/
+cp -f meowcoin-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win32
 sudo make install DESTDIR=~/win32/$DISTNAME
 cd ~/win32
@@ -307,7 +307,7 @@ sudo rm -rf win32
 cp -rf meowcoin/contrib/windeploy ~/sign/win32
 cd ~/sign/win32/windeploy
 mkdir unsigned
-mv ~/meowcoin/meow-*setup-unsigned.exe unsigned/
+mv ~/meowcoin/meowcoin-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win32-unsigned.tar.gz
 cd ~/sign
 sudo rm -rf win32
@@ -315,7 +315,7 @@ cd ~/meowcoin
 sudo rm -rf release
 make clean
 export PATH=$PATH_orig
-#transfer ~/sign/meow-*-win*-unsigned.tar.gz to the signing machine
+#transfer ~/sign/meowcoin-*-win*-unsigned.tar.gz to the signing machine
 ```
 
 
@@ -325,7 +325,7 @@ From an Ubuntu 16.04 xenial machine !important (openssl 1.0.2 required)
 This process requires core to have a pvk file (kept secret)and a cert in PEM format(from comodo) as a part of the repo at contrib/windeploy
 ```
 cd ~/
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils libcurl4-openssl-dev curl libssl-dev autoconf
 wget https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 wget http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
@@ -337,14 +337,14 @@ make
 sudo make install
 cd ~/
 mkdir win32 && cd win32/
-#transfer meow-*-win*-unsigned.tar.gz to ~/win32/  
+#transfer meowcoin-*-win*-unsigned.tar.gz to ~/win32/  
 tar xf $DISTNAME-win*-unsigned.tar.gz
 rm $DISTNAME-win*-unsigned.tar.gz
 ./detached-sig-create.sh -key /path/to/codesign.pvk
 #Enter the passphrase for the key when prompted
 tar xf signature-win.tar.gz 
 osslsigncode attach-signature -in "unsigned/$DISTNAME-win32-setup-unsigned.exe" -out "$DISTNAME-win32-setup.exe" -sigin "win/$DISTNAME-win32-setup-unsigned.exe.pem"
-# Transfer meow-*-win*-setup.exe back to the Ubuntu18 build machine to the folder ~/release (to shasum with the rest of the releases)
+# Transfer meowcoin-*-win*-setup.exe back to the Ubuntu18 build machine to the folder ~/release (to shasum with the rest of the releases)
 ```
 
 
@@ -370,7 +370,7 @@ From an ubuntu 18 bionic server(required)
 ```
 cd ~/
 export PATH_orig=$PATH
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 sudo apt install ca-certificates curl g++ git pkg-config autoconf librsvg2-bin libtiff-tools libtool automake bsdmainutils cmake imagemagick libcap-dev libz-dev libbz2-dev python python-dev python-setuptools fonts-tuffy
 git clone https://github.com/meowproject/meowcoin
 mkdir ~/meowcoin/depends/SDKs
@@ -400,7 +400,7 @@ cd unsigned-app-$DISTNAME
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-osx-unsigned.tar.gz
 cd ~/meowcoin
 make deploy
-$PWD/depends/x86_64-apple-darwin14/native/bin/dmg dmg "Meow-Core.dmg" ~/release/unsigned/$DISTNAME-osx-unsigned.dmg
+$PWD/depends/x86_64-apple-darwin14/native/bin/dmg dmg "Meowcoin-Core.dmg" ~/release/unsigned/$DISTNAME-osx-unsigned.dmg
 sudo rm -rf unsigned-app-$DISTNAME dist osx_volname dpi36.background.tiff dpi72.background.tiff
 cd ~/OSX
 find . -name "lib*.la" -delete
@@ -411,7 +411,7 @@ cd ~/meowcoin
 rm -rf ~/OSX
 make clean
 export PATH=$PATH_orig
-# Transfer ~/sign/meow-*-osx*-unsigned.tar.gz to a MacOS signing machine
+# Transfer ~/sign/meowcoin-*-osx*-unsigned.tar.gz to a MacOS signing machine
 ```
 
 
@@ -419,11 +419,11 @@ export PATH=$PATH_orig
 # Signing MacOS builds #
 From a Apple MacOS device: open terminal
 ```
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 xcode-select --install
 cd ~/desktop
 mkdir OSX
-#transfer meow-*-osx-unsigned.tar.gz to ~/desktop/OSX
+#transfer meowcoin-*-osx-unsigned.tar.gz to ~/desktop/OSX
 cd OSX
 tar xf $DISTNAME-osx-unsigned.tar.gz
 #acquire a code signing certifacte from apple follwoing the instructions here:
@@ -435,7 +435,7 @@ tar xf $DISTNAME-osx-unsigned.tar.gz
 ```
 From the ubuntu 18 bionic server(required) build machine:
 ```
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 cd ~/sign
 mkdir OSX/
 cp $DISTNAME-osx-unsigned.tar.gz OSX
@@ -456,7 +456,7 @@ rm -rf OSX
 # Checksum all the builds #
 From the ubuntu 18 bionic server(required) build machine
 ```
-DISTNAME=meow-2.0.1
+DISTNAME=meowcoin-2.0.1
 #transfer your *-secret-gpg.key and *-ownertrust-gpg.txt to ~/
 #import your PGP keys
 gpg --import *-secret-gpg.key

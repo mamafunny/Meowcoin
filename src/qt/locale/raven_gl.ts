@@ -291,8 +291,8 @@
         <translation>Moedeiro</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente o porto do cliente Meow no router. Esto so funciona se o teu router soporta UPnP e está habilitado.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente o porto do cliente Meowcoin no router. Esto so funciona se o teu router soporta UPnP e está habilitado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -370,8 +370,8 @@
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>A información amosada por estar desactualizada. O teu moedeiro sincronízase automáticamente coa rede Meow despois de que se estableza unha conexión, pero este proceso non está todavía rematado.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A información amosada por estar desactualizada. O teu moedeiro sincronízase automáticamente coa rede Meowcoin despois de que se estableza unha conexión, pero este proceso non está todavía rematado.</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
@@ -575,8 +575,8 @@
         <translation>Reindexando bloques no disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Enviar moedas a unha dirección Meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Enviar moedas a unha dirección Meowcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -595,8 +595,8 @@
         <translation>&amp;Verificar mensaxe...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -623,12 +623,12 @@
         <translation>Encriptar as claves privadas que pertencen ao teu moedeiro</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Asina mensaxes coas túas direccións Meow para probar que te pertencen</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Asina mensaxes coas túas direccións Meowcoin para probar que te pertencen</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Verificar mensaxes para asegurar que foron asinados con direccións Meow dadas.</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Verificar mensaxes para asegurar que foron asinados con direccións Meowcoin dadas.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -639,8 +639,8 @@
         <translation>A&amp;xuda</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Solicitar pagos (xenera códigos QR e meow: URIs)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Solicitar pagos (xenera códigos QR e meowcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -651,8 +651,8 @@
         <translation>Amosar a listaxe de etiquetas e direccións para recibir empregadas</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Abrir un meow: URI ou solicitude de pago</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Abrir un meowcoin: URI ou solicitude de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -928,8 +928,8 @@
         <translation>Copiar a sinatura actual ao portapapeis do sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
-        <translation>Asina a mensaxe para probar que posees esta dirección Meow</translation>
+        <source>Sign the message to prove you own this Meowcoin address</source>
+        <translation>Asina a mensaxe para probar que posees esta dirección Meowcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -948,8 +948,8 @@
         <translation>&amp;Verificar Mensaxe</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>Verificar a mensaxe para asegurar que foi asinada coa dirección Meow especificada</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>Verificar a mensaxe para asegurar que foi asinada coa dirección Meowcoin especificada</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1003,7 +1003,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcións:</translation>
@@ -1029,8 +1029,8 @@
         <translation>Executar no fondo como un demo e aceptar comandos</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Core de Meow</translation>
+        <source>Meowcoin Core</source>
+        <translation>Core de Meowcoin</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

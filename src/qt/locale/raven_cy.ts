@@ -295,8 +295,8 @@
         <translation>Newid y cyfrinymadrodd a ddefnyddiwyd ar gyfer amgryptio'r waled</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -515,14 +515,14 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsiynau:</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Craidd Meow</translation>
+        <source>Meowcoin Core</source>
+        <translation>Craidd Meowcoin</translation>
     </message>
     <message>
         <source>Information</source>

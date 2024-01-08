@@ -56,11 +56,11 @@ else
     echo "----------------------------------------"
 
     cd /tmp
-    curl -O https://meow-build-resources.s3.amazonaws.com/${OS}/meow-${OS}-dependencies.tar.gz
-    curl -O https://meow-build-resources.s3.amazonaws.com/${OS}/SHASUM
+    curl -O https://meowcoin-build-resources.s3.amazonaws.com/${OS}/meowcoin-${OS}-dependencies.tar.gz
+    curl -O https://meowcoin-build-resources.s3.amazonaws.com/${OS}/SHASUM
     if [[ $(sha256sum -c /tmp/SHASUM) ]]; then
         cd ${GITHUB_WORKSPACE}/depends
-        tar zxvf /tmp/meow-${OS}-dependencies.tar.gz
+        tar zxvf /tmp/meowcoin-${OS}-dependencies.tar.gz
     else
         echo "SHASUM doesn't match"
         exit 1

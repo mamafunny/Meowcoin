@@ -62,11 +62,11 @@
         <translation>Přijímací adresy</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Tohle jsou tvé meowové adresy pro posílání plateb. Před odesláním mincí si vždy zkontroluj částku a cílovou adresu.</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Tohle jsou tvé meowové adresy pro příjem plateb. Nezapomeň si pro každou transakci vždy vygenerovat novou adresu.</translation>
     </message>
     <message>
@@ -436,7 +436,7 @@
         <translation>Uprav odesílací adresu</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Meow address.</source>
+        <source>The entered address "%1" is not a valid Meowcoin address.</source>
         <translation>Zadaná adresa „%1“ není platná meowová adresa.</translation>
     </message>
     <message>
@@ -586,7 +586,7 @@
         <translation>Formulář</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meow network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meowcoin network, as detailed below.</source>
         <translation>Nedávné transakce ještě nemusí být vidět, takže stav tvého účtu nemusí být platný. Jakmile se však tvá peněženka dosynchronizuje s meowovou sítí (viz informace níže), tak už bude stav správně.</translation>
     </message>
     <message>
@@ -739,7 +739,7 @@
         <translation>&amp;Utrácet i ještě nepotvrzené drobné</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Automaticky otevře potřebný port na routeru. Tohle funguje jen za předpokladu, že tvůj router podporuje UPnP a že je UPnP povolené.</translation>
     </message>
     <message>
@@ -747,7 +747,7 @@
         <translation>Namapovat port přes &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
         <translation>Připojí se do meowové sítě přes SOCKS5 proxy.</translation>
     </message>
     <message>
@@ -783,7 +783,7 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Připojí se do meowové sítě přes SOCKS5 proxy vyhrazenou pro skryté služby v Tor síti.</translation>
     </message>
     <message>
@@ -870,7 +870,7 @@
         <translation>Formulář</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Zobrazené informace nemusí být aktuální. Tvá peněženka se automaticky sesynchronizuje s meowovou sítí, jakmile se s ní spojí. Zatím ale ještě není synchronizace dokončena.</translation>
     </message>
     <message>
@@ -941,8 +941,8 @@
         <translation>Chyba platebního požadavku</translation>
     </message>
     <message>
-        <source>Cannot start meow: click-to-pay handler</source>
-        <translation>Nemůžu spustit meow: obsluha click-to-pay</translation>
+        <source>Cannot start meowcoin: click-to-pay handler</source>
+        <translation>Nemůžu spustit meowcoin: obsluha click-to-pay</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -957,7 +957,7 @@
         <translation>Neplatná platební adresa %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Meow address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Meowcoin address or malformed URI parameters.</source>
         <translation>Nepodařilo se analyzovat URI! Důvodem může být neplatná meowová adresa nebo poškozené parametry URI.</translation>
     </message>
     <message>
@@ -1051,7 +1051,7 @@
         <translation>Částka</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
         <translation>Zadej meowovou adresu (např. %1)</translation>
     </message>
     <message>
@@ -1507,7 +1507,7 @@
         <translation>Vytvářím nový index bloků na disku...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
+        <source>Send coins to a Meowcoin address</source>
         <translation>Pošli mince na meowovou adresu</translation>
     </message>
     <message>
@@ -1527,8 +1527,8 @@
         <translation>&amp;Ověř zprávu...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1555,11 +1555,11 @@
         <translation>Zašifruj soukromé klíče ve své peněžence</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
         <translation>Podepiš zprávy svými meowovými adresami, čímž prokážeš, že jsi jejich vlastníkem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
         <translation>Ověř zprávy, aby ses ujistil, že byly podepsány danými meowovými adresami</translation>
     </message>
     <message>
@@ -1571,8 +1571,8 @@
         <translation>Nápověd&amp;a</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Požaduj platby (generuje QR kódy a meow: URI)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Požaduj platby (generuje QR kódy a meowcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1583,8 +1583,8 @@
         <translation>Ukaž seznam použitých přijímacích adres a jejich označení</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Načti meow: URI nebo platební požadavek</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Načti meowcoin: URI nebo platební požadavek</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1627,7 +1627,7 @@
         <translation>Aktuální</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Meow command-line options</source>
+        <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
         <translation>Seznam argumentů Meowu pro příkazovou řádku získáš v nápovědě %1</translation>
     </message>
     <message>
@@ -1697,8 +1697,8 @@
         <translation>Peněženka je &lt;b&gt;zašifrovaná&lt;/b&gt; a momentálně &lt;b&gt;zamčená&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Meow can no longer continue safely and will quit.</source>
-        <translation>Stala se fatální chyba. Meow nemůže bezpečně pokračovat v činnosti, a proto skončí.</translation>
+        <source>A fatal error occurred. Meowcoin can no longer continue safely and will quit.</source>
+        <translation>Stala se fatální chyba. Meowcoin nemůže bezpečně pokračovat v činnosti, a proto skončí.</translation>
     </message>
 </context>
 <context>
@@ -1724,7 +1724,7 @@
         <translation>&amp;Recyklovat již existující adresy (nedoporučeno)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meow network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
         <translation>Volitelná zpráva, která se připojí k platebnímu požadavku a která se zobrazí, když se požadavek otevře. Poznámka: tahle zpráva se neposílá s platbou po meowové síti.</translation>
     </message>
     <message>
@@ -1962,7 +1962,7 @@
         <translation>Skryj</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
         <translation>Platit jen minimální poplatek je v pořádku, pokud je zrovna méně transakcí než místa v blocích. Ale počítej s tím, že to také může skončit transakcí, která nikdy nebude potvrzena, pokud je větší poptávka po meowových transakcích, než síť zvládne zpracovat.</translation>
     </message>
     <message>
@@ -2110,7 +2110,7 @@
         <translation>Zaplatit pouze vyžadovaný poplatek %1</translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
+        <source>Warning: Invalid Meowcoin address</source>
         <translation>Upozornění: Neplatná meowová adresa</translation>
     </message>
     <message>
@@ -2149,7 +2149,7 @@
         <translation>Tohle je normální platba.</translation>
     </message>
     <message>
-        <source>The Meow address to send the payment to</source>
+        <source>The Meowcoin address to send the payment to</source>
         <translation>Meowová adresa příjemce</translation>
     </message>
     <message>
@@ -2193,8 +2193,8 @@
         <translation>Zadej označení této adresy; obojí se ti pak uloží do adresáře</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
-        <translation>Zpráva, která byla připojena k meow: URI a která se ti pro přehled uloží k transakci. Poznámka: Tahle zpráva se neposílá s platbou po meowové síti.</translation>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
+        <translation>Zpráva, která byla připojena k meowcoin: URI a která se ti pro přehled uloží k transakci. Poznámka: Tahle zpráva se neposílá s platbou po meowové síti.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2238,7 +2238,7 @@
         <translation>Podepsáním zprávy/smlouvy svými adresami můžeš prokázat, že jsi na ně schopen přijmout meowy. Buď opatrný a nepodepisuj nic vágního nebo náhodného; například při phishingových útocích můžeš být lákán, abys něco takového podepsal. Podepisuj pouze naprosto úplná a detailní prohlášení, se kterými souhlasíš.</translation>
     </message>
     <message>
-        <source>The Meow address to sign the message with</source>
+        <source>The Meowcoin address to sign the message with</source>
         <translation>Meowová adresa, kterou se zpráva podepíše</translation>
     </message>
     <message>
@@ -2270,7 +2270,7 @@
         <translation>Zkopíruj tento podpis do schránky</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
+        <source>Sign the message to prove you own this Meowcoin address</source>
         <translation>Podepiš zprávu, čímž prokážeš, že jsi vlastníkem této meowové adresy</translation>
     </message>
     <message>
@@ -2294,11 +2294,11 @@
         <translation>K ověření podpisu zprávy zadej adresu příjemce, zprávu (ověř si, že správně kopíruješ zalomení řádků, mezery, tabulátory apod.) a podpis. Dávej pozor na to, abys nezkopíroval do podpisu víc, než co je v samotné podepsané zprávě, abys nebyl napálen man-in-the-middle útokem. Poznamenejme však, že takto lze pouze prokázat, že podepisující je schopný na dané adrese přijmout platbu, ale není možnéprokázat, že odeslal jakoukoli transakci!</translation>
     </message>
     <message>
-        <source>The Meow address the message was signed with</source>
+        <source>The Meowcoin address the message was signed with</source>
         <translation>Meowová adresa, kterou je zpráva podepsána</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
         <translation>Ověř zprávu, aby ses ujistil, že byla podepsána danou meowovou adresou</translation>
     </message>
     <message>
@@ -2873,7 +2873,7 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Možnosti:</translation>
@@ -2935,8 +2935,8 @@
         <translation>Nemohu spustit HTTP server. Detaily viz v debug.log.</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>The %s developers</source>

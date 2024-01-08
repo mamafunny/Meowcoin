@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Meow Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,7 +29,7 @@ namespace {
 //!
 //! BerkeleyDB generates unique fileids by default
 //! (https://docs.oracle.com/cd/E17275_01/html/programmer_reference/program_copy.html),
-//! so meow should never create different databases with the same fileid, but
+//! so meowcoin should never create different databases with the same fileid, but
 //! this error can be triggered if users manually copy database files.
 void CheckUniqueFileid(const CDBEnv& env, const std::string& filename, Db& db)
 {

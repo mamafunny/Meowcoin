@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -114,10 +114,10 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Meow"
-#define QAPP_ORG_DOMAIN "meow.org"
-#define QAPP_APP_NAME_DEFAULT "Meow-Qt"
-#define QAPP_APP_NAME_TESTNET "Meow-Qt-testnet"
+#define QAPP_ORG_NAME "Meowcoin"
+#define QAPP_ORG_DOMAIN "meowcoin.org"
+#define QAPP_APP_NAME_DEFAULT "Meowcoin-Qt"
+#define QAPP_APP_NAME_TESTNET "Meowcoin-Qt-testnet"
 
 /* Default third party browser urls */
 #define DEFAULT_THIRD_PARTY_BROWSERS "https://api.meowcoin.org/tx/%s|https://mewc.cryptoscope.io/tx/?txid=%s|https://blockbook.meowcoin.org/tx/%s|https://explorer.mangofarmassets.com/tx/%s|https://www.assetsexplorer.com/tx/%s|https://explorer.meowland.org/tx/%s"

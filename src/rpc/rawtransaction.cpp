@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -39,10 +39,10 @@
 
 void TxToJSON(const CTransaction& tx, const uint256 hashBlock, UniValue& entry, bool expanded = false)
 {
-    // Call into TxToUniv() in meow-common to decode the transaction hex.
+    // Call into TxToUniv() in meowcoin-common to decode the transaction hex.
     //
     // Blockchain contextual information (confirmations and blocktime) is not
-    // available to code in meow-common, so we query them here and push the
+    // available to code in meowcoin-common, so we query them here and push the
     // data into the returned UniValue.
     TxToUniv(tx, uint256(), entry, true, RPCSerializationFlags());
 
@@ -164,7 +164,7 @@ UniValue getrawtransaction(const JSONRPCRequest& request)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"address\"        (string) meow address\n"
+            "           \"address\"        (string) meowcoin address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -412,7 +412,7 @@ UniValue createrawtransaction(const JSONRPCRequest& request)
             "     ]\n"
             "2. \"outputs\"                               (object, required) a json object with outputs\n"
             "     {\n"
-            "       \"address\":                          (string, required) The destination meow address.\n"
+            "       \"address\":                          (string, required) The destination meowcoin address.\n"
             "                                               Each output must have a different address.\n"
             "         x.xxx                             (number or string, required) The MEWC amount\n"
             "           or\n"
@@ -672,7 +672,7 @@ UniValue createrawtransaction(const JSONRPCRequest& request)
         } else {
             CTxDestination destination = DecodeDestination(name_);
             if (!IsValidDestination(destination)) {
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Meow address: ") + name_);
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid Meowcoin address: ") + name_);
             }
 
             if (!destinations.insert(destination).second) {
@@ -1522,7 +1522,7 @@ UniValue decoderawtransaction(const JSONRPCRequest& request)
             "           \"message\" : \"message\", (string optional) the message if one was sent\n"
             "           \"expire_time\" : n,      (numeric optional) the message epoch expiration time if one was set\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc\"   (string) meow address\n"
+            "           \"12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc\"   (string) meowcoin address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -1570,7 +1570,7 @@ UniValue decodescript(const JSONRPCRequest& request)
             "     \"expire_time\" : n,      (numeric optional ) the message epoch expiration time if one was set\n"
             "  \"reqSigs\": n,    (numeric) The required signatures\n"
             "  \"addresses\": [   (json array of string)\n"
-            "     \"address\"     (string) meow address\n"
+            "     \"address\"     (string) meowcoin address\n"
             "     ,...\n"
             "  ],\n"
             "  \"p2sh\":\"address\",       (string) address of P2SH script wrapping this redeem script (not returned if the script is already a P2SH).\n"

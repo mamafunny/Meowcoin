@@ -62,12 +62,12 @@
         <translation>Modtagelsesadresser</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Disse er dine Meow-adresser til afsendelse af betalinger. Tjek altid beløb og modtagelsesadresse, inden du sender meows.</translation>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Disse er dine Meowcoin-adresser til afsendelse af betalinger. Tjek altid beløb og modtagelsesadresse, inden du sender meows.</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dette er dine Meow-adresser til modtagelse af betalinger. Det anbefales at bruge en ny modtagelsesadresse for hver transaktion.</translation>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Dette er dine Meowcoin-adresser til modtagelse af betalinger. Det anbefales at bruge en ny modtagelsesadresse for hver transaktion.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -181,7 +181,7 @@
     </message>
     <message>
         <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your meows from being stolen by malware infecting your computer.</source>
-        <translation>%1 vil nu lukke for at færdiggøre krypteringsprocessen. Husk at kryptering af din tegnebog kan ikke beskytte dine meow fuldt ud mod at blive stjålet af eventuel malware, der måtte have inficeret din computer.</translation>
+        <translation>%1 vil nu lukke for at færdiggøre krypteringsprocessen. Husk at kryptering af din tegnebog kan ikke beskytte dine meowcoin fuldt ud mod at blive stjålet af eventuel malware, der måtte have inficeret din computer.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -436,8 +436,8 @@
         <translation>Redigér afsendelsesadresse</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Meow address.</source>
-        <translation>Den indtastede adresse “%1” er ikke en gyldig Meow-adresse.</translation>
+        <source>The entered address "%1" is not a valid Meowcoin address.</source>
+        <translation>Den indtastede adresse “%1” er ikke en gyldig Meowcoin-adresse.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -586,12 +586,12 @@
         <translation>Formular</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meow network, as detailed below.</source>
-        <translation>Nylige transaktioner er måske ikke synlige endnu, og derfor kan din tegnebogs saldo være ukorrekt. Denne information vil være korrekt, når din tegnebog er færdig med at synkronisere med meow-netværket, som detaljerne herunder viser.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meowcoin network, as detailed below.</source>
+        <translation>Nylige transaktioner er måske ikke synlige endnu, og derfor kan din tegnebogs saldo være ukorrekt. Denne information vil være korrekt, når din tegnebog er færdig med at synkronisere med meowcoin-netværket, som detaljerne herunder viser.</translation>
     </message>
     <message>
         <source>Attempting to spend meows that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Forsøg på at bruge meow, som er indeholdt i endnu-ikke-viste transaktioner, accepteres ikke af netværket.</translation>
+        <translation>Forsøg på at bruge meowcoin, som er indeholdt i endnu-ikke-viste transaktioner, accepteres ikke af netværket.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -739,16 +739,16 @@
         <translation>&amp;Brug ubekræftede byttepenge</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Åbn automatisk Meow-klientens port på routeren. Dette virker kun, når din router understøtter UPnP, og UPnP er aktiveret.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Åbn automatisk Meowcoin-klientens port på routeren. Dette virker kun, når din router understøtter UPnP, og UPnP er aktiveret.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Konfigurér port vha. &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
-        <translation>Forbind til Meow-netværket gennem en SOCKS5-proxy.</translation>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
+        <translation>Forbind til Meowcoin-netværket gennem en SOCKS5-proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -783,8 +783,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Forbind til Meow-netværket gennem en separat SOCKS5-proxy for skjulte Tor-tjenester.</translation>
+        <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Forbind til Meowcoin-netværket gennem en separat SOCKS5-proxy for skjulte Tor-tjenester.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -870,8 +870,8 @@
         <translation>Formular</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den viste information kan være forældet. Din tegnebog synkroniserer automatisk med Meow-netværket, når en forbindelse etableres, men denne proces er ikke gennemført endnu.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Den viste information kan være forældet. Din tegnebog synkroniserer automatisk med Meowcoin-netværket, når en forbindelse etableres, men denne proces er ikke gennemført endnu.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -941,8 +941,8 @@
         <translation>Fejl i betalingsanmodning</translation>
     </message>
     <message>
-        <source>Cannot start meow: click-to-pay handler</source>
-        <translation>Kan ikke starte meow: click-to-pay-håndtering</translation>
+        <source>Cannot start meowcoin: click-to-pay handler</source>
+        <translation>Kan ikke starte meowcoin: click-to-pay-håndtering</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -957,8 +957,8 @@
         <translation>Ugyldig betalingsadresse %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Meow address or malformed URI parameters.</source>
-        <translation>URI kan ikke tolkes! Dette kan skyldes en ugyldig Meow-adresse eller forkert udformede URL-parametre.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Meowcoin address or malformed URI parameters.</source>
+        <translation>URI kan ikke tolkes! Dette kan skyldes en ugyldig Meowcoin-adresse eller forkert udformede URL-parametre.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1051,8 +1051,8 @@
         <translation>Beløb</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>Indtast en Meow-adresse (fx %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>Indtast en Meowcoin-adresse (fx %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1507,8 +1507,8 @@
         <translation>Genindekserer blokke på disken…</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Send meows til en Meow-adresse</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Send meows til en Meowcoin-adresse</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1527,8 +1527,8 @@
         <translation>&amp;Verificér besked…</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1555,12 +1555,12 @@
         <translation>Kryptér de private nøgler, der hører til din tegnebog</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Signér beskeder med dine Meow-adresser for at bevise, at de tilhører dig</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Signér beskeder med dine Meowcoin-adresser for at bevise, at de tilhører dig</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Verificér beskeder for at sikre, at de er signeret med de angivne Meow-adresser</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Verificér beskeder for at sikre, at de er signeret med de angivne Meowcoin-adresser</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1571,8 +1571,8 @@
         <translation>&amp;Hjælp</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Anmod om betalinger (genererer QR-koder og “meow:”-URI'er)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Anmod om betalinger (genererer QR-koder og “meowcoin:”-URI'er)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1583,8 +1583,8 @@
         <translation>Vis listen over brugte modtagelsesadresser og -mærkater</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Åbn en “meow:”-URI eller betalingsanmodning</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Åbn en “meowcoin:”-URI eller betalingsanmodning</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1627,8 +1627,8 @@
         <translation>Opdateret</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Meow command-line options</source>
-        <translation>Vis %1 hjælpebesked for at få en liste over mulige tilvalg for Meow kommandolinje</translation>
+        <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
+        <translation>Vis %1 hjælpebesked for at få en liste over mulige tilvalg for Meowcoin kommandolinje</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -1697,8 +1697,8 @@
         <translation>Tegnebog er &lt;b&gt;krypteret&lt;/b&gt; og i øjeblikket &lt;b&gt;låst&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Meow can no longer continue safely and will quit.</source>
-        <translation>Der opstod en fatal fejl. Meow kan ikke længere fortsætte sikkert og vil afslutte.</translation>
+        <source>A fatal error occurred. Meowcoin can no longer continue safely and will quit.</source>
+        <translation>Der opstod en fatal fejl. Meowcoin kan ikke længere fortsætte sikkert og vil afslutte.</translation>
     </message>
 </context>
 <context>
@@ -1724,8 +1724,8 @@
         <translation>&amp;Genbrug en eksisterende modtagelsesadresse (anbefales ikke)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meow network.</source>
-        <translation>En valgfri besked, der føjes til betalingsanmodningen, og som vil vises, når anmodningen åbnes. Bemærk: Beskeden vil ikke sendes sammen med betalingen over Meow-netværket.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
+        <translation>En valgfri besked, der føjes til betalingsanmodningen, og som vil vises, når anmodningen åbnes. Bemærk: Beskeden vil ikke sendes sammen med betalingen over Meowcoin-netværket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1962,8 +1962,8 @@
         <translation>Skjul</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
-        <translation>Det er helt fint kun at betale det minimale gebyr, så længe den totale transaktionsvolumen er mindre end den plads, der er tilgængelig i blokkene. Men vær opmærksom på, at dette kan ende ud i transaktioner, der aldrig bliver bekræftet, når der bliver større forespørgsel efter meow-transaktioner, end hvad netværket kan bearbejde.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
+        <translation>Det er helt fint kun at betale det minimale gebyr, så længe den totale transaktionsvolumen er mindre end den plads, der er tilgængelig i blokkene. Men vær opmærksom på, at dette kan ende ud i transaktioner, der aldrig bliver bekræftet, når der bliver større forespørgsel efter meowcoin-transaktioner, end hvad netværket kan bearbejde.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2110,8 +2110,8 @@
         <translation>Betal kun det påkrævede gebyr på %1</translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
-        <translation>Advarsel: Ugyldig Meow-adresse</translation>
+        <source>Warning: Invalid Meowcoin address</source>
+        <translation>Advarsel: Ugyldig Meowcoin-adresse</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2149,8 +2149,8 @@
         <translation>Dette er en normal betaling.</translation>
     </message>
     <message>
-        <source>The Meow address to send the payment to</source>
-        <translation>Meow-adresse, som betalingen skal sendes til</translation>
+        <source>The Meowcoin address to send the payment to</source>
+        <translation>Meowcoin-adresse, som betalingen skal sendes til</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2170,7 +2170,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less meows than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Gebyret vil blive trukket fra det sendte beløb. Modtageren vil modtage færre meow, end du indtaster i beløbfeltet. Hvis flere modtagere vælges, vil gebyret deles ligeligt.</translation>
+        <translation>Gebyret vil blive trukket fra det sendte beløb. Modtageren vil modtage færre meowcoin, end du indtaster i beløbfeltet. Hvis flere modtagere vælges, vil gebyret deles ligeligt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2193,8 +2193,8 @@
         <translation>Indtast et mærkat for denne adresse for at føje den til listen over brugte adresser</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
-        <translation>En besked, som blev føjet til “bitcon:”-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Meow-netværket.</translation>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
+        <translation>En besked, som blev føjet til “bitcon:”-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Meowcoin-netværket.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2235,11 +2235,11 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive meows sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere beskeder/aftaler med dine adresser for at bevise, at du kan modtage meow, der bliver sendt til adresserne. Vær forsigtig med ikke at signere noget vagt eller tilfældigt, da eventuelle phishing-angreb kan snyde dig til at overlade din identitet til dem. Signér kun fuldt ud detaljerede udsagn, som du er enig i.</translation>
+        <translation>Du kan signere beskeder/aftaler med dine adresser for at bevise, at du kan modtage meowcoin, der bliver sendt til adresserne. Vær forsigtig med ikke at signere noget vagt eller tilfældigt, da eventuelle phishing-angreb kan snyde dig til at overlade din identitet til dem. Signér kun fuldt ud detaljerede udsagn, som du er enig i.</translation>
     </message>
     <message>
-        <source>The Meow address to sign the message with</source>
-        <translation>Meow-adresse, som beskeden skal signeres med</translation>
+        <source>The Meowcoin address to sign the message with</source>
+        <translation>Meowcoin-adresse, som beskeden skal signeres med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2270,8 +2270,8 @@
         <translation>Kopiér den nuværende signatur til systemets udklipsholder</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
-        <translation>Signér denne besked for at bevise, at Meow-adressen tilhører dig</translation>
+        <source>Sign the message to prove you own this Meowcoin address</source>
+        <translation>Signér denne besked for at bevise, at Meowcoin-adressen tilhører dig</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2294,12 +2294,12 @@
         <translation>Indtast modtagerens adresse, besked (vær sikker på at kopiere linjeskift, mellemrum, tabuleringer, etc. præcist) og signatur herunder for at verificere beskeden. Vær forsigtig med ikke at læse noget ud fra signaturen, som ikke står i selve beskeden, for at undgå at blive snydt af et eventuelt man-in-the-middle-angreb. Bemærk, at dette kun beviser, at den signerende person kan modtage med adressen; det kan ikke bevise hvem der har sendt en given transaktion!</translation>
     </message>
     <message>
-        <source>The Meow address the message was signed with</source>
-        <translation>Meow-adressen, som beskeden blev signeret med</translation>
+        <source>The Meowcoin address the message was signed with</source>
+        <translation>Meowcoin-adressen, som beskeden blev signeret med</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>Verificér beskeden for at sikre, at den er signeret med den angivne Meow-adresse</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>Verificér beskeden for at sikre, at den er signeret med den angivne Meowcoin-adresse</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2873,7 +2873,7 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Indstillinger:</translation>
@@ -2935,8 +2935,8 @@
         <translation>Kunne ikke starte HTTP-server. Se fejlretningslog for detaljer.</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>The %s developers</source>

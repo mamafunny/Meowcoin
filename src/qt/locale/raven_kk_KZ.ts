@@ -211,7 +211,7 @@
         <translation>Құпия сөзді өзгерту</translation>
     </message>
     <message>
-        <source>Meow</source>
+        <source>Meowcoin</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -343,7 +343,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Information</source>
         <translation>Информация</translation>

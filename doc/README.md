@@ -21,11 +21,11 @@ The following are some helpful notes on how to run Meowcoin on your native platf
 
    a. GUI wallet:
 
-   `./meow-qt`
+   `./meowcoin-qt`
 
    b. Core deamon:
 
-   `./meowd -deamon`
+   `./meowcoind -deamon`
 
 #### Ubuntu 16.04, 17.04/17.10 and 18.04
 
@@ -70,15 +70,15 @@ The GUI wallet requires the QR Code encoding library and Google's data interchan
 
 ### OS X
 
-1) Download Meow-Qt.dmg.
+1) Download Meowcoin-Qt.dmg.
 
 2) Double click the DMG to mount it.
 
-3) Drag Meow Core icon to the Applications Folder
+3) Drag Meowcoin Core icon to the Applications Folder
 
 ![alt tag](https://i.imgur.com/GLhBFUV.png)
 
-4) Open the Applications folder and Launch Meow Core. The client will begin synchronizing with the network.
+4) Open the Applications folder and Launch Meowcoin Core. The client will begin synchronizing with the network.
 
 ![alt tag](https://i.imgur.com/v3962qo.png)
 
@@ -86,20 +86,20 @@ Note: You may get the follow error on first launch:
 ```
 Dyld Error Message:
   Library not loaded: @loader_path/libboost_system-mt.dylib
-  Referenced from: /Applications/Meow-Qt.app/Contents/Frameworks/libboost_thread-mt.dylib
+  Referenced from: /Applications/Meowcoin-Qt.app/Contents/Frameworks/libboost_thread-mt.dylib
   Reason: image not found
 ```
-To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dylib in the /Applications/Meow-Qt.app/Contents/Frameworks folder
+To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dylib in the /Applications/Meowcoin-Qt.app/Contents/Frameworks folder
 
 ### Windows
 
 1) Download windows-x86_64.zip and unpack executables to desired folder.
 
-2) Double click the meow-qt.exe to launch it.
+2) Double click the meowcoin-qt.exe to launch it.
 
 ### Need Help?
 
-- See the documentation at the [Meowcoin Wiki](https://meow.wiki/wiki/Meowcoin_Wiki)
+- See the documentation at the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoin_Wiki)
 for help and more information.
 - Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/MeowcoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
 
@@ -121,7 +121,7 @@ Meowcoin repo's [root README](https://github.com/MeowProject/Meowcoin/blob/maste
 - [Developer Notes](https://github.com/MeowProject/Meowcoin/blob/master/doc/developer-notes.md)
 - [Release Notes](https://github.com/MeowProject/Meowcoin/blob/master/doc/release-notes.md)
 - [Release Process](https://github.com/MeowProject/Meowcoin/blob/master/doc/release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/meow/doxygen/) -- 2018-05-11 -- Broken link
+- [Source Code Documentation (External Link)](https://dev.visucore.com/meowcoin/doxygen/) -- 2018-05-11 -- Broken link
 - [Translation Process](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_process.md)
 - [Translation Strings Policy](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_strings_policy.md)
 - [Travis CI](https://github.com/MeowProject/Meowcoin/blob/master/doc/travis-ci.md)
@@ -133,7 +133,7 @@ Meowcoin repo's [root README](https://github.com/MeowProject/Meowcoin/blob/maste
 
 ### Resources
 - Discuss on chat [Discord](https://discord.gg/jn6uhur), [Telegram](https://t.me/MeowcoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
-- Find out more on the [Meowcoin Wiki](https://meow.wiki/wiki/Meowcoin_Wiki)
+- Find out more on the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoin_Wiki)
 - Visit the project home [Meowcoin.org](https://meowcoin.org)
 
 ### Miscellaneous

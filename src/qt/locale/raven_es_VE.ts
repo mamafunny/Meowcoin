@@ -403,8 +403,8 @@
         <translation>Reindexando bloques en el disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Enviar monedas a una dirección Meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Enviar monedas a una dirección Meowcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -419,8 +419,8 @@
         <translation>Abre la consola de depuración y diágnostico</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -447,12 +447,12 @@
         <translation>Encriptar las llaves privadas que pertenecen a tu billetera</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Firma mensajes con tus direcciones Meow para probar que eres dueño de ellas</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Firma mensajes con tus direcciones Meowcoin para probar que eres dueño de ellas</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Verificar mensajes para asegurar que estaban firmados con direcciones Meow especificas</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Verificar mensajes para asegurar que estaban firmados con direcciones Meowcoin especificas</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -623,7 +623,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:</translation>
@@ -649,8 +649,8 @@
         <translation>Correr en segundo plano como daemon y aceptar comandos</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

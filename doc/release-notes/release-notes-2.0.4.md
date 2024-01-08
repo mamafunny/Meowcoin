@@ -1,4 +1,4 @@
-Meow Core version *2.0.4.0* is now available!!
+Meowcoin Core version *2.0.4.0* is now available!!
 ==============
 
   <https://github.com/MeowProject/Meowcoin/releases/tag/v2.0.4>
@@ -20,8 +20,8 @@ How to Upgrade
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the 
-installer (on Windows) or just copy over `/Applications/Meow-Qt` (on Mac)
-or `meowd`/`meow-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Meowcoin-Qt` (on Mac)
+or `meowcoind`/`meowcoin-qt` (on Linux).
 
 The first time you run version 2.0.4 or higher, your chainstate database may
 be converted to a new format, which will take anywhere from a few minutes to
@@ -46,11 +46,11 @@ will not be valid.
 Compatibility
 ==============
 
-Meow Core is extensively tested on multiple operating systems using
+Meowcoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. 32-bit versions of Windows,
 and Windows XP are not supported.
 
-Meow Core should also work on most other Unix-like systems but is not
+Meowcoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable changes
@@ -75,7 +75,7 @@ Credits
 
 Thanks to everyone who directly contributed to this release:
 
-- Most importantly - The Meow Community!
+- Most importantly - The Meowcoin Community!
 - Tron Black
 - Jesse Empey
 - Jeremy Anderson

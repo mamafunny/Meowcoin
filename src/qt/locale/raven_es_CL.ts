@@ -216,8 +216,8 @@
         <translation>experto</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abre automáticamente el puerto del cliente Meow en el router. Esto funciona solo cuando tu router es compatible con UPnP y está habilitado.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abre automáticamente el puerto del cliente Meowcoin en el router. Esto funciona solo cuando tu router es compatible con UPnP y está habilitado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -462,8 +462,8 @@
         <translation>Cargando el index de bloques...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Enviar monedas a una dirección meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Enviar monedas a una dirección meowcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -482,8 +482,8 @@
         <translation>Verificar mensaje....</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -502,7 +502,7 @@
         <translation>&amp;Mostrar/Ocultar</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
         <translation>Firmar un mensaje para provar que usted es dueño de esta dirección</translation>
     </message>
     <message>
@@ -514,8 +514,8 @@
         <translation>&amp;Ayuda</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Pide pagos (genera codigos QR and meow: URls)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Pide pagos (genera codigos QR and meowcoin: URls)</translation>
     </message>
     <message>
         <source>Error</source>
@@ -704,7 +704,7 @@
         <translation>Firma</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
+        <source>Sign the message to prove you own this Meowcoin address</source>
         <translation>Firmar un mensjage para probar que usted es dueño de esta dirección</translation>
     </message>
     <message>
@@ -767,7 +767,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:
@@ -789,8 +789,8 @@
 </translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>meow core</translation>
+        <source>Meowcoin Core</source>
+        <translation>meowcoin core</translation>
     </message>
     <message>
         <source>Error loading block database</source>

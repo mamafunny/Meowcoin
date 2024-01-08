@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -245,7 +245,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             total += subtotal;
         }
         else
-        {   // User-entered meow address / amount:
+        {   // User-entered meowcoin address / amount:
             if(!validateAddress(rcp.address))
             {
                 return InvalidAddress;
@@ -336,7 +336,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction &tran
                 rcp.paymentRequest.SerializeToString(&value);
                 newTx->vOrderForm.push_back(make_pair(key, value));
             }
-            else if (!rcp.message.isEmpty()) // Message from normal meow:URI (meow:123...?message=example)
+            else if (!rcp.message.isEmpty()) // Message from normal meowcoin:URI (meowcoin:123...?message=example)
                 newTx->vOrderForm.push_back(make_pair("Message", rcp.message.toStdString()));
         }
 

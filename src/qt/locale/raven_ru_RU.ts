@@ -339,8 +339,8 @@
         <translation>Пробросить порт через &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
-        <translation>Подключится к сети Meow через SOCKS5 прокси.</translation>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
+        <translation>Подключится к сети Meowcoin через SOCKS5 прокси.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -411,8 +411,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>Введите Meow-адрес (напр. %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>Введите Meowcoin-адрес (напр. %1)</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -583,8 +583,8 @@
         <translation>&amp;Проверить сообщение...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -823,14 +823,14 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>meow-core</translation>
+        <translation>meowcoin-core</translation>
     </message>
     <message>
         <source>Information</source>

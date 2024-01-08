@@ -4,7 +4,7 @@ Source: https://github.com/MeowProject/Meowcoin
 
 Files: *
 Copyright: 2009-2017, Bitcoin Core Developers
-           2017-2020, Meow Core Developers
+           2017-2020, Meowcoin Core Developers
 License: Expat
 Comment: The Bitcoin Core Developers encompasses the current developers listed on bitcoin.org,
          as well as the numerous contributors to the project.
@@ -77,10 +77,10 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/meow.*
-       share/pixmaps/meow*
-       src/qt/res/src/meow.svg
-Copyright: The Meow Core Developers
+       src/qt/res/icons/meowcoin.*
+       share/pixmaps/meowcoin*
+       src/qt/res/src/meowcoin.svg
+Copyright: The Meowcoin Core Developers
 License: public-domain
 
 

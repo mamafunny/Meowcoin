@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.meow.meowd</string>
+	<string>org.meowcoin.meowcoind</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/meowd</string>
+		<string>/usr/local/bin/meowcoind</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

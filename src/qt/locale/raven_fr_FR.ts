@@ -463,8 +463,8 @@
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Ouvrir le port du client Meow automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l'UPnP et si la fonctionnalité est activée.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Ouvrir le port du client Meowcoin automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l'UPnP et si la fonctionnalité est activée.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -611,8 +611,8 @@
         <translation>Montant</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>Entrer une adresse Meow (e.g. %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>Entrer une adresse Meowcoin (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -951,8 +951,8 @@
         <translation>Réindexer les blocs sur le disque...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Envoyer des pièces à une adresse Meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Envoyer des pièces à une adresse Meowcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -971,8 +971,8 @@
         <translation>&amp;Vérification du message</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -999,8 +999,8 @@
         <translation>Crypter les clé privées qui appartiennent votre portefeuille</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Signer vos messages avec vos adresses Meow pour prouver que vous les détenez</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Signer vos messages avec vos adresses Meowcoin pour prouver que vous les détenez</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1011,16 +1011,16 @@
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Demander des paiements (générer QR codes et meow: URIs)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Demander des paiements (générer QR codes et meowcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
         <translation>Montrer la liste des adresses d'envois utilisées et les étiquettes</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Ouvrir un meow: URI ou demande de paiement</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Ouvrir un meowcoin: URI ou demande de paiement</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1669,7 +1669,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Options :</translation>
@@ -1695,8 +1695,8 @@
         <translation>Impossible de démarrer le serveur HTTP. Voir le journal de débogage pour plus de détails.</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

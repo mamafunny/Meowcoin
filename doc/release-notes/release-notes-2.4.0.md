@@ -1,4 +1,4 @@
-Meow Core version *2.4.0* is now available!!
+Meowcoin Core version *2.4.0* is now available!!
 ==============
 
   <https://github.com/MeowProject/Meowcoin/releases/tag/v2.4.0>
@@ -20,8 +20,8 @@ How to Upgrade
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the 
-installer (on Windows) or just copy over `/Applications/Meow-Qt` (on Mac)
-or `meowd`/`meow-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Meowcoin-Qt` (on Mac)
+or `meowcoind`/`meowcoin-qt` (on Linux).
 
 Downgrading warning
 ==============
@@ -34,20 +34,20 @@ will not fork the chain.
 Compatibility
 ==============
 
-Meow Core is extensively tested on multiple operating systems using
+Meowcoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows 10(x64) and later. 32-bit versions of Windows,
 and Windows XP are not supported.
 
-Meow Core should also work on most other Unix-like systems but is not
+Meowcoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
-Meow Core has been tested with macOS 10.14 Mojave, but it is recommended that *developers*
+Meowcoin Core has been tested with macOS 10.14 Mojave, but it is recommended that *developers*
 do not update to Mojave.  There is an incompatibility with Berkeley-db 4.8.30 that causes
 the binaries to seg-fault.  There is a workaround, but as of this release users should
 not update to Mojave (see build-OSX.md for current status of this issue).  There are no
 known issues running the release binaries on Mojave.
 
-Meow Core has not been tested with macOS Catalina(beta). Please use at your own risk.
+Meowcoin Core has not been tested with macOS Catalina(beta). Please use at your own risk.
 
 Notable changes
 ==============
@@ -66,7 +66,7 @@ Credits
 
 Thanks to everyone who directly contributed to this release:
 
-- Most importantly - The Meow Community!
+- Most importantly - The Meowcoin Community!
 - @blondfrogs (Jeremy Anderson) - [77f5a7838082669dbb7c21b4a93ce65e2a447963](https://github.com/MeowProject/Meowcoin/pull/608/commits/77f5a7838082669dbb7c21b4a93ce65e2a447963)
 - @blondfrogs (Jeremy Anderson) - [fbbc40d22646c31465fa04a8a55f4734c3f75a9c](https://github.com/MeowProject/Meowcoin/pull/608/commits/fbbc40d22646c31465fa04a8a55f4734c3f75a9c)
 - @practicalswift - [ba4d362a2b4ba814bba2aa2589231ba470f20e3f](https://github.com/MeowProject/Meowcoin/pull/608/commits/ba4d362a2b4ba814bba2aa2589231ba470f20e3f)

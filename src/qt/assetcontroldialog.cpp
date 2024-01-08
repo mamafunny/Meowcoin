@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -697,7 +697,7 @@ void AssetControlDialog::updateView()
             if (ExtractDestination(out.tx->tx->vout[out.i].scriptPubKey, outputAddress)) {
                 sAddress = QString::fromStdString(EncodeDestination(outputAddress));
 
-                // if listMode or change => show meow address. In tree mode, address is not shown again for direct wallet address outputs
+                // if listMode or change => show meowcoin address. In tree mode, address is not shown again for direct wallet address outputs
                 if (!treeMode || (!(sAddress == sWalletAddress))) {
                     itemOutput->setText(COLUMN_ADDRESS, sAddress);
                     // asset name

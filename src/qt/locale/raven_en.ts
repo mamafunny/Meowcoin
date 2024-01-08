@@ -80,12 +80,12 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -617,7 +617,7 @@
     <message>
         <location line="+27"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -813,7 +813,7 @@
     </message>
     <message>
         <location line="+107"/>
-        <source>Warning: Invalid Meow address</source>
+        <source>Warning: Invalid Meowcoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1334,7 +1334,7 @@
     <message>
         <location line="+27"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1491,7 +1491,7 @@
         <location line="+43"/>
         <location line="+22"/>
         <location line="+645"/>
-        <source>Warning: Invalid Meow address</source>
+        <source>Warning: Invalid Meowcoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1648,7 +1648,7 @@
     </message>
     <message>
         <location line="+71"/>
-        <source>The entered address &quot;%1&quot; is not a valid Meow address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid Meowcoin address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1932,8 +1932,8 @@ Recommended action: Fully sync your wallet before sending a transaction.
     </message>
     <message>
         <location filename="../intro.cpp" line="+20"/>
-        <source>Meow</source>
-        <translation type="unfinished">Meow</translation>
+        <source>Meowcoin</source>
+        <translation type="unfinished">Meowcoin</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1947,7 +1947,7 @@ Recommended action: Fully sync your wallet before sending a transaction.
     </message>
     <message>
         <location line="+8"/>
-        <source>%1 will download and store a copy of the Meow block chain.</source>
+        <source>%1 will download and store a copy of the Meowcoin block chain.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2004,7 +2004,7 @@ Recommended action: Fully sync your wallet before sending a transaction.
     </message>
     <message>
         <location line="+26"/>
-        <source>Since no wallet.dat file was found in the Meow block chain data directory, a wallet file will be created.</source>
+        <source>Since no wallet.dat file was found in the Meowcoin block chain data directory, a wallet file will be created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2171,7 +2171,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+119"/>
-        <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meow network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meowcoin network, as detailed below.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2487,8 +2487,8 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+30"/>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2507,7 +2507,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2555,7 +2555,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+25"/>
-        <source>Connect to the Meow network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2723,8 +2723,8 @@ They are not recoverable !!</source>
         <location line="+99"/>
         <location line="+407"/>
         <location line="+180"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <location line="-373"/>
@@ -2882,7 +2882,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="-401"/>
-        <source>Cannot start meow: click-to-pay handler</source>
+        <source>Cannot start meowcoin: click-to-pay handler</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2904,7 +2904,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+8"/>
-        <source>URI cannot be parsed! This can be caused by an invalid Meow address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Meowcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3036,7 +3036,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location filename="../guiutil.cpp" line="-349"/>
-        <source>Enter a Meow address (e.g. %1)</source>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3150,7 +3150,7 @@ They are not recoverable !!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../meow.cpp" line="+763"/>
+        <location filename="../meowcoin.cpp" line="+763"/>
         <source>%1 didn&apos;t yet exit safely...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3163,7 +3163,7 @@ They are not recoverable !!</source>
 <context>
     <name>QObject::QObject</name>
     <message>
-        <location filename="../meow.cpp" line="-93"/>
+        <location filename="../meowcoin.cpp" line="-93"/>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3900,8 +3900,8 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="-974"/>
-        <source>Send coins to a Meow address</source>
-        <translation>Send coins to a Meow address</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Send coins to a Meowcoin address</translation>
     </message>
     <message>
         <location line="+131"/>
@@ -3925,8 +3925,8 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+912"/>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <location line="-1252"/>
@@ -3960,13 +3960,13 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Sign messages with your Meow addresses to prove you own them</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Sign messages with your Meowcoin addresses to prove you own them</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Verify messages to ensure they were signed with specified Meow addresses</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Verify messages to ensure they were signed with specified Meowcoin addresses</translation>
     </message>
     <message>
         <location line="+65"/>
@@ -3980,7 +3980,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="-218"/>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3995,7 +3995,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+3"/>
-        <source>Open a meow: URI or payment request</source>
+        <source>Open a meowcoin: URI or payment request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4005,10 +4005,10 @@ They are not recoverable !!</source>
     </message>
     <message numerus="yes">
         <location line="+748"/>
-        <source>%n active connection(s) to Meow network</source>
+        <source>%n active connection(s) to Meowcoin network</source>
         <translation>
-            <numerusform>%n active connection to Meow network</numerusform>
-            <numerusform>%n active connections to Meow network</numerusform>
+            <numerusform>%n active connection to Meowcoin network</numerusform>
+            <numerusform>%n active connections to Meowcoin network</numerusform>
         </translation>
     </message>
     <message>
@@ -4066,7 +4066,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="-833"/>
-        <source>Show the %1 help message to get a list with possible Meow command-line options</source>
+        <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4157,8 +4157,8 @@ They are not recoverable !!</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../meow.cpp" line="-114"/>
-        <source>A fatal error occurred. Meow can no longer continue safely and will quit.</source>
+        <location filename="../meowcoin.cpp" line="-114"/>
+        <source>A fatal error occurred. Meowcoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4192,7 +4192,7 @@ They are not recoverable !!</source>
     <message>
         <location line="+14"/>
         <location line="+23"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meow network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4581,7 +4581,7 @@ They are not recoverable !!</source>
     <message>
         <location line="+27"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4701,7 +4701,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+8"/>
-        <source>Invalid Meow Destination Address</source>
+        <source>Invalid Meowcoin Destination Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4712,7 +4712,7 @@ They are not recoverable !!</source>
     <message>
         <location line="+6"/>
         <location line="+659"/>
-        <source>Warning: Invalid Meow address</source>
+        <source>Warning: Invalid Meowcoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5022,7 +5022,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+21"/>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5054,7 +5054,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+22"/>
-        <source>The Meow address to send the payment to</source>
+        <source>The Meowcoin address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5299,7 +5299,7 @@ They are not recoverable !!</source>
     <message>
         <location line="+78"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5510,7 +5510,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+101"/>
-        <source>Warning: Invalid Meow address</source>
+        <source>Warning: Invalid Meowcoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5560,7 +5560,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+66"/>
-        <source>The Meow address to send the payment to</source>
+        <source>The Meowcoin address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5628,7 +5628,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="-116"/>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5684,7 +5684,7 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+18"/>
-        <source>The Meow address to sign the message with</source>
+        <source>The Meowcoin address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5726,8 +5726,8 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Meow address</source>
-        <translation>Sign the message to prove you own this Meow address</translation>
+        <source>Sign the message to prove you own this Meowcoin address</source>
+        <translation>Sign the message to prove you own this Meowcoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5757,13 +5757,13 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="+21"/>
-        <source>The Meow address the message was signed with</source>
+        <source>The Meowcoin address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>Verify the message to ensure it was signed with the specified Meow address</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>Verify the message to ensure it was signed with the specified Meowcoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6664,7 +6664,7 @@ They are not recoverable !!</source>
     </message>
 </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <location filename="../meowstrings.cpp" line="+469"/>
         <source>Options:</source>
@@ -6742,8 +6742,8 @@ They are not recoverable !!</source>
     </message>
     <message>
         <location line="-525"/>
-        <source>Meow Core</source>
-        <translation type="unfinished">Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation type="unfinished">Meowcoin Core</translation>
     </message>
     <message>
         <location line="+1"/>

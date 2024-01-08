@@ -62,12 +62,12 @@
         <translation>Адреса отримання</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Це ваші адреси Meow для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Це ваші адреси Meowcoin для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Це ваші адреси Meow для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Це ваші адреси Meowcoin для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -432,8 +432,8 @@
         <translation>Редагувати адресу для відправлення</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Meow address.</source>
-        <translation>Введена адреса "%1" не є адресою в мережі Meow.</translation>
+        <source>The entered address "%1" is not a valid Meowcoin address.</source>
+        <translation>Введена адреса "%1" не є адресою в мережі Meowcoin.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -582,7 +582,7 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meow network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meowcoin network, as detailed below.</source>
         <translation>Нещодавні транзакції ще не відображаються, тому баланс вашого гаманця може бути неточним. Ця інформація буде вірною після того, як ваш гаманець завершить синхронізацію з мережею біткойн, врахровуйте показники нижче.</translation>
     </message>
     <message>
@@ -731,7 +731,7 @@
         <translation>&amp;Витрачати непідтверджену решту</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Автоматично відкривати порт для клієнту біткоін на роутері. Працює лише якщо ваш роутер підтримує UPnP і ця функція увімкнена.</translation>
     </message>
     <message>
@@ -739,8 +739,8 @@
         <translation>Відображення порту через &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
-        <translation>Підключення до мережі Meow через SOCKS5 проксі.</translation>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
+        <translation>Підключення до мережі Meowcoin через SOCKS5 проксі.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -775,8 +775,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Підключатися до мережі Meow через окремий SOCKS5 проксі для прихованих сервісів Tor.</translation>
+        <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Підключатися до мережі Meowcoin через окремий SOCKS5 проксі для прихованих сервісів Tor.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -858,8 +858,8 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>Показана інформація вже може бути застарілою. Ваш гаманець буде автоматично синхронізовано з мережею Meow після встановлення підключення, але цей процес ще не завершено.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Показана інформація вже може бути застарілою. Ваш гаманець буде автоматично синхронізовано з мережею Meowcoin після встановлення підключення, але цей процес ще не завершено.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -955,8 +955,8 @@
         <translation>Кількість</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>Введіть адресу Meow (наприклад %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>Введіть адресу Meowcoin (наприклад %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1371,7 +1371,7 @@
         <translation>Переіндексація блоків на диску ...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
+        <source>Send coins to a Meowcoin address</source>
         <translation>Відправити монети на вказану адресу</translation>
     </message>
     <message>
@@ -1391,8 +1391,8 @@
         <translation>П&amp;еревірити повідомлення...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1419,12 +1419,12 @@
         <translation>Зашифрувати закриті ключі, що знаходяться у вашому гаманці</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Meow-адресою </translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Meowcoin-адресою </translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Meow-адресою</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Meowcoin-адресою</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1435,8 +1435,8 @@
         <translation>&amp;Довідка</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Створити запит платежу (генерує QR-код та meow: URI)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Створити запит платежу (генерує QR-код та meowcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1447,8 +1447,8 @@
         <translation>Показати список адрес і міток, що були використані для отримання</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Відкрити meow: URI чи запит платежу</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Відкрити meowcoin: URI чи запит платежу</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1491,7 +1491,7 @@
         <translation>Синхронізовано</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Meow command-line options</source>
+        <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
         <translation>Показати довідку %1 для отримання переліку можливих параметрів командного рядка.</translation>
     </message>
     <message>
@@ -1561,7 +1561,7 @@
         <translation>&lt;b&gt;Зашифрований&lt;/b&gt; гаманець &lt;b&gt;заблоковано&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Meow can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Meowcoin can no longer continue safely and will quit.</source>
         <translation>Сталася фатальна помилка. Помилки не сумісні з подальщою роботою. Гаманець буде закрито.</translation>
     </message>
 </context>
@@ -1588,8 +1588,8 @@
         <translation>По&amp;вторно використати адресу для отримання (не рекомендується)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meow network.</source>
-        <translation>Необов'язкове повідомлення на додаток до запиту платежу, котре буде показане під час відкриття запиту. Примітка: Це повідомлення не буде відправлено з платежем через мережу Meow.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
+        <translation>Необов'язкове повідомлення на додаток до запиту платежу, котре буде показане під час відкриття запиту. Примітка: Це повідомлення не буде відправлено з платежем через мережу Meowcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1810,8 +1810,8 @@
         <translation>Приховати</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
-        <translation>Оплата тільки мінімальної комісії є прийнятною, допоки обсяг транзакцій є меншим простору в блоках. Але майте на увазі, що це може анулювати транзакцію, якщо попит на Meow транзакції стане більшим, ніж мережа зможе обробити.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
+        <translation>Оплата тільки мінімальної комісії є прийнятною, допоки обсяг транзакцій є меншим простору в блоках. Але майте на увазі, що це може анулювати транзакцію, якщо попит на Meowcoin транзакції стане більшим, ніж мережа зможе обробити.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1917,8 +1917,8 @@
         <translation>Це звичайний платіж.</translation>
     </message>
     <message>
-        <source>The Meow address to send the payment to</source>
-        <translation>Адреса Meow для відправлення платежу</translation>
+        <source>The Meowcoin address to send the payment to</source>
+        <translation>Адреса Meowcoin для відправлення платежу</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1961,8 +1961,8 @@
         <translation>Введіть мітку для цієї адреси для додавання її в список використаних адрес</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
-        <translation>Повідомлення, що було додане до meow:URI та буде збережено разом з транзакцією для довідки. Примітка: Це повідомлення не буде відправлено в мережу Meow.</translation>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
+        <translation>Повідомлення, що було додане до meowcoin:URI та буде збережено разом з транзакцією для довідки. Примітка: Це повідомлення не буде відправлено в мережу Meowcoin.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2002,8 +2002,8 @@
         <translation>Ви можете підписувати повідомлення/угоди своїми адресами, щоб довести можливість отримання біткоінів, що будуть надіслані на них. Остерігайтеся підписувати будь-що нечітке чи неочікуване, так як за допомогою фішинг-атаки вас можуть спробувати ввести в оману для отримання вашого підпису під чужими словами. Підписуйте лише чіткі твердження, з якими ви повністю згодні.</translation>
     </message>
     <message>
-        <source>The Meow address to sign the message with</source>
-        <translation>Адреса Meow для підпису цього повідомлення</translation>
+        <source>The Meowcoin address to sign the message with</source>
+        <translation>Адреса Meowcoin для підпису цього повідомлення</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2034,7 +2034,7 @@
         <translation>Копіювати поточну сигнатуру до системного буферу обміну</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
+        <source>Sign the message to prove you own this Meowcoin address</source>
         <translation>Підпишіть повідомлення щоб довести, що ви є власником цієї адреси</translation>
     </message>
     <message>
@@ -2058,12 +2058,12 @@
         <translation>Введіть нижче адресу отримувача, повідомлення (впевніться, що ви точно скопіювали символи завершення рядка, табуляцію, пробіли тощо) та підпис для перевірки повідомлення. Впевніться, що в підпис не було додано зайвих символів: це допоможе уникнути атак типу «людина посередині». Зауважте, що це лише засвідчує можливість отримання транзакцій підписувачем, але не в стані підтвердити джерело жодної транзакції!</translation>
     </message>
     <message>
-        <source>The Meow address the message was signed with</source>
-        <translation>Адреса Meow, якою було підписано це повідомлення</translation>
+        <source>The Meowcoin address the message was signed with</source>
+        <translation>Адреса Meowcoin, якою було підписано це повідомлення</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Meow-адресою</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Meowcoin-адресою</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2541,7 +2541,7 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Параметри:</translation>
@@ -2599,8 +2599,8 @@
         <translation>Неможливо запустити HTTP-сервер. Детальніший опис наведено в журналі зневадження.</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

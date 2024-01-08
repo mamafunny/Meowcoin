@@ -1,4 +1,4 @@
-name: Build Meow
+name: Build Meowcoin
 
 on:
   push:
@@ -60,7 +60,7 @@ jobs:
     - name: Configure Build
       run: ${SCRIPTS}/04-configure-build.sh ${{ MATRIX.OS }} ${{ GITHUB.WORKSPACE }}
 
-    - name: Build Meow
+    - name: Build Meowcoin
       run: make -j2
 
     - name: Check Binary Security

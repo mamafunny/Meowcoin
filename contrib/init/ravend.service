@@ -1,15 +1,15 @@
 [Unit]
-Description=Meow's distributed currency daemon
+Description=Meowcoin's distributed currency daemon
 After=network.target
 
 [Service]
-User=meow
-Group=meow
+User=meowcoin
+Group=meowcoin
 
 Type=forking
-PIDFile=/var/lib/meowd/meowd.pid
-ExecStart=/usr/bin/meowd -daemon -pid=/var/lib/meowd/meowd.pid \
--conf=/etc/meow/meow.conf -datadir=/var/lib/meowd -disablewallet
+PIDFile=/var/lib/meowcoind/meowcoind.pid
+ExecStart=/usr/bin/meowcoind -daemon -pid=/var/lib/meowcoind/meowcoind.pid \
+-conf=/etc/meowcoin/meowcoin.conf -datadir=/var/lib/meowcoind -disablewallet
 
 Restart=always
 PrivateTmp=true

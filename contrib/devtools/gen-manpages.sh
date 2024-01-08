@@ -4,10 +4,10 @@ TOPDIR=${TOPDIR:-$(git rev-parse --show-toplevel)}
 SRCDIR=${SRCDIR:-$TOPDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-RAVEND=${RAVEND:-$SRCDIR/meowd}
-RAVENCLI=${RAVENCLI:-$SRCDIR/meow-cli}
-RAVENTX=${RAVENTX:-$SRCDIR/meow-tx}
-RAVENQT=${RAVENQT:-$SRCDIR/qt/meow-qt}
+RAVEND=${RAVEND:-$SRCDIR/meowcoind}
+RAVENCLI=${RAVENCLI:-$SRCDIR/meowcoin-cli}
+RAVENTX=${RAVENTX:-$SRCDIR/meowcoin-tx}
+RAVENQT=${RAVENQT:-$SRCDIR/qt/meowcoin-qt}
 
 [ ! -x $RAVEND ] && echo "$RAVEND not found or not executable." && exit 1
 
@@ -15,8 +15,8 @@ RAVENQT=${RAVENQT:-$SRCDIR/qt/meow-qt}
 RVNVER=($($RAVENCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }'))
 
 # Create a footer file with copyright content.
-# This gets autodetected fine for meowd if --version-string is not set,
-# but has different outcomes for meow-qt and meow-cli.
+# This gets autodetected fine for meowcoind if --version-string is not set,
+# but has different outcomes for meowcoin-qt and meowcoin-cli.
 echo "[COPYRIGHT]" > footer.h2m
 $RAVEND --version | sed -n '1!p' >> footer.h2m
 

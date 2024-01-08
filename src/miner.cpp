@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Meow Core developers
+// Copyright (c) 2017-2020 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -567,7 +567,7 @@ void static MeowMiner(const CChainParams& chainparams)
 {
     LogPrintf("MeowMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("meow-miner");
+    RenameThread("meowcoin-miner");
 
     unsigned int nExtraNonce = 0;
 

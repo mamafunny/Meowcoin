@@ -68,11 +68,11 @@ _Adjust to own needs. `--prefix=/usr/local` will install the binaries to `/usr/l
 
 `gmake -j8`  # 8 for 8 build threads, adjust to fit your setup.
 
-You can now start meow-qt from the build directory.
+You can now start meowcoin-qt from the build directory.
 
-`src/qt/meow-qt`
+`src/qt/meowcoin-qt`
 
-meowd and meow-cli are in `src/`
+meowcoind and meowcoin-cli are in `src/`
 
 
 __Optional:__

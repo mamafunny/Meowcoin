@@ -347,7 +347,7 @@
         <translation>Оношилгоо ба засварын консолыг онгойлго</translation>
     </message>
     <message>
-        <source>Meow</source>
+        <source>Meowcoin</source>
         <translation>Биткойн</translation>
     </message>
     <message>
@@ -579,7 +579,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Сонголтууд:</translation>

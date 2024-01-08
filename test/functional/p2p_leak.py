@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Meow Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,11 +13,11 @@ received a VERACK.
 This test connects to a node and sends it a few messages, trying to entice it
 into sending us something it shouldn't.
 
-Also test that nodes that send unsupported service bits to meowd are disconnected
+Also test that nodes that send unsupported service bits to meowcoind are disconnected
 and don't receive a VERACK. Unsupported service bits are currently 1 << 5 and
 1 << 7 (until August 1st 2018).
 
-UPDATE: Meow RIP-2 uses bit 1 << 5.  Currently there are no unsupported service bits.
+UPDATE: Meowcoin RIP-2 uses bit 1 << 5.  Currently there are no unsupported service bits.
 """
 
 from test_framework.mininode import NodeConnCB, NodeConn, MsgVerack, MsgPing, MsgGetAddr, NetworkThread, mininode_lock
@@ -69,7 +69,7 @@ class CLazyNode(NodeConnCB):
 # anyway, and eventually get disconnected.
 class CNodeNoVersionBan(CLazyNode):
     # send a bunch of veracks without sending a message. This should get us disconnected.
-    # NOTE: implementation-specific check here. Remove if meowd ban behavior changes
+    # NOTE: implementation-specific check here. Remove if meowcoind ban behavior changes
     def on_open(self, conn):
         super().on_open(conn)
         for _ in range(banscore):

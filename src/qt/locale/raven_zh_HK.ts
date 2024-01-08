@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RAVENS&lt;/b&gt;!</source>
-        <translation>警告: 如果你將錢包加密後又忘記密碼，你就會&lt;b&gt;失去所有 Meow 了&lt;/b&gt;！</translation>
+        <translation>警告: 如果你將錢包加密後又忘記密碼，你就會&lt;b&gt;失去所有 Meowcoin 了&lt;/b&gt;！</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -299,8 +299,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>輸入一個 Meow 位址 (例如 %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>輸入一個 Meowcoin 位址 (例如 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -471,8 +471,8 @@
         <translation>正在為磁碟區塊重建索引...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>付款至一個 Meow 位址</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>付款至一個 Meowcoin 位址</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -491,8 +491,8 @@
         <translation>驗證訊息... &amp;V</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -523,8 +523,8 @@
         <translation>說明 &amp;H</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>要求付款 (產生QR碼 meow: URIs)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>要求付款 (產生QR碼 meowcoin: URIs)</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -673,7 +673,7 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Information</source>
         <translation>資訊</translation>

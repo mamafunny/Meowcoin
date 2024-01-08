@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Meow Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -90,7 +90,7 @@ class HTTPBasicsTest (MeowTestFramework):
         conn.request('POST', '/', '{"method": "getbestblockhash"}', headers)
         out1 = conn.getresponse().read()
         assert(b'"error":null' in out1)
-        assert(conn.sock is not None) #connection must be closed because meowd should use keep-alive by default
+        assert(conn.sock is not None) #connection must be closed because meowcoind should use keep-alive by default
 
         # Check excessive request size
         conn = http.client.HTTPConnection(urlNode2.hostname, urlNode2.port)

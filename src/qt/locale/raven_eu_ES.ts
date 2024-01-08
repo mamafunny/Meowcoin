@@ -62,12 +62,12 @@
         <translation>Helbideak jasotzen</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Hauek dira zure Meow helbideak dirua bidaltzeko. Beti egiaztatu diru-kantitatea eta jasotzeko helbidea bidali baino lehen.</translation>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Hauek dira zure Meowcoin helbideak dirua bidaltzeko. Beti egiaztatu diru-kantitatea eta jasotzeko helbidea bidali baino lehen.</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Hauek dira zure Meow helbideak dirua jasotzeko. Gomendagarria da erabiltzea jasotzeko helbide berri bat operazio bakoitzeko.</translation>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Hauek dira zure Meowcoin helbideak dirua jasotzeko. Gomendagarria da erabiltzea jasotzeko helbide berri bat operazio bakoitzeko.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -400,7 +400,7 @@
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Erakutsi Meow-i buruzko informazioa</translation>
+        <translation>Erakutsi Meowcoin-i buruzko informazioa</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
@@ -847,7 +847,7 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Aukerak</translation>

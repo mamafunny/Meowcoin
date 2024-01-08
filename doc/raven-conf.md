@@ -1,6 +1,6 @@
-# `meow.conf` Configuration File
+# `meowcoin.conf` Configuration File
 
-The configuration file is used by `meowd`, `meow-qt` and `meow-cli`.
+The configuration file is used by `meowcoind`, `meowcoin-qt` and `meowcoin-cli`.
 
 All command-line options (except for `-?`, `-help`, `-version` and `-conf`) may be specified in a configuration file, and all configuration file options (except for `includeconf`) may also be specified on the command line. Command-line options override values set in the configuration file and configuration file options override values set in the GUI.
 
@@ -46,16 +46,16 @@ rpcport=4000
 
 ## Configuration File Path
 
-The configuration file is not automatically created; you can create it using your favorite text editor. By default, the configuration file name is `meow.conf` and it is located in the Meow data directory, but both the Meow data directory and the configuration file path may be changed using the `-datadir` and `-conf` command-line options.
+The configuration file is not automatically created; you can create it using your favorite text editor. By default, the configuration file name is `meowcoin.conf` and it is located in the Meowcoin data directory, but both the Meowcoin data directory and the configuration file path may be changed using the `-datadir` and `-conf` command-line options.
 
-The `includeconf=<file>` option in the `meow.conf` file can be used to include additional configuration files.
+The `includeconf=<file>` option in the `meowcoin.conf` file can be used to include additional configuration files.
 
 ### Default configuration file locations
 
 Operating System | Data Directory | Example Path
 -- | -- | --
-Windows | `%APPDATA%\Meow\` | `C:\Users\username\AppData\Roaming\Meow\meow.conf`
-Linux | `$HOME/.meow/` | `/home/username/.meow/meow.conf`
-macOS | `$HOME/Library/Application Support/Rave /` | `/Users/username/Library/Application Support/Meow/meow.conf`
+Windows | `%APPDATA%\Meowcoin\` | `C:\Users\username\AppData\Roaming\Meowcoin\meowcoin.conf`
+Linux | `$HOME/.meowcoin/` | `/home/username/.meowcoin/meowcoin.conf`
+macOS | `$HOME/Library/Application Support/Rave /` | `/Users/username/Library/Application Support/Meowcoin/meowcoin.conf`
 
-You can find an example meow.conf file in [share/examples/meow.conf](../share/examples/meow.conf).
+You can find an example meowcoin.conf file in [share/examples/meowcoin.conf](../share/examples/meowcoin.conf).

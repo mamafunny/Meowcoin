@@ -251,16 +251,16 @@
         <translation>Recibiendo direcciones</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Enviar monedas a una dirección Meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Enviar monedas a una dirección Meowcoin</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
         <translation>Cambie la clave utilizada para el cifrado del monedero</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -466,7 +466,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:</translation>

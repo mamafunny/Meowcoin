@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -3362,7 +3362,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
             /** MEWC END */
             // Create change script that will be used if we need change
             // TODO: pass in scriptChange instead of reservekey so
-            // change transaction isn't always pay-to-meow-address
+            // change transaction isn't always pay-to-meowcoin-address
             CScript scriptChange;
             CScript assetScriptChange;
 

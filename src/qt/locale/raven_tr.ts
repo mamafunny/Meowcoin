@@ -62,12 +62,12 @@
         <translation>Alım adresleri</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Bunlar ödemeleri göndermek için kullanacağınız Meow adreslerinizdir. Meow yollamadan önce tutarı ve alıcının alım adresini her zaman kontrol ediniz.</translation>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Bunlar ödemeleri göndermek için kullanacağınız Meowcoin adreslerinizdir. Meowcoin yollamadan önce tutarı ve alıcının alım adresini her zaman kontrol ediniz.</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Bunlar ödemeleri almak için kullanacağınız Meow adreslerinizdir. Her işlem için yeni bir alım adresi kullanmanız tavsiye edilir.</translation>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Bunlar ödemeleri almak için kullanacağınız Meowcoin adreslerinizdir. Her işlem için yeni bir alım adresi kullanmanız tavsiye edilir.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -485,8 +485,8 @@
         <translation>per kilobyte</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
-        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -637,8 +637,8 @@
         <translation><numerusform>Estimated to begin confirmation within %n block.</numerusform><numerusform>Estimated to begin confirmation within %n blocks.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
-        <translation>Warning: Invalid Meow address</translation>
+        <source>Warning: Invalid Meowcoin address</source>
+        <translation>Warning: Invalid Meowcoin address</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -739,7 +739,7 @@
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Selection</source>
-        <translation>Meow Seçimi</translation>
+        <translation>Meowcoin Seçimi</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -1053,8 +1053,8 @@
         <translation>per kilobyte</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
-        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1177,8 +1177,8 @@
         <translation>IPFS/Txid hash is not valid. Please use a valid IPFS/Txid hash</translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
-        <translation>Warning: Invalid Meow address</translation>
+        <source>Warning: Invalid Meowcoin address</source>
+        <translation>Warning: Invalid Meowcoin address</translation>
     </message>
     <message>
         <source>Warning: Restricted Assets Reissuance requires an address</source>
@@ -1300,8 +1300,8 @@
         <translation>Gönderi adresini düzenle</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Meow address.</source>
-        <translation>Girilen "%1" adresi geçerli bir Meow adresi değildir.</translation>
+        <source>The entered address "%1" is not a valid Meowcoin address.</source>
+        <translation>Girilen "%1" adresi geçerli bir Meowcoin adresi değildir.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1529,8 +1529,8 @@ Recommended action: Fully sync your wallet before sending a transaction.
         <translation>Özel bir veri klasörü kullan:</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>At least %1 GB of data will be stored in this directory, and it will grow over time.</source>
@@ -1541,8 +1541,8 @@ Recommended action: Fully sync your wallet before sending a transaction.
         <translation>Approximately %1 GB of data will be stored in this directory.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Meow block chain.</source>
-        <translation>%1 will download and store a copy of the Meow block chain.</translation>
+        <source>%1 will download and store a copy of the Meowcoin block chain.</source>
+        <translation>%1 will download and store a copy of the Meowcoin block chain.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1583,8 +1583,8 @@ Recommended action: Fully sync your wallet before sending a transaction.
         <translation>Select the type of wallet to create.</translation>
     </message>
     <message>
-        <source>Since no wallet.dat file was found in the Meow block chain data directory, a wallet file will be created.</source>
-        <translation>Since no wallet.dat file was found in the Meow block chain data directory, a wallet file will be created.</translation>
+        <source>Since no wallet.dat file was found in the Meowcoin block chain data directory, a wallet file will be created.</source>
+        <translation>Since no wallet.dat file was found in the Meowcoin block chain data directory, a wallet file will be created.</translation>
     </message>
     <message>
         <source>Please choose what you would like to do:</source>
@@ -1722,8 +1722,8 @@ They are not recoverable !!</translation>
         <translation>Form</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meow network, as detailed below.</source>
-        <translation>Son işlemler henüz görünmeyebilir ve bu nedenle cüzdanınızın bakiyesi yanlış olabilir. Bu bilgiler, aşağıda detaylandırıldığı gibi, cüzdanınız meow ağı ile senkronizasyonunu tamamladığında doğru olacaktır. </translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the meowcoin network, as detailed below.</source>
+        <translation>Son işlemler henüz görünmeyebilir ve bu nedenle cüzdanınızın bakiyesi yanlış olabilir. Bu bilgiler, aşağıda detaylandırıldığı gibi, cüzdanınız meowcoin ağı ile senkronizasyonunu tamamladığında doğru olacaktır. </translation>
     </message>
     <message>
         <source>Attempting to spend meows that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
@@ -1971,8 +1971,8 @@ They are not recoverable !!</translation>
         <translation>Doğrulanmamış para üstünü &amp;harca</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Yönlendiricide Meow istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Yönlendiricide Meowcoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1987,8 +1987,8 @@ They are not recoverable !!</translation>
         <translation>Allow incomin&amp;g connections</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
-        <translation>Meow ağına bir SOCKS5 vekil sunucusu aracılığıyla bağlan.</translation>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
+        <translation>Meowcoin ağına bir SOCKS5 vekil sunucusu aracılığıyla bağlan.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -2023,8 +2023,8 @@ They are not recoverable !!</translation>
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Meow ağına gizli Tor servisleri için ayrı bir SOCKS5 vekil sunucusu aracılığıyla bağlan.</translation>
+        <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Meowcoin ağına gizli Tor servisleri için ayrı bir SOCKS5 vekil sunucusu aracılığıyla bağlan.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -2060,7 +2060,7 @@ They are not recoverable !!</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Meow gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
+        <translation>Meowcoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -2146,8 +2146,8 @@ They are not recoverable !!</translation>
         <translation>Form</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>Görüntülenen bilgiler güncel olmayabilir. Bağlantı kurulduğunda cüzdanınız otomatik olarak Meow ağı ile senkronize olur ancak bu işlem henüz tamamlanmamıştır.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Görüntülenen bilgiler güncel olmayabilir. Bağlantı kurulduğunda cüzdanınız otomatik olarak Meowcoin ağı ile senkronize olur ancak bu işlem henüz tamamlanmamıştır.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -2261,8 +2261,8 @@ They are not recoverable !!</translation>
         <translation>Ödeme talebi hatası</translation>
     </message>
     <message>
-        <source>Cannot start meow: click-to-pay handler</source>
-        <translation>Meow başlatılamadı: tıkla-ve-öde yöneticisi</translation>
+        <source>Cannot start meowcoin: click-to-pay handler</source>
+        <translation>Meowcoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -2277,8 +2277,8 @@ They are not recoverable !!</translation>
         <translation>%1 ödeme adresi geçersizdir</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Meow address or malformed URI parameters.</source>
-        <translation>URI ayrıştırılamıyor! Bunun nedeni geçersiz bir Meow adresi veya hatalı biçimlendirilmiş URI değişkenleri olabilir.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Meowcoin address or malformed URI parameters.</source>
+        <translation>URI ayrıştırılamıyor! Bunun nedeni geçersiz bir Meowcoin adresi veya hatalı biçimlendirilmiş URI değişkenleri olabilir.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -2379,8 +2379,8 @@ They are not recoverable !!</translation>
         <translation>Tutar</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>Bir Meow adresi giriniz (mesela %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>Bir Meowcoin adresi giriniz (mesela %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -3015,8 +3015,8 @@ They are not recoverable !!</translation>
         <translation>Diskteki bloklar yeniden indeksleniyor...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Bir meow adresine meow gönder</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Bir meowcoin adresine meowcoin gönder</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -3035,8 +3035,8 @@ They are not recoverable !!</translation>
         <translation>İletiyi &amp;kontrol et...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -3063,12 +3063,12 @@ They are not recoverable !!</translation>
         <translation>Cüzdanınıza ait özel anahtarları şifreleyin</translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
-        <translation>İletileri adreslerin size ait olduğunu ispatlamak için Meow adresleri ile imzala</translation>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>İletileri adreslerin size ait olduğunu ispatlamak için Meowcoin adresleri ile imzala</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Belirtilen Meow adresleri ile imzalandıklarından emin olmak için iletileri kontrol et</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Belirtilen Meowcoin adresleri ile imzalandıklarından emin olmak için iletileri kontrol et</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -3079,8 +3079,8 @@ They are not recoverable !!</translation>
         <translation>&amp;Yardım</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Ödeme talep et (QR kodu ve meow URI'si oluşturur)</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Ödeme talep et (QR kodu ve meowcoin URI'si oluşturur)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -3091,16 +3091,16 @@ They are not recoverable !!</translation>
         <translation>Kullanılmış alım adresleri ve etiketlerin listesini göster</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Bir meow: bağlantısı ya da ödeme talebi aç</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Bir meowcoin: bağlantısı ya da ödeme talebi aç</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Komut satırı seçenekleri</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Meow network</source>
-        <translation><numerusform>%n active connection to Meow network</numerusform><numerusform>%n active connections to Meow network</numerusform></translation>
+        <source>%n active connection(s) to Meowcoin network</source>
+        <translation><numerusform>%n active connection to Meowcoin network</numerusform><numerusform>%n active connections to Meowcoin network</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -3143,8 +3143,8 @@ They are not recoverable !!</translation>
         <translation>Güncel</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Meow command-line options</source>
-        <translation>Olası Meow komut satırı seçeneklerinin listesini görmek için %1 yardım mesajını göster</translation>
+        <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
+        <translation>Olası Meowcoin komut satırı seçeneklerinin listesini görmek için %1 yardım mesajını göster</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -3221,8 +3221,8 @@ They are not recoverable !!</translation>
         <translation>Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilitlidir&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Meow can no longer continue safely and will quit.</source>
-        <translation>Ölümcül bir hata oluştu. Meow yazılımı artık güvenli bir şekilde çalışmaya devam edemediği için kapatılacaktır.</translation>
+        <source>A fatal error occurred. Meowcoin can no longer continue safely and will quit.</source>
+        <translation>Ölümcül bir hata oluştu. Meowcoin yazılımı artık güvenli bir şekilde çalışmaya devam edemediği için kapatılacaktır.</translation>
     </message>
 </context>
 <context>
@@ -3248,8 +3248,8 @@ They are not recoverable !!</translation>
         <translation>&amp;Hâlihazırda bulunan bir alım adresini kullan (önerilmez)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meow network.</source>
-        <translation>Talep açıldığında gösterilecek, isteğinize dayalı, ödeme talebi ile ilişkilendirilecek bir ileti. Not: Bu ileti ödeme ile birlikte Meow ağı üzerinden gönderilmeyecektir.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
+        <translation>Talep açıldığında gösterilecek, isteğinize dayalı, ödeme talebi ile ilişkilendirilecek bir ileti. Not: Bu ileti ödeme ile birlikte Meowcoin ağı üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -3557,8 +3557,8 @@ They are not recoverable !!</translation>
         <translation>per kilobyte</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
-        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
+        <translation>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -3653,16 +3653,16 @@ They are not recoverable !!</translation>
         <translation>Quantity is to large. Max is 21,000,000,000</translation>
     </message>
     <message>
-        <source>Invalid Meow Destination Address</source>
-        <translation>Invalid Meow Destination Address</translation>
+        <source>Invalid Meowcoin Destination Address</source>
+        <translation>Invalid Meowcoin Destination Address</translation>
     </message>
     <message>
         <source>Warning: Restricted Assets Issuance requires an address</source>
         <translation>Warning: Restricted Assets Issuance requires an address</translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
-        <translation>Warning: Invalid Meow address</translation>
+        <source>Warning: Invalid Meowcoin address</source>
+        <translation>Warning: Invalid Meowcoin address</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -3895,8 +3895,8 @@ They are not recoverable !!</translation>
         <translation>This is an asset payment</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
-        <translation>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</translation>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
+        <translation>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -3919,8 +3919,8 @@ They are not recoverable !!</translation>
         <translation>Asset:</translation>
     </message>
     <message>
-        <source>The Meow address to send the payment to</source>
-        <translation>The Meow address to send the payment to</translation>
+        <source>The Meowcoin address to send the payment to</source>
+        <translation>The Meowcoin address to send the payment to</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -4023,7 +4023,7 @@ They are not recoverable !!</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Meow yolla</translation>
+        <translation>Meowcoin yolla</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -4106,8 +4106,8 @@ They are not recoverable !!</translation>
         <translation>Gizle</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meow transactions than the network can process.</source>
-        <translation>Gerekli olan en az ücreti ödemek, bloklarda boşluktan daha az işlem hacmi olduğu sürece bir sorun çıkarmaz. Fakat ağın işleyecebileceğinden daha çok meow işlemi talebi olduğunda bunun asla doğrulanmayan bir işlem olabileceğinin farkında olmalısınız.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for meowcoin transactions than the network can process.</source>
+        <translation>Gerekli olan en az ücreti ödemek, bloklarda boşluktan daha az işlem hacmi olduğu sürece bir sorun çıkarmaz. Fakat ağın işleyecebileceğinden daha çok meowcoin işlemi talebi olduğunda bunun asla doğrulanmayan bir işlem olabileceğinin farkında olmalısınız.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -4223,7 +4223,7 @@ They are not recoverable !!</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Meow gönderimini onaylayın</translation>
+        <translation>Meowcoin gönderimini onaylayın</translation>
     </message>
     <message>
         <source>The recipient address is not valid. Please recheck.</source>
@@ -4270,8 +4270,8 @@ They are not recoverable !!</translation>
         <translation><numerusform>Estimated to begin confirmation within %n block.</numerusform><numerusform>Estimated to begin confirmation within %n blocks.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Meow address</source>
-        <translation>Uyarı: geçersiz Meow adresi</translation>
+        <source>Warning: Invalid Meowcoin address</source>
+        <translation>Uyarı: geçersiz Meowcoin adresi</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -4309,8 +4309,8 @@ They are not recoverable !!</translation>
         <translation>Bu, normal bir ödemedir.</translation>
     </message>
     <message>
-        <source>The Meow address to send the payment to</source>
-        <translation>Ödemenin yollanacağı Meow adresi</translation>
+        <source>The Meowcoin address to send the payment to</source>
+        <translation>Ödemenin yollanacağı Meowcoin adresi</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -4330,7 +4330,7 @@ They are not recoverable !!</translation>
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less meows than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Ücret yollanan tutardan alınacaktır. Alıcı tutar alanına girdiğinizden daha az meow alacaktır. Eğer birden çok alıcı seçiliyse ücret eşit olarak bölünecektir.</translation>
+        <translation>Ücret yollanan tutardan alınacaktır. Alıcı tutar alanına girdiğinizden daha az meowcoin alacaktır. Eğer birden çok alıcı seçiliyse ücret eşit olarak bölünecektir.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -4357,8 +4357,8 @@ They are not recoverable !!</translation>
         <translation>Kullanılmış adres listesine eklemek için bu adrese bir etiket girin</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
-        <translation>Referans için meow: URI'siyle iliştirilmiş işlemle birlikte depolanacak bir ileti. Not: Bu mesaj Meow ağı üzerinden gönderilmeyecektir.</translation>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
+        <translation>Referans için meowcoin: URI'siyle iliştirilmiş işlemle birlikte depolanacak bir ileti. Not: Bu mesaj Meowcoin ağı üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -4402,8 +4402,8 @@ They are not recoverable !!</translation>
         <translation>Adreslerinize yollanan meowleri alabileceğiniz ispatlamak için adreslerinizle iletiler/anlaşmalar imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz ya da rastgele hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
     </message>
     <message>
-        <source>The Meow address to sign the message with</source>
-        <translation>İletinin imzalanmasında kullanılacak Meow adresi</translation>
+        <source>The Meowcoin address to sign the message with</source>
+        <translation>İletinin imzalanmasında kullanılacak Meowcoin adresi</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -4434,8 +4434,8 @@ They are not recoverable !!</translation>
         <translation>Güncel imzayı sistem panosuna kopyala</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
-        <translation>Bu Meow adresinin sizin olduğunu ispatlamak için iletiyi imzalayın</translation>
+        <source>Sign the message to prove you own this Meowcoin address</source>
+        <translation>Bu Meowcoin adresinin sizin olduğunu ispatlamak için iletiyi imzalayın</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -4458,12 +4458,12 @@ They are not recoverable !!</translation>
         <translation>Alıcının adresini, iletiyi (satır sonları, boşluklar, sekmeler vs. karakterleri tam olarak kopyaladığınızdan emin olunuz) ve imzayı aşağıya giriniz. Bir ortadaki adam saldırısı tarafından kandırılmaya engel olmak için imzadan, imzalı iletinin içeriğini aşan bir anlam çıkarmamaya dikkat ediniz. Bunun sadece imzalayan tarafın adres ile alım yapabildiğini ispatladığını ve herhangi bir işlemin gönderi tarafını kanıtlayamayacağını unutmayınız!</translation>
     </message>
     <message>
-        <source>The Meow address the message was signed with</source>
-        <translation>İletinin imzalanmasında kullanılan Meow adresi</translation>
+        <source>The Meowcoin address the message was signed with</source>
+        <translation>İletinin imzalanmasında kullanılan Meowcoin adresi</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>Belirtilen Meow adresi ile imzalandığını doğrulamak için iletiyi kontrol et</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>Belirtilen Meowcoin adresi ile imzalandığını doğrulamak için iletiyi kontrol et</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -4688,7 +4688,7 @@ They are not recoverable !!</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Oluşturulan meow'lerin harcanabilmelerinden önce %1 blok beklemeleri gerekmektedir. Bu blok, oluşturduğunuzda, blok zincirine eklenmesi için ağda yayınlandı. Zincire eklenmesi başarısız olursa, durumu "kabul edilmedi" olarak değiştirilecek ve harcanamayacaktır. Bu, bazen başka bir düğüm sizden birkaç saniye önce ya da sonra blok oluşturursa meydana gelebilir.</translation>
+        <translation>Oluşturulan meowcoin'lerin harcanabilmelerinden önce %1 blok beklemeleri gerekmektedir. Bu blok, oluşturduğunuzda, blok zincirine eklenmesi için ağda yayınlandı. Zincire eklenmesi başarısız olursa, durumu "kabul edilmedi" olarak değiştirilecek ve harcanamayacaktır. Bu, bazen başka bir düğüm sizden birkaç saniye önce ya da sonra blok oluşturursa meydana gelebilir.</translation>
     </message>
     <message>
         <source>Net MEWC amount</source>
@@ -5117,7 +5117,7 @@ They are not recoverable !!</translation>
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Seçenekler:</translation>
@@ -5179,8 +5179,8 @@ They are not recoverable !!</translation>
         <translation>HTTP sunucusu başlatılamadı. Ayrıntılar için debug.log dosyasına bakınız.</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Çekirdeği</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Çekirdeği</translation>
     </message>
     <message>
         <source>The %s developers</source>
@@ -5264,7 +5264,7 @@ They are not recoverable !!</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Bu kararlı sürümden önceki bir deneme sürümüdür. - risklerini bilerek kullanma sorumluluğu sizdedir - meow oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
+        <translation>Bu kararlı sürümden önceki bir deneme sürümüdür. - risklerini bilerek kullanma sorumluluğu sizdedir - meowcoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
     </message>
     <message>
         <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
@@ -5728,7 +5728,7 @@ They are not recoverable !!</translation>
     </message>
     <message>
         <source>The transaction amount is too small to pay the fee</source>
-        <translation>İşlemdeki meow tutarı ücreti ödemek için çok düşük</translation>
+        <translation>İşlemdeki meowcoin tutarı ücreti ödemek için çok düşük</translation>
     </message>
     <message>
         <source>This is experimental software.</source>

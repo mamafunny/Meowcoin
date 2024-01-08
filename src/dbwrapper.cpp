@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Meow Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,7 +43,7 @@ public:
                 if (p < limit) {
                     va_list backup_ap;
                     va_copy(backup_ap, ap);
-                    // Do not use vsnprintf elsewhere in meow source code, see above.
+                    // Do not use vsnprintf elsewhere in meowcoin source code, see above.
                     p += vsnprintf(p, limit - p, format, backup_ap);
                     va_end(backup_ap);
                 }

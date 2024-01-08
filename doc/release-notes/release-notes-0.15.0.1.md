@@ -1,10 +1,10 @@
-Meow Core version *0.15.0.1* is now available from:
+Meowcoin Core version *0.15.0.1* is now available from:
 
-  <https://meow.org/bin/meow-core-0.15.0.1/>
+  <https://meowcoin.org/bin/meowcoin-core-0.15.0.1/>
 
 and
 
-  <https://meowcoin.org/bin/meow-core-0.15.0.1/>
+  <https://meowcoin.org/bin/meowcoin-core-0.15.0.1/>
 
 This is a minor bug fix for 0.15.0.
 
@@ -21,8 +21,8 @@ How to Upgrade
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the 
-installer (on Windows) or just copy over `/Applications/Meow-Qt` (on Mac)
-or `meowd`/`meow-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Meowcoin-Qt` (on Mac)
+or `meowcoind`/`meowcoin-qt` (on Linux).
 
 The first time you run version 0.15.0 or higher, your chainstate database will
 be converted to a new format, which will take anywhere from a few minutes to
@@ -51,10 +51,10 @@ processing the entire blockchain.
 Compatibility
 ==============
 
-Meow Core is extensively tested on multiple operating systems using
+Meowcoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
 
-Meow Core should also work on most other Unix-like systems but is not
+Meowcoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable changes
@@ -84,4 +84,4 @@ Thanks to everyone who directly contributed to this release:
 - Jonas Schnelli
 - Wladimir J. van der Laan
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/meow/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/meowcoin/).

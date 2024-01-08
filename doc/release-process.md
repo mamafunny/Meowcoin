@@ -30,7 +30,7 @@ Before every major release:
 
     git clone https://github.com/MeowProject/Meowcoin.git
 
-### Meow maintainers/release engineers, suggestion for writing release notes
+### Meowcoin maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -56,15 +56,15 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer meow-osx-unsigned.tar.gz to osx for signing
-    tar xf meow-osx-unsigned.tar.gz
+    transfer meowcoin-osx-unsigned.tar.gz to osx for signing
+    tar xf meowcoin-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf meow-win-unsigned.tar.gz
+    tar xf meowcoin-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
@@ -79,14 +79,14 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-meow-${VERSION}-aarch64-linux-gnu.tar.gz
-meow-${VERSION}-arm-linux-gnueabihf.tar.gz
-meow-${VERSION}-x86_64-linux-gnu.tar.gz
-meow-${VERSION}-osx64.tar.gz
-meow-${VERSION}-osx.dmg
-meow-${VERSION}.tar.gz
-meow-${VERSION}-win64-setup.exe
-meow-${VERSION}-win64.zip
+meowcoin-${VERSION}-aarch64-linux-gnu.tar.gz
+meowcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+meowcoin-${VERSION}-x86_64-linux-gnu.tar.gz
+meowcoin-${VERSION}-osx64.tar.gz
+meowcoin-${VERSION}-osx.dmg
+meowcoin-${VERSION}.tar.gz
+meowcoin-${VERSION}-win64-setup.exe
+meowcoin-${VERSION}-win64.zip
 
 - GPG-sign it, delete the unsigned file:
 ```

@@ -168,7 +168,7 @@
 <context>
     <name>OverviewPage</name>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>देखाइएको सूचना पूरानो हुन सक्छ । कनेक्सन स्थापित भएपछि, तपाईंको वालेट बिटकोइन नेटवर्कमा स्वचालित रूपमा समिकरण हुन्छ , तर यो प्रक्रिया अहिले सम्म पूरा भएको छैन ।</translation>
     </message>
     <message>
@@ -229,7 +229,7 @@
         <translation>रकम</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
         <translation>कृपया बिटकोइन ठेगाना प्रवेश गर्नुहोस् (उदाहरण %1)</translation>
     </message>
     </context>
@@ -341,7 +341,7 @@
         <translation>डिस्कमा ब्लकलाई पुनः सूचीकरण गरिँदै...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
+        <source>Send coins to a Meowcoin address</source>
         <translation>बिटकोइन ठेगानामा सिक्का पठाउनुहोस्</translation>
     </message>
     <message>
@@ -397,7 +397,7 @@
         <translation>यो ठेगानालाई प्रयोग गरिएको ठेगानाको सूचीमा थप्न एउटा लेबल प्रविष्ट गर्नुहोस्</translation>
     </message>
     <message>
-        <source>A message that was attached to the meow: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meow network.</source>
+        <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
         <translation>बिटकोइनमा संलग्न गरिएको सन्देश: तपाईंको मध्यस्थको लागि कारोबारको साथमा भण्डारण गरिने URI । नोट: यो सन्देश बिटकोइन नेटवर्क मार्फत पठाइने छैन ।</translation>
     </message>
     </context>
@@ -471,7 +471,7 @@
     </message>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>वालेटको सबै कारोबार मेटाउनुहोस् र -स्टार्टअपको पुनः स्क्यान मार्फत ब्लकचेनका ती भागहरूलाई मात्र पुनः प्राप्त गर्नुहोस्</translation>

@@ -1,7 +1,7 @@
 # Copyright (c) 2011 Jeff Garzik
 # Previous copyright, from python-jsonrpc/jsonrpc/proxy.py:
 # Copyright (c) 2007 Jan-Klaas Kollhof
-# Copyright (c) 2017-2020 The Meow Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 #
 # This file is part of jsonrpc.
 #
@@ -20,7 +20,7 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 """
-HTTP proxy for opening RPC connection to meowd.
+HTTP proxy for opening RPC connection to meowcoind.
 
 AuthServiceProxy has the following improvements over python-jsonrpc's
 ServiceProxy class:

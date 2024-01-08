@@ -1,7 +1,7 @@
 Description
 ------------
 
-This directory contains data-driven tests for various aspects of Meow.
+This directory contains data-driven tests for various aspects of Meowcoin.
 
 License
 --------

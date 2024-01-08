@@ -14,7 +14,7 @@ We’re all in this together. There are new capabilities included in the latest 
     * REST API to RPC (business specific)
     * REST API to memos/messages
 * Core
-    * Asset Exchange Proxy (simulate sending an ASSET like meowd does for MEWC)
+    * Asset Exchange Proxy (simulate sending an ASSET like meowcoind does for MEWC)
     * Improved messaging/memo RPC calls
     * 24 word - master key (not seed) - direct to/from master xprv and pub
     * Local Filter (whitelist/blacklist) for assets

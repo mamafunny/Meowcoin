@@ -62,12 +62,12 @@
         <translation>Διευθύνσεις λήψης</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Αυτές είναι οι Meow διευθύνσεις για να στέλνεις πληρωμές. Πάντα ελέγχετε το ποσό και την διεύθενση παραλήπτη πριν στείλετε νομίσματα.</translation>
+        <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Αυτές είναι οι Meowcoin διευθύνσεις για να στέλνεις πληρωμές. Πάντα ελέγχετε το ποσό και την διεύθενση παραλήπτη πριν στείλετε νομίσματα.</translation>
     </message>
     <message>
-        <source>These are your Meow addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Αυτές είναι οι Meow διευθύνσεις για να στέλνεις πληρωμές. Είναι προτινόμενο να χρησιμοποιείτε μια νέα διεύθυνση για κάθε συναλλαγή.</translation>
+        <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Αυτές είναι οι Meowcoin διευθύνσεις για να στέλνεις πληρωμές. Είναι προτινόμενο να χρησιμοποιείτε μια νέα διεύθυνση για κάθε συναλλαγή.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -404,8 +404,8 @@
         <translation>Επεξεργασία διεύθυνση αποστολής</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Meow address.</source>
-        <translation>Η εισαχθείσα διεύθυνση "%1" δεν είναι έγκυρη Meow διεύθυνση.</translation>
+        <source>The entered address "%1" is not a valid Meowcoin address.</source>
+        <translation>Η εισαχθείσα διεύθυνση "%1" δεν είναι έγκυρη Meowcoin διεύθυνση.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -615,16 +615,16 @@
         <translation>&amp;Ξόδεμα μη επικυρωμένων ρέστων</translation>
     </message>
     <message>
-        <source>Automatically open the Meow client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Αυτόματο άνοιγμα των θυρών Meow στον δρομολογητή. Λειτουργεί μόνο αν ο δρομολογητής σας υποστηρίζει τη λειτουργία UPnP.</translation>
+        <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Αυτόματο άνοιγμα των θυρών Meowcoin στον δρομολογητή. Λειτουργεί μόνο αν ο δρομολογητής σας υποστηρίζει τη λειτουργία UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Απόδοση θυρών με χρήστη &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Meow network through a SOCKS5 proxy.</source>
-        <translation>Σύνδεση στο Meow δίκτυο μέσω διαμεσολαβητή SOCKS5 (π.χ. για σύνδεση μέσω Tor)</translation>
+        <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
+        <translation>Σύνδεση στο Meowcoin δίκτυο μέσω διαμεσολαβητή SOCKS5 (π.χ. για σύνδεση μέσω Tor)</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -719,8 +719,8 @@
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meow network after a connection is established, but this process has not completed yet.</source>
-        <translation>Οι πληροφορίες που εμφανίζονται μπορεί να είναι ξεπερασμένες. Το πορτοφόλι σας συγχρονίζεται αυτόματα με το δίκτυο Meow μετά από μια σύνδεση, αλλά αυτή η διαδικασία δεν έχει ακόμη ολοκληρωθεί. </translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Meowcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Οι πληροφορίες που εμφανίζονται μπορεί να είναι ξεπερασμένες. Το πορτοφόλι σας συγχρονίζεται αυτόματα με το δίκτυο Meowcoin μετά από μια σύνδεση, αλλά αυτή η διαδικασία δεν έχει ακόμη ολοκληρωθεί. </translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -796,8 +796,8 @@
         <translation>Ποσό</translation>
     </message>
     <message>
-        <source>Enter a Meow address (e.g. %1)</source>
-        <translation>Εισάγετε μια διεύθυνση Meow (π.χ. %1)</translation>
+        <source>Enter a Meowcoin address (e.g. %1)</source>
+        <translation>Εισάγετε μια διεύθυνση Meowcoin (π.χ. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1084,8 +1084,8 @@
         <translation>Φόρτωση ευρετηρίου μπλοκ στον σκληρο δισκο...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Στείλε νομίσματα σε μια διεύθυνση meow</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Στείλε νομίσματα σε μια διεύθυνση meowcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1104,8 +1104,8 @@
         <translation>&amp;Επιβεβαίωση μηνύματος</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1132,12 +1132,12 @@
         <translation>Κρυπτογραφήστε τα ιδιωτικά κλειδιά που ανήκουν στο πορτοφόλι σας </translation>
     </message>
     <message>
-        <source>Sign messages with your Meow addresses to prove you own them</source>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
         <translation>Υπογράψτε ένα μήνυμα για να βεβαιώσετε πως είστε ο κάτοχος αυτής της διεύθυνσης</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Meow addresses</source>
-        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως ανήκει μια συγκεκριμένη διεύθυνση Meow</translation>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως ανήκει μια συγκεκριμένη διεύθυνση Meowcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1148,8 +1148,8 @@
         <translation>&amp;Βοήθεια</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and meow: URIs)</source>
-        <translation>Αίτηση πληρωμών (δημιουργεί QR codes και διευθύνσεις meow: )</translation>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Αίτηση πληρωμών (δημιουργεί QR codes και διευθύνσεις meowcoin: )</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1160,8 +1160,8 @@
         <translation>Προβολή της λίστας των χρησιμοποιημένων διευθύνσεων και ετικετών λήψεως</translation>
     </message>
     <message>
-        <source>Open a meow: URI or payment request</source>
-        <translation>Άνοιγμα meow: URI αίτησης πληρωμής</translation>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Άνοιγμα meowcoin: URI αίτησης πληρωμής</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1554,8 +1554,8 @@
         <translation>Αυτή είναι μια απλή πληρωμή.</translation>
     </message>
     <message>
-        <source>The Meow address to send the payment to</source>
-        <translation>Η διεύθυνση Meow που θα σταλεί η πληρωμή</translation>
+        <source>The Meowcoin address to send the payment to</source>
+        <translation>Η διεύθυνση Meowcoin που θα σταλεί η πληρωμή</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1607,8 +1607,8 @@
         <translation>&amp;Υπογραφή Μηνύματος</translation>
     </message>
     <message>
-        <source>The Meow address to sign the message with</source>
-        <translation>Διεύθυνση Meow που θα σταλεί το μήνυμα</translation>
+        <source>The Meowcoin address to sign the message with</source>
+        <translation>Διεύθυνση Meowcoin που θα σταλεί το μήνυμα</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1639,8 +1639,8 @@
         <translation>Αντέγραφη της επιλεγμενης διεύθυνσης στο πρόχειρο του συστηματος</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Meow address</source>
-        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως σας ανήκει μια συγκεκριμένη διεύθυνση Meow</translation>
+        <source>Sign the message to prove you own this Meowcoin address</source>
+        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως σας ανήκει μια συγκεκριμένη διεύθυνση Meowcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1659,12 +1659,12 @@
         <translation>&amp;Επιβεβαίωση μηνύματος</translation>
     </message>
     <message>
-        <source>The Meow address the message was signed with</source>
-        <translation>Διεύθυνση Meow η οποία το μήνυμα έχει υπογραφεί</translation>
+        <source>The Meowcoin address the message was signed with</source>
+        <translation>Διεύθυνση Meowcoin η οποία το μήνυμα έχει υπογραφεί</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Meow address</source>
-        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως υπογραφθηκε απο μια συγκεκριμένη διεύθυνση Meow</translation>
+        <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
+        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως υπογραφθηκε απο μια συγκεκριμένη διεύθυνση Meowcoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1850,7 +1850,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Επιλογές:</translation>
@@ -1876,8 +1876,8 @@
         <translation>Εκτέλεση στο παρασκήνιο κι αποδοχή εντολών</translation>
     </message>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

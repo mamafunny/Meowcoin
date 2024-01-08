@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Meow Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -69,8 +69,8 @@ from test_framework.blocktools import create_block, create_coinbase
 class AcceptBlockTest(MeowTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("RAVEND", "meowd"),
-                          help="meowd binary to test")
+                          default=os.getenv("RAVEND", "meowcoind"),
+                          help="meowcoind binary to test")
 
     def set_test_params(self):
         self.setup_clean_chain = True

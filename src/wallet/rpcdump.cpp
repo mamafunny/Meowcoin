@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -276,7 +276,7 @@ UniValue importaddress(const JSONRPCRequest& request)
         std::vector<unsigned char> data(ParseHex(request.params[0].get_str()));
         ImportScript(pwallet, CScript(data.begin(), data.end()), strLabel, fP2SH);
     } else {
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Meow address or script");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Meowcoin address or script");
     }
 
     if (fRescan)
@@ -561,7 +561,7 @@ UniValue dumpprivkey(const JSONRPCRequest& request)
             "\nReveals the private key corresponding to 'address'.\n"
             "Then the importprivkey can be used with this output\n"
             "\nArguments:\n"
-            "1. \"address\"   (string, required) The meow address for the private key\n"
+            "1. \"address\"   (string, required) The meowcoin address for the private key\n"
             "\nResult:\n"
             "\"key\"                (string) The private key\n"
             "\nExamples:\n"
@@ -577,7 +577,7 @@ UniValue dumpprivkey(const JSONRPCRequest& request)
     std::string strAddress = request.params[0].get_str();
     CTxDestination dest = DecodeDestination(strAddress);
     if (!IsValidDestination(dest)) {
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Meow address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Meowcoin address");
     }
     const CKeyID *keyID = boost::get<CKeyID>(&dest);
     if (!keyID) {
@@ -603,7 +603,7 @@ UniValue dumpwallet(const JSONRPCRequest& request)
             "dumpwallet \"filename\"\n"
             "\nDumps all wallet keys in a human-readable format to a server-side file. This does not allow overwriting existing files.\n"
             "\nArguments:\n"
-            "1. \"filename\"    (string, required) The filename with path (either absolute or relative to meowd)\n"
+            "1. \"filename\"    (string, required) The filename with path (either absolute or relative to meowcoind)\n"
             "\nResult:\n"
             "{                           (json object)\n"
             "  \"filename\" : {        (string) The filename with full absolute path\n"
@@ -649,7 +649,7 @@ UniValue dumpwallet(const JSONRPCRequest& request)
     std::sort(vKeyBirth.begin(), vKeyBirth.end());
 
     // produce output
-    file << strprintf("# Wallet dump created by Meow %s\n", CLIENT_BUILD);
+    file << strprintf("# Wallet dump created by Meowcoin %s\n", CLIENT_BUILD);
     file << strprintf("# * Created on %s\n", EncodeDumpTime(GetTime()));
     file << strprintf("# * Best block at time of backup was %i (%s),\n", chainActive.Height(), chainActive.Tip()->GetBlockHash().ToString());
     file << strprintf("#   mined on %s\n", EncodeDumpTime(chainActive.Tip()->GetBlockTime()));
@@ -786,7 +786,7 @@ UniValue getmasterkeyinfo(const JSONRPCRequest& request)
                 CExtKey masterKey;
                 masterKey.SetSeed(seed.begin(), seed.size());;
 
-                // Get the Meow Ext Key from the master key
+                // Get the Meowcoin Ext Key from the master key
                 CMeowExtKey b58extkey;
                 b58extkey.SetKey(masterKey);
 
@@ -794,7 +794,7 @@ UniValue getmasterkeyinfo(const JSONRPCRequest& request)
                 CExtPubKey pubkey;
                 pubkey = masterKey.Neuter();
 
-                // Get the Meow Ext Key from the public key
+                // Get the Meowcoin Ext Key from the public key
                 CMeowExtPubKey b58extpubkey;
                 b58extpubkey.SetKey(pubkey);
 
@@ -811,11 +811,11 @@ UniValue getmasterkeyinfo(const JSONRPCRequest& request)
                 CExtPubKey account_extended_public_key;
                 account_extended_public_key = accountKey.Neuter();
 
-                // Create the Meow Account Ext Private Key
+                // Create the Meowcoin Account Ext Private Key
                 CMeowExtKey b58accountextprivatekey;
                 b58accountextprivatekey.SetKey(accountKey);
 
-                // Create the Meow Account Ext Public Key
+                // Create the Meowcoin Account Ext Public Key
                 CMeowExtPubKey b58actextpubkey;
                 b58actextpubkey.SetKey(account_extended_public_key);
 
@@ -841,7 +841,7 @@ UniValue getmasterkeyinfo(const JSONRPCRequest& request)
             CExtKey masterKey;
             masterKey.SetSeed(vchSeed.data(), vchSeed.size());
 
-            // Get the Meow Ext Key from the master key
+            // Get the Meowcoin Ext Key from the master key
             CMeowExtKey b58extkey;
             b58extkey.SetKey(masterKey);
 
@@ -849,7 +849,7 @@ UniValue getmasterkeyinfo(const JSONRPCRequest& request)
             CExtPubKey pubkey;
             pubkey = masterKey.Neuter();
 
-            // Get the Meow Ext Key from the public key
+            // Get the Meowcoin Ext Key from the public key
             CMeowExtPubKey b58extpubkey;
             b58extpubkey.SetKey(pubkey);
 
@@ -874,11 +874,11 @@ UniValue getmasterkeyinfo(const JSONRPCRequest& request)
             CExtPubKey account_extended_public_key;
             account_extended_public_key = accountKey.Neuter();
 
-            // Create the Meow Account Ext Private Key
+            // Create the Meowcoin Account Ext Private Key
             CMeowExtKey b58accountextprivatekey;
             b58accountextprivatekey.SetKey(accountKey);
 
-            // Create the Meow Account Ext Public Key
+            // Create the Meowcoin Account Ext Public Key
             CMeowExtPubKey b58actextpubkey;
             b58actextpubkey.SetKey(account_extended_public_key);
 
@@ -1348,7 +1348,7 @@ UniValue importmulti(const JSONRPCRequest& mainRequest)
                                       "block from time %d, which is after or within %d seconds of key creation, and "
                                       "could contain transactions pertaining to the key. As a result, transactions "
                                       "and coins using this key may not appear in the wallet. This error could be "
-                                      "caused by pruning or data corruption (see meowd log for details) and could "
+                                      "caused by pruning or data corruption (see meowcoind log for details) and could "
                                       "be dealt with by downloading and rescanning the relevant blocks (see -reindex "
                                       "and -rescan options).",
                                 GetImportTimestamp(request, now), scannedTime - TIMESTAMP_WINDOW - 1, TIMESTAMP_WINDOW)));

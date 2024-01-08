@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -198,7 +198,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        // Meow BIP44 cointype in mainnet is '1669'
+        // Meowcoin BIP44 cointype in mainnet is '1669'
         nExtCoinType = 1669;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -227,7 +227,7 @@ public:
 		// 20969961 transactions as of block #2383625 at 2022-07-28 22:02:22 (UTC)
 		// previously set at 6709969 txns by time 1577939273 ==>
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Meow chain
+            // Update as we know more about the contents of the Meowcoin chain
             // Stats as of 0x00000000000016ec03d8d93f9751323bcc42137b1b4df67e6a11c4394fd8e5ad window size 43200
             1665504479, // * UNIX timestamp of last known number of transactions
             99360,    // * total number of transactions between genesis and that timestamp
@@ -370,7 +370,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        // Meow BIP44 cointype in testnet
+        // Meowcoin BIP44 cointype in testnet
         nExtCoinType = 1;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -387,7 +387,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the Meow chain
+            // Update as we know more about the contents of the Meowcoin chain
             // Stats as of 00000023b66f46d74890287a7b1157dd780c7c5fdda2b561eb96684d2b39d62e window size 43200
             1661734222, // * UNIX timestamp of last known number of transactions
             0,     // * total number of transactions between genesis and that timestamp
@@ -536,7 +536,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        // Meow BIP44 cointype in regtest
+        // Meowcoin BIP44 cointype in regtest
         nExtCoinType = 1;
 
         /** MEWC Start **/

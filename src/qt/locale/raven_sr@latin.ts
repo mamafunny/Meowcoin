@@ -283,16 +283,16 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Meow address</source>
-        <translation>Pošalji novčiće na Meow adresu</translation>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Pošalji novčiće na Meowcoin adresu</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Proveri poruku...</translation>
     </message>
     <message>
-        <source>Meow</source>
-        <translation>Meow</translation>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -445,10 +445,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
-        <source>Meow Core</source>
-        <translation>Meow Core</translation>
+        <source>Meowcoin Core</source>
+        <translation>Meowcoin Core</translation>
     </message>
     <message>
         <source>Information</source>

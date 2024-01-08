@@ -1,6 +1,6 @@
 [Protocol]
-exec=meow-qt '%u'
-protocol=meow
+exec=meowcoin-qt '%u'
+protocol=meowcoin
 input=none
 output=none
 helper=true

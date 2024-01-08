@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Meow Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,8 +11,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between meow-cli and meowd)
- * of a given instance of the Meow system.
+ * CBaseChainParams defines the base parameters (shared between meowcoin-cli and meowcoind)
+ * of a given instance of the Meowcoin system.
  */
 class CBaseChainParams
 {

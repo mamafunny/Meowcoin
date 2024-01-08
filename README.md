@@ -1,4 +1,4 @@
-Meow Core integration/staging tree
+Meowcoin Core integration/staging tree
 =====================================
 
 https://meowcoin.org
@@ -21,7 +21,7 @@ out collectively by the network.
 License
 -------
 
-Meow Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Meowcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
@@ -29,7 +29,7 @@ Development Process
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/MeowProject/Meowcoin/tags) are created
-regularly to indicate new official, stable release versions of Meow Core.
+regularly to indicate new official, stable release versions of Meowcoin Core.
 
 Active development is done in the `develop` branch. 
 

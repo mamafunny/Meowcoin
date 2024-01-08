@@ -235,7 +235,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>meow-core</name>
+    <name>meowcoin-core</name>
     <message>
         <source>Insufficient funds</source>
         <translation>Κεφάλαια μη επαρκή</translation>

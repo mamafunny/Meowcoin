@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,7 +23,7 @@
 #endif
 
 #if defined(HAVE_CONFIG_H)
-#include "config/meow-config.h" /* for USE_QRCODE */
+#include "config/meowcoin-config.h" /* for USE_QRCODE */
 #endif
 
 #ifdef USE_QRCODE

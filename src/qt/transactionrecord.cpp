@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Meow Core developers
+// Copyright (c) 2017-2020 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -70,7 +70,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
                 if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
                 {
-                    // Received by Meow Address
+                    // Received by Meowcoin Address
                     sub.type = TransactionRecord::RecvWithAddress;
                     sub.address = EncodeDestination(address);
                 }
@@ -153,7 +153,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 CTxDestination address;
                 if (ExtractDestination(txout.scriptPubKey, address))
                 {
-                    // Sent to Meow Address
+                    // Sent to Meowcoin Address
                     sub.type = TransactionRecord::SendToAddress;
                     sub.address = EncodeDestination(address);
                 }

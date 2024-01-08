@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2020 The Meow Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,14 +46,14 @@ class ZMQTest(MeowTestFramework):
         except ImportError:
             raise SkipTest("python3-zmq module not available.")
 
-        # Check that meow has been built with ZMQ enabled.
+        # Check that meowcoin has been built with ZMQ enabled.
         config = configparser.ConfigParser()
         if not self.options.configfile:
             self.options.configfile = os.path.abspath(os.path.join(os.path.dirname(__file__), "../config.ini"))
         config.read_file(open(self.options.configfile))
 
         if not config["components"].getboolean("ENABLE_ZMQ"):
-            raise SkipTest("meowd has not been built with zmq enabled.")
+            raise SkipTest("meowcoind has not been built with zmq enabled.")
 
         # Initialize ZMQ context and socket.
         # All messages are received in the same socket which means

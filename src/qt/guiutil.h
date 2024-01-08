@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2021 The Meow Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,7 +31,7 @@ class QWidget;
 class QGraphicsDropShadowEffect;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Meow Qt UI.
+/** Utility functions used by the Meowcoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -57,7 +57,7 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "meow:" URI into recipient object, return true on successful parsing
+    // Parse "meowcoin:" URI into recipient object, return true on successful parsing
     bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out);
     bool parseMeowURI(QString uri, SendCoinsRecipient *out);
     QString formatMeowURI(const SendCoinsRecipient &info);
