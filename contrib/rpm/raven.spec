@@ -333,7 +333,7 @@ for selinuxvariant in %{selinux_variants}; do
 	%{_sbindir}/semodule -s ${selinuxvariant} -i %{_datadir}/selinux/${selinuxvariant}/raven.pp &> /dev/null || :
 done
 %{_sbindir}/semanage port -a -t raven_port_t -p tcp 8766
-%{_sbindir}/semanage port -a -t raven_port_t -p tcp 8767
+%{_sbindir}/semanage port -a -t raven_port_t -p tcp 8788
 %{_sbindir}/semanage port -a -t raven_port_t -p tcp 18766
 %{_sbindir}/semanage port -a -t raven_port_t -p tcp 18767
 %{_sbindir}/semanage port -a -t raven_port_t -p tcp 18443
@@ -354,7 +354,7 @@ fi
 if [ $1 -eq 0 ]; then
 	if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
 	%{_sbindir}/semanage port -d -p tcp 8766
-	%{_sbindir}/semanage port -d -p tcp 8767
+	%{_sbindir}/semanage port -d -p tcp 8788
 	%{_sbindir}/semanage port -d -p tcp 18766
 	%{_sbindir}/semanage port -d -p tcp 18767
 	%{_sbindir}/semanage port -d -p tcp 18443
