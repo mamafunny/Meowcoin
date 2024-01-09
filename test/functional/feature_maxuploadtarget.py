@@ -97,7 +97,7 @@ class MaxUploadTest(MeowcoinTestFramework):
 
         block_rate_minutes = 1
         blocks_per_day = 24 * 60 / block_rate_minutes
-        max_block_serialized_size = 8000000  # This is MAX_BLOCK_SERIALIZED_SIZE_RIP2
+        max_block_serialized_size = 8000000  # This is MAX_BLOCK_SERIALIZED_SIZE_HIP2
         max_bytes_per_day = self.maxuploadtarget * 1024 * 1024
         daily_buffer = blocks_per_day * max_block_serialized_size
         max_bytes_available = max_bytes_per_day - daily_buffer

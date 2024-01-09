@@ -1515,7 +1515,7 @@ void MeowcoinGUI::incomingTransaction(const QString& date, int unit, const CAmou
 
 void MeowcoinGUI::checkAssets()
 {
-    // Check that status of RIP2 and activate the assets icon if it is active
+    // Check that status of HIP2 and activate the assets icon if it is active
     if(AreAssetsDeployed()) {
         transferAssetAction->setDisabled(false);
         transferAssetAction->setToolTip(tr("Transfer assets to MEWC addresses"));

@@ -16,7 +16,7 @@ namespace Consensus {
 enum DeploymentPos
 {
     DEPLOYMENT_TESTDUMMY,
-    DEPLOYMENT_ASSETS, // Deployment of RIP2
+    DEPLOYMENT_ASSETS, // Deployment of HIP2
     DEPLOYMENT_MSG_REST_ASSETS, // Delpoyment of RIP5 and Restricted assets
     DEPLOYMENT_TRANSFER_SCRIPT_SIZE,
     DEPLOYMENT_ENFORCE_VALUE,

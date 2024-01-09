@@ -63,8 +63,8 @@ public:
 
 static const size_t MIN_TRANSACTION_INPUT_WEIGHT = WITNESS_SCALE_FACTOR * ::GetSerializeSize(CTxIn(), SER_NETWORK, PROTOCOL_VERSION);
 /** MEWC START */
-// Deprecated for RIP2 implementation
-//static const size_t MAX_INPUTS_PER_BLOCK = /*fAssetsIsActive ? MAX_BLOCK_WEIGHT_RIP2 / MIN_TRANSACTION_INPUT_WEIGHT :*/ MAX_BLOCK_WEIGHT / MIN_TRANSACTION_INPUT_WEIGHT;
+// Deprecated for HIP2 implementation
+//static const size_t MAX_INPUTS_PER_BLOCK = /*fAssetsIsActive ? MAX_BLOCK_WEIGHT_HIP2 / MIN_TRANSACTION_INPUT_WEIGHT :*/ MAX_BLOCK_WEIGHT / MIN_TRANSACTION_INPUT_WEIGHT;
 
 /** MEWC END */
 
@@ -91,7 +91,7 @@ public:
         uint64_t count = 0;
         ::Unserialize(s, COMPACTSIZE(count));
         if (fAssetsIsActive) {
-            if (count > MAX_BLOCK_WEIGHT_RIP2 / MIN_TRANSACTION_INPUT_WEIGHT) {
+            if (count > MAX_BLOCK_WEIGHT_HIP2 / MIN_TRANSACTION_INPUT_WEIGHT) {
                 throw std::ios_base::failure("Too many input undo records");
             }
         } else {
