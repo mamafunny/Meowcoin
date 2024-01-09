@@ -7,7 +7,7 @@ The purpose of this library is to make the verification functionality that is cr
 
 ### API
 
-The interface is defined in the C header `meowconsensus.h` located in  `src/script/meowconsensus.h`.
+The interface is defined in the C header `meowcoinconsensus.h` located in  `src/script/meowcoinconsensus.h`.
 
 #### Version
 

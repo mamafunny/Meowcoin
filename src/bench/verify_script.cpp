@@ -6,7 +6,7 @@
 #include "bench.h"
 #include "key.h"
 #if defined(HAVE_CONSENSUS_LIB)
-#include "script/meowconsensus.h"
+#include "script/meowcoinconsensus.h"
 #endif
 #include "script/script.h"
 #include "script/sign.h"

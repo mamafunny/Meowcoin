@@ -17,7 +17,7 @@
 #include "rpc/server.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
-#include "script/meowconsensus.h"
+#include "script/meowcoinconsensus.h"
 #endif
 
 #include <fstream>

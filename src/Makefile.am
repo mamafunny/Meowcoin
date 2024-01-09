@@ -543,7 +543,7 @@ meowcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 
 # meowconsensus library #
 if BUILD_MEOWCOIN_LIBS
-include_HEADERS = script/meowconsensus.h
+include_HEADERS = script/meowcoinconsensus.h
 libmeowcoinconsensus_la_SOURCES = $(crypto_libmeowcoin_crypto_a_SOURCES) $(libmeowcoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
