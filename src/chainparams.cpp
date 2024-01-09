@@ -183,7 +183,9 @@ public:
         nDefaultPort = 8788;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1661730843, 351574, 0x1e00ffff, 4, 5000 * COIN);
+        uint32_t nGenesisTime = 1661730843;
+
+        genesis = CreateGenesisBlock(nGenesisTime, 351574, 0x1e00ffff, 4, 5000 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
@@ -550,6 +552,9 @@ public:
         nIssueSubQualifierAssetBurnAmount = 100 * COIN;
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
+
+        // 15% of 5000 COIN to Donation
+	    nCommunityAutonomousAmount = 15;
 
         // Burn Addresses
         strIssueAssetBurnAddress = "J1VQJKLSLVZ4syiCAx5hEPq8BrkFaxAXAi";

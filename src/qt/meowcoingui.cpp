@@ -108,10 +108,8 @@ const QString MeowcoinGUI::DEFAULT_WALLET = "~Default";
 /* Bit of a bodge, c++ really doesn't want you to predefine values
  * in only header files, so we do one-time value assignment here. */
 std::array<CurrencyUnitDetails, 5> CurrencyUnits::CurrencyOptions = { {
-    { "BTC",    "RVNBTC"  , 1,          8},
-    { "mBTC",   "RVNBTC"  , 1000,       5},
-    { "µBTC",   "RVNBTC"  , 1000000,    2},
-    { "Satoshi","RVNBTC"  , 100000000,  0},
+    { "USDT"   ,"USDT" , 1,          5},
+    { "LTC",    "LTC"  , 1,          8}
 } };
 
 static bool ThreadSafeMessageBox(MeowcoinGUI *gui, const std::string& message, const std::string& caption, unsigned int style);
@@ -768,8 +766,8 @@ void MeowcoinGUI::createToolBars()
                     // Get the data from the network request
                     QString answer = reply->readAll();
 
-                    // Create regex expression to find the value with 8 decimals
-                    QRegExp rx("\\d*.\\d\\d\\d\\d\\d\\d\\d\\d");
+                    // Create regex expression to find the value with 4 decimals
+                    QRegExp rx("\\d*.\\d\\d\\d\\d\\d\\d\\d");
                     rx.indexIn(answer);
 
                     // List the found values
@@ -797,7 +795,7 @@ void MeowcoinGUI::createToolBars()
                             }
                             this->unitChanged = false;
                             labelCurrentPrice->setText(QString("%1").arg(QString().setNum(next, 'f', this->currentPriceDisplay->Decimals)));
-                            labelCurrentPrice->setToolTip(tr("Brought to you by binance.com"));
+                            labelCurrentPrice->setToolTip(tr("Brought to you by xeggex.com"));
                         }
                     }
                 }
@@ -1878,7 +1876,7 @@ void MeowcoinGUI::onCurrencyChange(int newIndex)
 
 void MeowcoinGUI::getPriceInfo()
 {
-    request->setUrl(QUrl(QString("https://api.coingecko.com/api/v3/simple/price?ids=meowcoin&vs_currencies=btc")));
+    request->setUrl(QUrl(QString("https://api.xeggex.com/api/v2/ticker/MEWC_%1").arg(this->currentPriceDisplay->Ticker)));
     networkManager->get(*request);
 }
 
