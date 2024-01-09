@@ -112,7 +112,6 @@ std::array<CurrencyUnitDetails, 5> CurrencyUnits::CurrencyOptions = { {
     { "mBTC",   "RVNBTC"  , 1000,       5},
     { "µBTC",   "RVNBTC"  , 1000000,    2},
     { "Satoshi","RVNBTC"  , 100000000,  0},
-    { "USDT",   "RVNUSDT" , 1,          5}
 } };
 
 static bool ThreadSafeMessageBox(MeowcoinGUI *gui, const std::string& message, const std::string& caption, unsigned int style);
@@ -1879,7 +1878,7 @@ void MeowcoinGUI::onCurrencyChange(int newIndex)
 
 void MeowcoinGUI::getPriceInfo()
 {
-    request->setUrl(QUrl(QString("https://api.binance.com/api/v1/ticker/price?symbol=%1").arg(this->currentPriceDisplay->Ticker)));
+    request->setUrl(QUrl(QString("https://api.coingecko.com/api/v3/simple/price?ids=meowcoin&vs_currencies=btc")));
     networkManager->get(*request);
 }
 
