@@ -393,10 +393,10 @@ RES_ICONS = \
 
 MEOWCOIN_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
-  qt/meowaddressvalidator.cpp \
-  qt/meowamountfield.cpp \
-  qt/meowgui.cpp \
-  qt/meowunits.cpp \
+  qt/meowcoinaddressvalidator.cpp \
+  qt/meowcoinamountfield.cpp \
+  qt/meowcoingui.cpp \
+  qt/meowcoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/darkstyle.cpp \
