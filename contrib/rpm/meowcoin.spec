@@ -337,7 +337,7 @@ done
 %{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18766
 %{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18767
 %{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18443
-%{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 19444
+%{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18444
 %{_sbindir}/fixfiles -R meowcoin-server restore &> /dev/null || :
 %{_sbindir}/restorecon -R %{_localstatedir}/lib/meowcoin || :
 fi
@@ -358,7 +358,7 @@ if [ $1 -eq 0 ]; then
 	%{_sbindir}/semanage port -d -p tcp 18766
 	%{_sbindir}/semanage port -d -p tcp 18767
 	%{_sbindir}/semanage port -d -p tcp 18443
-	%{_sbindir}/semanage port -d -p tcp 19444
+	%{_sbindir}/semanage port -d -p tcp 18444
 	for selinuxvariant in %{selinux_variants}; do
 		%{_sbindir}/semodule -s ${selinuxvariant} -r meowcoin &> /dev/null || :
 	done
