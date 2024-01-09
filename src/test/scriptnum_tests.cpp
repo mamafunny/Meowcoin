@@ -5,7 +5,7 @@
 
 #include "scriptnum10.h"
 #include "script/script.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <boost/test/unit_test.hpp>
 #include <limits.h>

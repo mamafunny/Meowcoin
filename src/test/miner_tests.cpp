@@ -19,7 +19,7 @@
 #include "util.h"
 #include "utilstrencodings.h"
 
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <memory>
 

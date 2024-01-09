@@ -33,7 +33,7 @@ Source22:	https://raw.githubusercontent.com/meowcoin/meowcoin/v%{version}/doc/ma
 
 #selinux
 Source30:	https://raw.githubusercontent.com/meowcoin/meowcoin/v%{version}/contrib/rpm/meowcoin.te
-# Source31 - what about meowcoin-tx and bench_meow ???
+# Source31 - what about meowcoin-tx and bench_meowcoin ???
 Source31:	https://raw.githubusercontent.com/meowcoin/meowcoin/v%{version}/contrib/rpm/meowcoin.fc
 Source32:	https://raw.githubusercontent.com/meowcoin/meowcoin/v%{version}/contrib/rpm/meowcoin.if
 
@@ -143,7 +143,7 @@ meowcoin-core daemon.
 
 The meowcoin-cli utility allows you to communicate and control a meowcoin daemon
 over RPC, the meowcoin-tx utility allows you to create a custom transaction, and
-the bench_meow utility can be used to perform some benchmarks.
+the bench_meowcoin utility can be used to perform some benchmarks.
 
 This package contains utilities needed by the meowcoin-server package.
 
@@ -422,7 +422,7 @@ rm -rf %{buildroot}
 %doc COPYING meowcoin.conf.example doc/README.md
 %attr(0755,root,root) %{_bindir}/meowcoin-cli
 %attr(0755,root,root) %{_bindir}/meowcoin-tx
-%attr(0755,root,root) %{_bindir}/bench_meow
+%attr(0755,root,root) %{_bindir}/bench_meowcoin
 %attr(0644,root,root) %{_mandir}/man1/meowcoin-cli.1*
 
 

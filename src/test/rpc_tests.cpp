@@ -10,7 +10,7 @@
 #include "core_io.h"
 #include "netbase.h"
 
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <boost/algorithm/string.hpp>
 #include <boost/test/unit_test.hpp>

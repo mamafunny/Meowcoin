@@ -10,7 +10,7 @@
 #include "serialize.h"
 #include "streams.h"
 
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

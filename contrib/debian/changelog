@@ -337,7 +337,7 @@ meowcoin (0.5.0~rc3-natty0) natty; urgency=low
 
 meowcoin (0.5.0~rc1-natty1) natty; urgency=low
 
-  * Add test_meow to build test
+  * Add test_meowcoin to build test
   * Fix clean
   * Remove uneccessary build-dependancies
 

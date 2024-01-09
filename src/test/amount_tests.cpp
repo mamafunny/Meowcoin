@@ -5,7 +5,7 @@
 
 #include "amount.h"
 #include "policy/feerate.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

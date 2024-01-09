@@ -6,7 +6,7 @@
 #ifndef MEOWCOIN_WALLET_TEST_FIXTURE_H
 #define MEOWCOIN_WALLET_TEST_FIXTURE_H
 
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 /** Testing setup and teardown for wallet.
  */

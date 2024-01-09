@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#include <test/test_meow.h>
+#include <test/test_meowcoin.h>
 
 #include <boost/test/unit_test.hpp>
 

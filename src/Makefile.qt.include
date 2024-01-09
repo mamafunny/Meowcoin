@@ -132,10 +132,10 @@ QT_MOC_CPP = \
   qt/moc_assetcontroltreewidget.cpp \
   qt/moc_assetfilterproxy.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_meowaddressvalidator.cpp \
-  qt/moc_meowamountfield.cpp \
-  qt/moc_meowgui.cpp \
-  qt/moc_meowunits.cpp \
+  qt/moc_meowcoinaddressvalidator.cpp \
+  qt/moc_meowcoinamountfield.cpp \
+  qt/moc_meowcoingui.cpp \
+  qt/moc_meowcoinunits.cpp \
   qt/moc_callback.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
@@ -198,7 +198,7 @@ QT_MOC = \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_meow.cpp
+QT_QRC_CPP = qt/qrc_meowcoin.cpp
 QT_QRC = qt/meowcoin.qrc
 QT_QRC_LOCALE_CPP = qt/qrc_meowcoin_locale.cpp
 QT_QRC_LOCALE = qt/meowcoin_locale.qrc

@@ -6,7 +6,7 @@
 #include "serialize.h"
 #include "streams.h"
 #include "hash.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <stdint.h>
 

@@ -13,7 +13,7 @@
 
 #include "consensus/validation.h"
 #include "rpc/server.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 #include "validation.h"
 #include "wallet/coincontrol.h"
 #include "wallet/test/wallet_test_fixture.h"

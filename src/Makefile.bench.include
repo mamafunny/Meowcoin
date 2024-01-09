@@ -3,9 +3,9 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += bench/bench_meow
+bin_PROGRAMS += bench/bench_meowcoin
 BENCH_SRCDIR = bench
-BENCH_BINARY = bench/bench_meow$(EXEEXT)
+BENCH_BINARY = bench/bench_meowcoin$(EXEEXT)
 
 RAW_BENCH_FILES = \
   bench/data/block566553.raw
@@ -13,7 +13,7 @@ GENERATED_BENCH_FILES = $(RAW_BENCH_FILES:.raw=.raw.h)
 
 bench_bench_meowcoin_SOURCES = \
   $(RAW_BENCH_FILES) \
-  bench/bench_meow.cpp \
+  bench/bench_meowcoin.cpp \
   bench/bench.cpp \
   bench/bench.h \
   bench/checkblock.cpp \

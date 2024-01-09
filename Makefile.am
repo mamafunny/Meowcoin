@@ -67,7 +67,7 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
 COVERAGE_INFO = baseline.info \
   test_meowcoin_filtered.info total_coverage.info \
   baseline_filtered.info functional_test.info functional_test_filtered.info \
-  test_meowcoin_coverage.info test_meow.info
+  test_meowcoin_coverage.info test_meowcoin.info
 
 dist-hook:
 	-$(GIT) archive --format=tar HEAD -- src/clientversion.cpp | $(AMTAR) -C $(top_distdir) -xf -
@@ -193,12 +193,12 @@ baseline_filtered.info: baseline.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
-test_meow.info: baseline_filtered.info
+test_meowcoin.info: baseline_filtered.info
 	$(MAKE) -C src/ check
-	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src -t test_meow -o $@
+	$(LCOV) -c $(LCOV_OPTS) -d $(abs_builddir)/src -t test_meowcoin -o $@
 	$(LCOV) -z $(LCOV_OPTS) -d $(abs_builddir)/src
 
-test_meowcoin_filtered.info: test_meow.info
+test_meowcoin_filtered.info: test_meowcoin.info
 	$(abs_builddir)/contrib/filter-lcov.py $(LCOV_FILTER_PATTERN) $< $@
 	$(LCOV) -a $@ $(LCOV_OPTS) -o $@
 
@@ -217,7 +217,7 @@ test_meowcoin_coverage.info: baseline_filtered.info test_meowcoin_filtered.info
 total_coverage.info: test_meowcoin_filtered.info functional_test_filtered.info
 	$(LCOV) -a $(LCOV_OPTS) baseline_filtered.info -a test_meowcoin_filtered.info -a functional_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-test_meow.coverage/.dirstamp:  test_meowcoin_coverage.info
+test_meowcoin.coverage/.dirstamp:  test_meowcoin_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
 	@touch $@
 
@@ -225,7 +225,7 @@ total.coverage/.dirstamp: total_coverage.info
 	$(GENHTML) -s $(LCOV_OPTS) $< -o $(@D)
 	@touch $@
 
-cov: test_meow.coverage/.dirstamp total.coverage/.dirstamp
+cov: test_meowcoin.coverage/.dirstamp total.coverage/.dirstamp
 
 endif
 
@@ -308,5 +308,5 @@ clean-docs:
 	rm -rf doc/doxygen
 
 clean-local: clean-docs
-	rm -rf coverage_percent.txt test_meow.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
+	rm -rf coverage_percent.txt test_meowcoin.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
 	rm -rf test/functional/__pycache__

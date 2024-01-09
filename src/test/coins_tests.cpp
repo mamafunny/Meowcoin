@@ -8,7 +8,7 @@
 #include "uint256.h"
 #include "undo.h"
 #include "utilstrencodings.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 #include "validation.h"
 #include "consensus/validation.h"
 

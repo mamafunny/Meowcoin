@@ -3,8 +3,8 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/test/test_meow-qt
-TESTS += qt/test/test_meow-qt
+bin_PROGRAMS += qt/test/test_meowcoin-qt
+TESTS += qt/test/test_meowcoin-qt
 
 TEST_QT_MOC_CPP = \
   qt/test/moc_compattests.cpp \
@@ -26,10 +26,10 @@ TEST_QT_H = \
   qt/test/wallettests.h
 
 TEST_MEOWCOIN_CPP = \
-  test/test_meow.cpp
+  test/test_meowcoin.cpp
 
 TEST_MEOWCOIN_H = \
-  test/test_meow.h
+  test/test_meowcoin.h
 
 qt_test_test_meowcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(MEOWCOIN_INCLUDES) $(MEOWCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_TEST_INCLUDES) $(PROTOBUF_CFLAGS)
@@ -69,9 +69,9 @@ CLEAN_MEOWCOIN_QT_TEST = $(TEST_QT_MOC_CPP) qt/test/*.gcda qt/test/*.gcno
 
 CLEANFILES += $(CLEAN_MEOWCOIN_QT_TEST)
 
-test_meowcoin_qt : qt/test/test_meow-qt$(EXEEXT)
+test_meowcoin_qt : qt/test/test_meowcoin-qt$(EXEEXT)
 
-test_meowcoin_qt_check : qt/test/test_meow-qt$(EXEEXT) FORCE
+test_meowcoin_qt_check : qt/test/test_meowcoin-qt$(EXEEXT) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
 test_meowcoin_qt_clean: FORCE

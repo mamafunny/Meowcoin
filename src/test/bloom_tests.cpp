@@ -16,7 +16,7 @@
 #include "uint256.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 #include <vector>
 
@@ -517,7 +517,7 @@ BOOST_FIXTURE_TEST_SUITE(bloom_tests, BasicTestingSetup)
                 ++nHits;
         }
 
-        // Run test_meow with --log_level=message to see BOOST_TEST_MESSAGEs:
+        // Run test_meowcoin with --log_level=message to see BOOST_TEST_MESSAGEs:
         BOOST_TEST_MESSAGE("RollingBloomFilter got " << nHits << " false positives (~100 expected)");
 
         // Insanely unlikely to get a fp count outside this range:

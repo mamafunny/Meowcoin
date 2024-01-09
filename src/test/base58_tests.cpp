@@ -11,7 +11,7 @@
 
 #include "key.h"
 #include "script/script.h"
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 #include "uint256.h"
 #include "util.h"
 #include "utilstrencodings.h"

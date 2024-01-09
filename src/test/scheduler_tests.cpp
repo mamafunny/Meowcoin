@@ -6,7 +6,7 @@
 #include "random.h"
 #include "scheduler.h"
 
-#include "test/test_meow.h"
+#include "test/test_meowcoin.h"
 
 // Fixing Boost 1.73 compile errors
 #include <boost/bind/bind.hpp>

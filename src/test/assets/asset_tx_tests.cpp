@@ -4,7 +4,7 @@
 
 #include <assets/assets.h>
 
-#include <test/test_meow.h>
+#include <test/test_meowcoin.h>
 
 #include <boost/test/unit_test.hpp>
 
