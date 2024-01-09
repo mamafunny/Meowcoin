@@ -8,7 +8,7 @@
 #include "ui_assetsdialog.h"
 
 #include "addresstablemodel.h"
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "clientmodel.h"
 #include "assetcontroldialog.h"
 #include "guiutil.h"

@@ -11,7 +11,7 @@
 
 #include "ui_helpmessagedialog.h"
 
-#include "meowgui.h"
+#include "meowcoingui.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "intro.h"

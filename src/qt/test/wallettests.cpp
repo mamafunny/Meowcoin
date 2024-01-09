@@ -1,6 +1,6 @@
 #include "wallettests.h"
 
-#include "qt/meowamountfield.h"
+#include "qt/meowcoinamountfield.h"
 #include "qt/callback.h"
 #include "qt/optionsmodel.h"
 #include "qt/platformstyle.h"

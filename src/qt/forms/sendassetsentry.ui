@@ -1317,13 +1317,13 @@
   <customwidget>
    <class>MeowcoinAmountField</class>
    <extends>QLineEdit</extends>
-   <header>meowamountfield.h</header>
+   <header>meowcoinamountfield.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>AssetAmountField</class>
    <extends>QLineEdit</extends>
-   <header location="global">meowamountfield.h</header>
+   <header location="global">meowcoinamountfield.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

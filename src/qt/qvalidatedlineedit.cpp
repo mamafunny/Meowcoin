@@ -5,7 +5,7 @@
 
 #include "qvalidatedlineedit.h"
 
-#include "meowaddressvalidator.h"
+#include "meowcoinaddressvalidator.h"
 #include "guiconstants.h"
 #include "platformstyle.h"
 

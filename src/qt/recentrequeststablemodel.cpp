@@ -5,7 +5,7 @@
 
 #include "recentrequeststablemodel.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 

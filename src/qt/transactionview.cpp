@@ -6,7 +6,7 @@
 #include "transactionview.h"
 
 #include "addresstablemodel.h"
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "csvmodelwriter.h"
 #include "editaddressdialog.h"
 #include "guiutil.h"

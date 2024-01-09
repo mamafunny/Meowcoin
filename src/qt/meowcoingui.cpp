@@ -7,9 +7,9 @@
 #include "config/meowcoin-config.h"
 #endif
 
-#include "meowgui.h"
+#include "meowcoingui.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"

@@ -5,8 +5,8 @@
 
 #include "guiutil.h"
 
-#include "meowaddressvalidator.h"
-#include "meowunits.h"
+#include "meowcoinaddressvalidator.h"
+#include "meowcoinunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 

@@ -9,7 +9,7 @@
 
 #include "optionsmodel.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "guiutil.h"
 #include "amount.h"
 #include "init.h"

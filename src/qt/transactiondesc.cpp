@@ -5,7 +5,7 @@
 
 #include "transactiondesc.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "guiutil.h"
 #include "paymentserver.h"
 #include "transactionrecord.h"

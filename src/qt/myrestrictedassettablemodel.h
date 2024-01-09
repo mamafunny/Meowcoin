@@ -1,4 +1,4 @@
-#include "meowunits.h"
+#include "meowcoinunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>

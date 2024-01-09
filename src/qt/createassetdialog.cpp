@@ -11,7 +11,7 @@
 #include "sendcoinsdialog.h"
 #include "coincontroldialog.h"
 #include "guiutil.h"
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "clientmodel.h"
 #include "optionsmodel.h"
 #include "guiconstants.h"

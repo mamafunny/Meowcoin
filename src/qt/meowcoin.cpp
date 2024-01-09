@@ -7,7 +7,7 @@
 #include "config/meowcoin-config.h"
 #endif
 
-#include "meowgui.h"
+#include "meowcoingui.h"
 
 #include "chainparams.h"
 #include "clientmodel.h"

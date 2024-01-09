@@ -5,7 +5,7 @@
 
 #include "walletframe.h"
 
-#include "meowgui.h"
+#include "meowcoingui.h"
 #include "walletview.h"
 
 #include <cassert>

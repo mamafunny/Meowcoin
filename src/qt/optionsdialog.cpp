@@ -10,7 +10,7 @@
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "guiconstants.h" // for DEFAULT_IPFS_VIEWER and DEFAULT_THIRD_PARTY_BROWSERS

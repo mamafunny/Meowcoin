@@ -3,9 +3,9 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "meowamountfield.h"
+#include "meowcoinamountfield.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "guiconstants.h"
 #include "qvaluecombobox.h"
 #include "platformstyle.h"
@@ -225,7 +225,7 @@ Q_SIGNALS:
     void valueChanged();
 };
 
-#include "meowamountfield.moc"
+#include "meowcoinamountfield.moc"
 
 MeowcoinAmountField::MeowcoinAmountField(QWidget *parent) :
     QWidget(parent),

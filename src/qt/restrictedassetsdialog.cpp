@@ -6,7 +6,7 @@
 #include "restrictedassetsdialog.h"
 #include "ui_restrictedassetsdialog.h"
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"

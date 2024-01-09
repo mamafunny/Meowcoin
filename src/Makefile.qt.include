@@ -192,7 +192,7 @@ MEOWCOIN_MM = \
 
 QT_MOC = \
   qt/meowcoin.moc \
-  qt/meowamountfield.moc \
+  qt/meowcoinamountfield.moc \
   qt/callback.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
@@ -219,9 +219,9 @@ MEOWCOIN_QT_H = \
   qt/createassetdialog.h \
   qt/bantablemodel.h \
   qt/meowaddressvalidator.h \
-  qt/meowamountfield.h \
-  qt/meowgui.h \
-  qt/meowunits.h \
+  qt/meowcoinamountfield.h \
+  qt/meowcoingui.h \
+  qt/meowcoinunits.h \
   qt/callback.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \

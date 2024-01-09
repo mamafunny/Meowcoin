@@ -3030,7 +3030,7 @@ They are not recoverable !!</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../meowunits.cpp" line="+244"/>
+        <location filename="../meowcoinunits.cpp" line="+244"/>
         <source>Amount</source>
         <translation type="unfinished">Amount</translation>
     </message>
@@ -3670,7 +3670,7 @@ They are not recoverable !!</source>
 <context>
     <name>MeowcoinGUI</name>
     <message>
-        <location filename="../meowgui.cpp" line="+476"/>
+        <location filename="../meowcoingui.cpp" line="+476"/>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;message...</translation>
     </message>
@@ -6564,7 +6564,7 @@ They are not recoverable !!</source>
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-        <location filename="../meowgui.cpp" line="+151"/>
+        <location filename="../meowcoingui.cpp" line="+151"/>
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation type="unfinished"></translation>
     </message>

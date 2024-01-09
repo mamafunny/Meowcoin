@@ -1246,7 +1246,7 @@
   <customwidget>
    <class>MeowcoinAmountField</class>
    <extends>QLineEdit</extends>
-   <header>meowamountfield.h</header>
+   <header>meowcoinamountfield.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

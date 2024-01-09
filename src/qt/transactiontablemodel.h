@@ -6,7 +6,7 @@
 #ifndef MEOWCOIN_QT_TRANSACTIONTABLEMODEL_H
 #define MEOWCOIN_QT_TRANSACTIONTABLEMODEL_H
 
-#include "meowunits.h"
+#include "meowcoinunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>

@@ -11,7 +11,7 @@
 #include "ui_addressbookpage.h"
 
 #include "addresstablemodel.h"
-#include "meowgui.h"
+#include "meowcoingui.h"
 #include "csvmodelwriter.h"
 #include "editaddressdialog.h"
 #include "guiutil.h"
