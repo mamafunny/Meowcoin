@@ -3,7 +3,7 @@ FROM amd64/ubuntu:20.04 AS base
 #If you found this docker image helpful please donate MEWC to the maintainer
 LABEL maintainer="RV9zdNeUTQUToZUcRp9uNF8gwH5LzDFtan"
 
-EXPOSE 8766/tcp
+EXPOSE 9766/tcp
 EXPOSE 8788/tcp
 
 ENV DEBIAN_FRONTEND=noninteractive

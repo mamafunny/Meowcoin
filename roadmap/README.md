@@ -9,7 +9,7 @@ Meowcoin (MEWC) is a Proof of Work coin built on the Bitcoin UTXO model. As with
 *  Dark Gravity Wave difficulty adjustment (180 block average)
 *  Addresses start with R... for regular addresses, or r... for multisig
 *  Network Port: 8788
-*  RPC Port: 8766
+*  RPC Port: 9766
 
 ### Phase 2 - Assets (Complete)
 
