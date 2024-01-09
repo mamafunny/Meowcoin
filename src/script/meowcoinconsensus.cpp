@@ -4,7 +4,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "meowconsensus.h"
+#include "meowcoinconsensus.h"
 
 #include "primitives/transaction.h"
 #include "pubkey.h"
