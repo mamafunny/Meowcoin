@@ -6,14 +6,14 @@
 
 """Test descendant package tracking code."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import satoshi_round, Decimal, assert_equal, assert_raises_rpc_error, sync_blocks, sync_mempools
 from test_framework.mininode import COIN
 
 MAX_ANCESTORS = 25
 MAX_DESCENDANTS = 25
 
-class MempoolPackagesTest(MeowTestFramework):
+class MempoolPackagesTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.extra_args = [["-maxorphantx=1000"], ["-maxorphantx=1000", "-limitancestorcount=5"]]

@@ -15,11 +15,11 @@ Test the following RPCs:
    - getrawtransaction
 """
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import connect_nodes_bi, assert_raises_rpc_error, assert_equal, Decimal
 
 # Create one-input, one-output, no-fee transaction:
-class RawTransactionsTest(MeowTestFramework):
+class RawTransactionsTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3

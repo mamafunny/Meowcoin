@@ -748,7 +748,7 @@
     </message>
     <message>
         <source>Connect to the Meowcoin network through a SOCKS5 proxy.</source>
-        <translation>SOCKS5 プロキシ経由でMeowネットワークに接続する</translation>
+        <translation>SOCKS5 プロキシ経由でMeowcoinネットワークに接続する</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -784,7 +784,7 @@
     </message>
     <message>
         <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Tor秘匿サービスを利用するため、独立なSOCKS5プロキシ経由でMeowネットワークに接続する</translation>
+        <translation>Tor秘匿サービスを利用するため、独立なSOCKS5プロキシ経由でMeowcoinネットワークに接続する</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1052,7 +1052,7 @@
     </message>
     <message>
         <source>Enter a Meowcoin address (e.g. %1)</source>
-        <translation>Meowアドレスを入力してください (例 %1)</translation>
+        <translation>Meowcoinアドレスを入力してください (例 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1401,7 +1401,7 @@
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>メッセージの署名... (&amp;m)</translation>
@@ -1725,7 +1725,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
-        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはMeowネットワークを通じて、支払と共に送られるわけではありません。</translation>
+        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはMeowcoinネットワークを通じて、支払と共に送られるわけではありません。</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2111,7 +2111,7 @@
     </message>
     <message>
         <source>Warning: Invalid Meowcoin address</source>
-        <translation>警告：無効なMeowアドレスです</translation>
+        <translation>警告：無効なMeowcoinアドレスです</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2150,7 +2150,7 @@
     </message>
     <message>
         <source>The Meowcoin address to send the payment to</source>
-        <translation>支払の送金先Meowアドレス</translation>
+        <translation>支払の送金先Meowcoinアドレス</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2194,7 +2194,7 @@
     </message>
     <message>
         <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
-        <translation>meowcoin: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはMeowネットワークを通して送信されるわけではありません。</translation>
+        <translation>meowcoin: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはMeowcoinネットワークを通して送信されるわけではありません。</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2239,7 +2239,7 @@
     </message>
     <message>
         <source>The Meowcoin address to sign the message with</source>
-        <translation>メッセージを署名するMeowアドレス</translation>
+        <translation>メッセージを署名するMeowcoinアドレス</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2295,7 +2295,7 @@
     </message>
     <message>
         <source>The Meowcoin address the message was signed with</source>
-        <translation>メッセージの署名に使われたMeowアドレス</translation>
+        <translation>メッセージの署名に使われたMeowcoinアドレス</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>

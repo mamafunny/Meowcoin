@@ -2484,7 +2484,7 @@ Zalecane działanie: Zsynchronizuj całkowicie portfel zanim wyślesz transakcj�
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Podpisz wiado&amp;mość...</translation>
@@ -4172,7 +4172,7 @@ Zwróć uwagę, że poprawnie zweryfikowana wiadomość potwierdza to, że nadaw
     </message>
     <message>
         <source>Meowcoin Core</source>
-        <translation>Rdzeń Meowa</translation>
+        <translation>Rdzeń Meowcoina</translation>
     </message>
     <message>
         <source>The %s developers</source>

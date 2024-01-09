@@ -226,7 +226,7 @@ Threads
 
 - ThreadRPCServer : Remote procedure call handler, listens on port 8766 for connections and services them.
 
-- MeowMiner : Generates meows (if wallet is enabled).
+- MeowcoinMiner : Generates meows (if wallet is enabled).
 
 - Shutdown : Does an orderly shutdown of everything.
 

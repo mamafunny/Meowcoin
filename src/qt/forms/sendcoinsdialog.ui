@@ -876,7 +876,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="MeowAmountField" name="customFee"/>
+                    <widget class="MeowcoinAmountField" name="customFee"/>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_6">
@@ -1289,7 +1289,7 @@
    <header>qvalidatedlineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>MeowAmountField</class>
+   <class>MeowcoinAmountField</class>
    <extends>QLineEdit</extends>
    <header>meowamountfield.h</header>
    <container>1</container>

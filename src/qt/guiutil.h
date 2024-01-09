@@ -58,9 +58,9 @@ namespace GUIUtil
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
     // Parse "meowcoin:" URI into recipient object, return true on successful parsing
-    bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseMeowURI(QString uri, SendCoinsRecipient *out);
-    QString formatMeowURI(const SendCoinsRecipient &info);
+    bool parseMeowcoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseMeowcoinURI(QString uri, SendCoinsRecipient *out);
+    QString formatMeowcoinURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -127,7 +127,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    bool openMeowConf();
+    bool openMeowcoinConf();
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);

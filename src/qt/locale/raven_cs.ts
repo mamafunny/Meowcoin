@@ -1401,7 +1401,7 @@
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Po&amp;depiš zprávu...</translation>
@@ -1628,7 +1628,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
-        <translation>Seznam argumentů Meowu pro příkazovou řádku získáš v nápovědě %1</translation>
+        <translation>Seznam argumentů Meowcoinu pro příkazovou řádku získáš v nápovědě %1</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -2150,7 +2150,7 @@
     </message>
     <message>
         <source>The Meowcoin address to send the payment to</source>
-        <translation>Meowová adresa příjemce</translation>
+        <translation>Meowcoinová adresa příjemce</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2239,7 +2239,7 @@
     </message>
     <message>
         <source>The Meowcoin address to sign the message with</source>
-        <translation>Meowová adresa, kterou se zpráva podepíše</translation>
+        <translation>Meowcoinová adresa, kterou se zpráva podepíše</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2295,7 +2295,7 @@
     </message>
     <message>
         <source>The Meowcoin address the message was signed with</source>
-        <translation>Meowová adresa, kterou je zpráva podepsána</translation>
+        <translation>Meowcoinová adresa, kterou je zpráva podepsána</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>

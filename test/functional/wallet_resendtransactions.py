@@ -6,10 +6,10 @@
 
 """Test resendwallettransactions RPC."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 
-class ResendWalletTransactionsTest(MeowTestFramework):
+class ResendWalletTransactionsTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.extra_args = [['--walletbroadcast=false']]

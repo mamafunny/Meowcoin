@@ -15,10 +15,10 @@ RPCs tested are:
     - move (with account arguments)
 """
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal
 
-class WalletAccountsTest(MeowTestFramework):
+class WalletAccountsTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
@@ -36,7 +36,7 @@ class WalletAccountsTest(MeowTestFramework):
         assert_equal(node.getbalance(), 10000)
 
         # there should be 2 address groups
-        # each with 1 address with a balance of 50 Meows
+        # each with 1 address with a balance of 50 Meowcoins
         address_groups = node.listaddressgroupings()
         assert_equal(len(address_groups), 2)
         # the addresses aren't linked now, but will be after we send to the

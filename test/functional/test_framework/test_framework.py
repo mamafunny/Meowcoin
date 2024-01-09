@@ -35,7 +35,7 @@ TEST_EXIT_FAILED = 1
 TEST_EXIT_SKIPPED = 77
 
 
-class MeowTestFramework:
+class MeowcoinTestFramework:
     """Base class for a meowcoin test script.
 
     Individual meowcoin test scripts should subclass this class and override the set_test_params() and run_test() methods.
@@ -355,7 +355,7 @@ class MeowTestFramework:
         self.log.addHandler(ch)
 
         if self.options.trace_rpc:
-            rpc_logger = logging.getLogger("MeowRPC")
+            rpc_logger = logging.getLogger("MeowcoinRPC")
             rpc_logger.setLevel(logging.DEBUG)
             rpc_handler = logging.StreamHandler(sys.stdout)
             rpc_handler.setLevel(logging.DEBUG)

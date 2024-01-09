@@ -214,13 +214,13 @@ int CBase58Data::CompareTo(const CBase58Data& b58) const
 namespace
 {
 
-class CMeowAddressVisitor : public boost::static_visitor<bool>
+class CMeowcoinAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CMeowAddress* addr;
+    CMeowcoinAddress* addr;
 
 public:
-    explicit CMeowAddressVisitor(CMeowAddress* addrIn) : addr(addrIn) {}
+    explicit CMeowcoinAddressVisitor(CMeowcoinAddress* addrIn) : addr(addrIn) {}
 
     bool operator()(const CKeyID& id) const { return addr->Set(id); }
     bool operator()(const CScriptID& id) const { return addr->Set(id); }
@@ -229,29 +229,29 @@ public:
 
 } // namespace
 
-bool CMeowAddress::Set(const CKeyID& id)
+bool CMeowcoinAddress::Set(const CKeyID& id)
 {
     SetData(GetParams().Base58Prefix(CChainParams::PUBKEY_ADDRESS), &id, 20);
     return true;
 }
 
-bool CMeowAddress::Set(const CScriptID& id)
+bool CMeowcoinAddress::Set(const CScriptID& id)
 {
     SetData(GetParams().Base58Prefix(CChainParams::SCRIPT_ADDRESS), &id, 20);
     return true;
 }
 
-bool CMeowAddress::Set(const CTxDestination& dest)
+bool CMeowcoinAddress::Set(const CTxDestination& dest)
 {
-    return boost::apply_visitor(CMeowAddressVisitor(this), dest);
+    return boost::apply_visitor(CMeowcoinAddressVisitor(this), dest);
 }
 
-bool CMeowAddress::IsValid() const
+bool CMeowcoinAddress::IsValid() const
 {
     return IsValid(GetParams());
 }
 
-bool CMeowAddress::IsValid(const CChainParams& params) const
+bool CMeowcoinAddress::IsValid(const CChainParams& params) const
 {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == params.Base58Prefix(CChainParams::PUBKEY_ADDRESS) ||
@@ -259,7 +259,7 @@ bool CMeowAddress::IsValid(const CChainParams& params) const
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CMeowAddress::Get() const
+CTxDestination CMeowcoinAddress::Get() const
 {
     if (!IsValid())
         return CNoDestination();
@@ -273,7 +273,7 @@ CTxDestination CMeowAddress::Get() const
         return CNoDestination();
 }
 
-bool CMeowAddress::GetIndexKey(uint160& hashBytes, int& type) const
+bool CMeowcoinAddress::GetIndexKey(uint160& hashBytes, int& type) const
 {
     if (!IsValid()) {
         return false;
@@ -290,7 +290,7 @@ bool CMeowAddress::GetIndexKey(uint160& hashBytes, int& type) const
     return false;
 }
 
-void CMeowSecret::SetKey(const CKey& vchSecret)
+void CMeowcoinSecret::SetKey(const CKey& vchSecret)
 {
     assert(vchSecret.IsValid());
     SetData(GetParams().Base58Prefix(CChainParams::SECRET_KEY), vchSecret.begin(), vchSecret.size());
@@ -298,7 +298,7 @@ void CMeowSecret::SetKey(const CKey& vchSecret)
         vchData.push_back(1);
 }
 
-CKey CMeowSecret::GetKey()
+CKey CMeowcoinSecret::GetKey()
 {
     CKey ret;
     assert(vchData.size() >= 32);
@@ -306,41 +306,41 @@ CKey CMeowSecret::GetKey()
     return ret;
 }
 
-bool CMeowSecret::IsValid() const
+bool CMeowcoinSecret::IsValid() const
 {
     bool fExpectedFormat = vchData.size() == 32 || (vchData.size() == 33 && vchData[32] == 1);
     bool fCorrectVersion = vchVersion == GetParams().Base58Prefix(CChainParams::SECRET_KEY);
     return fExpectedFormat && fCorrectVersion;
 }
 
-bool CMeowSecret::SetString(const char* pszSecret)
+bool CMeowcoinSecret::SetString(const char* pszSecret)
 {
     return CBase58Data::SetString(pszSecret) && IsValid();
 }
 
-bool CMeowSecret::SetString(const std::string& strSecret)
+bool CMeowcoinSecret::SetString(const std::string& strSecret)
 {
     return SetString(strSecret.c_str());
 }
 
 std::string EncodeDestination(const CTxDestination& dest)
 {
-    CMeowAddress addr(dest);
+    CMeowcoinAddress addr(dest);
     if (!addr.IsValid()) return "";
     return addr.ToString();
 }
 
 CTxDestination DecodeDestination(const std::string& str)
 {
-    return CMeowAddress(str).Get();
+    return CMeowcoinAddress(str).Get();
 }
 
 bool IsValidDestinationString(const std::string& str, const CChainParams& params)
 {
-    return CMeowAddress(str).IsValid(params);
+    return CMeowcoinAddress(str).IsValid(params);
 }
 
 bool IsValidDestinationString(const std::string& str)
 {
-    return CMeowAddress(str).IsValid();
+    return CMeowcoinAddress(str).IsValid();
 }

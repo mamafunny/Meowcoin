@@ -879,7 +879,7 @@
     </message>
     <message>
         <source>Your current total balance</source>
-        <translation>Tililläsi tällä hetkellä olevien Meowien määrä</translation>
+        <translation>Tililläsi tällä hetkellä olevien Meowcoinien määrä</translation>
     </message>
     <message>
         <source>Your current balance in watch-only addresses</source>
@@ -1253,7 +1253,7 @@
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Allekirjoita viesti...</translation>
@@ -1480,7 +1480,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
-        <translation>Näytä %1 ohjeet saadaksesi listan mahdollisista Meowin komentorivivalinnoista</translation>
+        <translation>Näytä %1 ohjeet saadaksesi listan mahdollisista Meowcoinin komentorivivalinnoista</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -1711,7 +1711,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Lähetä Meoweja</translation>
+        <translation>Lähetä Meowcoineja</translation>
     </message>
     <message>
         <source>Coin Control Features</source>

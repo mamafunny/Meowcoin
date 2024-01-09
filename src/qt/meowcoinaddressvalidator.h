@@ -11,24 +11,24 @@
 /** Base58 entry widget validator, checks for valid characters and
  * removes some whitespace.
  */
-class MeowAddressEntryValidator : public QValidator
+class MeowcoinAddressEntryValidator : public QValidator
 {
     Q_OBJECT
 
 public:
-    explicit MeowAddressEntryValidator(QObject *parent);
+    explicit MeowcoinAddressEntryValidator(QObject *parent);
 
     State validate(QString &input, int &pos) const;
 };
 
 /** Meowcoin address widget validator, checks for a valid meowcoin address.
  */
-class MeowAddressCheckValidator : public QValidator
+class MeowcoinAddressCheckValidator : public QValidator
 {
     Q_OBJECT
 
 public:
-    explicit MeowAddressCheckValidator(QObject *parent);
+    explicit MeowcoinAddressCheckValidator(QObject *parent);
 
     State validate(QString &input, int &pos) const;
 };

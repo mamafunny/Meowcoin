@@ -51,4 +51,4 @@ situations but should be discussed in public in advance.
 
 See also
 ----------
-- [meowcoin-seeder](https://github.com/MeowProject/meowcoin-seeder) is a reference implementation of a DNS seed.
+- [meowcoin-seeder](https://github.com/MeowcoinProject/meowcoin-seeder) is a reference implementation of a DNS seed.

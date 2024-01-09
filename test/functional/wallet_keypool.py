@@ -6,10 +6,10 @@
 
 """Test the wallet keypool and interaction with wallet encryption/locking."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, time
 
-class KeyPoolTest(MeowTestFramework):
+class KeyPoolTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

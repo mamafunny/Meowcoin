@@ -7,10 +7,10 @@
 """Test timestampindex generation and fetching"""
 
 import time
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import connect_nodes_bi, assert_equal
 
-class TimestampIndexTest(MeowTestFramework):
+class TimestampIndexTest(MeowcoinTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

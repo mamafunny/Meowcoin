@@ -10,10 +10,10 @@ Verify that a meowcoind node can load multiple wallet files
 import os
 import shutil
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import (assert_equal, assert_raises_rpc_error)
 
-class MultiWalletTest(MeowTestFramework):
+class MultiWalletTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

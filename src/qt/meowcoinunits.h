@@ -50,12 +50,12 @@
 /** Meowcoin unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class MeowUnits: public QAbstractListModel
+class MeowcoinUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit MeowUnits(QObject *parent);
+    explicit MeowcoinUnits(QObject *parent);
 
     /** Meowcoin units.
       @note Source: https://en.bitcoin.it/wiki/Units . Please add only sensible ones
@@ -132,8 +132,8 @@ public:
     static CAmount maxMoney();
 
 private:
-    QList<MeowUnits::Unit> unitlist;
+    QList<MeowcoinUnits::Unit> unitlist;
 };
-typedef MeowUnits::Unit MeowUnit;
+typedef MeowcoinUnits::Unit MeowcoinUnit;
 
 #endif // MEOWCOIN_QT_MEOWCOINUNITS_H

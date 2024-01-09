@@ -6,11 +6,11 @@
 
 """Testing rewards use cases"""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, assert_contains, Decimal
 
 # noinspection PyAttributeOutsideInit
-class RewardsTest(MeowTestFramework):
+class RewardsTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 4

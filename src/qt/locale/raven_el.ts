@@ -141,7 +141,7 @@
     </message>
     </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Quit application</source>
         <translation>Κλείσιμο εφαρμογής</translation>

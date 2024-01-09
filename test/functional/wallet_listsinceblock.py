@@ -6,10 +6,10 @@
 
 """Test the listsincelast RPC."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal
 
-class ListSinceBlockTest (MeowTestFramework):
+class ListSinceBlockTest (MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True

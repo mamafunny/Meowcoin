@@ -6,10 +6,10 @@
 
 """Test gettxoutproof and verifytxoutproof RPCs."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import connect_nodes, assert_equal, assert_raises_rpc_error
 
-class MerkleBlockTest(MeowTestFramework):
+class MerkleBlockTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True

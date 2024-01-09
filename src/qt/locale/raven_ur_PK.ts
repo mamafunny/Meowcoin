@@ -189,7 +189,7 @@
     <name>RPCConsole</name>
     </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Error</source>
         <translation>نقص</translation>

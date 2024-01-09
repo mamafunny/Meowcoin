@@ -6,10 +6,10 @@
 
 """Test the importmulti RPC."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error
 
-class ImportMultiTest (MeowTestFramework):
+class ImportMultiTest (MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True

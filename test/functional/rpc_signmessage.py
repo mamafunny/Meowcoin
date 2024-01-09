@@ -6,10 +6,10 @@
 
 """Test RPC commands for signing and verifying messages."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal
 
-class SignMessagesTest(MeowTestFramework):
+class SignMessagesTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

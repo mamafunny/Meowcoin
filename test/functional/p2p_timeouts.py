@@ -26,7 +26,7 @@ Test various net timeouts.
 
 from time import sleep
 from test_framework.mininode import NodeConn, NodeConnCB, NetworkThread, MsgPing
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import p2p_port
 
 class TestNode(NodeConnCB):
@@ -34,7 +34,7 @@ class TestNode(NodeConnCB):
         # Don't send a verack in response
         pass
 
-class TimeoutsTest(MeowTestFramework):
+class TimeoutsTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

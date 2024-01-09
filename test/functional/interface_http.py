@@ -8,11 +8,11 @@
 
 import http.client
 import urllib.parse
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import str_to_b64str, assert_equal
 
 # noinspection PyUnresolvedReferences
-class HTTPBasicsTest (MeowTestFramework):
+class HTTPBasicsTest (MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
 

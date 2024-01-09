@@ -215,8 +215,8 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
     widget->setPlaceholderText(QObject::tr("Enter a Meowcoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(GetParams()))));
 #endif
-    widget->setValidator(new MeowAddressEntryValidator(parent));
-    widget->setCheckValidator(new MeowAddressCheckValidator(parent));
+    widget->setValidator(new MeowcoinAddressEntryValidator(parent));
+    widget->setCheckValidator(new MeowcoinAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -228,7 +228,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseMeowcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no meowcoin: URI
     if(!uri.isValid() || uri.scheme() != QString("meowcoin"))
@@ -271,7 +271,7 @@ bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!MeowUnits::parse(MeowUnits::MEWC, i->second, &rv.amount))
+                if(!MeowcoinUnits::parse(MeowcoinUnits::MEWC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -289,7 +289,7 @@ bool parseMeowURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseMeowURI(QString uri, SendCoinsRecipient *out)
+bool parseMeowcoinURI(QString uri, SendCoinsRecipient *out)
 {
     // Convert meowcoin:// to meowcoin:
     //
@@ -300,17 +300,17 @@ bool parseMeowURI(QString uri, SendCoinsRecipient *out)
         uri.replace(0, 10, "meowcoin:");
     }
     QUrl uriInstance(uri);
-    return parseMeowURI(uriInstance, out);
+    return parseMeowcoinURI(uriInstance, out);
 }
 
-QString formatMeowURI(const SendCoinsRecipient &info)
+QString formatMeowcoinURI(const SendCoinsRecipient &info)
 {
     QString ret = QString("meowcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(MeowUnits::format(MeowUnits::MEWC, info.amount, false, MeowUnits::separatorNever));
+        ret += QString("?amount=%1").arg(MeowcoinUnits::format(MeowcoinUnits::MEWC, info.amount, false, MeowcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -500,7 +500,7 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openMeowConf()
+bool openMeowcoinConf()
 {
     boost::filesystem::path pathConfig = GetConfigFile(MEOWCOIN_CONF_FILENAME);
 

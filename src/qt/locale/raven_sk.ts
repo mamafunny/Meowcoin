@@ -784,7 +784,7 @@
     </message>
     <message>
         <source>Connect to the Meowcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Pripojiť k Meowovej sieti cez separované SOCKS5 proxy pre skrytú službu Tor.</translation>
+        <translation>Pripojiť k Meowcoinovej sieti cez separované SOCKS5 proxy pre skrytú službu Tor.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1390,7 +1390,7 @@
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Podpísať &amp;správu...</translation>
@@ -1617,7 +1617,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Meowcoin command-line options</source>
-        <translation>Ukáž %1 zoznam možných nastavení Meowu pomocou príkazového riadku</translation>
+        <translation>Ukáž %1 zoznam možných nastavení Meowcoinu pomocou príkazového riadku</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -1876,7 +1876,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Poslať Meows</translation>
+        <translation>Poslať Meowcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>

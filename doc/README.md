@@ -5,7 +5,7 @@ Setup
 ---------------------
 Meowcoin Core is the original Meowcoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Meowcoin transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
 
-To download compiled binaries of the Meowcoin Core and wallet, visit the [GitHub release page](https://github.com/MeowProject/Meowcoin/releases).
+To download compiled binaries of the Meowcoin Core and wallet, visit the [GitHub release page](https://github.com/MeowcoinProject/Meowcoin/releases).
 
 Running
 ---------------------
@@ -99,54 +99,54 @@ To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dy
 
 ### Need Help?
 
-- See the documentation at the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoin_Wiki)
+- See the documentation at the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoincoin_Wiki)
 for help and more information.
-- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/MeowcoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
+- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/MeowcoincoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
 
 Building from source
 ---------------------
 The following are developer notes on how to build the Meowcoin core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](https://github.com/MeowProject/Meowcoin/tree/master/doc/dependencies.md)
-- [OS X Build Notes](https://github.com/MeowProject/Meowcoin/tree/master/doc/build-osx.md)
-- [Unix Build Notes](https://github.com/MeowProject/Meowcoin/tree/master/doc/build-unix.md)
-- [Windows Build Notes](https://github.com/MeowProject/Meowcoin/tree/master/doc/build-windows.md)
-- [OpenBSD Build Notes](https://github.com/MeowProject/Meowcoin/tree/master/doc/build-openbsd.md)
-- [Gitian Building Guide](https://github.com/MeowProject/Meowcoin/tree/master/doc/gitian-building.md)
+- [Dependencies](https://github.com/MeowcoinProject/Meowcoin/tree/master/doc/dependencies.md)
+- [OS X Build Notes](https://github.com/MeowcoinProject/Meowcoin/tree/master/doc/build-osx.md)
+- [Unix Build Notes](https://github.com/MeowcoinProject/Meowcoin/tree/master/doc/build-unix.md)
+- [Windows Build Notes](https://github.com/MeowcoinProject/Meowcoin/tree/master/doc/build-windows.md)
+- [OpenBSD Build Notes](https://github.com/MeowcoinProject/Meowcoin/tree/master/doc/build-openbsd.md)
+- [Gitian Building Guide](https://github.com/MeowcoinProject/Meowcoin/tree/master/doc/gitian-building.md)
 
 Development
 ---------------------
-Meowcoin repo's [root README](https://github.com/MeowProject/Meowcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+Meowcoin repo's [root README](https://github.com/MeowcoinProject/Meowcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](https://github.com/MeowProject/Meowcoin/blob/master/doc/developer-notes.md)
-- [Release Notes](https://github.com/MeowProject/Meowcoin/blob/master/doc/release-notes.md)
-- [Release Process](https://github.com/MeowProject/Meowcoin/blob/master/doc/release-process.md)
+- [Developer Notes](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/developer-notes.md)
+- [Release Notes](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/release-notes.md)
+- [Release Process](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/release-process.md)
 - [Source Code Documentation (External Link)](https://dev.visucore.com/meowcoin/doxygen/) -- 2018-05-11 -- Broken link
-- [Translation Process](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_process.md)
-- [Translation Strings Policy](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_strings_policy.md)
-- [Travis CI](https://github.com/MeowProject/Meowcoin/blob/master/doc/travis-ci.md)
-- [Unauthenticated REST Interface](https://github.com/MeowProject/Meowcoin/blob/master/doc/REST-interface.md)
-- [Shared Libraries](https://github.com/MeowProject/Meowcoin/blob/master/doc/shared-libraries.md)
-- [BIPS](https://github.com/MeowProject/Meowcoin/blob/master/doc/bips.md)
-- [Dnsseed Policy](https://github.com/MeowProject/Meowcoin/blob/master/doc/dnsseed-policy.md)
-- [Benchmarking](https://github.com/MeowProject/Meowcoin/blob/master/doc/benchmarking.md)
+- [Translation Process](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/translation_process.md)
+- [Translation Strings Policy](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/translation_strings_policy.md)
+- [Travis CI](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/travis-ci.md)
+- [Unauthenticated REST Interface](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/REST-interface.md)
+- [Shared Libraries](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/shared-libraries.md)
+- [BIPS](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/bips.md)
+- [Dnsseed Policy](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/dnsseed-policy.md)
+- [Benchmarking](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/benchmarking.md)
 
 ### Resources
-- Discuss on chat [Discord](https://discord.gg/jn6uhur), [Telegram](https://t.me/MeowcoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
-- Find out more on the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoin_Wiki)
+- Discuss on chat [Discord](https://discord.gg/jn6uhur), [Telegram](https://t.me/MeowcoincoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
+- Find out more on the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoincoin_Wiki)
 - Visit the project home [Meowcoin.org](https://meowcoin.org)
 
 ### Miscellaneous
-- [Assets Attribution](https://github.com/MeowProject/Meowcoin/blob/master/doc/assets-attribution.md)
-- [Files](https://github.com/MeowProject/Meowcoin/blob/master/doc/files.md)
-- [Fuzz-testing](https://github.com/MeowProject/Meowcoin/blob/master/doc/fuzzing.md)
-- [Reduce Traffic](https://github.com/MeowProject/Meowcoin/blob/master/doc/reduce-traffic.md)
-- [Tor Support](https://github.com/MeowProject/Meowcoin/blob/master/doc/tor.md)
-- [Init Scripts (systemd/upstart/openrc)](https://github.com/MeowProject/Meowcoin/blob/master/doc/init.md)
-- [ZMQ](https://github.com/MeowProject/Meowcoin/blob/master/doc/zmq.md)
+- [Assets Attribution](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/assets-attribution.md)
+- [Files](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/files.md)
+- [Fuzz-testing](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/fuzzing.md)
+- [Reduce Traffic](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/reduce-traffic.md)
+- [Tor Support](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/tor.md)
+- [Init Scripts (systemd/upstart/openrc)](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/init.md)
+- [ZMQ](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/zmq.md)
 
 License
 ---------------------
-Distributed under the [MIT software license](https://github.com/MeowProject/Meowcoin/blob/master/COPYING).
+Distributed under the [MIT software license](https://github.com/MeowcoinProject/Meowcoin/blob/master/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
 cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.

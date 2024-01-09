@@ -6,10 +6,10 @@
 
 """Test deprecation of RPC calls."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_raises_rpc_error
 
-class DeprecatedRpcTest(MeowTestFramework):
+class DeprecatedRpcTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True

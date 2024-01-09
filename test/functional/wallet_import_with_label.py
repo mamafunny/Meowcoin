@@ -12,10 +12,10 @@ with or without a label and then its private key is imported with importprivkey
 with and without a label.
 """
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.wallet_util import test_address
 
-class ImportWithLabel(MeowTestFramework):
+class ImportWithLabel(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True

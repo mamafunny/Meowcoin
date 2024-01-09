@@ -18,7 +18,7 @@ QT_END_NAMESPACE
 
 /** Widget for entering meowcoin amounts.
   */
-class MeowAmountField: public QWidget
+class MeowcoinAmountField: public QWidget
 {
     Q_OBJECT
 
@@ -27,7 +27,7 @@ class MeowAmountField: public QWidget
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY valueChanged USER true)
 
 public:
-    explicit MeowAmountField(QWidget *parent = 0);
+    explicit MeowcoinAmountField(QWidget *parent = 0);
 
     CAmount value(bool *value=0) const;
     void setValue(const CAmount& value);

@@ -114,7 +114,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setMeowGUI(MeowGUI *gui)
+void WalletView::setMeowcoinGUI(MeowcoinGUI *gui)
 {
     if (gui)
     {
@@ -186,7 +186,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
         updateEncryptionStatus();
 
         // update HD status
-        Q_EMIT hdEnabledStatusChanged(_walletModel->hd44Enabled() ? MeowGUI::HD44_ENABLED : _walletModel->hdEnabled() ? MeowGUI::HD_ENABLED : MeowGUI::HD_DISABLED);
+        Q_EMIT hdEnabledStatusChanged(_walletModel->hd44Enabled() ? MeowcoinGUI::HD44_ENABLED : _walletModel->hdEnabled() ? MeowcoinGUI::HD_ENABLED : MeowcoinGUI::HD_DISABLED);
 
         // Balloon pop-up for new transaction
         connect(_walletModel->getTransactionTableModel(), SIGNAL(rowsInserted(QModelIndex,int,int)),

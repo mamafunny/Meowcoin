@@ -78,7 +78,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->meowAtStartup->setToolTip(ui->meowAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
     ui->meowAtStartup->setText(ui->meowAtStartup->text().arg(tr(PACKAGE_NAME)));
 
-    ui->openMeowConfButton->setToolTip(ui->openMeowConfButton->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->openMeowcoinConfButton->setToolTip(ui->openMeowcoinConfButton->toolTip().arg(tr(PACKAGE_NAME)));
 
     ui->lang->setToolTip(ui->lang->toolTip().arg(tr(PACKAGE_NAME)));
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
@@ -113,7 +113,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->ipfsUrl->setPlaceholderText(DEFAULT_IPFS_VIEWER);
 #endif
 
-    ui->unit->setModel(new MeowUnits(this));
+    ui->unit->setModel(new MeowcoinUnits(this));
     QStringList currencyList;
     for(int unitNum = 0; unitNum < CurrencyUnits::count() ; unitNum++) {
         ui->currencyUnitIndex->addItem(QString(CurrencyUnits::CurrencyOptions[unitNum].Header), unitNum);
@@ -248,7 +248,7 @@ void OptionsDialog::on_ipfsUrlReset_clicked()
     ui->ipfsUrl->setText(DEFAULT_IPFS_VIEWER);
 }
 
-void OptionsDialog::on_openMeowConfButton_clicked()
+void OptionsDialog::on_openMeowcoinConfButton_clicked()
 {
     /* explain the purpose of the config file */
     QMessageBox::information(this, tr("Configuration options"),
@@ -256,7 +256,7 @@ void OptionsDialog::on_openMeowConfButton_clicked()
            "Additionally, any command-line options will override this configuration file."));
 
     /* show an error if there was some problem opening the file */
-    if (!GUIUtil::openMeowConf())
+    if (!GUIUtil::openMeowcoinConf())
         QMessageBox::critical(this, tr("Error"), tr("The configuration file could not be opened."));
 }
 

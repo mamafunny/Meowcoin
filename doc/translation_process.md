@@ -7,7 +7,7 @@ The Meowcoin project has been designed to support multiple localisations. This m
 Currently updating strings in Transifex requires a manual upload of the updated src/qt/locale/meowcoin_en.ts.
 This can easily be automated in the future.
 
-Multiple language support is critical in assisting Meowcoins global adoption, and growth. One of Meowcoins greatest strengths is cross-border money transfers, any help making that easier is greatly appreciated.
+Multiple language support is critical in assisting Meowcoincoins global adoption, and growth. One of Meowcoincoins greatest strengths is cross-border money transfers, any help making that easier is greatly appreciated.
 
 See the [Transifex Meowcoin project](https://www.transifex.com/meowcoin) to assist in translations. You can also join the #translations in [Meowcoin Discord](https://discord.gg/jn6uhur).
 

@@ -6,10 +6,10 @@
 
 """Test the invalidateblock RPC."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import connect_nodes_bi, sync_blocks, time, assert_equal
 
-class InvalidateTest(MeowTestFramework):
+class InvalidateTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3

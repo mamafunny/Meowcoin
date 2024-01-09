@@ -13,11 +13,11 @@ in the next block are accepted into the memory pool,
 but less mature coinbase spends are NOT.
 """
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import (assert_equal, create_tx, assert_raises_rpc_error)
 
 # Create one-input, one-output, no-fee transaction:
-class MempoolSpendCoinbaseTest(MeowTestFramework):
+class MempoolSpendCoinbaseTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.extra_args = [["-checkmempool"]]

@@ -450,7 +450,7 @@ Zapamtite da enkripcija vašeg novčanika ne može u potpunosti zaštititi vaša
     </message>
     </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Синхронизација са мрежом у току...</translation>

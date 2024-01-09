@@ -6,10 +6,10 @@
 
 """Test the importprunedfunds and removeprunedfunds RPCs."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, Decimal
 
-class ImportPrunedFundsTest(MeowTestFramework):
+class ImportPrunedFundsTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

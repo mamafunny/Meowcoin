@@ -12,7 +12,7 @@ Test processing of feefilter messages.
 
 import time
 from test_framework.mininode import mininode_lock, NodeConnCB, NodeConn, NetworkThread, MsgFeeFilter
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import sync_blocks, p2p_port, Decimal, sync_mempools
 
 def hash_to_hex(hash_data):
@@ -41,7 +41,7 @@ class TestNode(NodeConnCB):
         with mininode_lock:
             self.txinvs = []
 
-class FeeFilterTest(MeowTestFramework):
+class FeeFilterTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

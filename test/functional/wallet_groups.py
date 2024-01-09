@@ -6,11 +6,11 @@
 
 """Test wallet group functionality."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.mininode import CTransaction, from_hex, to_hex
 from test_framework.util import assert_approx, assert_equal
 
-class WalletGroupTest(MeowTestFramework):
+class WalletGroupTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3

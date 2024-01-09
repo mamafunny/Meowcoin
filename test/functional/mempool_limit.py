@@ -6,13 +6,13 @@
 
 """Test mempool limiting together/eviction with the wallet."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import gen_return_txouts, create_confirmed_utxos, satoshi_round, \
     create_lots_of_big_transactions
 
 
 # noinspection PyAttributeOutsideInit
-class MempoolLimitTest(MeowTestFramework):
+class MempoolLimitTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

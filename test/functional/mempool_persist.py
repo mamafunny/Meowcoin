@@ -40,10 +40,10 @@ Test is as follows:
 
 import os
 import time
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, Decimal, wait_until, assert_raises_rpc_error
 
-class MempoolPersistTest(MeowTestFramework):
+class MempoolPersistTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
         self.extra_args = [[], ["-persistmempool=0"], []]

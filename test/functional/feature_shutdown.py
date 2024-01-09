@@ -7,14 +7,14 @@
 """Test meowcoind shutdown."""
 
 from threading import Thread
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, get_rpc_proxy, wait_until
 
 def test_long_call(node):
     block = node.waitfornewblock(5000)
     assert_equal(block['height'], 0)
 
-class ShutdownTest(MeowTestFramework):
+class ShutdownTest(MeowcoinTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

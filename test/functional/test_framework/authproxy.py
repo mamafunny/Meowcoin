@@ -48,7 +48,7 @@ import urllib.parse
 HTTP_TIMEOUT = 30
 USER_AGENT = "AuthServiceProxy/0.1"
 
-log = logging.getLogger("MeowRPC")
+log = logging.getLogger("MeowcoinRPC")
 
 
 class JSONRPCException(Exception):

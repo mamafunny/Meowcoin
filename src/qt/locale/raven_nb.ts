@@ -610,7 +610,7 @@
     </message>
     <message>
         <source>Warning: Invalid Meowcoin address</source>
-        <translation>Advarsel: Ugyldig Meowadresse</translation>
+        <translation>Advarsel: Ugyldig Meowcoinadresse</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -1082,7 +1082,7 @@
     </message>
     <message>
         <source>Warning: Invalid Meowcoin address</source>
-        <translation>Advarsel: Ugyldig Meowadresse</translation>
+        <translation>Advarsel: Ugyldig Meowcoinadresse</translation>
     </message>
     <message>
         <source>Valid Asset</source>
@@ -2283,7 +2283,7 @@
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signer &amp;melding...</translation>
@@ -2985,7 +2985,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send Meows</translation>
+        <translation>Send Meowcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -3209,7 +3209,7 @@
     </message>
     <message>
         <source>Warning: Invalid Meowcoin address</source>
-        <translation>Advarsel: Ugyldig Meowadresse</translation>
+        <translation>Advarsel: Ugyldig Meowcoinadresse</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>

@@ -38,7 +38,7 @@ WORKDIR /home/meowcoin/build/Meowcoin
 WORKDIR /home/meowcoin/build/Meowcoin/contrib
 RUN ./install_db4.sh ../../
 
-# build Meowcore
+# build Meowcoincore
 WORKDIR /home/meowcoin/build/Meowcoin
 RUN ./autogen.sh && ./configure --disable-tests BDB_LIBS="-L/home/meowcoin/build/db4/lib -ldb_cxx-4.8" BDB_CFLAGS="-I/home/meowcoin/build/db4/include" --with-gui=no  && make -j4
 

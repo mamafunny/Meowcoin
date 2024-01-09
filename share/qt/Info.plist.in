@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.meowcoin.MeowPayment</string>
+      <string>org.meowcoin.MeowcoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>meowcoin</string>

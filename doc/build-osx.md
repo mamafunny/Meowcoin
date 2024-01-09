@@ -46,7 +46,7 @@ from the root of the repository.
 
 1. Clone the Meowcoin Core source code:
     ```shell
-    git clone https://github.com/MeowProject/Meowcoin
+    git clone https://github.com/MeowcoinProject/Meowcoin
     cd Meowcoin
     ```
 

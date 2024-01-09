@@ -9,7 +9,7 @@
 #include <QDialog>
 #include <QObject>
 
-class MeowGUI;
+class MeowcoinGUI;
 
 namespace Ui {
     class HelpMessageDialog;
@@ -43,7 +43,7 @@ class ShutdownWindow : public QWidget
 
 public:
     explicit ShutdownWindow(QWidget *parent=nullptr, Qt::WindowFlags f=Qt::Widget);
-    static QWidget *showShutdownWindow(MeowGUI *window);
+    static QWidget *showShutdownWindow(MeowcoinGUI *window);
 
 protected:
     void closeEvent(QCloseEvent *event);

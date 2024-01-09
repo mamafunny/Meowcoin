@@ -6,7 +6,7 @@
 
 """Test the listreceivedbyaddress RPC."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_array_result, Decimal
 
 def get_sub_array_from_array(object_array, to_match):
@@ -28,7 +28,7 @@ def get_sub_array_from_array(object_array, to_match):
 
 
 # noinspection PyTypeChecker,PyTypeChecker,PyTypeChecker,PyTypeChecker
-class ReceivedByTest(MeowTestFramework):
+class ReceivedByTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.enable_mocktime()

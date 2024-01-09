@@ -106,20 +106,20 @@ void RunTest(const TestVector &test)
         pubkey.Encode(data);
 
         // Test private key
-        CMeowExtKey b58key;
+        CMeowcoinExtKey b58key;
         b58key.SetKey(key);
         BOOST_CHECK(b58key.ToString() == derive.prv);
 
-        CMeowExtKey b58keyDecodeCheck(derive.prv);
+        CMeowcoinExtKey b58keyDecodeCheck(derive.prv);
         CExtKey checkKey = b58keyDecodeCheck.GetKey();
         assert(checkKey == key); //ensure a base58 decoded key also matches
 
         // Test public key
-        CMeowExtPubKey b58pubkey;
+        CMeowcoinExtPubKey b58pubkey;
         b58pubkey.SetKey(pubkey);
         BOOST_CHECK(b58pubkey.ToString() == derive.pub);
 
-        CMeowExtPubKey b58PubkeyDecodeCheck(derive.pub);
+        CMeowcoinExtPubKey b58PubkeyDecodeCheck(derive.pub);
         CExtPubKey checkPubKey = b58PubkeyDecodeCheck.GetKey();
         assert(checkPubKey == pubkey); //ensure a base58 decoded pubkey also matches
 

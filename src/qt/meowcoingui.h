@@ -47,7 +47,7 @@ QT_END_NAMESPACE
   Meowcoin GUI main class. This class represents the main window of the Meowcoin UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class MeowGUI : public QMainWindow
+class MeowcoinGUI : public QMainWindow
 {
     Q_OBJECT
 
@@ -55,8 +55,8 @@ public:
     static const QString DEFAULT_WALLET;
     static const std::string DEFAULT_UIPLATFORM;
 
-    explicit MeowGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
-    ~MeowGUI();
+    explicit MeowcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
+    ~MeowcoinGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.

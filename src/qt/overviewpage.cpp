@@ -46,7 +46,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(MeowUnits::MEWC),
+        QAbstractItemDelegate(parent), unit(MeowcoinUnits::MEWC),
         platformStyle(_platformStyle)
     {
 
@@ -155,7 +155,7 @@ class AssetViewDelegate : public QAbstractItemDelegate
 Q_OBJECT
 public:
     explicit AssetViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-            QAbstractItemDelegate(parent), unit(MeowUnits::MEWC),
+            QAbstractItemDelegate(parent), unit(MeowcoinUnits::MEWC),
             platformStyle(_platformStyle)
     {
 
@@ -561,14 +561,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(MeowUnits::formatWithUnit(unit, balance, false, MeowUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(MeowUnits::formatWithUnit(unit, unconfirmedBalance, false, MeowUnits::separatorAlways));
-    ui->labelImmature->setText(MeowUnits::formatWithUnit(unit, immatureBalance, false, MeowUnits::separatorAlways));
-    ui->labelTotal->setText(MeowUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, MeowUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(MeowUnits::formatWithUnit(unit, watchOnlyBalance, false, MeowUnits::separatorAlways));
-    ui->labelWatchPending->setText(MeowUnits::formatWithUnit(unit, watchUnconfBalance, false, MeowUnits::separatorAlways));
-    ui->labelWatchImmature->setText(MeowUnits::formatWithUnit(unit, watchImmatureBalance, false, MeowUnits::separatorAlways));
-    ui->labelWatchTotal->setText(MeowUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, MeowUnits::separatorAlways));
+    ui->labelBalance->setText(MeowcoinUnits::formatWithUnit(unit, balance, false, MeowcoinUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(MeowcoinUnits::formatWithUnit(unit, unconfirmedBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelImmature->setText(MeowcoinUnits::formatWithUnit(unit, immatureBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelTotal->setText(MeowcoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(MeowcoinUnits::formatWithUnit(unit, watchOnlyBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelWatchPending->setText(MeowcoinUnits::formatWithUnit(unit, watchUnconfBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelWatchImmature->setText(MeowcoinUnits::formatWithUnit(unit, watchImmatureBalance, false, MeowcoinUnits::separatorAlways));
+    ui->labelWatchTotal->setText(MeowcoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, MeowcoinUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

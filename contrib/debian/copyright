@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Meowcoin
-Source: https://github.com/MeowProject/Meowcoin
+Source: https://github.com/MeowcoinProject/Meowcoin
 
 Files: *
 Copyright: 2009-2017, Bitcoin Core Developers

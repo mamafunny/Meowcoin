@@ -3668,7 +3668,7 @@ They are not recoverable !!</source>
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <location filename="../meowgui.cpp" line="+476"/>
         <source>Sign &amp;message...</source>

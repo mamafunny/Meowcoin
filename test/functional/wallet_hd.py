@@ -8,10 +8,10 @@
 
 import shutil
 import os
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, connect_nodes_bi
 
-class WalletHDTest(MeowTestFramework):
+class WalletHDTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

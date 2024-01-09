@@ -17,10 +17,10 @@ disconnected.
 from decimal import Decimal
 import os
 import shutil
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal, connect_nodes, disconnect_nodes, sync_blocks
 
-class ReorgsRestoreTest(MeowTestFramework):
+class ReorgsRestoreTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
 

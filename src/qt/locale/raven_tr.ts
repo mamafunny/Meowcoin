@@ -2841,7 +2841,7 @@ They are not recoverable !!</translation>
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;İleti imzala...</translation>
@@ -5078,7 +5078,7 @@ They are not recoverable !!</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Meowi Gönder</translation>
+        <translation>Meowcoini Gönder</translation>
     </message>
     </context>
 <context>

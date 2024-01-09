@@ -6,10 +6,10 @@
 
 """Test the -uacomment option."""
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_equal
 
-class UacommentTest(MeowTestFramework):
+class UacommentTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True

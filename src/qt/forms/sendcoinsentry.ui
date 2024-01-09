@@ -39,7 +39,7 @@
     <item row="2" column="1">
      <layout class="QHBoxLayout" name="horizontalLayoutAmount" stretch="0,1">
       <item>
-       <widget class="MeowAmountField" name="payAmount"/>
+       <widget class="MeowcoinAmountField" name="payAmount"/>
       </item>
       <item>
        <widget class="QCheckBox" name="checkboxSubtractFeeFromAmount">
@@ -695,7 +695,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="MeowAmountField" name="payAmount_is">
+     <widget class="MeowcoinAmountField" name="payAmount_is">
       <property name="acceptDrops">
        <bool>false</bool>
       </property>
@@ -1228,7 +1228,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="MeowAmountField" name="payAmount_s">
+     <widget class="MeowcoinAmountField" name="payAmount_s">
       <property name="acceptDrops">
        <bool>false</bool>
       </property>
@@ -1244,7 +1244,7 @@
    <header>qvalidatedlineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>MeowAmountField</class>
+   <class>MeowcoinAmountField</class>
    <extends>QLineEdit</extends>
    <header>meowamountfield.h</header>
    <container>1</container>

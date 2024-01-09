@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your Meowcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Detta är dina Meowcoin adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Meows.</translation>
+        <translation>Detta är dina Meowcoin adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Meowcoins.</translation>
     </message>
     <message>
         <source>These are your Meowcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -1390,7 +1390,7 @@ Var vänlig och försök igen.</translation>
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signera &amp;meddelande...</translation>
@@ -1714,7 +1714,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Meowcoin network.</source>
-        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Meownätverket.</translation>
+        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Meowcoinnätverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2100,7 +2100,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Warning: Invalid Meowcoin address</source>
-        <translation>Varning: Felaktig Meowadress</translation>
+        <translation>Varning: Felaktig Meowcoinadress</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2139,7 +2139,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Meowcoin address to send the payment to</source>
-        <translation>Meowadress att sända betalning till</translation>
+        <translation>Meowcoinadress att sända betalning till</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2183,7 +2183,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>A message that was attached to the meowcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Meowcoin network.</source>
-        <translation>Ett meddelande som bifogades meowcoin-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Meownätverket.</translation>
+        <translation>Ett meddelande som bifogades meowcoin-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Meowcoinnätverket.</translation>
     </message>
     <message>
         <source>Memo:</source>
@@ -2228,7 +2228,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Meowcoin address to sign the message with</source>
-        <translation>Meowadress att signera meddelandet med</translation>
+        <translation>Meowcoinadress att signera meddelandet med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2284,7 +2284,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The Meowcoin address the message was signed with</source>
-        <translation>Meowadressen som meddelandet signerades med</translation>
+        <translation>Meowcoinadressen som meddelandet signerades med</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
@@ -2791,7 +2791,7 @@ Var vänlig och försök igen.</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Skicka Meows</translation>
+        <translation>Skicka Meowcoins</translation>
     </message>
     </context>
 <context>

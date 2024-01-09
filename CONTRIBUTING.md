@@ -85,7 +85,7 @@ Examples:
     Trivial: Fix typo in init.cpp
 
 Note that translations should not be submitted as pull requests, please see
-[Translation Process](https://github.com/MeowProject/Meowcoin/blob/master/doc/translation_process.md) 
+[Translation Process](https://github.com/MeowcoinProject/Meowcoin/blob/master/doc/translation_process.md) 
 for more information on helping with translations.
 
 If a pull request is specifically not to be considered for merging (yet) please
@@ -275,7 +275,7 @@ about:
 Release Policy
 --------------
 
-The MeowQT-SIG selects a release manager for each Meowcoin release.
+The MeowcoinQT-SIG selects a release manager for each Meowcoin release.
 
 Copyright
 ---------

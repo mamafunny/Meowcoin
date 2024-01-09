@@ -100,7 +100,7 @@ public:
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CMeowAddress : public CBase58Data {
+class CMeowcoinAddress : public CBase58Data {
 public:
     bool Set(const CKeyID &id);
     bool Set(const CScriptID &id);
@@ -108,10 +108,10 @@ public:
     bool IsValid() const;
     bool IsValid(const CChainParams &params) const;
 
-    CMeowAddress() {}
-    CMeowAddress(const CTxDestination &dest) { Set(dest); }
-    CMeowAddress(const std::string& strAddress) { SetString(strAddress); }
-    CMeowAddress(const char* pszAddress) { SetString(pszAddress); }
+    CMeowcoinAddress() {}
+    CMeowcoinAddress(const CTxDestination &dest) { Set(dest); }
+    CMeowcoinAddress(const std::string& strAddress) { SetString(strAddress); }
+    CMeowcoinAddress(const char* pszAddress) { SetString(pszAddress); }
 
     CTxDestination Get() const;
     bool GetIndexKey(uint160& hashBytes, int& type) const;
@@ -120,7 +120,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CMeowSecret : public CBase58Data
+class CMeowcoinSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -129,11 +129,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CMeowSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CMeowSecret() {}
+    CMeowcoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CMeowcoinSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CMeowExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CMeowcoinExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -151,19 +151,19 @@ public:
         return ret;
     }
 
-    CMeowExtKeyBase(const K &key) {
+    CMeowcoinExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CMeowExtKeyBase(const std::string& strBase58c) {
+    CMeowcoinExtKeyBase(const std::string& strBase58c) {
         SetString(strBase58c.c_str(), GetParams().Base58Prefix(Type).size());
     }
 
-    CMeowExtKeyBase() {}
+    CMeowcoinExtKeyBase() {}
 };
 
-typedef CMeowExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CMeowExtKey;
-typedef CMeowExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CMeowExtPubKey;
+typedef CMeowcoinExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CMeowcoinExtKey;
+typedef CMeowcoinExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CMeowcoinExtPubKey;
 
 std::string EncodeDestination(const CTxDestination& dest);
 CTxDestination DecodeDestination(const std::string& str);

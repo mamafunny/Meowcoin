@@ -9,7 +9,7 @@
 from struct import unpack, pack
 from io import BytesIO
 from codecs import encode
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import connect_nodes_bi, assert_equal, Decimal, json, hex_str_to_bytes, assert_greater_than
 
 import http.client
@@ -44,7 +44,7 @@ def http_post_call(host, port, path, requestdata = '', response_object = 0):
 
 
 # noinspection PyTypeChecker
-class RESTTest (MeowTestFramework):
+class RESTTest (MeowcoinTestFramework):
     FORMAT_SEPARATOR = "."
 
     def set_test_params(self):

@@ -9,10 +9,10 @@ Test coinbase transactions return the correct categories.
 Tests listtransactions, listsinceblock, and gettransaction.
 """
 
-from test_framework.test_framework import MeowTestFramework
+from test_framework.test_framework import MeowcoinTestFramework
 from test_framework.util import assert_array_result
 
-class CoinbaseCategoryTest(MeowTestFramework):
+class CoinbaseCategoryTest(MeowcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

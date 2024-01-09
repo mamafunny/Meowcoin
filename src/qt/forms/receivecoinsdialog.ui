@@ -132,7 +132,7 @@
            </widget>
           </item>
           <item row="5" column="2">
-           <widget class="MeowAmountField" name="reqAmount">
+           <widget class="MeowcoinAmountField" name="reqAmount">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -320,7 +320,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MeowAmountField</class>
+   <class>MeowcoinAmountField</class>
    <extends>QLineEdit</extends>
    <header>meowamountfield.h</header>
    <container>1</container>

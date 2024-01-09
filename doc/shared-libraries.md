@@ -43,7 +43,7 @@ The interface is defined in the C header `meowconsensus.h` located in  `src/scri
 - `meowconsensus_ERR_AMOUNT_REQUIRED` - Input amount is required if WITNESS is used
 
 ### Example Implementations
-- [NMeow](https://github.com/NicolasDorier/NMeow/blob/master/NMeow/Script.cs#L814) (.NET Bindings)
+- [NMeowcoin](https://github.com/NicolasDorier/NMeowcoin/blob/master/NMeowcoin/Script.cs#L814) (.NET Bindings)
 - [node-libmeowcoinconsensus](https://github.com/bitpay/node-libmeowcoinconsensus) (Node.js Bindings)
 - [java-libmeowcoinconsensus](https://github.com/dexX7/java-libmeowcoinconsensus) (Java Bindings)
 - [meowconsensus-php](https://github.com/Bit-Wasp/meowconsensus-php) (PHP Bindings)

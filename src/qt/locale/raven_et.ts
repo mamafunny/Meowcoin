@@ -536,7 +536,7 @@
     </message>
     <message>
         <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Meowi kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+        <translation>Meowcoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -833,7 +833,7 @@
     </message>
 </context>
 <context>
-    <name>MeowGUI</name>
+    <name>MeowcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signeeri &amp;sõnum</translation>
@@ -904,7 +904,7 @@
     </message>
     <message>
         <source>Send coins to a Meowcoin address</source>
-        <translation>Saada münte Meowi aadressile</translation>
+        <translation>Saada münte Meowcoini aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -952,11 +952,11 @@
     </message>
     <message>
         <source>Sign messages with your Meowcoin addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Meowi aadressiga</translation>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Meowcoini aadressiga</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Meowi aadressiga</translation>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Meowcoini aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1419,7 +1419,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Meowcoin address</source>
-        <translation>Allkirjasta sõnum Meowi aadressi sulle kuulumise tõestamiseks</translation>
+        <translation>Allkirjasta sõnum Meowcoini aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1443,7 +1443,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Meowi aadressiga.</translation>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Meowcoini aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1728,7 +1728,7 @@
     </message>
     <message>
         <source>Meowcoin Core</source>
-        <translation>Meowi tuumik</translation>
+        <translation>Meowcoini tuumik</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

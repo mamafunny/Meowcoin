@@ -16,12 +16,12 @@
   - All lower-case letters except for 'l'
 */
 
-MeowAddressEntryValidator::MeowAddressEntryValidator(QObject *parent) :
+MeowcoinAddressEntryValidator::MeowcoinAddressEntryValidator(QObject *parent) :
     QValidator(parent)
 {
 }
 
-QValidator::State MeowAddressEntryValidator::validate(QString &input, int &pos) const
+QValidator::State MeowcoinAddressEntryValidator::validate(QString &input, int &pos) const
 {
     Q_UNUSED(pos);
 
@@ -81,12 +81,12 @@ QValidator::State MeowAddressEntryValidator::validate(QString &input, int &pos) 
     return state;
 }
 
-MeowAddressCheckValidator::MeowAddressCheckValidator(QObject *parent) :
+MeowcoinAddressCheckValidator::MeowcoinAddressCheckValidator(QObject *parent) :
     QValidator(parent)
 {
 }
 
-QValidator::State MeowAddressCheckValidator::validate(QString &input, int &pos) const
+QValidator::State MeowcoinAddressCheckValidator::validate(QString &input, int &pos) const
 {
     Q_UNUSED(pos);
     // Validate the passed Meowcoin address
