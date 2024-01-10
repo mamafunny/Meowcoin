@@ -20,9 +20,9 @@
 
 **Post Release :**
 
-  1. Update meowcoin.org with correct popup version
+  1. Update mewccrypto.com with correct popup version
   
-  2. Update meowcoin.org with correct release download urls for each platform (Windows, Linux, Mac)
+  2. Update mewccrypto.com with correct release download urls for each platform (Windows, Linux, Mac)
 
 **Build Process**
 

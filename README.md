@@ -1,7 +1,7 @@
 Meowcoin Core integration/staging tree
 =====================================
 
-https://meowcoin.org
+https://mewccrypto.com
 
 To see how to run Meowcoin, please read the respective files in [the doc folder](doc)
 

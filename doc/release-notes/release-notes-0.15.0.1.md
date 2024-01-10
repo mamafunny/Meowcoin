@@ -1,10 +1,10 @@
 Meowcoin Core version *0.15.0.1* is now available from:
 
-  <https://meowcoin.org/bin/meowcoin-core-0.15.0.1/>
+  <https://mewccrypto.com/bin/meowcoin-core-0.15.0.1/>
 
 and
 
-  <https://meowcoin.org/bin/meowcoin-core-0.15.0.1/>
+  <https://mewccrypto.com/bin/meowcoin-core-0.15.0.1/>
 
 This is a minor bug fix for 0.15.0.
 
@@ -14,7 +14,7 @@ Please report bugs using the issue tracker at GitHub:
 
 To receive security and update notifications, please subscribe to:
 
-  <https://meowcoin.org/en/list/announcements/join/>
+  <https://mewccrypto.com/en/list/announcements/join/>
 
 How to Upgrade
 ==============

@@ -89,10 +89,10 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
     {
         BOOST_TEST_MESSAGE("Running NetBase SplitHost Test");
 
-        BOOST_CHECK(TestSplitHost("www.meowcoin.org", "www.meowcoin.org", -1));
-        BOOST_CHECK(TestSplitHost("[www.meowcoin.org]", "www.meowcoin.org", -1));
-        BOOST_CHECK(TestSplitHost("www.meowcoin.org:80", "www.meowcoin.org", 80));
-        BOOST_CHECK(TestSplitHost("[www.meowcoin.org]:80", "www.meowcoin.org", 80));
+        BOOST_CHECK(TestSplitHost("www.mewccrypto.com", "www.mewccrypto.com", -1));
+        BOOST_CHECK(TestSplitHost("[www.mewccrypto.com]", "www.mewccrypto.com", -1));
+        BOOST_CHECK(TestSplitHost("www.mewccrypto.com:80", "www.mewccrypto.com", 80));
+        BOOST_CHECK(TestSplitHost("[www.mewccrypto.com]:80", "www.mewccrypto.com", 80));
         BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
         BOOST_CHECK(TestSplitHost("127.0.0.1:8788", "127.0.0.1", 8788));
         BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));

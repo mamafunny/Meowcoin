@@ -20,8 +20,8 @@ Summary:	Peer to Peer Cryptographic Currency
 
 Group:		Applications/System
 License:	MIT
-URL:		https://meowcoin.org/
-Source0:	https://meowcoin.org/bin/meowcoin-core-%{version}/meowcoin-%{version}.tar.gz
+URL:		https://mewccrypto.com/
+Source0:	https://mewccrypto.com/bin/meowcoin-core-%{version}/meowcoin-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
 Source10:	https://raw.githubusercontent.com/meowcoin/meowcoin/v%{version}/contrib/debian/examples/meowcoin.conf

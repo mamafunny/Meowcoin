@@ -98,7 +98,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the github-release page.
 
-- Update meowcoin.org version
+- Update mewccrypto.com version
 
 - Announce the release:
 
