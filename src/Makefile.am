@@ -30,7 +30,7 @@ LIBMEOWCOIN_CONSENSUS=libmeowcoin_consensus.a
 LIBMEOWCOIN_CLI=libmeowcoin_cli.a
 LIBMEOWCOIN_UTIL=libmeowcoin_util.a
 LIBMEOWCOIN_CRYPTO=crypto/libmeowcoin_crypto.a
-LIBMEOWCOINQT=qt/libmeowqt.a
+LIBMEOWCOINQT=qt/libmeowcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
