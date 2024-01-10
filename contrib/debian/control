@@ -27,8 +27,8 @@ Build-Depends: debhelper,
  libzmq3-dev
 Standards-Version: 3.9.2
 Homepage: https://meowcoin.org/
-Vcs-Git: git://github.com/MeowcoinProject/Meowcoin.git
-Vcs-Browser: https://github.com/MeowcoinProject/Meowcoin
+Vcs-Git: git://github.com/JustAResearcher/Meowcoin.git
+Vcs-Browser: https://github.com/JustAResearcher/Meowcoin
 
 Package: meowcoind
 Architecture: any

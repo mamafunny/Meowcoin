@@ -628,7 +628,7 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/MeowcoinProject/Meowcoin>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/JustAResearcher/Meowcoin>";
     const std::string URL_WEBSITE = "<https://meowcoin.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +

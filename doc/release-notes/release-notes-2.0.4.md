@@ -1,7 +1,7 @@
 Meowcoin Core version *2.0.4.0* is now available!!
 ==============
 
-  <https://github.com/MeowcoinProject/Meowcoin/releases/tag/v2.0.4>
+  <https://github.com/JustAResearcher/Meowcoin/releases/tag/v2.0.4>
 
 
 This is a major release containing bug fixes for 2.0.3.0.  It is highly recommended that users 
@@ -9,7 +9,7 @@ upgrade to this version.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/MeowcoinProject/Meowcoin/issues>
+  <https://github.com/JustAResearcher/Meowcoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
@@ -68,7 +68,7 @@ Notable changes
 2.0.4.0-b175d7350 Change log
 ==============
 
-Changelog available here: <https://github.com/MeowcoinProject/Meowcoin/commits/release_2.0.4>
+Changelog available here: <https://github.com/JustAResearcher/Meowcoin/commits/release_2.0.4>
 
 Credits
 ==============

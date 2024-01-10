@@ -148,7 +148,7 @@ Make the directory for sources and go into it.
 
 __Download Meowcoin source.__
 
-`git clone https://github.com/MeowcoinProject/Meowcoin`
+`git clone https://github.com/JustAResearcher/Meowcoin`
 
 `cd Meowcoin`
 
