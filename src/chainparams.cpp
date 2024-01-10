@@ -409,6 +409,9 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
+        // 15% of 5000 COIN to Donation
+	    nCommunityAutonomousAmount = 15;
+
         // Burn Addresses
         strIssueAssetBurnAddress = "mCissueAssetXXXXXXXXXXXXXXXXauYgzW";
         strReissueAssetBurnAddress = "mCReissueAssetXXXXXXXXXXXXXXViYbet";
@@ -553,8 +556,8 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
-        // 15% of 5000 COIN to Donation
-	    nCommunityAutonomousAmount = 15;
+        // 10% of 5000 COIN to Donation
+	    nCommunityAutonomousAmount = 10;
 
         // Burn Addresses
         strIssueAssetBurnAddress = "J1VQJKLSLVZ4syiCAx5hEPq8BrkFaxAXAi";
