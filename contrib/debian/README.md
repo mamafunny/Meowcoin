@@ -15,7 +15,7 @@ To install:
 
 If you build yourself, you will either need to modify the paths in
 the .desktop file or copy or symlink your meowcoin-qt binary to `/usr/bin`
-and the `../../share/pixmaps/meowcoin128.png` to `/usr/share/pixmaps`
+and the `../../share/pixmaps/meow128.png` to `/usr/share/pixmaps`
 
 meowcoin-qt.protocol (KDE)
 

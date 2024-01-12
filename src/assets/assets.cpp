@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,7 +48,7 @@ static const auto MAX_CHANNEL_NAME_LENGTH = 12;
 static const std::regex ROOT_NAME_CHARACTERS("^[A-Z0-9._]{3,}$");
 static const std::regex SUB_NAME_CHARACTERS("^[A-Z0-9._]+$");
 static const std::regex UNIQUE_TAG_CHARACTERS("^[-A-Za-z0-9@$%&*()[\\]{}_.?:]+$");
-static const std::regex MSGCHANNEL_TAG_CHARACTERS("^[A-Za-z0-9_]+$");
+static const std::regex MSG_CHANNEL_TAG_CHARACTERS("^[A-Za-z0-9_]+$");
 static const std::regex VOTE_TAG_CHARACTERS("^[A-Z0-9._]+$");
 
 // Restricted assets
@@ -63,13 +63,12 @@ static const std::regex QUALIFIER_LEADING_PUNCTUATION("^[#\\$][._].*$"); // Used
 
 static const std::string SUB_NAME_DELIMITER = "/";
 static const std::string UNIQUE_TAG_DELIMITER = "#";
-static const std::string MSGCHANNEL_TAG_DELIMITER = "~";
-// static const char RESTRICTED_TAG_CHAR = '$'; //<- Commented out - fixes "not used" warning
+static const std::string MSG_CHANNEL_TAG_DELIMITER = "~";
 static const std::string VOTE_TAG_DELIMITER = "^";
 static const std::string RESTRICTED_TAG_DELIMITER = "$";
 
 static const std::regex UNIQUE_INDICATOR(R"(^[^^~#!]+#[^~#!\/]+$)");
-static const std::regex MSGCHANNEL_INDICATOR(R"(^[^^~#!]+~[^~#!\/]+$)");
+static const std::regex MSG_CHANNEL_INDICATOR(R"(^[^^~#!]+~[^~#!\/]+$)");
 static const std::regex OWNER_INDICATOR(R"(^[^^~#!]+!$)");
 static const std::regex VOTE_INDICATOR(R"(^[^^~#!]+\^[^~#!\/]+$)");
 
@@ -77,7 +76,7 @@ static const std::regex QUALIFIER_INDICATOR("^[#][A-Z0-9._]{3,}$"); // Starts wi
 static const std::regex SUB_QUALIFIER_INDICATOR("^#[A-Z0-9._]+\\/#[A-Z0-9._]+$"); // Starts with #
 static const std::regex RESTRICTED_INDICATOR("^[\\$][A-Z0-9._]{3,}$"); // Starts with $
 
-static const std::regex MEOWCOIN_NAMES("^RVN$|^RAVEN$|^RAVENCOIN$|^#RVN$|^#RAVEN$|^#RAVENCOIN$|^MEWC$|^MEWC$|^MEOWCOIN$|^MEOWCOINCOIN$|^#MEWC$|^#MEOWCOIN$|^#MEOWCOINCOIN$");
+static const std::regex MEOWCOIN_NAMES("^MEWC$|^MEOWCOIN$|^MEOWCOINCOIN$|^#MEWC$|^#MEOWCOIN$|^#MEOWCOINCOIN$");
 
 bool IsRootNameValid(const std::string& name)
 {
@@ -134,7 +133,7 @@ bool IsVoteTagValid(const std::string& tag)
 
 bool IsMsgChannelTagValid(const std::string &tag)
 {
-    return std::regex_match(tag, MSGCHANNEL_TAG_CHARACTERS)
+    return std::regex_match(tag, MSG_CHANNEL_TAG_CHARACTERS)
         && !std::regex_match(tag, DOUBLE_PUNCTUATION)
         && !std::regex_match(tag, LEADING_PUNCTUATION)
         && !std::regex_match(tag, TRAILING_PUNCTUATION);
@@ -219,7 +218,7 @@ bool IsAssetNameValid(const std::string& name, AssetType& assetType, std::string
 
         return ret;
     }
-    else if (std::regex_match(name, MSGCHANNEL_INDICATOR))
+    else if (std::regex_match(name, MSG_CHANNEL_INDICATOR))
     {
         bool ret = IsTypeCheckNameValid(AssetType::MSGCHANNEL, name, error);
         if (ret)
@@ -324,7 +323,7 @@ bool IsAssetNameAQualifier(const std::string& name, bool fOnlyQualifiers)
 
 bool IsAssetNameAnMsgChannel(const std::string& name)
 {
-    return IsAssetNameValid(name) && std::regex_match(name, MSGCHANNEL_INDICATOR);
+    return IsAssetNameValid(name) && std::regex_match(name, MSG_CHANNEL_INDICATOR);
 }
 
 // TODO get the string translated below
@@ -340,7 +339,7 @@ bool IsTypeCheckNameValid(const AssetType type, const std::string& name, std::st
     } else if (type == AssetType::MSGCHANNEL) {
         if (name.size() > MAX_NAME_LENGTH) { error = "Name is greater than max length of " + std::to_string(MAX_NAME_LENGTH); return false; }
         std::vector<std::string> parts;
-        boost::split(parts, name, boost::is_any_of(MSGCHANNEL_TAG_DELIMITER));
+        boost::split(parts, name, boost::is_any_of(MSG_CHANNEL_TAG_DELIMITER));
         bool valid = IsNameValidBeforeTag(parts.front()) && IsMsgChannelTagValid(parts.back());
         if (parts.back().size() > MAX_CHANNEL_NAME_LENGTH) { error = "Channel name is greater than max length of " + std::to_string(MAX_CHANNEL_NAME_LENGTH); return false; }
         if (!valid) { error = "Message Channel name contains invalid characters (Valid characters are: A-Z 0-9 _ .) (special characters can't be the first or last characters)";  return false; }
@@ -401,7 +400,7 @@ std::string GetParentName(const std::string& name)
     } else if (type == AssetType::UNIQUE) {
         index = name.find_last_of(UNIQUE_TAG_DELIMITER);
     } else if (type == AssetType::MSGCHANNEL) {
-        index = name.find_last_of(MSGCHANNEL_TAG_DELIMITER);
+        index = name.find_last_of(MSG_CHANNEL_TAG_DELIMITER);
     } else if (type == AssetType::VOTE) {
         index = name.find_last_of(VOTE_TAG_DELIMITER);
     } else if (type == AssetType::ROOT) {
@@ -524,13 +523,13 @@ void CNewAsset::ConstructTransaction(CScript& script) const
     ssAsset << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(MEWC_N); 
-    vchMessage.push_back(MEWC_E);
-    vchMessage.push_back(MEWC_X); 
-    vchMessage.push_back(MEWC_Q); 
+    vchMessage.push_back(RVN_R); // r
+    vchMessage.push_back(RVN_V); // v
+    vchMessage.push_back(RVN_N); // n
+    vchMessage.push_back(RVN_Q); // q
 
     vchMessage.insert(vchMessage.end(), ssAsset.begin(), ssAsset.end());
-    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 void CNewAsset::ConstructOwnerTransaction(CScript& script) const
@@ -539,13 +538,13 @@ void CNewAsset::ConstructOwnerTransaction(CScript& script) const
     ssOwner << std::string(this->strName + OWNER_TAG);
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(MEWC_N); 
-    vchMessage.push_back(MEWC_E); 
-    vchMessage.push_back(MEWC_X); 
-    vchMessage.push_back(MEWC_O); 
+    vchMessage.push_back(RVN_R); // r
+    vchMessage.push_back(RVN_V); // v
+    vchMessage.push_back(RVN_N); // n
+    vchMessage.push_back(RVN_O); // o
 
     vchMessage.insert(vchMessage.end(), ssOwner.begin(), ssOwner.end());
-    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool AssetFromTransaction(const CTransaction& tx, CNewAsset& asset, std::string& strAddress)
@@ -677,7 +676,8 @@ bool TransferAssetFromScript(const CScript& scriptPubKey, CAssetTransfer& assetT
 
     if (AreTransferScriptsSizeDeployed()) {
         // Before kawpow activation we used the hardcoded 31 to find the data
-        // This created a bug where large transfers scripts would fail to serialize
+        // This created a bug where large transfers scripts would fail to serialize.
+        // This fixes that issue (https://github.com/JustAResearcher/Meowcoin/issues/752)
         // TODO, after the kawpow fork goes active, we should be able to remove this if/else statement and just use this line.
         vchTransferAsset.insert(vchTransferAsset.end(), scriptPubKey.begin() + nStartingIndex, scriptPubKey.end());
     } else {
@@ -1089,11 +1089,7 @@ bool CTransaction::VerifyNewAsset(std::string& strError) const {
     // Check for the Burn CTxOut in one of the vouts ( This is needed because the change CTxOut is places in a random position in the CWalletTx
     bool fFoundIssueBurnTx = false;
     for (auto out : vout) {
-        if(this->GetHash().GetHex() == BAD_HASH || this->GetHash().GetHex() == BAD_HASH2){
-            fFoundIssueBurnTx = true;  // Added to ignore bad hash - come back later.  
-            break;
-        }
-        if (CheckIssueBurnTx(out, assetType)) {  
+        if (CheckIssueBurnTx(out, assetType)) {
             fFoundIssueBurnTx = true;
             break;
         }
@@ -1624,13 +1620,13 @@ void CAssetTransfer::ConstructTransaction(CScript& script) const
     ssTransfer << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(MEWC_N);
-    vchMessage.push_back(MEWC_E);
-    vchMessage.push_back(MEWC_X);
-    vchMessage.push_back(MEWC_T);
+    vchMessage.push_back(RVN_R); // r
+    vchMessage.push_back(RVN_V); // v
+    vchMessage.push_back(RVN_N); // n
+    vchMessage.push_back(RVN_T); // t
 
     vchMessage.insert(vchMessage.end(), ssTransfer.begin(), ssTransfer.end());
-    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 CReissueAsset::CReissueAsset(const std::string &strAssetName, const CAmount &nAmount, const int &nUnits, const int &nReissuable,
@@ -1650,13 +1646,13 @@ void CReissueAsset::ConstructTransaction(CScript& script) const
     ssReissue << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(MEWC_N); 
-    vchMessage.push_back(MEWC_E); 
-    vchMessage.push_back(MEWC_X); 
-    vchMessage.push_back(MEWC_N); 
+    vchMessage.push_back(RVN_R); // r
+    vchMessage.push_back(RVN_V); // v
+    vchMessage.push_back(RVN_N); // n
+    vchMessage.push_back(RVN_R); // r
 
     vchMessage.insert(vchMessage.end(), ssReissue.begin(), ssReissue.end());
-    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool CReissueAsset::IsNull() const
@@ -3133,7 +3129,7 @@ bool CheckReissueBurnTx(const CTxOut& txOut)
 
 bool CheckIssueDataTx(const CTxOut& txOut)
 {
-    // Verify 'neoxq' is in the transaction
+    // Verify 'rvnq' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     int nStartingIndex = 0;
@@ -3142,7 +3138,7 @@ bool CheckIssueDataTx(const CTxOut& txOut)
 
 bool CheckReissueDataTx(const CTxOut& txOut)
 {
-    // Verify 'neoxr' is in the transaction
+    // Verify 'rvnr' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     return IsScriptReissueAsset(scriptPubKey);
@@ -3150,7 +3146,7 @@ bool CheckReissueDataTx(const CTxOut& txOut)
 
 bool CheckOwnerDataTx(const CTxOut& txOut)
 {
-    // Verify 'neoxq' is in the transaction
+    // Verify 'rvnq' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     return IsScriptOwnerAsset(scriptPubKey);
@@ -3158,7 +3154,7 @@ bool CheckOwnerDataTx(const CTxOut& txOut)
 
 bool CheckTransferOwnerTx(const CTxOut& txOut)
 {
-    // Verify 'neoxq' is in the transaction
+    // Verify 'rvnq' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     return IsScriptTransferAsset(scriptPubKey);
@@ -4303,7 +4299,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         vecSend.push_back(recipient);
     }
 
-    // If assetTxData is not nullptr, the user wants to add some OP_MEWC_ASSET data transactions into the transaction
+    // If assetTxData is not nullptr, the user wants to add some OP_RVN_ASSET data transactions into the transaction
     if (nullAssetTxData) {
         std::string strError = "";
         int nAddTagCount = 0;
@@ -4338,7 +4334,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         }
     }
 
-    // nullGlobalRestiotionData, the user wants to add OP_MEWC_ASSET OP_MEWC_ASSET OP_MEWC_ASSETS data transaction to the transaction
+    // nullGlobalRestiotionData, the user wants to add OP_RVN_ASSET OP_RVN_ASSET OP_RVN_ASSETS data transaction to the transaction
     if (nullGlobalRestrictionData) {
         std::string strError = "";
         for (auto dataObject : *nullGlobalRestrictionData) {
@@ -4520,7 +4516,7 @@ bool CNullAssetTxData::IsValid(std::string &strError, CAssetsCache &assetCache, 
         return false;
     }
 
-    if (flag != 0 || flag != 1) {
+    if (flag != 0 && flag != 1) {
         strError = _("Flag must be 1 or 0");
         return false;
     }
@@ -4552,7 +4548,7 @@ void CNullAssetTxData::ConstructGlobalRestrictionTransaction(CScript &script) co
 
     std::vector<unsigned char> vchMessage;
     vchMessage.insert(vchMessage.end(), ssAssetTxData.begin(), ssAssetTxData.end());
-    script << OP_MEWC_ASSET << OP_RESERVED << OP_RESERVED << ToByteVector(vchMessage);
+    script << OP_RVN_ASSET << OP_RESERVED << OP_RESERVED << ToByteVector(vchMessage);
 }
 
 CNullAssetTxVerifierString::CNullAssetTxVerifierString(const std::string &verifier)
@@ -4568,7 +4564,7 @@ void CNullAssetTxVerifierString::ConstructTransaction(CScript &script) const
 
     std::vector<unsigned char> vchMessage;
     vchMessage.insert(vchMessage.end(), ssAssetTxData.begin(), ssAssetTxData.end());
-    script << OP_MEWC_ASSET << OP_RESERVED << ToByteVector(vchMessage);
+    script << OP_RVN_ASSET << OP_RESERVED << ToByteVector(vchMessage);
 }
 
 bool CAssetsCache::GetAssetVerifierStringIfExists(const std::string &name, CNullAssetTxVerifierString& verifierString, bool fSkipTempCache)
@@ -4677,19 +4673,36 @@ bool CAssetsCache::CheckForAddressQualifier(const std::string &qualifier_name, c
 
     setIterator = passets->setNewQualifierAddressToAdd.find(cachedQualifierAddress);
     if (setIterator != passets->setNewQualifierAddressToAdd.end()) {
-        // Return true if we are adding the qualifier, and false if we are removing it
-        return setIterator->type == QualifierType::ADD_QUALIFIER;
+        if (setIterator->type == QualifierType::ADD_QUALIFIER) {
+            return true;
+        } else {
+            // BUG FIX:
+            // This scenario can occur if a tag #TAG is removed from an address in a block, then in a later block
+            // #TAG/#SECOND is added to the address.
+            // If a database event hasn't occurred yet the in memory caches will find that #TAG should be removed from the
+            // address and would normally fail this check. Now we can check for the exact condition where a subqualifier
+            // was added later.
+
+            auto tempChecker = CAssetCacheRootQualifierChecker(qualifier_name, address);
+            if (passets->mapRootQualifierAddressesAdd.count(tempChecker)) {
+                if (passets->mapRootQualifierAddressesAdd.at(tempChecker).size()) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 
-    auto tempCache = CAssetCacheRootQualifierChecker(qualifier_name, address);
-    if (!fSkipTempCache && mapRootQualifierAddressesAdd.count(tempCache)){
-        if (mapRootQualifierAddressesAdd[tempCache].size()) {
+    auto tempChecker = CAssetCacheRootQualifierChecker(qualifier_name, address);
+    if (!fSkipTempCache && mapRootQualifierAddressesAdd.count(tempChecker)){
+        if (mapRootQualifierAddressesAdd.at(tempChecker).size()) {
             return true;
         }
     }
 
-    if (passets->mapRootQualifierAddressesAdd.count(tempCache)) {
-        if (passets->mapRootQualifierAddressesAdd[tempCache].size()) {
+    if (passets->mapRootQualifierAddressesAdd.count(tempChecker)) {
+        if (passets->mapRootQualifierAddressesAdd.at(tempChecker).size()) {
             return true;
         }
     }
@@ -4702,7 +4715,6 @@ bool CAssetsCache::CheckForAddressQualifier(const std::string &qualifier_name, c
     }
 
     if (prestricteddb) {
-
         // Check for exact qualifier, and add to cache if it exists
         if (prestricteddb->ReadAddressQualifier(address, qualifier_name)) {
             passetsQualifierCache->Put(cachedQualifierAddress.GetHash().GetHex(), 1);
@@ -5452,7 +5464,7 @@ bool ContextualCheckReissueAsset(CAssetsCache* assetCache, const CReissueAsset& 
         return false;
     }
 
-    // hun non contextual checks
+    // run non contextual checks
     if (!CheckReissueAsset(reissue_asset, strError))
         return false;
 
@@ -5535,7 +5547,7 @@ bool ContextualCheckReissueAsset(CAssetsCache* assetCache, const CReissueAsset& 
 
 bool ContextualCheckReissueAsset(CAssetsCache* assetCache, const CReissueAsset& reissue_asset, std::string& strError)
 {
-    // hun non contextual checks
+    // run non contextual checks
     if (!CheckReissueAsset(reissue_asset, strError))
         return false;
 

@@ -1,14 +1,14 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "notificator.h"
+#include <qt/notificator.h>
 
 #include <QApplication>
 #include <QByteArray>
 #include <QIcon>
+#include <QDBusInterface>
 #include <QImageWriter>
 #include <QMessageBox>
 #include <QMetaType>
@@ -17,6 +17,7 @@
 #include <QTemporaryFile>
 #include <QVariant>
 #ifdef USE_DBUS
+#include "notificator.h"
 #include <stdint.h>
 #include <QtDBus>
 #endif
@@ -42,7 +43,7 @@ Notificator::Notificator(const QString &_programName, QSystemTrayIcon *_trayIcon
     mode(None),
     trayIcon(_trayIcon)
 #ifdef USE_DBUS
-    ,interface(0)
+    ,interface(nullptr)
 #endif
 {
     if(_trayIcon && _trayIcon->supportsMessages())

@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -30,8 +29,6 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define COLOR_BAREADDRESS QColor(140, 140, 140)
 /* Transaction list -- TX status decoration - open until date */
 #define COLOR_TX_STATUS_OPENUNTILDATE QColor(64, 64, 255)
-/* Transaction list -- TX status decoration - offline */
-#define COLOR_TX_STATUS_OFFLINE QColor(192, 192, 192)
 /* Transaction list -- TX status decoration - danger, tx needs attention */
 #define COLOR_TX_STATUS_DANGER QColor(200, 100, 100)
 /* Transaction list -- TX status decoration - default color */
@@ -118,8 +115,14 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 36
 
 #define QAPP_ORG_NAME "Meowcoin"
-#define QAPP_ORG_DOMAIN "meowcoin.org"
+#define QAPP_ORG_DOMAIN "mewccrypto.com"
 #define QAPP_APP_NAME_DEFAULT "Meowcoin-Qt"
 #define QAPP_APP_NAME_TESTNET "Meowcoin-Qt-testnet"
+
+/* Default third party browser urls */
+#define DEFAULT_THIRD_PARTY_BROWSERS "https://api.mewccrypto.com/tx/%s|https://mewc.cryptoscope.io/tx/?txid=%s|https://blockbook.mewccrypto.com/tx/%s|https://explorer.mangofarmassets.com/tx/%s|https://www.assetsexplorer.com/tx/%s|https://explorer.meowland.org/tx/%s"
+
+/* Default IPFS viewer */
+#define DEFAULT_IPFS_VIEWER "https://ipfs.io/ipfs/%s"
 
 #endif // MEOWCOIN_QT_GUICONSTANTS_H

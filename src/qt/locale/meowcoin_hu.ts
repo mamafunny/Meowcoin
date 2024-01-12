@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
 <TS version="2.1" language="hu">
 <context>
     <name>AddressBookPage</name>
@@ -240,8 +238,8 @@
         <translation type="vanished">Saját adatkönyvtár használata:</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; cannot be created.</source>
-        <translation type="vanished">Hiba: A megadott &quot;%1&quot; adatkönyvtár nem hozható létre. </translation>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation type="vanished">Hiba: A megadott "%1" adatkönyvtár nem hozható létre. </translation>
     </message>
     <message>
         <source>Error</source>
@@ -919,7 +917,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and meowcoin: URIs)</source>
-        <translation type="vanished">Fizetési kérelem (QR-kódot és &quot;meowcoin:&quot; URI azonosítót hoz létre)</translation>
+        <translation type="vanished">Fizetési kérelem (QR-kódot és "meowcoin:" URI azonosítót hoz létre)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -931,7 +929,7 @@
     </message>
     <message>
         <source>Open a meowcoin: URI or payment request</source>
-        <translation type="vanished">&quot;meowcoin:&quot; URI azonosító vagy fizetési kérelem megnyitása</translation>
+        <translation type="vanished">"meowcoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1533,16 +1531,16 @@
         <translation type="vanished">IP-címek megjelenítése a naplóban (alapértelmezett: %u)</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="vanished">Érvénytelen -proxy cím: &apos;%s&apos;</translation>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation type="vanished">Érvénytelen -proxy cím: '%s'</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="vanished">Ismeretlen hálózat lett megadva -onlynet: &apos;%s&apos;</translation>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation type="vanished">Ismeretlen hálózat lett megadva -onlynet: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation type="vanished">Nincs elég meowcoinsod.</translation>
+        <translation type="vanished">Nincs elég meowod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

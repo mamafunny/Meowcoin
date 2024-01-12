@@ -1,11 +1,10 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef meowcoin_cliENTVERSION_H
-#define meowcoin_cliENTVERSION_H
+#ifndef MEOWCOIN_CLIENTVERSION_H
+#define MEOWCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/meowcoin-config.h"
@@ -52,4 +51,4 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 
 #endif // WINDRES_PREPROC
 
-#endif // meowcoin_cliENTVERSION_H
+#endif // MEOWCOIN_CLIENTVERSION_H

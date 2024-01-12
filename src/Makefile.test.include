@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
+# Copyright (c) 2017-2019 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -116,7 +116,7 @@ test_test_meowcoin_LDADD =
 if ENABLE_WALLET
 test_test_meowcoin_LDADD += $(LIBMEOWCOIN_WALLET)
 endif
-test_test_meowcoin_LDADD += $(LIBMEOWCOIN_SERVER) $(LIBmeowcoin_cli) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) \
+test_test_meowcoin_LDADD += $(LIBMEOWCOIN_SERVER) $(LIBMEOWCOIN_CLI) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) \
   $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS) $(EVENT_PTHREADS_LIBS)
 test_test_meowcoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 

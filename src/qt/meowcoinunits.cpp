@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,8 +19,8 @@ QList<MeowcoinUnits::Unit> MeowcoinUnits::availableUnits()
 {
     QList<MeowcoinUnits::Unit> unitlist;
     unitlist.append(MEWC);
-    unitlist.append(mMEWC);
-    unitlist.append(uMEWC);
+    unitlist.append(mRVN);
+    unitlist.append(uRVN);
     return unitlist;
 }
 
@@ -30,8 +29,8 @@ bool MeowcoinUnits::valid(int unit)
     switch(unit)
     {
     case MEWC:
-    case mMEWC:
-    case uMEWC:
+    case mRVN:
+    case uRVN:
         return true;
     default:
         return false;
@@ -43,8 +42,8 @@ QString MeowcoinUnits::name(int unit)
     switch(unit)
     {
     case MEWC: return QString("MEWC");
-    case mMEWC: return QString("mMEWC");
-    case uMEWC: return QString::fromUtf8("μMEWC");
+    case mRVN: return QString("mRVN");
+    case uRVN: return QString::fromUtf8("μRVN");
     default: return QString("???");
     }
 }
@@ -53,9 +52,9 @@ QString MeowcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case MEWC: return QString("Meowcoin");
-    case mMEWC: return QString("Milli-Meowcoin (1 / 1" THIN_SP_UTF8 "000)");
-    case uMEWC: return QString("Micro-Meowcoin (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case MEWC: return QString("Meowcoins");
+    case mRVN: return QString("Milli-Meowcoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uRVN: return QString("Micro-Meowcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -65,8 +64,8 @@ qint64 MeowcoinUnits::factor(int unit)
     switch(unit)
     {
     case MEWC:  return 100000000;
-    case mMEWC: return 100000;
-    case uMEWC: return 100;
+    case mRVN: return 100000;
+    case uRVN: return 100;
     default:   return 100000000;
     }
 }
@@ -93,8 +92,8 @@ int MeowcoinUnits::decimals(int unit)
     switch(unit)
     {
     case MEWC: return 8;
-    case mMEWC: return 5;
-    case uMEWC: return 2;
+    case mRVN: return 5;
+    case uRVN: return 2;
     default: return 0;
     }
 }
@@ -121,7 +120,7 @@ QString MeowcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separato
     int q_size = quotient_str.size();
     if (separators == separatorAlways || (separators == separatorStandard && q_size > 4))
         for (int i = 3; i < q_size; i += 3)
-            quotient_str.insert(q_size - i, thin_sp); 
+            quotient_str.insert(q_size - i, thin_sp);
 
     if (n < 0)
         quotient_str.insert(0, '-');

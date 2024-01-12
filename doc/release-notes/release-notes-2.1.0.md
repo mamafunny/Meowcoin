@@ -1,7 +1,7 @@
 Meowcoin Core version *2.1.0* is now available!!
 ==============
 
-  <https://github.com/bitcoin/bitcoin/releases/tag/v2.1.0>
+  <https://github.com/JustAResearcher/Meowcoin/releases/tag/v2.1.0>
 
 
 This is a major release containing bug fixes for 2.0.4.0/2.0.4.1.  It is highly recommended that users 

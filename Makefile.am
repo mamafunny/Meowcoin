@@ -1,6 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2019 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,9 +20,9 @@ endif
 
 MEOWCOIND_BIN=$(top_builddir)/src/$(MEOWCOIN_DAEMON_NAME)$(EXEEXT)
 MEOWCOIN_QT_BIN=$(top_builddir)/src/qt/$(MEOWCOIN_GUI_NAME)$(EXEEXT)
-meowcoin_cli_BIN=$(top_builddir)/src/$(meowcoin_cli_NAME)$(EXEEXT)
+MEOWCOIN_CLI_BIN=$(top_builddir)/src/$(MEOWCOIN_CLI_NAME)$(EXEEXT)
 MEOWCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
-meowcoin_cli_INSTALL=$(top_builddir)/contrib/install_cli.sh
+MEOWCOIN_CLI_INSTALL=$(top_builddir)/contrib/install_cli.sh
 
 empty :=
 space := $(empty) $(empty)
@@ -77,7 +76,7 @@ $(MEOWCOIN_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIND_BIN) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIN_QT_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(meowcoin_cli_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(MEOWCOIN_CLI_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) -V2 $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 	@echo built $@
@@ -98,7 +97,7 @@ $(OSX_APP)/Contents/Resources/meowcoin.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/install_cli.sh: $(meowcoin_cli_INSTALL)
+$(OSX_APP)/Contents/MacOS/install_cli.sh: $(MEOWCOIN_CLI_INSTALL)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
@@ -110,7 +109,7 @@ $(OSX_APP)/Contents/MacOS/meowcoind: $(MEOWCOIND_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
-$(OSX_APP)/Contents/MacOS/meowcoin-cli: $(meowcoin_cli_BIN)
+$(OSX_APP)/Contents/MacOS/meowcoin-cli: $(MEOWCOIN_CLI_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -181,7 +180,7 @@ $(MEOWCOIN_QT_BIN): FORCE
 $(MEOWCOIND_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
-$(meowcoin_cli_BIN): FORCE
+$(MEOWCOIN_CLI_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
 if USE_LCOV

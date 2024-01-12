@@ -20,11 +20,11 @@ The following are some helpful notes on how to run Meowcoin on your native platf
 3) Run the GUI wallet or only the Meowcoin core deamon
 
    a. GUI wallet:
-   
+
    `./meowcoin-qt`
 
    b. Core deamon:
-   
+
    `./meowcoind -deamon`
 
 #### Ubuntu 16.04, 17.04/17.10 and 18.04
@@ -36,12 +36,9 @@ sudo apt update
 sudo apt install libevent-dev libboost-all-dev libminiupnpc10 libzmq5 software-properties-common
 ```
 
-The wallet requires version 4.8 of the Berkeley DB. The easiest way to get it is from the bitcoin repository: 
+The wallet requires version 4.8 of the Berkeley DB. The easiest way to get it is to build it with the script contrib/install_db4.sh
 
-```
-sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt update
-sudo apt install libdb4.8-dev libdb4.8++-dev
+
 ```
 
 The GUI wallet requires the QR Code encoding library. Install with:
@@ -75,13 +72,15 @@ The GUI wallet requires the QR Code encoding library and Google's data interchan
 
 1) Download Meowcoin-Qt.dmg.
 
-2) Double click the DMG to mount it. 
+2) Double click the DMG to mount it.
 
 3) Drag Meowcoin Core icon to the Applications Folder
 
+![alt tag](https://i.imgur.com/GLhBFUV.png)
 
 4) Open the Applications folder and Launch Meowcoin Core. The client will begin synchronizing with the network.
 
+![alt tag](https://i.imgur.com/v3962qo.png)
 
 Note: You may get the follow error on first launch:
 ```
@@ -100,10 +99,9 @@ To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dy
 
 ### Need Help?
 
-- See the documentation at the [Meowcoin Wiki](https://meowcoin.wiki/wiki/MEOWCOINCOIN_Wiki)
+- See the documentation at the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoincoin_Wiki)
 for help and more information.
-- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/MeowcoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
-- Ask for help on the [MeowcoinTalk](https://www.bitcointalk.org/) forums, in the [Development and Technical discussion board](https://www.bitcointalk.org/?forum=661517).
+- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/MeowcoincoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
 
 Building from source
 ---------------------
@@ -134,10 +132,9 @@ Meowcoin repo's [root README](https://github.com/JustAResearcher/Meowcoin/blob/m
 - [Benchmarking](https://github.com/JustAResearcher/Meowcoin/blob/master/doc/benchmarking.md)
 
 ### Resources
-- Discuss on the [MeowcoinTalk](https://www.bitcointalk.org/) forums, in the [Development & Technical Discussion board](---).
-- Discuss on chat [Discord](----), [Telegram](---) or [Reddit](---).
-- Find out more on the [Meowcoin Wiki](---)
-- Visit the project home [mewccrypto.com](https://mewccrypto.com)
+- Discuss on chat [Discord](https://discord.gg/jn6uhur), [Telegram](https://t.me/MeowcoincoinDev) or [Reddit](https://www.reddit.com/r/Meowcoin/).
+- Find out more on the [Meowcoin Wiki](https://meowcoin.wiki/wiki/Meowcoincoin_Wiki)
+- Visit the project home [Meowcoin.org](https://mewccrypto.com)
 
 ### Miscellaneous
 - [Assets Attribution](https://github.com/JustAResearcher/Meowcoin/blob/master/doc/assets-attribution.md)

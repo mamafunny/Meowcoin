@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,15 +11,15 @@
 
 #include "meowcoinunits.h"
 #include "guiutil.h"
-
 #include "amount.h"
 #include "init.h"
 #include "validation.h" // For DEFAULT_SCRIPTCHECK_THREADS
 #include "net.h"
 #include "netbase.h"
 #include "txdb.h" // for -dbcache defaults
-#include "intro.h" 
+#include "intro.h"
 #include "platformstyle.h"
+#include "guiconstants.h" // for DEFAULT_IPFS_VIEWER and DEFAULT_THIRD_PARTY_BROWSERS
 
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
@@ -62,7 +61,7 @@ void OptionsModel::Init(bool resetSettings)
         settings.setValue("fHideTrayIcon", false);
     fHideTrayIcon = settings.value("fHideTrayIcon").toBool();
     Q_EMIT hideTrayIconChanged(fHideTrayIcon);
-    
+
     if (!settings.contains("fMinimizeToTray"))
         settings.setValue("fMinimizeToTray", false);
     fMinimizeToTray = settings.value("fMinimizeToTray").toBool() && !fHideTrayIcon;
@@ -71,14 +70,26 @@ void OptionsModel::Init(bool resetSettings)
         settings.setValue("fMinimizeOnClose", false);
     fMinimizeOnClose = settings.value("fMinimizeOnClose").toBool();
 
+    if (!settings.contains("fToolbarIconsOnly"))
+        settings.setValue("fToolbarIconsOnly", false);
+    fToolbarIconsOnly = settings.value("fToolbarIconsOnly").toBool();
+
     // Display
     if (!settings.contains("nDisplayUnit"))
         settings.setValue("nDisplayUnit", MeowcoinUnits::MEWC);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
+    
+    if (!settings.contains("nDisplayCurrencyIndex"))
+        settings.setValue("nDisplayCurrencyIndex", 0);
+    nDisplayCurrencyIndex = settings.value("nDisplayCurrencyIndex", 0).toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
-        settings.setValue("strThirdPartyTxUrls", "");
+        settings.setValue("strThirdPartyTxUrls", DEFAULT_THIRD_PARTY_BROWSERS);
     strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
+
+    if (!settings.contains("strIpfsUrl"))
+        settings.setValue("strIpfsUrl", DEFAULT_IPFS_VIEWER);
+    strIpfsUrl = settings.value("strIpfsUrl", "").toString();
 
     if (!settings.contains("fCoinControlFeatures"))
         settings.setValue("fCoinControlFeatures", false);
@@ -225,6 +236,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return fHideTrayIcon;
         case MinimizeToTray:
             return fMinimizeToTray;
+        case ToolbarIconsOnly:
+            return fToolbarIconsOnly;
         case MapPortUPnP:
 #ifdef USE_UPNP
             return settings.value("fUseUPnP");
@@ -239,12 +252,12 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("fUseProxy", false);
         case ProxyIP: {
             // contains IP at index 0 and port at index 1
-            QStringList strlIpPort = settings.value("addrProxy").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrProxy").toString(), ":");
             return strlIpPort.at(0);
         }
         case ProxyPort: {
             // contains IP at index 0 and port at index 1
-            QStringList strlIpPort = settings.value("addrProxy").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrProxy").toString(), ":");
             return strlIpPort.at(1);
         }
 
@@ -253,12 +266,12 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("fUseSeparateProxyTor", false);
         case ProxyIPTor: {
             // contains IP at index 0 and port at index 1
-            QStringList strlIpPort = settings.value("addrSeparateProxyTor").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrSeparateProxyTor").toString(), ":");
             return strlIpPort.at(0);
         }
         case ProxyPortTor: {
             // contains IP at index 0 and port at index 1
-            QStringList strlIpPort = settings.value("addrSeparateProxyTor").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrSeparateProxyTor").toString(), ":");
             return strlIpPort.at(1);
         }
 
@@ -268,8 +281,12 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
 #endif
         case DisplayUnit:
             return nDisplayUnit;
+        case DisplayCurrencyIndex:
+            return nDisplayCurrencyIndex;
         case ThirdPartyTxUrls:
             return strThirdPartyTxUrls;
+        case IpfsUrl:
+            return strIpfsUrl;
         case Language:
             return settings.value("language");
         case CoinControlFeatures:
@@ -312,6 +329,11 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             fMinimizeToTray = value.toBool();
             settings.setValue("fMinimizeToTray", fMinimizeToTray);
             break;
+        case ToolbarIconsOnly:
+            fToolbarIconsOnly = value.toBool();
+            settings.setValue("fToolbarIconsOnly", fToolbarIconsOnly);
+            Q_EMIT updateIconsOnlyToolbar(fToolbarIconsOnly);
+            break;
         case MapPortUPnP: // core option - can be changed on-the-fly
             settings.setValue("fUseUPnP", value.toBool());
             MapPort(value.toBool());
@@ -330,7 +352,8 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             break;
         case ProxyIP: {
             // contains current IP at index 0 and current port at index 1
-            QStringList strlIpPort = settings.value("addrProxy").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrProxy").toString(), ":");
+
             // if that key doesn't exist or has a changed IP
             if (!settings.contains("addrProxy") || strlIpPort.at(0) != value.toString()) {
                 // construct new value from new IP and current port
@@ -342,7 +365,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         break;
         case ProxyPort: {
             // contains current IP at index 0 and current port at index 1
-            QStringList strlIpPort = settings.value("addrProxy").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrProxy").toString(), ":");
             // if that key doesn't exist or has a changed port
             if (!settings.contains("addrProxy") || strlIpPort.at(1) != value.toString()) {
                 // construct new value from current IP and new port
@@ -362,7 +385,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             break;
         case ProxyIPTor: {
             // contains current IP at index 0 and current port at index 1
-            QStringList strlIpPort = settings.value("addrSeparateProxyTor").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrSeparateProxyTor").toString(), ":");
             // if that key doesn't exist or has a changed IP
             if (!settings.contains("addrSeparateProxyTor") || strlIpPort.at(0) != value.toString()) {
                 // construct new value from new IP and current port
@@ -374,7 +397,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         break;
         case ProxyPortTor: {
             // contains current IP at index 0 and current port at index 1
-            QStringList strlIpPort = settings.value("addrSeparateProxyTor").toString().split(":", QString::SkipEmptyParts);
+            QStringList strlIpPort = GUIUtil::SplitSkipEmptyParts(settings.value("addrSeparateProxyTor").toString(), ":");
             // if that key doesn't exist or has a changed port
             if (!settings.contains("addrSeparateProxyTor") || strlIpPort.at(1) != value.toString()) {
                 // construct new value from current IP and new port
@@ -396,10 +419,20 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case DisplayUnit:
             setDisplayUnit(value);
             break;
+        case DisplayCurrencyIndex:
+            setDisplayCurrencyIndex(value);
+            break;
         case ThirdPartyTxUrls:
             if (strThirdPartyTxUrls != value.toString()) {
                 strThirdPartyTxUrls = value.toString();
                 settings.setValue("strThirdPartyTxUrls", strThirdPartyTxUrls);
+                setRestartRequired(true);
+            }
+            break;
+        case IpfsUrl:
+            if (strIpfsUrl != value.toString()) {
+                strIpfsUrl = value.toString();
+                settings.setValue("strIpfsUrl", strIpfsUrl);
                 setRestartRequired(true);
             }
             break;
@@ -460,6 +493,18 @@ void OptionsModel::setDisplayUnit(const QVariant &value)
         nDisplayUnit = value.toInt();
         settings.setValue("nDisplayUnit", nDisplayUnit);
         Q_EMIT displayUnitChanged(nDisplayUnit);
+    }
+}
+
+/** Updates current currency unit in memory and settings */
+void OptionsModel::setDisplayCurrencyIndex(const QVariant &value)
+{
+    if (!value.isNull() && value.toInt() != nDisplayCurrencyIndex)
+    {
+        QSettings settings;
+        nDisplayCurrencyIndex = value.toInt();
+        settings.setValue("nDisplayCurrencyIndex", nDisplayCurrencyIndex);
+        Q_EMIT displayCurrencyIndexChanged(nDisplayCurrencyIndex);
     }
 }
 

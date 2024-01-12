@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -512,7 +512,7 @@ UniValue createrawtransaction(const JSONRPCRequest& request)
             "               \"has_ipfs\":[0-1],            (boolean, optional, default=false), whether ifps hash is going \n"
             "                                                to be added to the asset\n"
             "               \"ipfs_hash\":\"hash\",        (string, optional but required if has_ipfs = 1), an ipfs hash or a \n"
-            "                                                txid hash once HIP5 is activated\n"
+            "                                                txid hash once RIP5 is activated\n"
             "               \"root_change_address\"        (string, optional) Only applies when issuing subqualifiers.\n"
             "                                                The address where the root qualifier will be sent.\n"
             "                                                If not specified, it will be sent to the output address.\n"
@@ -970,54 +970,52 @@ UniValue createrawtransaction(const JSONRPCRequest& request)
                                 "Invalid parameter, the format must follow { \"transferwithmessage\": {\"asset_name\": amount, \"message\": messagehash, \"expire_time\": utc_time} }"));
 
                     UniValue transferData = asset_.getValues()[0].get_obj();
-
                     auto keys = transferData.getKeys();
 
                     if (keys.size() == 0)
                         throw JSONRPCError(RPC_INVALID_PARAMETER, std::string(
                                 "Invalid parameter, the format must follow { \"transferwithmessage\": {\"asset_name\": amount, \"message\": messagehash, \"expire_time\": utc_time} }"));
 
-                    UniValue asset_quantity;
                     std::string asset_name = keys[0];
 
-                    if (!IsAssetNameValid(asset_name)) {
+                    if (!IsAssetNameValid(asset_name)) 
                         throw JSONRPCError(RPC_INVALID_PARAMETER,
                                            "Invalid parameter, missing valid asset name to transferwithmessage");
 
-                        const UniValue &asset_quantity = find_value(transferData, asset_name);
-                        if (!asset_quantity.isNum())
-                            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing or invalid quantity");
+                    const UniValue &asset_quantity = find_value(transferData, asset_name);
+                    if (!asset_quantity.isNum())
+                        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing or invalid quantity");
 
-                        const UniValue &message = find_value(transferData, "message");
-                        if (!message.isStr())
-                            throw JSONRPCError(RPC_INVALID_PARAMETER,
-                                               "Invalid parameter, missing reissue data for key: message");
+                    const UniValue &message = find_value(transferData, "message");
+                    if (!message.isStr())
+                        throw JSONRPCError(RPC_INVALID_PARAMETER,
+                                           "Invalid parameter, missing reissue data for key: message");
 
-                        const UniValue &expire_time = find_value(transferData, "expire_time");
-                        if (!expire_time.isNum())
-                            throw JSONRPCError(RPC_INVALID_PARAMETER,
-                                               "Invalid parameter, missing reissue data for key: expire_time");
+                    const UniValue &expire_time = find_value(transferData, "expire_time");
+                    if (!expire_time.isNum())
+                        throw JSONRPCError(RPC_INVALID_PARAMETER,
+                                           "Invalid parameter, missing reissue data for key: expire_time");
 
-                        CAmount nAmount = AmountFromValue(asset_quantity);
+                    CAmount nAmount = AmountFromValue(asset_quantity);
 
-                        // Create a new transfer
-                        CAssetTransfer transfer(asset_name, nAmount, DecodeAssetData(message.get_str()),
+                    // Create a new transfer
+                    CAssetTransfer transfer(asset_name, nAmount, DecodeAssetData(message.get_str()),
                                                 expire_time.get_int64());
 
-                        // Verify
-                        std::string strError = "";
-                        if (!transfer.IsValid(strError)) {
-                            throw JSONRPCError(RPC_INVALID_PARAMETER, strError);
-                        }
-
-                        // Construct transaction
-                        CScript scriptPubKey = GetScriptForDestination(destination);
-                        transfer.ConstructTransaction(scriptPubKey);
-
-                        // Push into vouts
-                        CTxOut out(0, scriptPubKey);
-                        rawTx.vout.push_back(out);
+                    // Verify
+                    std::string strError = "";
+                    if (!transfer.IsValid(strError)) {
+                        throw JSONRPCError(RPC_INVALID_PARAMETER, strError);
                     }
+
+                    // Construct transaction
+                    CScript scriptPubKey = GetScriptForDestination(destination);
+                    transfer.ConstructTransaction(scriptPubKey);
+
+                    // Push into vouts
+                    CTxOut out(0, scriptPubKey);
+                    rawTx.vout.push_back(out);
+                    
                 } else if (assetKey_ == "issue_restricted") {
                     if (asset_[0].type() != UniValue::VOBJ)
                         throw JSONRPCError(RPC_INVALID_PARAMETER, std::string("Invalid parameter, the format must follow { \"issue_restricted\": {\"key\": value}, ...}"));
@@ -1611,7 +1609,7 @@ UniValue decodescript(const JSONRPCRequest& request)
         r.push_back(Pair("p2sh", EncodeDestination(CScriptID(script))));
     }
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     if (type.isStr() && type.get_str() == ASSET_TRANSFER_STRING) {
         if (!AreAssetsDeployed())
             throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Assets are not active");
@@ -1683,7 +1681,7 @@ UniValue decodescript(const JSONRPCRequest& request)
     } else {
 
     }
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     return r;
 }

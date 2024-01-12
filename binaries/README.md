@@ -1,3 +1,3 @@
 Releases have been moved to:
 
-https://github.com/bitcoin/bitcoin/releases/latest
+https://github.com/JustAResearcher/Meowcoin/releases/latest

@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,7 +31,7 @@ class QWidget;
 class QGraphicsDropShadowEffect;
 QT_END_NAMESPACE
 
-/** Utility functions used by the meowcoin Qt UI.
+/** Utility functions used by the Meowcoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -132,7 +131,7 @@ namespace GUIUtil
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);
- 
+
     // Concatenate a string given the painter, static text width, left side of rect, and right side of rect
     // and which side the concatenated string is on (default left)
     void concatenate(QPainter* painter, QString& strToCon, int static_width, int left_side, int right_size);
@@ -165,45 +164,6 @@ namespace GUIUtil
 
     private:
         int size_threshold;
-    };
-
-    /**
-     * Makes a QTableView last column feel as if it was being resized from its left border.
-     * Also makes sure the column widths are never larger than the table's viewport.
-     * In Qt, all columns are resizable from the right, but it's not intuitive resizing the last column from the right.
-     * Usually our second to last columns behave as if stretched, and when on strech mode, columns aren't resizable
-     * interactively or programmatically.
-     *
-     * This helper object takes care of this issue.
-     *
-     */
-    class TableViewLastColumnResizingFixer: public QObject
-    {
-        Q_OBJECT
-
-        public:
-            TableViewLastColumnResizingFixer(QTableView* table, int lastColMinimumWidth, int allColsMinimumWidth, QObject *parent);
-            void stretchColumnWidth(int column);
-
-        private:
-            QTableView* tableView;
-            int lastColumnMinimumWidth;
-            int allColumnsMinimumWidth;
-            int lastColumnIndex;
-            int columnCount;
-            int secondToLastColumnIndex;
-
-            void adjustTableColumnsWidth();
-            int getAvailableWidthForColumn(int column);
-            int getColumnsWidth();
-            void connectViewHeadersSignals();
-            void disconnectViewHeadersSignals();
-            void setViewHeaderResizeMode(int logicalIndex, QHeaderView::ResizeMode resizeMode);
-            void resizeColumn(int nColumnIndex, int width);
-
-        private Q_SLOTS:
-            void on_sectionResized(int logicalIndex, int oldSize, int newSize);
-            void on_geometriesChanged();
     };
 
     bool GetStartOnSystemStartup();
@@ -270,6 +230,43 @@ namespace GUIUtil
 #else
     typedef ClickableProgressBar ProgressBar;
 #endif
+
+    /**
+     * Returns the start-moment of the day in local time.
+     *
+     * QDateTime::QDateTime(const QDate& date) is deprecated since Qt 5.15.
+     * QDate::startOfDay() was introduced in Qt 5.14.
+     */
+    QDateTime StartOfDay(const QDate& date);
+
+
+     /** 
+     * Splits the string into substrings wherever separator occurs, and returns
+     * the list of those strings. Empty strings do not appear in the result.
+     *
+     * QString::split() signature differs in different Qt versions:
+     *  - QString::SplitBehavior is deprecated since Qt 5.15
+     *  - Qt::SplitBehavior was introduced in Qt 5.14
+     * If {QString|Qt}::SkipEmptyParts behavior is required, use this
+     * function instead of QString::split().
+     */
+    template <typename SeparatorType>
+    QStringList SplitSkipEmptyParts(const QString& string, const SeparatorType& separator)
+    {
+    #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
+        return string.split(separator, Qt::SkipEmptyParts);
+    #else
+        return string.split(separator, QString::SkipEmptyParts);
+    #endif
+    }
+
+     /**
+     * Returns true if pixmap has been set.
+     *
+     * QPixmap* QLabel::pixmap() is deprecated since Qt 5.15.
+     */
+    bool HasPixmap(const QLabel* label);
+    QImage GetImage(const QLabel* label);
 
 } // namespace GUIUtil
 

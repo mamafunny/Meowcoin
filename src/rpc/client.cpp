@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,7 +52,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "transferfromaddresses", 1, "from_addresses"},
     { "transferfromaddresses", 2, "qty"},
     { "transferfromaddresses", 5, "expire_time"},
-    { "transferqualifier", 2, "qty"},
+    { "transferqualifier", 1, "qty"},
     { "transferqualifier", 5, "expire_time"},
     { "reissue", 1, "qty"},
     { "reissue", 4, "reissuable"},

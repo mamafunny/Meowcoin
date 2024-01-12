@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,8 +21,8 @@ Test plan:
     - proxy on IPv6
 
 - Create various proxies (as threads)
-- Create MEOWCOINDs that connect to them
-- Manipulate the MEOWCOINDs using addnode (onetry) an observe effects
+- Create meowcoinds that connect to them
+- Manipulate the meowcoinds using addnode (onetry) an observe effects
 
 addnode connect to IPv4
 addnode connect to IPv6
@@ -131,12 +130,12 @@ class ProxyTest(MeowcoinTestFramework):
             rv.append(cmd)
 
         # Test: outgoing DNS name connection through node
-        node.addnode("node.noumenon:8767", "onetry")
+        node.addnode("node.noumenon:8788", "onetry")
         cmd = proxies[3].queue.get()
         assert(isinstance(cmd, Socks5Command))
         assert_equal(cmd.atyp, AddressType.DOMAINNAME)
         assert_equal(cmd.addr, b"node.noumenon")
-        assert_equal(cmd.port, 8767)
+        assert_equal(cmd.port, 8788)
         if not auth:
             assert_equal(cmd.username, None)
             assert_equal(cmd.password, None)
