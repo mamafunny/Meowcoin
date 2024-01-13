@@ -13,6 +13,7 @@
 
 #include <boost/thread/condition_variable.hpp>
 #include <boost/thread/mutex.hpp>
+#include <mutex>
 
 template <typename T>
 class CCheckQueueControl;
