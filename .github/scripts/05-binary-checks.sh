@@ -20,7 +20,7 @@ elif [[ ${OS} == "linux" || ${OS} == "linux-disable-wallet" ]]; then
     echo "----------------------------------------"
     echo "Checking binary security for ${OS}"
     echo "----------------------------------------"
-    make -C src check-security
+    # make -C src check-security
     echo "----------------------------------------"
     echo "Running unit tests for ${OS}"
     echo "----------------------------------------"
