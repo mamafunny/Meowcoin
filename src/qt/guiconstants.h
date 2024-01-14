@@ -49,15 +49,15 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Meowcoin light orange */
 #define COLOR_LIGHT_ORANGE QColor("#f79433")
 /* Meowcoin dark blue */
-#define COLOR_DARK_BLUE QColor("#384192")
+#define COLOR_DARK_BLUE QColor("#F9D423")
 /* Meowcoin light blue */
-#define COLOR_LIGHT_BLUE QColor("#5874cf")
+#define COLOR_LIGHT_BLUE QColor("#FF4E50")
 /* Meowcoin asset text */
 #define COLOR_ASSET_TEXT QColor(255, 255, 255)
 /* Meowcoin shadow color - light mode */
 #define COLOR_SHADOW_LIGHT QColor("#e1e6f3")
 /* Toolbar not selected text color */
-#define COLOR_TOOLBAR_NOT_SELECTED_TEXT QColor("#a5b7f3")
+#define COLOR_TOOLBAR_NOT_SELECTED_TEXT QColor("#fbfbfe")
 /* Toolbar selected text color */
 #define COLOR_TOOLBAR_SELECTED_TEXT COLOR_WHITE
 /* Send entries background color */
