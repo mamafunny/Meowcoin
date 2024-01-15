@@ -49,9 +49,9 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Meowcoin light orange */
 #define COLOR_LIGHT_ORANGE QColor("#f79433")
 /* Meowcoin dark blue */
-#define COLOR_DARK_BLUE QColor("#F9D423")
+#define COLOR_DARK_BLUE QColor("#996a00")
 /* Meowcoin light blue */
-#define COLOR_LIGHT_BLUE QColor("#FF4E50")
+#define COLOR_LIGHT_BLUE QColor("#BE840A")
 /* Meowcoin asset text */
 #define COLOR_ASSET_TEXT QColor(255, 255, 255)
 /* Meowcoin shadow color - light mode */
