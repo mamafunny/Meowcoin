@@ -90,7 +90,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 
 
 /* Meowcoin label color as a string */
-#define STRING_LABEL_COLOR "color: #4960ad"
+#define STRING_LABEL_COLOR "color: #BE840A"
 #define STRING_LABEL_COLOR_WARNING "color: #FF8080"
 
 
