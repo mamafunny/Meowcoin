@@ -36,7 +36,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Widget Background color - default color */
 #define COLOR_WHITE QColor(255, 255, 255)
 
-#define COLOR_WALLETFRAME_SHADOW QColor(0,0,0,71)
+#define COLOR_WALLETFRAME_SHADOW QColor(153,106,0)
 
 /* Color of labels */
 #define COLOR_LABELS QColor("#BE840A")
