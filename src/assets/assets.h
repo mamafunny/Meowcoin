@@ -16,12 +16,12 @@
 #include <unordered_map>
 #include <list>
 
-#define RVN_R 114
-#define RVN_V 118
-#define RVN_N 110
-#define RVN_Q 113
-#define RVN_T 116
-#define RVN_O 111
+#define MEWC_R 114
+#define MEWC_V 118
+#define MEWC_N 110
+#define MEWC_Q 113
+#define MEWC_T 116
+#define MEWC_O 111
 
 #define DEFAULT_UNITS 0
 #define DEFAULT_REISSUABLE 1
@@ -463,10 +463,10 @@ bool CheckIssueBurnTx(const CTxOut& txOut, const AssetType& type);
 bool CheckReissueBurnTx(const CTxOut& txOut);
 
 //! issue asset scripts to make sure script meets the standards
-bool CheckIssueDataTx(const CTxOut& txOut); // OP_MEOWCOIN_ASSET RVNQ (That is a Q as in Que not an O)
-bool CheckOwnerDataTx(const CTxOut& txOut);// OP_MEOWCOIN_ASSET RVNO
-bool CheckReissueDataTx(const CTxOut& txOut);// OP_MEOWCOIN_ASSET RVNR
-bool CheckTransferOwnerTx(const CTxOut& txOut);// OP_MEOWCOIN_ASSET RVNT
+bool CheckIssueDataTx(const CTxOut& txOut); // OP_MEOWCOIN_ASSET MEWCQ (That is a Q as in Que not an O)
+bool CheckOwnerDataTx(const CTxOut& txOut);// OP_MEOWCOIN_ASSET MEWCO
+bool CheckReissueDataTx(const CTxOut& txOut);// OP_MEOWCOIN_ASSET MEWCR
+bool CheckTransferOwnerTx(const CTxOut& txOut);// OP_MEOWCOIN_ASSET MEWCT
 
 //! Check the Encoded hash and make sure it is either an IPFS hash or a OIP hash
 bool CheckEncoded(const std::string& hash, std::string& strError);

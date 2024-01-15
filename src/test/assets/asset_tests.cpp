@@ -55,12 +55,12 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         //- Versions of MEOWCOINCOIN ALLOWED
         BOOST_CHECK(IsAssetNameValid("MEOWCOIN.COIN", type));
         BOOST_CHECK(IsAssetNameValid("MEOWCOIN_COIN", type));
-        BOOST_CHECK(IsAssetNameValid("RVNSPYDER", type));
-        BOOST_CHECK(IsAssetNameValid("SPYDERRVN", type));
+        BOOST_CHECK(IsAssetNameValid("MEWCSPYDER", type));
+        BOOST_CHECK(IsAssetNameValid("SPYDERMEWC", type));
         BOOST_CHECK(IsAssetNameValid("MEOWCOINSPYDER", type));
         BOOST_CHECK(IsAssetNameValid("SPYDEMEOWCOIN", type));
         BOOST_CHECK(IsAssetNameValid("BLACK_MEOWCOINS", type));
-        BOOST_CHECK(IsAssetNameValid("SERVNOT", type));
+        BOOST_CHECK(IsAssetNameValid("SEMEWCOT", type));
 
         // subs
         BOOST_CHECK(IsAssetNameValid("ABC/A", type));

@@ -594,7 +594,7 @@ void MeowcoinGUI::createToolBars()
         labelToolbar->setAlignment(Qt::AlignLeft);
 
         if(IconsOnly) {
-            labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/rvntext")));
+            labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/mewctext")));
         }
         else {
             labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/meowcointext")));
@@ -708,16 +708,16 @@ void MeowcoinGUI::createToolBars()
         labelCurrentPrice->setStyleSheet(currentPriceStyleSheet.arg(COLOR_LABELS.name()));
         labelCurrentPrice->setFont(currentMarketFont);
 
-        comboRvnUnit = new QComboBox(headerWidget);
+        comboMewcUnit = new QComboBox(headerWidget);
         QStringList list;
         for(int unitNum = 0; unitNum < CurrencyUnits::count(); unitNum++) {
             list.append(QString(CurrencyUnits::CurrencyOptions[unitNum].Header));
         }
-        comboRvnUnit->addItems(list);
-        comboRvnUnit->setFixedHeight(26);
-        comboRvnUnit->setContentsMargins(5,0,0,0);
-        comboRvnUnit->setStyleSheet(STRING_LABEL_COLOR);
-        comboRvnUnit->setFont(currentMarketFont);
+        comboMewcUnit->addItems(list);
+        comboMewcUnit->setFixedHeight(26);
+        comboMewcUnit->setContentsMargins(5,0,0,0);
+        comboMewcUnit->setStyleSheet(STRING_LABEL_COLOR);
+        comboMewcUnit->setFont(currentMarketFont);
 
         labelVersionUpdate->setText("<a href=\"https://github.com/JustAResearcher/Meowcoin/releases\">New Wallet Version Available</a>");
         labelVersionUpdate->setTextFormat(Qt::RichText);
@@ -732,7 +732,7 @@ void MeowcoinGUI::createToolBars()
         priceLayout->setGeometry(headerWidget->rect());
         priceLayout->addWidget(labelCurrentMarket, 0, Qt::AlignVCenter | Qt::AlignLeft);
         priceLayout->addWidget(labelCurrentPrice, 0,  Qt::AlignVCenter | Qt::AlignLeft);
-        priceLayout->addWidget(comboRvnUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
+        priceLayout->addWidget(comboMewcUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
         priceLayout->addStretch();
         priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
 
@@ -805,7 +805,7 @@ void MeowcoinGUI::createToolBars()
 
 
         // Signal change of displayed price units, must get new conversion ratio
-        connect(comboRvnUnit, SIGNAL(activated(int)), this, SLOT(currencySelectionChanged(int)));
+        connect(comboMewcUnit, SIGNAL(activated(int)), this, SLOT(currencySelectionChanged(int)));
         // Create the timer
         connect(pricingTimer, SIGNAL(timeout()), this, SLOT(getPriceInfo()));
         pricingTimer->start(10000);
@@ -912,7 +912,7 @@ void MeowcoinGUI::createToolBars()
 void MeowcoinGUI::updateIconsOnlyToolbar(bool IconsOnly)
 {
     if(IconsOnly) {
-        labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/rvntext")));
+        labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/mewctext")));
         m_toolbar->setMaximumWidth(65);
         m_toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
     }
@@ -1870,7 +1870,7 @@ void MeowcoinGUI::onCurrencyChange(int newIndex)
     this->currentPriceDisplay = &CurrencyUnits::CurrencyOptions[newIndex];
     //Update the main GUI box in case this was changed from the settings screen
     //This will fire the event again, but the options model prevents the infinite loop
-    this->comboRvnUnit->setCurrentIndex(newIndex);
+    this->comboMewcUnit->setCurrentIndex(newIndex);
     this->getPriceInfo();
 }
 
