@@ -41,7 +41,7 @@ Active development is done in branches, branches are created for specific versio
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Developer IRC is inactive please join us on discord in #development. https://discord.gg/fndp4NBGct
+Please join us on discord for questions or concerns.
 
 Testing
 -------
