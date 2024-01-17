@@ -590,7 +590,7 @@ void MeowcoinGUI::createToolBars()
         toolbarWidget->setStyleSheet(widgetStyleSheet.arg(platformStyle->LightBlueColor().name(), platformStyle->DarkBlueColor().name()));
 
         labelToolbar = new QLabel();
-        labelToolbar->setContentsMargins(0,0,0,20);
+        labelToolbar->setContentsMargins(0,0,0,10); //This sets the space between the logo and other labels
         labelToolbar->setAlignment(Qt::AlignCenter);
 
         if(IconsOnly) {
@@ -599,7 +599,7 @@ void MeowcoinGUI::createToolBars()
         else {
             labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/meowcointext")));
         }
-        labelToolbar->setStyleSheet(".QLabel{background-color: transparent;}");
+        labelToolbar->setStyleSheet(".QLabel{background-color: transparent; margin-top: 20px; border: none; padding-left: 0px; padding-right: 0px;}");
 
         /** MEWC END */
 
@@ -644,10 +644,11 @@ void MeowcoinGUI::createToolBars()
 #endif
 
         /** MEWC START */
-     QString tbStyleSheet = ".QToolBar {background-color: transparent; border-color: transparent; }  "
-                       ".QToolButton {background-color: transparent; border-color: transparent; width: 249px; color: white; border: none; padding-left: 20px; spacing: 10px;} "
-                       ".QToolButton:checked, .QToolButton:hover {background: #ce9005; color: white; border: none;} "
+QString tbStyleSheet = ".QToolBar {background-color: transparent; border-color: transparent; }  "
+                       ".QToolButton {background-color: transparent; border-color: transparent; width: 249px; color: white; border: none; padding-left: 0px; padding-right: 0px; border-radius: 10px; margin-bottom: 4px;} "
+                       ".QToolButton:checked, .QToolButton:hover {background: #ce9005; color: white; border: none; border-radius: 10px;} "
                        ".QToolButton:disabled {color: gray;}";
+
 
 
 
@@ -661,15 +662,28 @@ void MeowcoinGUI::createToolBars()
 
         QLayout* lay = m_toolbar->layout();
         for(int i = 0; i < lay->count(); ++i)
-            lay->itemAt(i)->setAlignment(Qt::AlignLeft);
+            lay->itemAt(i)->setAlignment(Qt::AlignCenter);
 
         overviewAction->setChecked(true);
+
+        QLabel* meowcoinLabel = new QLabel("MEOWCOIN");
+        meowcoinLabel->setAlignment(Qt::AlignCenter);
+        meowcoinLabel->setStyleSheet("color: white; font-weight: bold; font-size: 20px;"); // Adjust the font size as needed
+
+        // Create a QLabel for version information
+        QString currentVersion = QString("Version: %1.%2.%3").arg(CLIENT_VERSION_MAJOR).arg(CLIENT_VERSION_MINOR).arg(CLIENT_VERSION_REVISION);
+        QLabel* versionLabel = new QLabel(currentVersion);
+        versionLabel->setAlignment(Qt::AlignCenter);
+        versionLabel->setStyleSheet("color: white; font-size: 14px;"); // Adjust the font size as needed
 
         QVBoxLayout* meowLabelLayout = new QVBoxLayout(toolbarWidget);
         meowLabelLayout->addWidget(labelToolbar);
         meowLabelLayout->addWidget(m_toolbar);
+        meowLabelLayout->addWidget(meowcoinLabel);
+        meowLabelLayout->addWidget(versionLabel);  // Add the QLabel for version
         meowLabelLayout->setDirection(QBoxLayout::TopToBottom);
         meowLabelLayout->addStretch(1);
+
 
         QString mainWalletWidgetStyle = QString(".QWidget{background-color: %1}").arg(platformStyle->MainBackGroundColor().name());
         QWidget* mainWalletWidget = new QWidget();
