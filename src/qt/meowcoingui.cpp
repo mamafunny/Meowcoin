@@ -679,10 +679,10 @@ QString tbStyleSheet = ".QToolBar {background-color: transparent; border-color: 
         QVBoxLayout* meowLabelLayout = new QVBoxLayout(toolbarWidget);
         meowLabelLayout->addWidget(labelToolbar);
         meowLabelLayout->addWidget(m_toolbar);
+        meowLabelLayout->addStretch(1);
         meowLabelLayout->addWidget(meowcoinLabel);
         meowLabelLayout->addWidget(versionLabel);  // Add the QLabel for version
         meowLabelLayout->setDirection(QBoxLayout::TopToBottom);
-        meowLabelLayout->addStretch(1);
 
 
         QString mainWalletWidgetStyle = QString(".QWidget{background-color: %1}").arg(platformStyle->MainBackGroundColor().name());
