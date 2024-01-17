@@ -709,7 +709,7 @@ QString tbStyleSheet = ".QToolBar {background-color: transparent; border-color: 
 
         QFont currentMarketFont;
         currentMarketFont.setFamily("Open Sans");
-        currentMarketFont.setWeight(QFont::Weight::Normal);
+        currentMarketFont.setWeight(QFont::Weight::Bold);
         currentMarketFont.setLetterSpacing(QFont::SpacingType::AbsoluteSpacing, -0.6);
         currentMarketFont.setPixelSize(18);
 
