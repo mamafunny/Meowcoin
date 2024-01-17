@@ -19,8 +19,8 @@ QList<MeowcoinUnits::Unit> MeowcoinUnits::availableUnits()
 {
     QList<MeowcoinUnits::Unit> unitlist;
     unitlist.append(MEWC);
-    unitlist.append(mRVN);
-    unitlist.append(uRVN);
+    unitlist.append(mMEWC);
+    unitlist.append(uMEWC);
     return unitlist;
 }
 
@@ -29,8 +29,8 @@ bool MeowcoinUnits::valid(int unit)
     switch(unit)
     {
     case MEWC:
-    case mRVN:
-    case uRVN:
+    case mMEWC:
+    case uMEWC:
         return true;
     default:
         return false;
@@ -42,8 +42,8 @@ QString MeowcoinUnits::name(int unit)
     switch(unit)
     {
     case MEWC: return QString("MEWC");
-    case mRVN: return QString("mRVN");
-    case uRVN: return QString::fromUtf8("μRVN");
+    case mMEWC: return QString("mMEWC");
+    case uMEWC: return QString::fromUtf8("μMEWC");
     default: return QString("???");
     }
 }
@@ -53,8 +53,8 @@ QString MeowcoinUnits::description(int unit)
     switch(unit)
     {
     case MEWC: return QString("Meowcoins");
-    case mRVN: return QString("Milli-Meowcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uRVN: return QString("Micro-Meowcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case mMEWC: return QString("Milli-Meowcoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uMEWC: return QString("Micro-Meowcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -64,8 +64,8 @@ qint64 MeowcoinUnits::factor(int unit)
     switch(unit)
     {
     case MEWC:  return 100000000;
-    case mRVN: return 100000;
-    case uRVN: return 100;
+    case mMEWC: return 100000;
+    case uMEWC: return 100;
     default:   return 100000000;
     }
 }
@@ -92,8 +92,8 @@ int MeowcoinUnits::decimals(int unit)
     switch(unit)
     {
     case MEWC: return 8;
-    case mRVN: return 5;
-    case uRVN: return 2;
+    case mMEWC: return 5;
+    case uMEWC: return 2;
     default: return 0;
     }
 }

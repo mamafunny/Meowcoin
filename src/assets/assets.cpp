@@ -523,13 +523,13 @@ void CNewAsset::ConstructTransaction(CScript& script) const
     ssAsset << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(RVN_R); // r
-    vchMessage.push_back(RVN_V); // v
-    vchMessage.push_back(RVN_N); // n
-    vchMessage.push_back(RVN_Q); // q
+    vchMessage.push_back(MEWC_R); // r
+    vchMessage.push_back(MEWC_V); // v
+    vchMessage.push_back(MEWC_N); // n
+    vchMessage.push_back(MEWC_Q); // q
 
     vchMessage.insert(vchMessage.end(), ssAsset.begin(), ssAsset.end());
-    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 void CNewAsset::ConstructOwnerTransaction(CScript& script) const
@@ -538,13 +538,13 @@ void CNewAsset::ConstructOwnerTransaction(CScript& script) const
     ssOwner << std::string(this->strName + OWNER_TAG);
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(RVN_R); // r
-    vchMessage.push_back(RVN_V); // v
-    vchMessage.push_back(RVN_N); // n
-    vchMessage.push_back(RVN_O); // o
+    vchMessage.push_back(MEWC_R); // r
+    vchMessage.push_back(MEWC_V); // v
+    vchMessage.push_back(MEWC_N); // n
+    vchMessage.push_back(MEWC_O); // o
 
     vchMessage.insert(vchMessage.end(), ssOwner.begin(), ssOwner.end());
-    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool AssetFromTransaction(const CTransaction& tx, CNewAsset& asset, std::string& strAddress)
@@ -1620,13 +1620,13 @@ void CAssetTransfer::ConstructTransaction(CScript& script) const
     ssTransfer << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(RVN_R); // r
-    vchMessage.push_back(RVN_V); // v
-    vchMessage.push_back(RVN_N); // n
-    vchMessage.push_back(RVN_T); // t
+    vchMessage.push_back(MEWC_R); // r
+    vchMessage.push_back(MEWC_V); // v
+    vchMessage.push_back(MEWC_N); // n
+    vchMessage.push_back(MEWC_T); // t
 
     vchMessage.insert(vchMessage.end(), ssTransfer.begin(), ssTransfer.end());
-    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 CReissueAsset::CReissueAsset(const std::string &strAssetName, const CAmount &nAmount, const int &nUnits, const int &nReissuable,
@@ -1646,13 +1646,13 @@ void CReissueAsset::ConstructTransaction(CScript& script) const
     ssReissue << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(RVN_R); // r
-    vchMessage.push_back(RVN_V); // v
-    vchMessage.push_back(RVN_N); // n
-    vchMessage.push_back(RVN_R); // r
+    vchMessage.push_back(MEWC_R); // r
+    vchMessage.push_back(MEWC_V); // v
+    vchMessage.push_back(MEWC_N); // n
+    vchMessage.push_back(MEWC_R); // r
 
     vchMessage.insert(vchMessage.end(), ssReissue.begin(), ssReissue.end());
-    script << OP_RVN_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_MEWC_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool CReissueAsset::IsNull() const
@@ -3129,7 +3129,7 @@ bool CheckReissueBurnTx(const CTxOut& txOut)
 
 bool CheckIssueDataTx(const CTxOut& txOut)
 {
-    // Verify 'rvnq' is in the transaction
+    // Verify 'mewcq' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     int nStartingIndex = 0;
@@ -3138,7 +3138,7 @@ bool CheckIssueDataTx(const CTxOut& txOut)
 
 bool CheckReissueDataTx(const CTxOut& txOut)
 {
-    // Verify 'rvnr' is in the transaction
+    // Verify 'mewcr' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     return IsScriptReissueAsset(scriptPubKey);
@@ -3146,7 +3146,7 @@ bool CheckReissueDataTx(const CTxOut& txOut)
 
 bool CheckOwnerDataTx(const CTxOut& txOut)
 {
-    // Verify 'rvnq' is in the transaction
+    // Verify 'mewcq' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     return IsScriptOwnerAsset(scriptPubKey);
@@ -3154,7 +3154,7 @@ bool CheckOwnerDataTx(const CTxOut& txOut)
 
 bool CheckTransferOwnerTx(const CTxOut& txOut)
 {
-    // Verify 'rvnq' is in the transaction
+    // Verify 'mewcq' is in the transaction
     CScript scriptPubKey = txOut.scriptPubKey;
 
     return IsScriptTransferAsset(scriptPubKey);
@@ -4299,7 +4299,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         vecSend.push_back(recipient);
     }
 
-    // If assetTxData is not nullptr, the user wants to add some OP_RVN_ASSET data transactions into the transaction
+    // If assetTxData is not nullptr, the user wants to add some OP_MEWC_ASSET data transactions into the transaction
     if (nullAssetTxData) {
         std::string strError = "";
         int nAddTagCount = 0;
@@ -4334,7 +4334,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         }
     }
 
-    // nullGlobalRestiotionData, the user wants to add OP_RVN_ASSET OP_RVN_ASSET OP_RVN_ASSETS data transaction to the transaction
+    // nullGlobalRestiotionData, the user wants to add OP_MEWC_ASSET OP_MEWC_ASSET OP_MEWC_ASSETS data transaction to the transaction
     if (nullGlobalRestrictionData) {
         std::string strError = "";
         for (auto dataObject : *nullGlobalRestrictionData) {
@@ -4548,7 +4548,7 @@ void CNullAssetTxData::ConstructGlobalRestrictionTransaction(CScript &script) co
 
     std::vector<unsigned char> vchMessage;
     vchMessage.insert(vchMessage.end(), ssAssetTxData.begin(), ssAssetTxData.end());
-    script << OP_RVN_ASSET << OP_RESERVED << OP_RESERVED << ToByteVector(vchMessage);
+    script << OP_MEWC_ASSET << OP_RESERVED << OP_RESERVED << ToByteVector(vchMessage);
 }
 
 CNullAssetTxVerifierString::CNullAssetTxVerifierString(const std::string &verifier)
@@ -4564,7 +4564,7 @@ void CNullAssetTxVerifierString::ConstructTransaction(CScript &script) const
 
     std::vector<unsigned char> vchMessage;
     vchMessage.insert(vchMessage.end(), ssAssetTxData.begin(), ssAssetTxData.end());
-    script << OP_RVN_ASSET << OP_RESERVED << ToByteVector(vchMessage);
+    script << OP_MEWC_ASSET << OP_RESERVED << ToByteVector(vchMessage);
 }
 
 bool CAssetsCache::GetAssetVerifierStringIfExists(const std::string &name, CNullAssetTxVerifierString& verifierString, bool fSkipTempCache)

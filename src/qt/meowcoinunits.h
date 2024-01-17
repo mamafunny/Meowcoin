@@ -63,8 +63,8 @@ public:
     enum Unit
     {
         MEWC,
-        mRVN,
-        uRVN
+        mMEWC,
+        uMEWC
     };
 
     enum SeparatorStyle

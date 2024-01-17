@@ -319,7 +319,7 @@ void MeowcoinGUI::createActions()
 #if !defined(Q_OS_MAC)
     font.setFamily("Open Sans");
 #endif
-    font.setWeight(QFont::Weight::ExtraLight);
+    font.setWeight(QFont::Bold);
 
     QActionGroup *tabGroup = new QActionGroup(this);
 
@@ -590,16 +590,16 @@ void MeowcoinGUI::createToolBars()
         toolbarWidget->setStyleSheet(widgetStyleSheet.arg(platformStyle->LightBlueColor().name(), platformStyle->DarkBlueColor().name()));
 
         labelToolbar = new QLabel();
-        labelToolbar->setContentsMargins(0,0,0,50);
-        labelToolbar->setAlignment(Qt::AlignLeft);
+        labelToolbar->setContentsMargins(0,0,0,10); //This sets the space between the logo and other labels
+        labelToolbar->setAlignment(Qt::AlignCenter);
 
         if(IconsOnly) {
-            labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/rvntext")));
+            labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/mewctext")));
         }
         else {
             labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/meowcointext")));
         }
-        labelToolbar->setStyleSheet(".QLabel{background-color: transparent;}");
+        labelToolbar->setStyleSheet(".QLabel{background-color: transparent; margin-top: 20px; border: none; padding-left: 0px; padding-right: 0px;}");
 
         /** MEWC END */
 
@@ -616,6 +616,12 @@ void MeowcoinGUI::createToolBars()
             m_toolbar->setMinimumWidth(labelToolbar->width());
             m_toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         }
+
+        // Use bold font for toolbar action text
+        QString boldFontString = "font: bold 22pt \"Open Sans\";";
+        m_toolbar->setStyleSheet(boldFontString);
+
+
         m_toolbar->addAction(overviewAction);
         m_toolbar->addAction(sendCoinsAction);
         m_toolbar->addAction(receiveCoinsAction);
@@ -638,11 +644,14 @@ void MeowcoinGUI::createToolBars()
 #endif
 
         /** MEWC START */
-        QString tbStyleSheet = ".QToolBar {background-color : transparent; border-color: transparent; }  "
-                               ".QToolButton {background-color: transparent; border-color: transparent; width: 249px; color: %1; border: none;} "
-                               ".QToolButton:checked {background: none; background-color: none; selection-background-color: none; color: %2; border: none; font: %4} "
-                               ".QToolButton:hover {background: none; background-color: none; border: none; color: %3;} "
-                               ".QToolButton:disabled {color: gray;}";
+QString tbStyleSheet = ".QToolBar {background-color: transparent; border-color: transparent; }  "
+                       ".QToolButton {background-color: transparent; border-color: transparent; width: 249px; color: white; border: none; padding-left: 0px; padding-right: 0px; border-radius: 10px; margin-bottom: 4px;} "
+                       ".QToolButton:checked, .QToolButton:hover {background: #ce9005; color: white; border: none; border-radius: 10px;} "
+                       ".QToolButton:disabled {color: gray;}";
+
+
+
+
 
         m_toolbar->setStyleSheet(tbStyleSheet.arg(platformStyle->ToolBarNotSelectedTextColor().name(),
                                                 platformStyle->ToolBarSelectedTextColor().name(),
@@ -653,15 +662,28 @@ void MeowcoinGUI::createToolBars()
 
         QLayout* lay = m_toolbar->layout();
         for(int i = 0; i < lay->count(); ++i)
-            lay->itemAt(i)->setAlignment(Qt::AlignLeft);
+            lay->itemAt(i)->setAlignment(Qt::AlignCenter);
 
         overviewAction->setChecked(true);
+
+        QLabel* meowcoinLabel = new QLabel("MEOWCOIN");
+        meowcoinLabel->setAlignment(Qt::AlignCenter);
+        meowcoinLabel->setStyleSheet("color: white; font-weight: bold; font-size: 20px;"); // Adjust the font size as needed
+
+        // Create a QLabel for version information
+        QString currentVersion = QString("Version: %1.%2.%3").arg(CLIENT_VERSION_MAJOR).arg(CLIENT_VERSION_MINOR).arg(CLIENT_VERSION_REVISION);
+        QLabel* versionLabel = new QLabel(currentVersion);
+        versionLabel->setAlignment(Qt::AlignCenter);
+        versionLabel->setStyleSheet("color: white; font-size: 14px;"); // Adjust the font size as needed
 
         QVBoxLayout* meowLabelLayout = new QVBoxLayout(toolbarWidget);
         meowLabelLayout->addWidget(labelToolbar);
         meowLabelLayout->addWidget(m_toolbar);
-        meowLabelLayout->setDirection(QBoxLayout::TopToBottom);
         meowLabelLayout->addStretch(1);
+        meowLabelLayout->addWidget(meowcoinLabel);
+        meowLabelLayout->addWidget(versionLabel);  // Add the QLabel for version
+        meowLabelLayout->setDirection(QBoxLayout::TopToBottom);
+
 
         QString mainWalletWidgetStyle = QString(".QWidget{background-color: %1}").arg(platformStyle->MainBackGroundColor().name());
         QWidget* mainWalletWidget = new QWidget();
@@ -687,7 +709,7 @@ void MeowcoinGUI::createToolBars()
 
         QFont currentMarketFont;
         currentMarketFont.setFamily("Open Sans");
-        currentMarketFont.setWeight(QFont::Weight::Normal);
+        currentMarketFont.setWeight(QFont::Weight::Bold);
         currentMarketFont.setLetterSpacing(QFont::SpacingType::AbsoluteSpacing, -0.6);
         currentMarketFont.setPixelSize(18);
 
@@ -708,16 +730,16 @@ void MeowcoinGUI::createToolBars()
         labelCurrentPrice->setStyleSheet(currentPriceStyleSheet.arg(COLOR_LABELS.name()));
         labelCurrentPrice->setFont(currentMarketFont);
 
-        comboRvnUnit = new QComboBox(headerWidget);
+        comboMewcUnit = new QComboBox(headerWidget);
         QStringList list;
         for(int unitNum = 0; unitNum < CurrencyUnits::count(); unitNum++) {
             list.append(QString(CurrencyUnits::CurrencyOptions[unitNum].Header));
         }
-        comboRvnUnit->addItems(list);
-        comboRvnUnit->setFixedHeight(26);
-        comboRvnUnit->setContentsMargins(5,0,0,0);
-        comboRvnUnit->setStyleSheet(STRING_LABEL_COLOR);
-        comboRvnUnit->setFont(currentMarketFont);
+        comboMewcUnit->addItems(list);
+        comboMewcUnit->setFixedHeight(26);
+        comboMewcUnit->setContentsMargins(5,0,0,0);
+        comboMewcUnit->setStyleSheet(STRING_LABEL_COLOR);
+        comboMewcUnit->setFont(currentMarketFont);
 
         labelVersionUpdate->setText("<a href=\"https://github.com/JustAResearcher/Meowcoin/releases\">New Wallet Version Available</a>");
         labelVersionUpdate->setTextFormat(Qt::RichText);
@@ -732,7 +754,7 @@ void MeowcoinGUI::createToolBars()
         priceLayout->setGeometry(headerWidget->rect());
         priceLayout->addWidget(labelCurrentMarket, 0, Qt::AlignVCenter | Qt::AlignLeft);
         priceLayout->addWidget(labelCurrentPrice, 0,  Qt::AlignVCenter | Qt::AlignLeft);
-        priceLayout->addWidget(comboRvnUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
+        priceLayout->addWidget(comboMewcUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
         priceLayout->addStretch();
         priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
 
@@ -805,7 +827,7 @@ void MeowcoinGUI::createToolBars()
 
 
         // Signal change of displayed price units, must get new conversion ratio
-        connect(comboRvnUnit, SIGNAL(activated(int)), this, SLOT(currencySelectionChanged(int)));
+        connect(comboMewcUnit, SIGNAL(activated(int)), this, SLOT(currencySelectionChanged(int)));
         // Create the timer
         connect(pricingTimer, SIGNAL(timeout()), this, SLOT(getPriceInfo()));
         pricingTimer->start(10000);
@@ -912,7 +934,7 @@ void MeowcoinGUI::createToolBars()
 void MeowcoinGUI::updateIconsOnlyToolbar(bool IconsOnly)
 {
     if(IconsOnly) {
-        labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/rvntext")));
+        labelToolbar->setPixmap(QPixmap::fromImage(QImage(":/icons/mewctext")));
         m_toolbar->setMaximumWidth(65);
         m_toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
     }
@@ -1870,7 +1892,7 @@ void MeowcoinGUI::onCurrencyChange(int newIndex)
     this->currentPriceDisplay = &CurrencyUnits::CurrencyOptions[newIndex];
     //Update the main GUI box in case this was changed from the settings screen
     //This will fire the event again, but the options model prevents the infinite loop
-    this->comboRvnUnit->setCurrentIndex(newIndex);
+    this->comboMewcUnit->setCurrentIndex(newIndex);
     this->getPriceInfo();
 }
 

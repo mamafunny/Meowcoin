@@ -1115,7 +1115,7 @@ bool EvalScript(std::vector<std::vector<unsigned char> > &stack, const CScript &
                         break;
 
                         /** MEWC START */
-                    case OP_RVN_ASSET:
+                    case OP_MEWC_ASSET:
                         break;
                         /** MEWC END */
 

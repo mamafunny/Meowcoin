@@ -37,7 +37,7 @@ class RewardsTest(MeowcoinTestFramework):
     # - retrieve the current chain height
     # - distribute an MEWC reward amongst the shareholders
     # - verify that each one receives the expected amount of reward MEWC
-    def basic_test_rvn(self):
+    def basic_test_mewc(self):
         self.log.info("Running basic MEWC reward test!")
         n0, n1, n2 = self.nodes[0], self.nodes[1], self.nodes[2]
 
@@ -642,11 +642,11 @@ class RewardsTest(MeowcoinTestFramework):
 
         self.log.info("Distributing shares")
         n0.transferfromaddress(asset_name="STOCK8", from_address=dist_addr0, qty=300, to_address=shareholder_addr0,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK8", from_address=dist_addr0, qty=300, to_address=shareholder_addr1,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK8", from_address=dist_addr0, qty=300, to_address=shareholder_addr2,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.generate(150)
         self.sync_all()
 
@@ -745,11 +745,11 @@ class RewardsTest(MeowcoinTestFramework):
 
         self.log.info("Distributing shares")
         n0.transferfromaddress(asset_name="STOCK9", from_address=dist_addr0, qty=300, to_address=shareholder_addr0,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK9", from_address=dist_addr0, qty=300, to_address=shareholder_addr1,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK9", from_address=dist_addr0, qty=400, to_address=shareholder_addr2,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.generate(150)
         self.sync_all()
 
@@ -848,11 +848,11 @@ class RewardsTest(MeowcoinTestFramework):
 
         self.log.info("Distributing shares")
         n0.transferfromaddress(asset_name="STOCK10", from_address=dist_addr0, qty=300, to_address=shareholder_addr0,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK10", from_address=dist_addr0, qty=300, to_address=shareholder_addr1,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK10", from_address=dist_addr0, qty=500, to_address=shareholder_addr2,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.generate(150)
         self.sync_all()
 
@@ -953,13 +953,13 @@ class RewardsTest(MeowcoinTestFramework):
 
         self.log.info("Distributing shares")
         n0.transferfromaddress(asset_name="STOCK11", from_address=dist_addr0, qty=9, to_address=shareholder_addr0,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK11", from_address=dist_addr0, qty=3, to_address=shareholder_addr1,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK11", from_address=dist_addr0, qty=2, to_address=shareholder_addr2,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
         n0.transferfromaddress(asset_name="STOCK11", from_address=dist_addr0, qty=1, to_address=shareholder_addr3,
-                               message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                               message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
 
         n0.generate(150)
         self.sync_all()
@@ -1063,10 +1063,10 @@ class RewardsTest(MeowcoinTestFramework):
         shareholder_addr3 = n2.getnewaddress()
 
         self.log.info("Distributing shares")
-        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=9, to_address=shareholder_addr0, message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
-        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=3, to_address=shareholder_addr1, message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
-        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=2, to_address=shareholder_addr2, message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
-        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=1, to_address=shareholder_addr3,  message="", expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=9, to_address=shareholder_addr0, message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
+        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=3, to_address=shareholder_addr1, message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
+        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=2, to_address=shareholder_addr2, message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
+        n0.transferfromaddress(asset_name="STOCK12", from_address=dist_addr0, qty=1, to_address=shareholder_addr3,  message="", expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
 
         n0.generate(150)
         self.sync_all()
@@ -1142,7 +1142,7 @@ class RewardsTest(MeowcoinTestFramework):
         assert_equal(n0.listassetbalancesbyaddress(shareholder_addr2)["PAYOUT12"], Decimal(str(1.3)))
         assert_equal(n0.listassetbalancesbyaddress(shareholder_addr3)["PAYOUT12"], Decimal(str(0.6)))
 
-    def test_rvn_bulk(self):
+    def test_mewc_bulk(self):
         self.log.info("Running basic MEWC reward test!")
         n0, n1, n2, n3 = self.nodes[0], self.nodes[1], self.nodes[2], self.nodes[3]
 
@@ -1185,7 +1185,7 @@ class RewardsTest(MeowcoinTestFramework):
         count = 0
         for address in address_list:
             n0.transferfromaddress(asset_name="BULK1", from_address=dist_addr0, qty=10, to_address=address, message="",
-                                   expire_time=0, rvn_change_address="", asset_change_address=dist_addr0)
+                                   expire_time=0, mewc_change_address="", asset_change_address=dist_addr0)
             count += 1
             if count > 190:
                 n0.generate(1)
@@ -1249,7 +1249,7 @@ class RewardsTest(MeowcoinTestFramework):
 
     def run_test(self):
         self.activate_assets()
-        self.basic_test_rvn()
+        self.basic_test_mewc()
         self.basic_test_asset()
         self.payout_without_snapshot()
         self.payout_with_invalid_ownership_asset()

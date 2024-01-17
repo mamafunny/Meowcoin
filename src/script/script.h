@@ -185,7 +185,7 @@ enum opcodetype
     OP_NOP10 = 0xb9,
 
     /** MEWC START */
-    OP_RVN_ASSET = 0xc0,
+    OP_MEWC_ASSET = 0xc0,
     /** MEWC END */
 
 
@@ -577,7 +577,7 @@ public:
 
         // If we see an op mewc asset, we consider all data after it has data, and not op codes
         // Move the pc to the end of the script
-        if (opcode == OP_RVN_ASSET) {
+        if (opcode == OP_MEWC_ASSET) {
             unsigned int nSize = end() - pc;
             if (pvchRet)
                 pvchRet->assign(pc, pc + nSize);
