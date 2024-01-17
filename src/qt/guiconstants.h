@@ -36,10 +36,10 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Widget Background color - default color */
 #define COLOR_WHITE QColor(255, 255, 255)
 
-#define COLOR_WALLETFRAME_SHADOW QColor(0,0,0,71)
+#define COLOR_WALLETFRAME_SHADOW QColor(153,106,0)
 
 /* Color of labels */
-#define COLOR_LABELS QColor("#4960ad")
+#define COLOR_LABELS QColor("#BE840A")
 
 /** LIGHT MODE */
 /* Background color, very light gray */
@@ -49,9 +49,9 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Meowcoin light orange */
 #define COLOR_LIGHT_ORANGE QColor("#f79433")
 /* Meowcoin dark blue */
-#define COLOR_DARK_BLUE QColor("#F9D423")
+#define COLOR_DARK_BLUE QColor("#996a00")
 /* Meowcoin light blue */
-#define COLOR_LIGHT_BLUE QColor("#FF4E50")
+#define COLOR_LIGHT_BLUE QColor("#BE840A")
 /* Meowcoin asset text */
 #define COLOR_ASSET_TEXT QColor(255, 255, 255)
 /* Meowcoin shadow color - light mode */
@@ -90,7 +90,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 
 
 /* Meowcoin label color as a string */
-#define STRING_LABEL_COLOR "color: #4960ad"
+#define STRING_LABEL_COLOR "color: #BE840A"
 #define STRING_LABEL_COLOR_WARNING "color: #FF8080"
 
 

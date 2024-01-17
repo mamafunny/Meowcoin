@@ -31,11 +31,17 @@ The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/JustAResearcher/Meowcoin/tags) are created
 regularly to indicate new official, stable release versions of Meowcoin Core.
 
-Active development is done in the `develop` branch. 
+Active development is done in branches, branches are created for specific versions. Development for Meowcoin uses the following workflow:
+
+* Create a new branch
+* Implement changes
+* Branch becomes reviewed, tested, and approved
+* Upon completion, the branch is merged into master via pull request with exec member approval.
+  
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Developer IRC is inactive please join us on discord in #development. https://discord.gg/fndp4NBGct
+Please join us on discord for questions or concerns.
 
 Testing
 -------
