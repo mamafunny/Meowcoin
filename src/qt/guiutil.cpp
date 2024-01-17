@@ -95,7 +95,7 @@ QFont getSubLabelFont()
 #if !defined(Q_OS_MAC)
     labelSubFont.setFamily("Open Sans");
 #endif
-    labelSubFont.setWeight(QFont::Weight::ExtraLight);
+    labelSubFont.setWeight(QFont::Weight::Bold);
     labelSubFont.setLetterSpacing(QFont::SpacingType::AbsoluteSpacing, -0.6);
     labelSubFont.setPixelSize(14);
     return labelSubFont;
@@ -143,7 +143,7 @@ QFont getTopLabelFont()
 #if !defined(Q_OS_MAC)
     labelTopFont.setFamily("Open Sans");
 #endif
-    labelTopFont.setWeight(QFont::Weight::Light);
+    labelTopFont.setWeight(QFont::Weight::Bold);
     labelTopFont.setLetterSpacing(QFont::SpacingType::AbsoluteSpacing, -0.6);
     labelTopFont.setPixelSize(18);
     return labelTopFont;
