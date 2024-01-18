@@ -28,7 +28,7 @@ if [[ ${GITHUB_REF} =~ "release" || ${FORCEBUILDDEPS} = "1" ]]; then
         make HOST=x86_64-w64-mingw32 -j2
     elif [[ ${OS} == "osx" ]]; then
         cd ${GITHUB_WORKSPACE}
-        # curl -O <url>
+        wget https://github.com/zachchan105/Pricecoin/releases/download/v0.16/MacOSX10.11.sdk.tar.gz
         echo "LEGAL issues with OSX SDK, need to get it yourself and extract the valuable stuff."
         echo "See github -> contrib/macdeploy/README.md"
         echo "Countdown from 3 sec. Make sure your SDK is at /tmp/SDKs and it is the only *.tar.gz file."

@@ -31,7 +31,7 @@ jobs:
     - name: Copy the Xcode Dependency Files
       run: |
           cd ${{ GITHUB.WORKSPACE }}
-          curl -O https://raven-build-resources.s3.amazonaws.com/osx/MacOSX10.11.sdk.tar.gz
+          wget https://github.com/zachchan105/Pricecoin/releases/download/v0.16/MacOSX10.11.sdk.tar.gz
 
     - name: Extract Xcode Resources
       run: |
