@@ -61,7 +61,7 @@ from the root of the repository.
     make
     ```
 
-3.  It is recommended to build and run the unit tests:
+3.  It is recommended to build and run the unit tests(This command is most likely broken at the moment, id recommended continuing to the next step):
     ```shell
     make check
     ```
