@@ -38,9 +38,14 @@ like so:
 ./contrib/install_db4.sh .
 ```
 
-from the root of the repository.
+from the root of the repository. This command will print instructions at the very end. It will give you an export command, as well as a configure command you will use in the future. Running the export command will give you no output. But it is an important step. The configure command will be used in place of the ./configure -- later on.
+If you used the export command, your configure command will probably be this: 
 
-**Note**: You only need Berkeley DB if the wallet is enabled (see [*Disable-wallet mode*](/doc/build-osx.md#disable-wallet-mode)).
+```shell
+./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"
+```
+
+**Note**: You only need Berkeley DB if the wallet is enabled (see [*Disable-wallet mode*](/doc/build-osx.md#disable-wallet-mode)). Nearly all users want this for compatibility reasons.
 
 ## Build Meowcoin Core
 
