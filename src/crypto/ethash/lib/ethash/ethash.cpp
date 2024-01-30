@@ -379,7 +379,11 @@ int ethash_calculate_light_cache_num_items(int epoch_number) noexcept
 
 int ethash_calculate_full_dataset_num_items(int epoch_number) noexcept
 {
-    static constexpr int item_size = sizeof(hash1024);
+    // Calculate the minimum number of items required for a 5 GB DAG.
+    constexpr size_t min_dag_size_bytes = 5ULL * 1024 * 1024 * 1024; // 5 GB in bytes
+    constexpr size_t item_size = sizeof(hash1024);
+    const int min_num_items = static_cast<int>(min_dag_size_bytes / item_size);
+
     static constexpr int num_items_init = full_dataset_init_size / item_size;
     static constexpr int num_items_growth = full_dataset_growth / item_size;
     static_assert(full_dataset_init_size % item_size == 0,
@@ -388,6 +392,12 @@ int ethash_calculate_full_dataset_num_items(int epoch_number) noexcept
         full_dataset_growth % item_size == 0, "full_dataset_growth not multiple of item size");
 
     int num_items_upper_bound = num_items_init + epoch_number * num_items_growth;
+
+    // Ensure the DAG size meets the minimum requirement.
+    if (num_items_upper_bound < min_num_items) {
+        num_items_upper_bound = min_num_items;
+    }
+
     int num_items = ethash_find_largest_prime(num_items_upper_bound);
     return num_items;
 }
