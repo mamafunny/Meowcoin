@@ -70,6 +70,7 @@ struct Params {
     /** Proof of work parameters */
     uint256 powLimit;
     uint256 kawpowLimit;
+    uint256 meowpowLimit;
     bool fPowAllowMinDifficultyBlocks;
     bool fPowNoRetargeting;
     int64_t nPowTargetSpacing;

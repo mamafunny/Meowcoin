@@ -20,6 +20,7 @@
  */
 
 extern uint32_t nKAWPOWActivationTime;
+extern uint32_t nMEOWPOWActivationTime;
 
 class BlockNetwork
 {
@@ -45,7 +46,7 @@ public:
     uint32_t nBits;
     uint32_t nNonce;
 
-    //KAAAWWWPOW data
+    //KAAAWWWPOW+Meowpow data
     uint32_t nHeight;
     uint64_t nNonce64;
     uint256 mix_hash;
@@ -66,7 +67,7 @@ public:
         READWRITE(nBits);
         if (nTime < nKAWPOWActivationTime) {
             READWRITE(nNonce);
-        } else {
+        } else { //This should be more than adequte for Meowpow
             READWRITE(nHeight);
             READWRITE(nNonce64);
             READWRITE(mix_hash);
@@ -98,6 +99,7 @@ public:
 
     uint256 GetHashFull(uint256& mix_hash) const;
     uint256 GetKAWPOWHeaderHash() const;
+    uint256 GetMEOWPOWHeaderHash() const;
     std::string ToString() const;
 
     /// Use for testing algo switch
@@ -214,6 +216,29 @@ class CKAWPOWInput : private CBlockHeader
 {
 public:
     CKAWPOWInput(const CBlockHeader &header)
+    {
+        CBlockHeader::SetNull();
+        *((CBlockHeader*)this) = header;
+    }
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action) {
+        READWRITE(this->nVersion);
+        READWRITE(hashPrevBlock);
+        READWRITE(hashMerkleRoot);
+        READWRITE(nTime);
+        READWRITE(nBits);
+        READWRITE(nHeight);
+    }
+};
+
+//MEOWPOW
+class CMEOWPOWInput : private CBlockHeader
+{
+public:
+    CMEOWPOWInput(const CBlockHeader &header)
     {
         CBlockHeader::SetNull();
         *((CBlockHeader*)this) = header;
