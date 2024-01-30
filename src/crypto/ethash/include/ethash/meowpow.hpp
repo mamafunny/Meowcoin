@@ -10,7 +10,7 @@
 
 #include <crypto/ethash/include/ethash/ethash.hpp>
 
-namespace progpow
+namespace meowpow
 {
 using namespace ethash;  // Include ethash namespace.
 
