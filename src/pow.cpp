@@ -59,7 +59,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         }
 
         // Count how blocks are KAWPOW mined in the last 180 blocks
-        if (pindex->nTime >= nKAWPOWActivationTime) {
+        if (pindex->nTime >= nKAWPOWActivationTime && pindex->nTime < nMEOWPOWActivationTime) {
             nKAWPOWBlocksFound++;
         }
 

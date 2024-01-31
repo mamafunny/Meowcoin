@@ -285,8 +285,8 @@ public:
         nKAAAWWWPOWActivationTime = 1662493424; // UTC: Wed May 06 2020 18:00:00
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWPOWActivationTime = 1769644800; // Jan 30 2026 -- To be changed, this is not the final target
-        nMEOWPOWActivationTime = nMEOWPOWActivationTime;
+        nMEOWWWWPOWActivationTime = 1769644800; // Jan 30 2026 -- To be changed, this is not the final target
+        nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
 };
@@ -448,8 +448,8 @@ public:
         nKAAAWWWPOWActivationTime = 1661833868; //Wed Mar 25 2020 18:00:00 UTC
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWPOWActivationTime = 1709164800; // March 1, 2024
-        nMEOWPOWActivationTime = nMEOWPOWActivationTime;
+        nMEOWWWWPOWActivationTime = 1709164800; // March 1, 2024
+        nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
 };
@@ -602,8 +602,8 @@ public:
         nKAAAWWWPOWActivationTime = 3582830167;
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWPOWActivationTime = 3582830167; // March 1, 2024
-        nMEOWPOWActivationTime = nMEOWPOWActivationTime;
+        nMEOWWWWPOWActivationTime = 3582830167; // March 1, 2024
+        nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
 };
