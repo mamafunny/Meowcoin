@@ -48,8 +48,9 @@ uint256 CBlockHeader::GetHash() const
         if (nTime >= nTimeToUse) {
             return HashX16RV2(BEGIN(nVersion), END(nNonce), hashPrevBlock);
         }
-
+        else {
         return HashX16R(BEGIN(nVersion), END(nNonce), hashPrevBlock);
+        }
     } if (nTime < nMEOWPOWActivationTime) {
         return KAWPOWHash_OnlyMix(*this);
     } else {
