@@ -285,7 +285,7 @@ public:
         nKAAAWWWPOWActivationTime = 1662493424; // UTC: Wed May 06 2020 18:00:00
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWWWWPOWActivationTime = 1769644800; // Jan 30 2026 -- To be changed, this is not the final target
+        nMEOWWWWPOWActivationTime = 1710802594; // March 18 2024 -- To be changed, this is not the final target
         nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
@@ -448,7 +448,7 @@ public:
         nKAAAWWWPOWActivationTime = 1661833868; //Wed Mar 25 2020 18:00:00 UTC
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWWWWPOWActivationTime = 1709164800; // March 1, 2024
+        nMEOWWWWPOWActivationTime = 1709592994; // Feb 4, 2024
         nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
