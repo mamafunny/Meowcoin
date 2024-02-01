@@ -134,8 +134,8 @@ epoch_context_full* create_epoch_context(
     static_assert(sizeof(epoch_context_full) < sizeof(hash512), "epoch_context too big");
     static constexpr size_t context_alloc_size = sizeof(hash512);
 
-    const int light_cache_num_items = calculate_light_cache_num_items(epoch_number * 3);
-    const int full_dataset_num_items = calculate_full_dataset_num_items(epoch_number * 3);
+    const int light_cache_num_items = calculate_light_cache_num_items(epoch_number);
+    const int full_dataset_num_items = calculate_full_dataset_num_items(epoch_number);
     const size_t light_cache_size = get_light_cache_size(light_cache_num_items);
     const size_t full_dataset_size =
         full ? static_cast<size_t>(full_dataset_num_items) * sizeof(hash1024) :
