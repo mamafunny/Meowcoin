@@ -360,12 +360,12 @@ public:
 
         uint32_t nGenesisTime = 1661734222;  // Thursday, September 20, 2018 12:00:00 PM GMT-06:00
 
-        genesis = CreateGenesisBlock(nGenesisTime, 20563145, 0x1e00ffff, 4, 5000 * COIN);
+        genesis = CreateGenesisBlock(nGenesisTime, 2250, 0x1e00ffff, 4, 5000 * COIN);
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
         //Test MerkleRoot and GenesisBlock
-        assert(consensus.hashGenesisBlock == uint256S("0x0000006fc55e8cd1948d013b47c47ce1922ce5d89775aac15c1586812a5fff6f"));
-        assert(genesis.hashMerkleRoot == uint256S("28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
+        assert(consensus.hashGenesisBlock == uint256S("000b93d1594035cc0ebe80bc5f69e3cebfbf80069480c8f64e7f974d1627d8a6"));
+        assert(genesis.hashMerkleRoot == uint256S("7c1d71731b98c560a80cee3b88993c8c863342b9661894304fd843bf7e75a41f"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
