@@ -292,7 +292,7 @@ public:
 };
 
 /**
- * Testnet (v7)
+ * Testnet (v8)
  */
 class CTestNetParams : public CChainParams {
 public:
@@ -355,17 +355,17 @@ public:
         pchMessageStart[1] = 0x65; 
         pchMessageStart[2] = 0x77; 
         pchMessageStart[3] = 0x63; 
-        nDefaultPort = 4568;
+        nDefaultPort = 4569;
         nPruneAfterHeight = 1000;
 
         uint32_t nGenesisTime = 1661734222;  // Thursday, September 20, 2018 12:00:00 PM GMT-06:00
 
-        genesis = CreateGenesisBlock(nGenesisTime, 7680541, 0x1e00ffff, 4, 5000 * COIN);
+        genesis = CreateGenesisBlock(nGenesisTime, 20563145, 0x1e00ffff, 4, 5000 * COIN);
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
         //Test MerkleRoot and GenesisBlock
-        assert(consensus.hashGenesisBlock == uint256S("0x000000eaab417d6dfe9bd75119972e1d07ecfe8ff655bef7c2acb3d9a0eeed81"));
-        assert(genesis.hashMerkleRoot == uint256S("0xe8916cf6592c8433d598c3a5fe60a9741fd2a997b39d93af2d789cdd9d9a7390"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000006fc55e8cd1948d013b47c47ce1922ce5d89775aac15c1586812a5fff6f"));
+        assert(genesis.hashMerkleRoot == uint256S("28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -448,7 +448,7 @@ public:
         nKAAAWWWPOWActivationTime = 1661833868; //Wed Mar 25 2020 18:00:00 UTC
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWWWWPOWActivationTime = 1707085189; // Feb 4, 2024
+        nMEOWWWWPOWActivationTime = 1707222488; // Feb 7, around 1pm PST
         nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
