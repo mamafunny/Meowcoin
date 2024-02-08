@@ -448,7 +448,7 @@ public:
         nKAAAWWWPOWActivationTime = 1661833868; //Wed Mar 25 2020 18:00:00 UTC
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWWWWPOWActivationTime = 1707085189; // Feb 4, 2024
+        nMEOWWWWPOWActivationTime = 1707354000; // Feb 4, 2024
         nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
