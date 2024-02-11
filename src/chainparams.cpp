@@ -285,7 +285,7 @@ public:
         nKAAAWWWPOWActivationTime = 1662493424; // UTC: Wed May 06 2020 18:00:00
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
 
-        nMEOWWWWPOWActivationTime = 1710802594; // March 18 2024 -- To be changed, this is not the final target
+        nMEOWWWWPOWActivationTime = 1710799200; // March 18 2024 -- 3pm PST
         nMEOWPOWActivationTime = nMEOWWWWPOWActivationTime;
         /** MEWC End **/
     }
