@@ -1912,6 +1912,6 @@ void MeowcoinGUI::mnemonic()
 
 void MeowcoinGUI::getLatestVersion()
 {
-    versionRequest->setUrl(QUrl("https://api.github.com/repos/MeowcoinProject/Meowcoin/releases"));
+    versionRequest->setUrl(QUrl("https://api.github.com/repos/JustAResearcher/Meowcoin/releases"));
     networkVersionManager->get(*versionRequest);
 }

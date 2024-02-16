@@ -213,6 +213,7 @@ protected:
     int nAssetActivationHeight;
 
     uint32_t nKAAAWWWPOWActivationTime;
+    uint32_t nMEOWWWWPOWActivationTime;
     /** MEWC End **/
 };
 

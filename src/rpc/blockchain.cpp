@@ -252,6 +252,7 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
     result.push_back(Pair("difficulty", GetDifficulty(blockindex)));
     result.push_back(Pair("chainwork", blockindex->nChainWork.GetHex()));
     result.push_back(Pair("headerhash", block.GetKAWPOWHeaderHash().GetHex()));
+    result.push_back(Pair("headerhash", block.GetMEOWPOWHeaderHash().GetHex())); //Mix hash may be causing issues
     result.push_back(Pair("mixhash", block.mix_hash.GetHex()));
     result.push_back(Pair("nonce64", (uint64_t)block.nNonce64));
 
@@ -287,6 +288,7 @@ UniValue decodeblockToJSON(const CBlock& block)
     result.push_back(Pair("nonce", (uint64_t)block.nNonce));
     result.push_back(Pair("bits", strprintf("%08x", block.nBits)));
     result.push_back(Pair("headerhash", block.GetKAWPOWHeaderHash().GetHex()));
+    result.push_back(Pair("headerhash", block.GetMEOWPOWHeaderHash().GetHex()));
     result.push_back(Pair("mixhash", block.mix_hash.GetHex()));
     result.push_back(Pair("nonce64", (uint64_t)block.nNonce64));
 

@@ -215,7 +215,7 @@ public:
     uint32_t nBits;
     uint32_t nNonce;
 
-    // KAWPOW
+    // KAWPOW + Meowpow
     uint64_t nNonce64;
     uint256 mix_hash;
 
@@ -267,7 +267,7 @@ public:
         nBits          = block.nBits;
         nNonce         = block.nNonce;
 
-        //KAWPOW
+        //KAWPOW + Meowpow
         nHeight        = block.nHeight;
         nNonce64       = block.nNonce64;
         mix_hash       = block.mix_hash;
@@ -426,7 +426,7 @@ public:
         if (nTime < nKAWPOWActivationTime) {
             READWRITE(nNonce);
         } else {
-            //KAWPOW
+            //KAWPOW + Meowpow
             READWRITE(nNonce64);
             READWRITE(mix_hash);
         }

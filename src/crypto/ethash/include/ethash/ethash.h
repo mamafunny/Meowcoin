@@ -30,6 +30,7 @@ extern "C" {
 #define ETHASH_LIGHT_CACHE_ITEM_SIZE 64
 #define ETHASH_FULL_DATASET_ITEM_SIZE 128
 #define ETHASH_NUM_DATASET_ACCESSES 64
+#define MEOWPOW_DAGCHANGE_BLOCK 960000
 
 
 struct ethash_epoch_context
