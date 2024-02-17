@@ -38,6 +38,12 @@ like so:
 ./contrib/install_db4.sh .
 ```
 
+If that doesn't work for you -- try this:
+
+```shell
+CFLAGS="-Wno-error=implicit-function-declaration"  ./contrib/install_db4.sh .
+```
+
 from the root of the repository. This command will print instructions at the very end. It will give you an export command, as well as a configure command you will use in the future. Running the export command will give you no output. But it is an important step. The configure command will be used in place of the ./configure -- later on.
 If you used the export command, your configure command will probably be this: 
 
