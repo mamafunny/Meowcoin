@@ -24,6 +24,8 @@ Dependencies
 If you run into issues, check [Homebrew's troubleshooting page](https://docs.brew.sh/Troubleshooting).
 See [dependencies.md](dependencies.md) for a complete overview.
 
+Some notes: I ran into issues with brew not linking python. Might need to refer to a guide to make sure python is behaving. You might need to get protobuf@3 instead of the default. I ran into some make deploy issues there. If you are just building for a local system, you probably don't need to run make deploy. After make, you can probably just do make install.
+
 If you want to build the disk image with `make deploy` (.dmg / optional), you need RSVG:
 ```shell
 brew install librsvg
