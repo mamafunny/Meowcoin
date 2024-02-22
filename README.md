@@ -8,15 +8,10 @@ To see how to run Meowcoin, please read the respective files in [the doc folder]
 
 What is Meowcoin?
 ----------------
-
-Meowcoin is an experimental digital currency that enables instant payments to
-anyone, anywhere in the world. The Meowcoin platform also lets anyone create assets (tokens) on the Meowcoin network. 
-Assets can be used for NFTs, STOs, Gift Cards, and fractional ownership of anything of value.
-Meowcoin uses peer-to-peer technology to operate
-with no central authority: managing transactions and issuing money are carried
-out collectively by the network. 
-
-
+Meowcoin is a a project that uses its own blockchain as technological platform to reach their objectives, which are focused in the animal sector (pet rescue and adoption, shelters support, etc). 
+Meowcoin also provide small scale and home miners with a profitable blockchain to devote their hash to, and benefit the wider sector through philanthropic means.
+Its blockchain provides digital currency that enables instant payments to anyone, anywhere in the world. The Meowcoin platform also lets anyone create assets (tokens) on the Meowcoin network. Assets can be used for NFTs, STOs, Gift Cards, and fractional ownership of anything of value.
+Meowcoin uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network. 
 
 License
 -------
