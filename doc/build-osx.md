@@ -147,3 +147,5 @@ Notes
 * Building with downloaded Qt binaries is not officially supported. 
 
 * autoreconf (boost issue)
+
+* This [github convo](https://gist.github.com/dbrookman/74b8bcfb37a23452f7137b83bca9580f?permalink_comment_id=4429431) saved my life for the final dmg deploy step 
