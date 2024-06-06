@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2020 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -90,7 +90,7 @@ public:
     bool BIP66();
     bool CSVEnabled() const;
 
-    /** MEOWCOIN Start **/
+    /** MEWC Start **/
     const CAmount& IssueAssetBurnAmount() const { return nIssueAssetBurnAmount; }
     const CAmount& ReissueAssetBurnAmount() const { return nReissueAssetBurnAmount; }
     const CAmount& IssueSubAssetBurnAmount() const { return nIssueSubAssetBurnAmount; }
@@ -101,6 +101,7 @@ public:
     const CAmount& IssueRestrictedAssetBurnAmount() const { return nIssueRestrictedAssetBurnAmount; }
     const CAmount& AddNullQualifierTagBurnAmount() const { return nAddNullQualifierTagBurnAmount; }
     const CAmount& CommunityAutonomousAmount() const { return nCommunityAutonomousAmount; }
+
 
     const std::string& IssueAssetBurnAddress() const { return strIssueAssetBurnAddress; }
     const std::string& ReissueAssetBurnAddress() const { return strReissueAssetBurnAddress; }
@@ -113,6 +114,7 @@ public:
     const std::string& AddNullQualifierTagBurnAddress() const { return strAddNullQualifierTagBurnAddress; }
     const std::string& GlobalBurnAddress() const { return strGlobalBurnAddress; }
     const std::string& CommunityAutonomousAddress() const { return strCommunityAutonomousAddress; }
+
 
     //  Indicates whether or not the provided address is a burn address
     bool IsBurnAddress(const std::string & p_address) const
@@ -129,6 +131,7 @@ public:
             || p_address == strAddNullQualifierTagBurnAddress
             || p_address == strGlobalBurnAddress
             || p_address == strCommunityAutonomousAddress
+
         ) {
             return true;
         }
@@ -145,7 +148,7 @@ public:
     int MinReorganizationAge() const { return nMinReorganizationAge; }
 
     int GetAssetActivationHeight() const { return nAssetActivationHeight; }
-    /** MEOWCOIN End **/
+    /** MEWC End **/
 
 protected:
     CChainParams() {}
@@ -167,7 +170,7 @@ protected:
     CCheckpointData checkpointData;
     ChainTxData chainTxData;
 
-    /** MEOWCOIN Start **/
+    /** MEWC Start **/
     // Burn Amounts
     CAmount nIssueAssetBurnAmount;
     CAmount nReissueAssetBurnAmount;
@@ -179,6 +182,7 @@ protected:
     CAmount nIssueRestrictedAssetBurnAmount;
     CAmount nAddNullQualifierTagBurnAmount;
     CAmount nCommunityAutonomousAmount;
+
 
     // Burn Addresses
     std::string strIssueAssetBurnAddress;
@@ -193,9 +197,10 @@ protected:
 
     // Global Burn Address
     std::string strGlobalBurnAddress;
-	
-	//Community Autonomous Address   
+
+    //Community Autonomous Address
     std::string strCommunityAutonomousAddress;
+
 
     unsigned int nDGWActivationBlock;
     unsigned int nMessagingActivationBlock;
@@ -208,7 +213,8 @@ protected:
     int nAssetActivationHeight;
 
     uint32_t nKAAAWWWPOWActivationTime;
-    /** MEOWCOIN End **/
+    uint32_t nMEOWWWWPOWActivationTime;
+    /** MEWC End **/
 };
 
 /**

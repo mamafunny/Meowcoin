@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2020 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,6 +48,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     arith_uint256 bnPastTargetAvg;
 
     int nKAWPOWBlocksFound = 0;
+    int nMEOWPOWBlocksFound = 0;
     for (unsigned int nCountBlocks = 1; nCountBlocks <= nPastBlocks; nCountBlocks++) {
         arith_uint256 bnTarget = arith_uint256().SetCompact(pindex->nBits);
         if (nCountBlocks == 1) {
@@ -58,8 +59,13 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         }
 
         // Count how blocks are KAWPOW mined in the last 180 blocks
-        if (pindex->nTime >= nKAWPOWActivationTime) {
+        if (pindex->nTime >= nKAWPOWActivationTime && pindex->nTime < nMEOWPOWActivationTime) {
             nKAWPOWBlocksFound++;
+        }
+
+        // Count how blocks are MEOWPOW mined in the last 180 blocks
+        if (pindex->nTime >= nMEOWPOWActivationTime) {
+            nMEOWPOWBlocksFound++;
         }
 
         if(nCountBlocks != nPastBlocks) {
@@ -69,13 +75,21 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     }
 
     // If we are mining a KAWPOW block. We check to see if we have mined
-    // 180 KAWPOW blocks already. If we haven't we are going to return our
+    // 180 KAWPOW or MEOWPOW blocks already. If we haven't we are going to return our
     // temp limit. This will allow us to change algos to kawpow without having to
     // change the DGW math.
-    if (pblock->nTime >= nKAWPOWActivationTime) {
+ if (pblock->nTime >= nKAWPOWActivationTime && pblock->nTime < nMEOWPOWActivationTime) {
         if (nKAWPOWBlocksFound != nPastBlocks) {
             const arith_uint256 bnKawPowLimit = UintToArith256(params.kawpowLimit);
             return bnKawPowLimit.GetCompact();
+        }
+    }
+
+    //Meowpow
+    if (pblock->nTime >= nMEOWPOWActivationTime) {
+        if (nMEOWPOWBlocksFound != nPastBlocks) {
+            const arith_uint256 bnMeowPowLimit = UintToArith256(params.meowpowLimit);
+            return bnMeowPowLimit.GetCompact();
         }
     }
 

@@ -1,6 +1,5 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -90,20 +89,20 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
     {
         BOOST_TEST_MESSAGE("Running NetBase SplitHost Test");
 
-        BOOST_CHECK(TestSplitHost("www.meowcoincoin.net", "www.meowcoincoin.net", -1));
-        BOOST_CHECK(TestSplitHost("[www.meowcoincoin.net]", "www.meowcoincoin.net", -1));
-        BOOST_CHECK(TestSplitHost("www.meowcoincoin.net:80", "www.meowcoincoin.net", 80));
-        BOOST_CHECK(TestSplitHost("[www.meowcoincoin.net]:80", "www.meowcoincoin.net", 80));
+        BOOST_CHECK(TestSplitHost("www.mewccrypto.com", "www.mewccrypto.com", -1));
+        BOOST_CHECK(TestSplitHost("[www.mewccrypto.com]", "www.mewccrypto.com", -1));
+        BOOST_CHECK(TestSplitHost("www.mewccrypto.com:80", "www.mewccrypto.com", 80));
+        BOOST_CHECK(TestSplitHost("[www.mewccrypto.com]:80", "www.mewccrypto.com", 80));
         BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
-        BOOST_CHECK(TestSplitHost("127.0.0.1:8767", "127.0.0.1", 8767));
+        BOOST_CHECK(TestSplitHost("127.0.0.1:8788", "127.0.0.1", 8788));
         BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));
-        BOOST_CHECK(TestSplitHost("[127.0.0.1]:8767", "127.0.0.1", 8767));
+        BOOST_CHECK(TestSplitHost("[127.0.0.1]:8788", "127.0.0.1", 8788));
         BOOST_CHECK(TestSplitHost("::ffff:127.0.0.1", "::ffff:127.0.0.1", -1));
-        BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:8767", "::ffff:127.0.0.1", 8767));
-        BOOST_CHECK(TestSplitHost("[::]:8767", "::", 8767));
-        BOOST_CHECK(TestSplitHost("::8767", "::8767", -1));
-        BOOST_CHECK(TestSplitHost(":8767", "", 8767));
-        BOOST_CHECK(TestSplitHost("[]:8767", "", 8767));
+        BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:8788", "::ffff:127.0.0.1", 8788));
+        BOOST_CHECK(TestSplitHost("[::]:8788", "::", 8788));
+        BOOST_CHECK(TestSplitHost("::8788", "::8788", -1));
+        BOOST_CHECK(TestSplitHost(":8788", "", 8788));
+        BOOST_CHECK(TestSplitHost("[]:8788", "", 8788));
         BOOST_CHECK(TestSplitHost("", "", -1));
     }
 
@@ -118,10 +117,10 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
         BOOST_TEST_MESSAGE("Running NetBase LookUpNumeric Test");
 
         BOOST_CHECK(TestParse("127.0.0.1", "127.0.0.1:65535"));
-        BOOST_CHECK(TestParse("127.0.0.1:8767", "127.0.0.1:8767"));
+        BOOST_CHECK(TestParse("127.0.0.1:8788", "127.0.0.1:8788"));
         BOOST_CHECK(TestParse("::ffff:127.0.0.1", "127.0.0.1:65535"));
         BOOST_CHECK(TestParse("::", "[::]:65535"));
-        BOOST_CHECK(TestParse("[::]:8767", "[::]:8767"));
+        BOOST_CHECK(TestParse("[::]:8788", "[::]:8788"));
         BOOST_CHECK(TestParse("[127.0.0.1]", "127.0.0.1:65535"));
         BOOST_CHECK(TestParse(":::", "[::]:0"));
 

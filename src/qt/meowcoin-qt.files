@@ -51,13 +51,13 @@ qvalidatedlineedit.h
 qvaluecombobox.cpp
 qvaluecombobox.h
 meowcoin.cpp
-meowcoinaddressvalidator.cpp
-meowcoinaddressvalidator.h
+meowaddressvalidator.cpp
+meowaddressvalidator.h
 meowcoinamountfield.cpp
 meowcoinamountfield.h
 meowcoingui.cpp
 meowcoingui.h
-meowcoinstrings.cpp
+meowstrings.cpp
 meowcoinunits.cpp
 meowcoinunits.h
 receivecoinsdialog.cpp

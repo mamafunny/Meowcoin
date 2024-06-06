@@ -20,7 +20,7 @@ Summary:	Peer to Peer Cryptographic Currency
 
 Group:		Applications/System
 License:	MIT
-URL:		https://mewccrypto.com
+URL:		https://mewccrypto.com/
 Source0:	https://mewccrypto.com/bin/meowcoin-core-%{version}/meowcoin-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
@@ -56,7 +56,7 @@ Patch0:		meowcoin-0.12.0-libressl.patch
 %description
 Meowcoin is a digital cryptographic currency that uses peer-to-peer technology to
 operate with no central authority or banks; managing transactions and the
-issuing of meowcoin is carried out collectively by the network.
+issuing of meows is carried out collectively by the network.
 
 %if %{_buildqt}
 %package core
@@ -81,7 +81,7 @@ BuildRequires:	%{_bindir}/convert
 %description core
 Meowcoin is a digital cryptographic currency that uses peer-to-peer technology to
 operate with no central authority or banks; managing transactions and the
-issuing of meowcoin is carried out collectively by the network.
+issuing of meows is carried out collectively by the network.
 
 This package contains the Qt based graphical client and node. If you are looking
 to run a Meowcoin wallet, this is probably the package you want.
@@ -93,7 +93,7 @@ Summary:	Meowcoin shared libraries
 Group:		System Environment/Libraries
 
 %description libs
-This package provides the meowcoinconsensus shared libraries. These libraries
+This package provides the meowconsensus shared libraries. These libraries
 may be used by third party software to provide consensus verification
 functionality.
 
@@ -106,7 +106,7 @@ Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
 This package contains the header files and static library for the
-meowcoinconsensus shared library. If you are developing or compiling software
+meowconsensus shared library. If you are developing or compiling software
 that wants to link against that library, then you need this package installed.
 
 Most people do not need this package installed.
@@ -247,16 +247,16 @@ install -D -p share/pixmaps/meowcoin.ico %{buildroot}%{_datadir}/pixmaps/meowcoi
 install -p share/pixmaps/nsis-header.bmp %{buildroot}%{_datadir}/pixmaps/
 install -p share/pixmaps/nsis-wizard.bmp %{buildroot}%{_datadir}/pixmaps/
 install -p %{SOURCE100} %{buildroot}%{_datadir}/pixmaps/meowcoin.svg
-%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meowcoin16.png -w16 -h16
-%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meowcoin32.png -w32 -h32
-%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meowcoin64.png -w64 -h64
-%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meowcoin128.png -w128 -h128
-%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meowcoin256.png -w256 -h256
-%{_bindir}/convert -resize 16x16 %{buildroot}%{_datadir}/pixmaps/meowcoin256.png %{buildroot}%{_datadir}/pixmaps/meowcoin16.xpm
-%{_bindir}/convert -resize 32x32 %{buildroot}%{_datadir}/pixmaps/meowcoin256.png %{buildroot}%{_datadir}/pixmaps/meowcoin32.xpm
-%{_bindir}/convert -resize 64x64 %{buildroot}%{_datadir}/pixmaps/meowcoin256.png %{buildroot}%{_datadir}/pixmaps/meowcoin64.xpm
-%{_bindir}/convert -resize 128x128 %{buildroot}%{_datadir}/pixmaps/meowcoin256.png %{buildroot}%{_datadir}/pixmaps/meowcoin128.xpm
-%{_bindir}/convert %{buildroot}%{_datadir}/pixmaps/meowcoin256.png %{buildroot}%{_datadir}/pixmaps/meowcoin256.xpm
+%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meow16.png -w16 -h16
+%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meow32.png -w32 -h32
+%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meow64.png -w64 -h64
+%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meow128.png -w128 -h128
+%{_bindir}/inkscape %{SOURCE100} --export-png=%{buildroot}%{_datadir}/pixmaps/meow256.png -w256 -h256
+%{_bindir}/convert -resize 16x16 %{buildroot}%{_datadir}/pixmaps/meow256.png %{buildroot}%{_datadir}/pixmaps/meow16.xpm
+%{_bindir}/convert -resize 32x32 %{buildroot}%{_datadir}/pixmaps/meow256.png %{buildroot}%{_datadir}/pixmaps/meow32.xpm
+%{_bindir}/convert -resize 64x64 %{buildroot}%{_datadir}/pixmaps/meow256.png %{buildroot}%{_datadir}/pixmaps/meow64.xpm
+%{_bindir}/convert -resize 128x128 %{buildroot}%{_datadir}/pixmaps/meow256.png %{buildroot}%{_datadir}/pixmaps/meow128.xpm
+%{_bindir}/convert %{buildroot}%{_datadir}/pixmaps/meow256.png %{buildroot}%{_datadir}/pixmaps/meow256.xpm
 touch %{buildroot}%{_datadir}/pixmaps/*.png -r %{SOURCE100}
 touch %{buildroot}%{_datadir}/pixmaps/*.xpm -r %{SOURCE100}
 
@@ -272,7 +272,7 @@ Comment[tr]=Meowcoin, eşten eşe kriptografik sanal para birimi
 Exec=meowcoin-qt %u
 Terminal=false
 Type=Application
-Icon=meowcoin128
+Icon=meow128
 MimeType=x-scheme-handler/meowcoin;
 Categories=Office;Finance;
 EOF
@@ -332,8 +332,8 @@ if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
 for selinuxvariant in %{selinux_variants}; do
 	%{_sbindir}/semodule -s ${selinuxvariant} -i %{_datadir}/selinux/${selinuxvariant}/meowcoin.pp &> /dev/null || :
 done
-%{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 8766
-%{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 8767
+%{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 9766
+%{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 8788
 %{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18766
 %{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18767
 %{_sbindir}/semanage port -a -t meowcoin_port_t -p tcp 18443
@@ -353,8 +353,8 @@ fi
 # SELinux
 if [ $1 -eq 0 ]; then
 	if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
-	%{_sbindir}/semanage port -d -p tcp 8766
-	%{_sbindir}/semanage port -d -p tcp 8767
+	%{_sbindir}/semanage port -d -p tcp 9766
+	%{_sbindir}/semanage port -d -p tcp 8788
 	%{_sbindir}/semanage port -d -p tcp 18766
 	%{_sbindir}/semanage port -d -p tcp 18767
 	%{_sbindir}/semanage port -d -p tcp 18443

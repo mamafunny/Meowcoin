@@ -1,4 +1,4 @@
-Fuzz-testing Meowcoin Core
+Fuzz-testing Meowcoin
 ==========================
 
 A special test harness `test_meowcoin_fuzzy` is provided to provide an easy

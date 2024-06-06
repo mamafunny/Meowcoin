@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -185,9 +184,9 @@ enum opcodetype
     OP_NOP9 = 0xb8,
     OP_NOP10 = 0xb9,
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     OP_MEWC_ASSET = 0xc0,
-    /** MEOWCOIN END */
+    /** MEWC END */
 
 
     // template matching params
@@ -576,7 +575,7 @@ public:
             pc += nSize;
         }
 
-        // If we see an op neox asset, we consider all data after it has data, and not op codes
+        // If we see an op mewc asset, we consider all data after it has data, and not op codes
         // Move the pc to the end of the script
         if (opcode == OP_MEWC_ASSET) {
             unsigned int nSize = end() - pc;
@@ -663,7 +662,7 @@ public:
     bool IsPayToWitnessScriptHash() const;
     bool IsWitnessProgram(int& version, std::vector<unsigned char>& program) const;
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     enum class txnouttype;
     bool IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) const;
     bool IsAssetScript(int& nType, bool& fIsOwner) const;
@@ -677,7 +676,7 @@ public:
     bool IsNullAssetTxDataScript() const;
     bool IsNullAssetVerifierTxDataScript() const;
     bool IsNullGlobalRestrictionAssetTxDataScript() const;
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     /** Used for obsolete pay-to-pubkey addresses indexing. */
     bool IsPayToPublicKey() const;

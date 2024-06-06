@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -154,6 +153,13 @@ void WalletFrame::gotoVerifyMessageTab(QString addr)
         walletView->gotoVerifyMessageTab(addr);
 }
 
+void WalletFrame::encryptWallet(bool status)
+{
+    WalletView *walletView = currentWalletView();
+    if (walletView)
+        walletView->encryptWallet(status);
+}
+
 void WalletFrame::backupWallet()
 {
     WalletView *walletView = currentWalletView();
@@ -175,19 +181,13 @@ void WalletFrame::unlockWallet()
         walletView->unlockWallet();
 }
 
-void WalletFrame::lockWallet()
-{
-    WalletView* walletView = currentWalletView();
-    if (walletView)
-        walletView->lockWallet();
-}
-
-void WalletFrame::getMnemonic()
+void WalletFrame::getMyWords()
 {
     WalletView *walletView = currentWalletView();
     if (walletView)
-        walletView->getMnemonic();
+        walletView->getMyWords();
 }
+
 
 void WalletFrame::usedSendingAddresses()
 {
@@ -213,7 +213,7 @@ void WalletFrame::outOfSyncWarningClicked()
     Q_EMIT requestedSyncWarningInfo();
 }
 
-/** MEOWCOIN START */
+/** MEWC START */
 void WalletFrame::gotoAssetsPage()
 {
     QMap<QString, WalletView*>::const_iterator i;

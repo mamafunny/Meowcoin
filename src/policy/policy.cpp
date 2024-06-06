@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -150,7 +150,7 @@ bool IsStandardTx(const CTransaction& tx, std::string& reason, const bool witnes
 
     // only one hundred OP_MEOWCOIN_ASSET txout is permitted
     if (nAssetDataOut > 100) {
-        reason = "tomany-op-neox-asset";
+        reason = "tomany-op-mewc-asset";
         return false;
     }
 

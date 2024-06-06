@@ -8,6 +8,6 @@ Comment[tr]=Meowcoin, eşten eşe kriptografik sanal para birimi
 Exec=meowcoin-qt %u
 Terminal=false
 Type=Application
-Icon=meowcoin128
+Icon=meow128
 MimeType=x-scheme-handler/meowcoin;
 Categories=Office;Finance;

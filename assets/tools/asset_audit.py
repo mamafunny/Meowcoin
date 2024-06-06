@@ -24,10 +24,10 @@ import logging
 cli = "meowcoin-cli"
 
 mode = "-main"
-rpc_port = 8766
+rpc_port = 9766
 
 #mode = "-testnet"
-#rpc_port = 18770
+#rpc_port = 4568
 #mode =  "-regtest"
 #rpc_port = 18444
 

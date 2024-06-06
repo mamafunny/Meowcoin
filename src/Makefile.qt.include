@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
+# Copyright (c) 2017-2019 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -72,6 +72,7 @@ QT_TS = \
   qt/locale/meowcoin_pt_PT.ts \
   qt/locale/meowcoin_ro_RO.ts \
   qt/locale/meowcoin_ro.ts \
+  qt/locale/meowcoin_ru_RU.ts \
   qt/locale/meowcoin_ru.ts \
   qt/locale/meowcoin_sk.ts \
   qt/locale/meowcoin_sl_SI.ts \
@@ -90,6 +91,7 @@ QT_TS = \
   qt/locale/meowcoin_vi_VN.ts \
   qt/locale/meowcoin_zh_CN.ts \
   qt/locale/meowcoin_zh_HK.ts \
+  qt/locale/meowcoin_zh.ts \
   qt/locale/meowcoin_zh_TW.ts
 
 QT_FORMS_UI = \
@@ -98,7 +100,6 @@ QT_FORMS_UI = \
   qt/forms/assetcontroldialog.ui \
   qt/forms/coincontroldialog.ui \
   qt/forms/editaddressdialog.ui \
-  qt/forms/encryptdialog.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
   qt/forms/modaloverlay.ui \
@@ -119,7 +120,9 @@ QT_FORMS_UI = \
   qt/forms/restrictedassignqualifier.ui \
   qt/forms/restrictedfreezeaddress.ui \
   qt/forms/sendassetsentry.ui \
-  qt/forms/mnemonicdialog.ui
+  qt/forms/mnemonicdialog1.ui \
+  qt/forms/mnemonicdialog2.ui \
+  qt/forms/mnemonicdialog3.ui
 
 QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
@@ -140,7 +143,6 @@ QT_MOC_CPP = \
   qt/moc_csvmodelwriter.cpp \
   qt/moc_darkstyle.cpp \
   qt/moc_editaddressdialog.cpp \
-  qt/moc_encryptdialog.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
   qt/moc_macdockiconhandler.cpp \
@@ -216,7 +218,7 @@ MEOWCOIN_QT_H = \
   qt/assetsdialog.h \
   qt/createassetdialog.h \
   qt/bantablemodel.h \
-  qt/meowcoinaddressvalidator.h \
+  qt/meowaddressvalidator.h \
   qt/meowcoinamountfield.h \
   qt/meowcoingui.h \
   qt/meowcoinunits.h \
@@ -225,9 +227,9 @@ MEOWCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
+  qt/currencyunits.h \
   qt/darkstyle.h \
   qt/editaddressdialog.h \
-  qt/encryptdialog.h \
   qt/guiconstants.h \
   qt/guiutil.h \
   qt/intro.h \
@@ -290,7 +292,7 @@ RES_ICONS = \
   qt/res/icons/asset_manage_selected.png \
   qt/res/icons/asset_transfer.png \
   qt/res/icons/asset_transfer_selected.png \
-  qt/res/icons/meowcoincointext.png \
+  qt/res/icons/meowcointext.png \
   qt/res/icons/meowcoin.ico \
   qt/res/icons/meowcoin_testnet.ico \
   qt/res/icons/meowcoin.png \
@@ -336,6 +338,8 @@ RES_ICONS = \
   qt/res/icons/receive_selected.png \
   qt/res/icons/refresh.png \
   qt/res/icons/remove.png \
+  qt/res/icons/restricted_asset.png \
+  qt/res/icons/restricted_asset_selected.png \
   qt/res/icons/send.png \
   qt/res/icons/send_selected.png \
   qt/res/icons/synced.png \
@@ -349,6 +353,7 @@ RES_ICONS = \
   qt/res/icons/tx_mined.png \
   qt/res/icons/tx_asset_input.png \
   qt/res/icons/tx_asset_output.png \
+  qt/res/icons/tx_atomic_swap.png \
   qt/res/icons/warning.png \
   qt/res/icons/verify.png \
   qt/res/darkstyle/icon_close.png \
@@ -426,7 +431,6 @@ MEOWCOIN_QT_WALLET_CPP = \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
   qt/editaddressdialog.cpp \
-  qt/encryptdialog.cpp \
   qt/openuridialog.cpp \
   qt/overviewpage.cpp \
   qt/myrestrictedassettablemodel.cpp \
@@ -515,7 +519,7 @@ endif
 if ENABLE_ZMQ
 qt_meowcoin_qt_LDADD += $(LIBMEOWCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_meowcoin_qt_LDADD += $(LIBmeowcoin_cli) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+qt_meowcoin_qt_LDADD += $(LIBMEOWCOIN_CLI) $(LIBMEOWCOIN_COMMON) $(LIBMEOWCOIN_UTIL) $(LIBMEOWCOIN_CONSENSUS) $(LIBMEOWCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 qt_meowcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
@@ -526,11 +530,11 @@ QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/meowcoinstrings.cpp: $(libmeowcoin_server_a_SOURCES) $(libmeowcoin_wallet_a_SOURCES) $(libmeowcoin_common_a_SOURCES) $(libmeowcoin_zmq_a_SOURCES) $(libmeowcoin_consensus_a_SOURCES) $(libmeowcoin_util_a_SOURCES)
+$(srcdir)/qt/meowstrings.cpp: $(libmeowcoin_server_a_SOURCES) $(libmeowcoin_wallet_a_SOURCES) $(libmeowcoin_common_a_SOURCES) $(libmeowcoin_zmq_a_SOURCES) $(libmeowcoin_consensus_a_SOURCES) $(libmeowcoin_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: $(srcdir)/qt/meowcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(MEOWCOIN_QT_BASE_CPP) qt/meowcoin.cpp $(MEOWCOIN_QT_WINDOWS_CPP) $(MEOWCOIN_QT_WALLET_CPP) $(MEOWCOIN_QT_H) $(MEOWCOIN_MM)
+translate: $(srcdir)/qt/meowstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(MEOWCOIN_QT_BASE_CPP) qt/meowcoin.cpp $(MEOWCOIN_QT_WINDOWS_CPP) $(MEOWCOIN_QT_WALLET_CPP) $(MEOWCOIN_QT_H) $(MEOWCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/meowcoin_en.ts
 

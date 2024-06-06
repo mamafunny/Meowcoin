@@ -1,5 +1,4 @@
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,14 +16,12 @@
 #include <unordered_map>
 #include <list>
 
-
-#define MEWC_N 114
-#define MEWC_E 118
-#define MEWC_X 110
+#define MEWC_R 114
+#define MEWC_V 118
+#define MEWC_N 110
 #define MEWC_Q 113
 #define MEWC_T 116
 #define MEWC_O 111
-
 
 #define DEFAULT_UNITS 0
 #define DEFAULT_REISSUABLE 1
@@ -52,9 +49,6 @@
 #define ASSET_REISSUE_STRING "reissue_asset"
 
 #define MINIMUM_REWARDS_PAYOUT_HEIGHT 60
-
-#define BAD_HASH "e6cdd54445e6bf69710d54e4340a6486167f866575a878eaedecbb345da056ae"
-#define BAD_HASH2 "3ba63518dc12599f9b83449c8b5338e224caf363d0327f5156fa4b6efeca5724"
 
 class CScript;
 class CDataStream;

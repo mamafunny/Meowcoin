@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,10 +34,13 @@
 #include <crypto/ethash/include/ethash/ethash.hpp>
 #include <consensus/merkle.h>
 #include <crypto/ethash/include/ethash/progpow.hpp>
+#include <crypto/ethash/include/ethash/meowpow.hpp>
 
 extern uint64_t nHashesPerSec;
 
-std::map<std::string, CBlock> mapHVNKAWBlockTemplates;
+std::map<std::string, CBlock> mapMEWCKAWBlockTemplates;
+std::map<std::string, CBlock> mapMEWCMEOWBlockTemplates;
+
 
 unsigned int ParseConfirmTarget(const UniValue& value)
 {
@@ -141,7 +144,7 @@ UniValue generateBlocks(std::shared_ptr<CReserveScript> coinbaseScript, int nGen
                                                                                       GetParams().GetConsensus())) {
             if (pblock->nTime < nKAWPOWActivationTime) {
                 ++pblock->nNonce;
-            } else  {
+            } else { 
                 ++pblock->nNonce64;
             }
             --nMaxTries;
@@ -153,7 +156,7 @@ UniValue generateBlocks(std::shared_ptr<CReserveScript> coinbaseScript, int nGen
             continue;
         }
 
-        // KAWPOW Assign the mix_hash to the block that was found
+        // KAWPOW+MEOWPOW Assign the mix_hash to the block that was found
         pblock->mix_hash = mix_hash;
 
         std::shared_ptr<const CBlock> shared_pblock = std::make_shared<const CBlock>(*pblock);
@@ -320,10 +323,10 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
             "\nIf the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.\n"
             "It returns data needed to construct a block to work on.\n"
             "For full specification, see BIPs 22, 23, 9, and 145:\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0022.mediawiki\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0023.mediawiki\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes\n"
-            "    https://github.com/Bitcoin/bips/blob/master/bip-0145.mediawiki\n"
+            "    https://github.com/meowcoin/bips/blob/master/bip-0022.mediawiki\n"
+            "    https://github.com/meowcoin/bips/blob/master/bip-0023.mediawiki\n"
+            "    https://github.com/meowcoin/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes\n"
+            "    https://github.com/meowcoin/bips/blob/master/bip-0145.mediawiki\n"
 
             "\nArguments:\n"
             "1. template_request         (json object, optional) A json object in the following spec\n"
@@ -371,7 +374,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
             "  },\n"
             "  \"coinbasevalue\" : n,              (numeric) maximum allowable input to coinbase transaction, including the generation award and transaction fees (in satoshis)\n"
             "  \"CommunityAutonomousAddress\" : n, (string) Community Autonomous Address\n"
-            "  \"CommunityAutonomousValue\" : n,   (numeric) Community Autonomous Value, 10% of the coinbase\n"
+            "  \"CommunityAutonomousValue\" : n,   (numeric) Community Autonomous Value, 40% of the coinbase\n"
             "  \"coinbasetxn\" : { ... },          (json object) information for coinbase transaction\n"
             "  \"target\" : \"xxxx\",                (string) The hash target\n"
             "  \"mintime\" : xxx,                  (numeric) The minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)\n"
@@ -537,7 +540,8 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     {
         // Clear pindexPrev so future calls make a new block, despite any failures from here on
         pindexPrev = nullptr;
-        mapHVNKAWBlockTemplates.clear();
+        mapMEWCKAWBlockTemplates.clear();
+        mapMEWCMEOWBlockTemplates.clear(); //Meowpow
 
         // Store the pindexBest used before CreateNewBlock, to avoid races
         nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
@@ -718,12 +722,12 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
         result.push_back(Pair("default_witness_commitment", HexStr(pblocktemplate->vchCoinbaseCommitment.begin(), pblocktemplate->vchCoinbaseCommitment.end())));
     }
 
-    if (pblock->nTime >= nKAWPOWActivationTime) {
+    if (pblock->nTime >= nKAWPOWActivationTime && pblock->nTime < nMEOWPOWActivationTime) {
         std::string address = gArgs.GetArg("-miningaddress", "");
         if (IsValidDestinationString(address)) {
             static std::string lastheader = "";
-            if (mapHVNKAWBlockTemplates.count(lastheader)) {
-                if (pblock->nTime - 30 < mapHVNKAWBlockTemplates.at(lastheader).nTime) {
+            if (mapMEWCKAWBlockTemplates.count(lastheader)) {
+                if (pblock->nTime - 30 < mapMEWCKAWBlockTemplates.at(lastheader).nTime) {
                     result.pushKV("pprpcheader", lastheader);
                     result.pushKV("pprpcepoch", ethash::get_epoch_number(pblock->nHeight));
                     return result;
@@ -733,8 +737,29 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
             pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
             result.pushKV("pprpcheader", pblock->GetKAWPOWHeaderHash().GetHex());
             result.pushKV("pprpcepoch", ethash::get_epoch_number(pblock->nHeight));
-            mapHVNKAWBlockTemplates[pblock->GetKAWPOWHeaderHash().GetHex()] = *pblock;
+            mapMEWCKAWBlockTemplates[pblock->GetKAWPOWHeaderHash().GetHex()] = *pblock;
             lastheader = pblock->GetKAWPOWHeaderHash().GetHex();
+        }
+    }
+
+    //MEOWPOW
+    if (pblock->nTime >= nMEOWPOWActivationTime) {
+        std::string address = gArgs.GetArg("-miningaddress", "");
+        if (IsValidDestinationString(address)) {
+            static std::string lastheader = "";
+            if (mapMEWCMEOWBlockTemplates.count(lastheader)) {
+                if (pblock->nTime - 30 < mapMEWCMEOWBlockTemplates.at(lastheader).nTime) {
+                    result.pushKV("pprpcheader", lastheader);
+                    result.pushKV("pprpcepoch", ethash::get_epoch_number(pblock->nHeight));
+                    return result;
+                }
+            }
+
+            pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
+            result.pushKV("pprpcheader", pblock->GetMEOWPOWHeaderHash().GetHex());
+            result.pushKV("pprpcepoch", ethash::get_epoch_number(pblock->nHeight));
+            mapMEWCMEOWBlockTemplates[pblock->GetMEOWPOWHeaderHash().GetHex()] = *pblock;
+            lastheader = pblock->GetMEOWPOWHeaderHash().GetHex();
         }
     }
 
@@ -837,14 +862,95 @@ static UniValue getkawpowhash(const JSONRPCRequest& request) {
     return ret;
 }
 
+
+//Meowpow
+static UniValue getmeowpowhash(const JSONRPCRequest& request) {
+    if (request.fHelp || request.params.size() < 4) {
+        throw std::runtime_error(
+                "getmeowpowhash \"header_hash\" \"mix_hash\" nonce, height, \"target\"\n"
+                "\nGet the meowpow hash for a block given its block data\n"
+
+                "\nArguments\n"
+                "1. \"header_hash\"        (string, required) the meow_pow header hash that was given to the gpu miner from this rpc client\n"
+                "2. \"mix_hash\"           (string, required) the mix hash that was mined by the gpu miner via rpc\n"
+                "3. \"nonce\"              (string, required) the hex nonce of the block that hashed the valid block\n"
+                "4. \"height\"             (number, required) the height of the block data that is being hashed\n"
+                "5. \"target\"             (string, optional) the target of the block that is hash is trying to meet\n"
+                "\nResult:\n"
+                "\nExamples:\n"
+                + HelpExampleCli("getmeowpowhash", "\"header_hash\" \"mix_hash\" \"0x100000\" 2456")
+                + HelpExampleRpc("getmeowpowhash", "\"header_hash\" \"mix_hash\" \"0x100000\" 2456")
+        );
+    }
+
+    std::string str_header_hash = request.params[0].get_str();
+    std::string mix_hash = request.params[1].get_str();
+    std::string hex_nonce = request.params[2].get_str();
+    uint32_t nHeight = request.params[3].get_uint();
+
+    uint64_t nNonce;
+    if (!ParseUInt64(hex_nonce, &nNonce, 16))
+        throw JSONRPCError(RPC_INVALID_PARAMS, "Invalid nonce hex string");
+
+    if (nHeight > (uint32_t)chainActive.Height() + 10)
+        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Block height is to large");
+
+    const auto header_hash = to_hash256(str_header_hash);
+
+    uint256 target;
+    bool fCheckTarget = false;
+    if (request.params.size() == 5) {
+        target = uint256S(request.params[4].get_str());
+        fCheckTarget = true;
+    }
+
+    static ethash::epoch_context_ptr context{nullptr, nullptr};
+
+    // Get the context from the block height
+    const auto epoch_number = ethash::get_epoch_number(nHeight);
+    if (!context || context->epoch_number != epoch_number)
+        context = ethash::create_epoch_context(epoch_number);
+
+    // MeowPow hash
+    const auto result = meowpow::hash(*context, nHeight, header_hash, nNonce);
+
+    uint256 mined_mix_hash = uint256S(to_hex(result.mix_hash));
+    uint256 mined_final_hash = uint256S(to_hex(result.final_hash));
+
+    bool mix_hash_match = false;
+    bool final_hash_meets_target = false;
+
+    if (mined_mix_hash == uint256S(mix_hash))
+        mix_hash_match = true;
+
+    if (fCheckTarget) {
+        arith_uint256 boundary = UintToArith256(target);
+        // Check proof of work matches claimed amount
+        if (UintToArith256(mined_final_hash) <= boundary)
+            final_hash_meets_target = true;
+    }
+
+    UniValue ret(UniValue::VOBJ);
+    ret.pushKV("result", mix_hash_match ? "true" : "false");
+    ret.pushKV("digest", mined_final_hash.GetHex());
+    ret.pushKV("mix_hash", mined_mix_hash.GetHex());
+    ret.pushKV("info", "");
+    if (fCheckTarget)
+        ret.pushKV("meets_target", final_hash_meets_target ? "true" : "false");
+
+
+    return ret;
+}
+
+//We are changing this to do work for Meowpow data now
 static UniValue pprpcsb(const JSONRPCRequest& request) {
     if (request.fHelp || request.params.size() != 3) {
         throw std::runtime_error(
                 "pprpcsb \"header_hash\" \"mix_hash\" \"nonce\"\n"
-                "\nAttempts to submit new block to network mined by kawpow gpu miner via rpc.\n"
+                "\nAttempts to submit new block to network mined by meowpow gpu miner via rpc.\n"
 
                 "\nArguments\n"
-                "1. \"header_hash\"        (string, required) the prow_pow header hash that was given to the gpu miner from this rpc client\n"
+                "1. \"header_hash\"        (string, required) the meow_pow header hash that was given to the gpu miner from this rpc client\n"
                 "2. \"mix_hash\"           (string, required) the mix hash that was mined by the gpu miner via rpc\n"
                 "3. \"nonce\"              (string, required) the nonce of the block that hashed the valid block\n"
                 "\nResult:\n"
@@ -862,11 +968,11 @@ static UniValue pprpcsb(const JSONRPCRequest& request) {
     if (!ParseUInt64(str_nonce, &nonce, 16))
         throw JSONRPCError(RPC_INVALID_PARAMS, "Invalid hex nonce");
 
-    if (!mapHVNKAWBlockTemplates.count(header_hash))
+    if (!mapMEWCMEOWBlockTemplates.count(header_hash))
         throw JSONRPCError(RPC_INVALID_PARAMS, "Block header hash not found in block data");
 
     std::shared_ptr<CBlock> blockptr = std::make_shared<CBlock>();
-    *blockptr = mapHVNKAWBlockTemplates.at(header_hash);
+    *blockptr = mapMEWCMEOWBlockTemplates.at(header_hash);
 
     blockptr->nNonce64 = nonce;
     blockptr->mix_hash = uint256S(mix_hash);
@@ -937,7 +1043,7 @@ UniValue submitblock(const JSONRPCRequest& request)
         throw std::runtime_error(
             "submitblock \"hexdata\"  ( \"dummy\" )\n"
             "\nAttempts to submit new block to network.\n"
-            "See https://en.meowcoin.it/wiki/BIP_0022 for full specification.\n"
+            "See https://en.bitcoin.it/wiki/BIP_0022 for full specification.\n"
 
             "\nArguments\n"
             "1. \"hexdata\"        (string, required) the hex-encoded block data to submit\n"
@@ -1289,6 +1395,8 @@ static const CRPCCommand commands[] =
     { "mining",             "submitblock",            &submitblock,            {"hexdata","dummy"} },
     { "mining",             "pprpcsb",                &pprpcsb,                {"header_hash","mix_hash", "nonce"} },
     { "mining",             "getkawpowhash",          &getkawpowhash,          {"header_hash", "mix_hash", "nonce", "height"} },
+    { "mining",             "getmeowpowhash",         &getmeowpowhash,         {"header_hash", "mix_hash", "nonce", "height"} },
+
 
     /* Coin generation */
     { "generating",         "getgenerate",            &getgenerate,            {}  },

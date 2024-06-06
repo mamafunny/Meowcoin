@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
+# Copyright (c) 2017-2019 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@ MEOWCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 LIBMEOWCOIN_SERVER=libmeowcoin_server.a
 LIBMEOWCOIN_COMMON=libmeowcoin_common.a
 LIBMEOWCOIN_CONSENSUS=libmeowcoin_consensus.a
-LIBmeowcoin_cli=libmeowcoin_cli.a
+LIBMEOWCOIN_CLI=libmeowcoin_cli.a
 LIBMEOWCOIN_UTIL=libmeowcoin_util.a
 LIBMEOWCOIN_CRYPTO=crypto/libmeowcoin_crypto.a
 LIBMEOWCOINQT=qt/libmeowcoinqt.a
@@ -54,7 +54,7 @@ EXTRA_LIBRARIES += \
   $(LIBMEOWCOIN_COMMON) \
   $(LIBMEOWCOIN_CONSENSUS) \
   $(LIBMEOWCOIN_SERVER) \
-  $(LIBmeowcoin_cli) \
+  $(LIBMEOWCOIN_CLI) \
   $(LIBMEOWCOIN_WALLET) \
   $(LIBMEOWCOIN_ZMQ)
 
@@ -353,6 +353,7 @@ crypto_libmeowcoin_crypto_a_SOURCES = \
   crypto/ethash/include/ethash/keccak.h \
   crypto/ethash/include/ethash/keccak.hpp \
   crypto/ethash/include/ethash/progpow.hpp \
+  crypto/ethash/include/ethash/meowpow.hpp \
   crypto/ethash/include/ethash/version.h \
   crypto/ethash/lib/ethash/bit_manipulation.h \
   crypto/ethash/lib/ethash/builtins.h \
@@ -364,6 +365,7 @@ crypto_libmeowcoin_crypto_a_SOURCES = \
   crypto/ethash/lib/ethash/primes.c \
   crypto/ethash/lib/ethash/primes.h \
   crypto/ethash/lib/ethash/progpow.cpp \
+  crypto/ethash/lib/ethash/meowpow.cpp \
   crypto/ethash/lib/keccak/keccak.c \
   crypto/ethash/lib/keccak/keccakf1600.c \
   crypto/ethash/lib/keccak/keccakf800.c \
@@ -512,7 +514,7 @@ meowcoin_cli_SOURCES += meowcoin-cli-res.rc
 endif
 
 meowcoin_cli_LDADD = \
-  $(LIBmeowcoin_cli) \
+  $(LIBMEOWCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBMEOWCOIN_UTIL) \
   $(LIBMEOWCOIN_CRYPTO)
@@ -541,7 +543,7 @@ meowcoin_tx_LDADD = \
 meowcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# meowcoinconsensus library #
+# meowconsensus library #
 if BUILD_MEOWCOIN_LIBS
 include_HEADERS = script/meowcoinconsensus.h
 libmeowcoinconsensus_la_SOURCES = $(crypto_libmeowcoin_crypto_a_SOURCES) $(libmeowcoin_consensus_a_SOURCES)

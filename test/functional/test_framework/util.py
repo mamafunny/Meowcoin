@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -76,7 +75,7 @@ def assert_fee_amount(fee, tx_size, fee_per_kb):
 
 def assert_equal(thing1, thing2, *args):
     if thing1 != thing2 or any(thing1 != arg for arg in args):
-        raise AssertionError("not(%s)" % " == ".join(str(arg) for arg in (thing1, thing2) + args)) 
+        raise AssertionError("not(%s)" % " == ".join(str(arg) for arg in (thing1, thing2) + args))
 
 
 def assert_greater_than(thing1, thing2, err_msg="Greater"):
@@ -414,6 +413,7 @@ def initialize_data_dir(dirname, n):
         os.makedirs(datadir)
     with open(os.path.join(datadir, "meowcoin.conf"), 'w', encoding='utf8') as f:
         f.write("regtest=1\n")
+        f.write("acceptnonstdtxn=1\n")
         f.write("port=" + str(p2p_port(n)) + "\n")
         f.write("rpcport=" + str(rpc_port(n)) + "\n")
         f.write("listenonion=0\n")

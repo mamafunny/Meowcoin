@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +26,6 @@
 #ifdef ENABLE_WALLET
 #include "paymentserver.h"
 #include "walletmodel.h"
-#include "encryptdialog.h"
 #endif
 
 #include "init.h"
@@ -78,6 +76,7 @@ Q_IMPORT_PLUGIN(QXcbIntegrationPlugin);
 Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);
 #elif defined(QT_QPA_PLATFORM_COCOA)
 Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin);
+Q_IMPORT_PLUGIN(QMacStylePlugin);
 #endif
 #endif
 #endif
@@ -178,7 +177,7 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 }
 #endif
 
-/** Class encapsulating OLDNAMENEEDKEEP__Core startup and shutdown.
+/** Class encapsulating Meowcoin Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
 class MeowcoinCore: public QObject
@@ -209,12 +208,12 @@ private:
     void handleRunawayException(const std::exception *e);
 };
 
-/** Main meowcoin application object */
+/** Main Meowcoin application object */
 class MeowcoinApplication: public QApplication
 {
     Q_OBJECT
 public:
-    explicit MeowcoinApplication(int &argc, char **argv);
+    explicit MeowcoinApplication();
     ~MeowcoinApplication();
 
 #ifdef ENABLE_WALLET
@@ -365,8 +364,11 @@ void MeowcoinCore::shutdown()
     }
 }
 
-MeowcoinApplication::MeowcoinApplication(int &argc, char **argv):
-    QApplication(argc, argv),
+static int qt_argc = 1;
+static const char* qt_argv = "meowcoin-qt";
+
+MeowcoinApplication::MeowcoinApplication():
+    QApplication(qt_argc, const_cast<char **>(&qt_argv)),
     coreThread(0),
     optionsModel(0),
     clientModel(0),
@@ -428,8 +430,8 @@ void MeowcoinApplication::createOptionsModel(bool resetSettings)
 void MeowcoinApplication::createWindow(const NetworkStyle *networkStyle)
 {
     window = new MeowcoinGUI(platformStyle, networkStyle, 0);
-    window->setMinimumSize(200,200);
-    window->setBaseSize(640,640);
+    window->setMinimumSize(1024,700);
+    window->setBaseSize(1024,700);
 
     pollShutdownTimer = new QTimer(window);
     connect(pollShutdownTimer, SIGNAL(timeout()), window, SLOT(detectShutdown()));
@@ -438,7 +440,7 @@ void MeowcoinApplication::createWindow(const NetworkStyle *networkStyle)
 
 void MeowcoinApplication::createSplashScreen(const NetworkStyle *networkStyle)
 {
-    SplashScreen *splash = new SplashScreen(0, networkStyle);
+    SplashScreen *splash = new SplashScreen(networkStyle);
     // We don't hold a direct pointer to the splash screen after creation, but the splash
     // screen will take care of deleting itself when slotFinish happens.
     splash->show();
@@ -560,16 +562,6 @@ void MeowcoinApplication::initializeResult(bool success)
         connect(paymentServer, SIGNAL(message(QString,QString,unsigned int)),
                          window, SLOT(message(QString,QString,unsigned int)));
         QTimer::singleShot(100, paymentServer, SLOT(uiReady()));
-
-        if (walletModel->getEncryptionStatus() == WalletModel::Unencrypted) {
-            EncryptDialog dlg;
-
-            dlg.setModel(walletModel);
-            dlg.setWindowTitle("Encrypt Wallet");
-            dlg.exec();
-
-            walletModel->updateStatus();
-        }
 #endif
     } else {
         quit(); // Exit main loop
@@ -585,7 +577,7 @@ void MeowcoinApplication::shutdownResult(bool success)
 
 void MeowcoinApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(0, "Runaway exception", MeowcoinGUI::tr("A fatal error occurred. meowcoin can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", MeowcoinGUI::tr("A fatal error occurred. Meowcoin can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(EXIT_FAILURE);
 }
 
@@ -618,16 +610,15 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(meowcoin);
     Q_INIT_RESOURCE(meowcoin_locale);
 
-#if QT_VERSION > 0x050100
+#if QT_VERSION > 0x050600
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
-#if QT_VERSION >= 0x050600
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 #ifdef Q_OS_MAC
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
+
 #if QT_VERSION >= 0x050500
     // Because of the POODLE attack it is recommended to disable SSLv3 (https://disablessl3.com/),
     // so set SSL protocols to TLS1.0+.
@@ -636,7 +627,9 @@ int main(int argc, char *argv[])
     QSslConfiguration::setDefaultConfiguration(sslconf);
 #endif
 
-    MeowcoinApplication app(argc, argv);
+    // This should be after the attributes.
+    MeowcoinApplication app;
+
     // Register meta types used for QMetaObject::invokeMethod
     qRegisterMetaType< bool* >();
     //   Need to pass name here as CAmount is a typedef (see http://qt-project.org/doc/qt-5/qmetatype.html#qRegisterMetaType)

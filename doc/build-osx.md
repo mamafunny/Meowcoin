@@ -19,10 +19,12 @@ Then install [Homebrew](https://brew.sh).
 Dependencies
 ----------------------
 
-    brew install automake berkeley-db4@4 libtool boost miniupnpc openssl@1.1 pkg-config openssl protobuf python qt@5 libevent qrencode
+    brew install automake berkeley-db4 libtool boost miniupnpc openssl@1.1 pkg-config protobuf python qt libevent qrencode
 
 If you run into issues, check [Homebrew's troubleshooting page](https://docs.brew.sh/Troubleshooting).
 See [dependencies.md](dependencies.md) for a complete overview.
+
+Some notes: I ran into issues with brew not linking python. Might need to refer to a guide to make sure python is behaving. You might need to get protobuf@3 instead of the default. I ran into some make deploy issues there. If you are just building for a local system, you probably don't need to run make deploy. After make, you can probably just do make install.
 
 If you want to build the disk image with `make deploy` (.dmg / optional), you need RSVG:
 ```shell
@@ -35,13 +37,23 @@ you can use [this](/contrib/install_db4.sh) script to install it
 like so:
 
 ```shell
-brew install berkeley-db@4
-brew link berkeley-db4 --force
+./contrib/install_db4.sh .
 ```
 
-from the root of the repository.
+If that doesn't work for you -- try this:
 
-**Note**: You only need Berkeley DB if the wallet is enabled (see [*Disable-wallet mode*](/doc/build-osx.md#disable-wallet-mode)).
+```shell
+CFLAGS="-Wno-error=implicit-function-declaration"  ./contrib/install_db4.sh .
+```
+
+from the root of the repository. This command will print instructions at the very end. It will give you an export command, as well as a configure command you will use in the future. Running the export command will give you no output. But it is an important step. The configure command will be used in place of the ./configure -- later on.
+If you used the export command, your configure command will probably be this: 
+
+```shell
+./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"
+```
+
+**Note**: You only need Berkeley DB if the wallet is enabled (see [*Disable-wallet mode*](/doc/build-osx.md#disable-wallet-mode)). Nearly all users want this for compatibility reasons.
 
 ## Build Meowcoin Core
 
@@ -62,7 +74,7 @@ from the root of the repository.
     make
     ```
 
-3.  It is recommended to build and run the unit tests:
+3.  It is recommended to build and run the unit tests(This command is most likely broken at the moment, id recommended continuing to the next step):
     ```shell
     make check
     ```
@@ -135,3 +147,5 @@ Notes
 * Building with downloaded Qt binaries is not officially supported. 
 
 * autoreconf (boost issue)
+
+* This [github convo](https://gist.github.com/dbrookman/74b8bcfb37a23452f7137b83bca9580f?permalink_comment_id=4429431) saved my life for the final dmg deploy step 

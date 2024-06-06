@@ -1,13 +1,12 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Meowcoin
-Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#meowcoin@freenode.net
 Source: https://github.com/JustAResearcher/Meowcoin
 
 Files: *
-Copyright: 2009-2017, Meowcoin Core Developers
+Copyright: 2009-2017, Bitcoin Core Developers
+           2017-2020, Meowcoin Core Developers
 License: Expat
-Comment: The Meowcoin__Core developers encompasses the current developers listed on meowcoincoin.net,
+Comment: The Bitcoin Core Developers encompasses the current developers listed on bitcoin.org,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -81,9 +80,8 @@ Files: src/qt/res/icons/about.png
        src/qt/res/icons/meowcoin.*
        share/pixmaps/meowcoin*
        src/qt/res/src/meowcoin.svg
-Copyright: Bitboy, Jonas Schnelli
+Copyright: The Meowcoin Core Developers
 License: public-domain
-Comment: Site: https://bitcointalk.org/?topic=1756.0
 
 
 License: Expat

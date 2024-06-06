@@ -1,7 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "streams.h"
@@ -144,9 +143,9 @@ const char* GetOpName(opcodetype opcode)
     case OP_NOP9                   : return "OP_NOP9";
     case OP_NOP10                  : return "OP_NOP10";
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     case OP_MEWC_ASSET              : return "OP_MEWC_ASSET";
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     case OP_INVALIDOPCODE          : return "OP_INVALIDOPCODE";
 
@@ -228,7 +227,7 @@ bool CScript::IsPayToScriptHash() const
             (*this)[22] == OP_EQUAL);
 }
 
-/** MEOWCOIN START */
+/** MEWC START */
 bool CScript::IsAssetScript() const
 {
     int nType = 0;
@@ -248,14 +247,14 @@ bool CScript::IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) con
     if (this->size() > 31) {
         if ((*this)[25] == OP_MEWC_ASSET) { // OP_MEWC_ASSET is always in the 25 index of the script if it exists
             int index = -1;
-            if ((*this)[27] == MEWC_N) { // Check to see if MEWC starts at 27 ( this->size() < 105)
-                if ((*this)[28] == MEWC_E)
-                    if ((*this)[29] == MEWC_X)
+            if ((*this)[27] == MEWC_R) { // Check to see if MEWC starts at 27 ( this->size() < 105)
+                if ((*this)[28] == MEWC_V)
+                    if ((*this)[29] == MEWC_N)
                         index = 30;
             } else {
-                if ((*this)[28] == MEWC_N) // Check to see if MEWC starts at 28 ( this->size() >= 105)
-                    if ((*this)[29] == MEWC_E)
-                        if ((*this)[30] == MEWC_X)
+                if ((*this)[28] == MEWC_R) // Check to see if MEWC starts at 28 ( this->size() >= 105)
+                    if ((*this)[29] == MEWC_V)
+                        if ((*this)[30] == MEWC_N)
                             index = 31;
             }
 
@@ -272,7 +271,7 @@ bool CScript::IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) con
                     nType = TX_NEW_ASSET;
                     fIsOwner = true;
                     return true;
-                } else if ((*this)[index] == MEWC_N) {
+                } else if ((*this)[index] == MEWC_R) {
                     nType = TX_REISSUE_ASSET;
                     return true;
                 }
@@ -354,7 +353,7 @@ bool CScript::IsNullAssetVerifierTxDataScript() const
             (*this)[1] == OP_RESERVED &&
             (*this)[2] != OP_RESERVED);
 }
-/** MEOWCOIN END */
+/** MEWC END */
 
 bool CScript::IsPayToWitnessScriptHash() const
 {

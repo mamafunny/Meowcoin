@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="et">
+<TS language="et" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -170,8 +168,8 @@
         <translation>Kinnita rahakoti krüpteerimine.</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR MEOWCOIN&lt;/b&gt;!</source>
-        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA Meowcoin&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR MEOWCOINS&lt;/b&gt;!</source>
+        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA MEOWCOINID&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -215,267 +213,22 @@
     </message>
 </context>
 <context>
+    <name>AssetControlDialog</name>
+    </context>
+<context>
+    <name>AssetTableModel</name>
+    </context>
+<context>
+    <name>AssetsDialog</name>
+    </context>
+<context>
+    <name>AssignQualifier</name>
+    </context>
+<context>
     <name>BanTableModel</name>
     <message>
         <source>IP/Netmask</source>
         <translation>IP/Võrgumask</translation>
-    </message>
-    </context>
-<context>
-    <name>MeowcoinGUI</name>
-    <message>
-        <source>Sign &amp;message...</source>
-        <translation>Signeeri &amp;sõnum</translation>
-    </message>
-    <message>
-        <source>Synchronizing with network...</source>
-        <translation>Võrgusünkimine...</translation>
-    </message>
-    <message>
-        <source>&amp;Overview</source>
-        <translation>&amp;Ülevaade</translation>
-    </message>
-    <message>
-        <source>Show general overview of wallet</source>
-        <translation>Kuva rahakoti üld-ülevaade</translation>
-    </message>
-    <message>
-        <source>&amp;Transactions</source>
-        <translation>&amp;Tehingud</translation>
-    </message>
-    <message>
-        <source>Browse transaction history</source>
-        <translation>Sirvi tehingute ajalugu</translation>
-    </message>
-    <message>
-        <source>E&amp;xit</source>
-        <translation>V&amp;älju</translation>
-    </message>
-    <message>
-        <source>Quit application</source>
-        <translation>Väljumine</translation>
-    </message>
-    <message>
-        <source>&amp;About %1</source>
-        <translation>&amp;Teave %1</translation>
-    </message>
-    <message>
-        <source>About &amp;Qt</source>
-        <translation>Teave &amp;Qt kohta</translation>
-    </message>
-    <message>
-        <source>Show information about Qt</source>
-        <translation>Kuva Qt kohta käiv info</translation>
-    </message>
-    <message>
-        <source>&amp;Options...</source>
-        <translation>&amp;Valikud...</translation>
-    </message>
-    <message>
-        <source>&amp;Encrypt Wallet...</source>
-        <translation>&amp;Krüpteeri Rahakott</translation>
-    </message>
-    <message>
-        <source>&amp;Backup Wallet...</source>
-        <translation>&amp;Varunda Rahakott</translation>
-    </message>
-    <message>
-        <source>&amp;Change Passphrase...</source>
-        <translation>&amp;Salafraasi muutmine</translation>
-    </message>
-    <message>
-        <source>Open &amp;URI...</source>
-        <translation>Ava &amp;URI...</translation>
-    </message>
-    <message>
-        <source>Reindexing blocks on disk...</source>
-        <translation>Kettal olevate blokkide re-indekseerimine...</translation>
-    </message>
-    <message>
-        <source>Send coins to a Meowcoin address</source>
-        <translation>Saada münte Meowcoin aadressile</translation>
-    </message>
-    <message>
-        <source>Backup wallet to another location</source>
-        <translation>Varunda rahakott teise asukohta</translation>
-    </message>
-    <message>
-        <source>Change the passphrase used for wallet encryption</source>
-        <translation>Rahakoti krüpteerimise salafraasi muutmine</translation>
-    </message>
-    <message>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Silumise aken</translation>
-    </message>
-    <message>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Ava debugimise ja diagnostika konsool</translation>
-    </message>
-    <message>
-        <source>&amp;Verify message...</source>
-        <translation>&amp;Kontrolli sõnumit...</translation>
-    </message>
-    <message>
-        <source>Meowcoin</source>
-        <translation>Meowcoin</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Rahakott</translation>
-    </message>
-    <message>
-        <source>&amp;Send</source>
-        <translation>&amp;Saada</translation>
-    </message>
-    <message>
-        <source>&amp;Receive</source>
-        <translation>&amp;Võta vastu</translation>
-    </message>
-    <message>
-        <source>&amp;Show / Hide</source>
-        <translation>&amp;Näita / Peida</translation>
-    </message>
-    <message>
-        <source>Show or hide the main Window</source>
-        <translation>Näita või peida peaaken</translation>
-    </message>
-    <message>
-        <source>Encrypt the private keys that belong to your wallet</source>
-        <translation>Krüpteeri oma rahakoti privaatvõtmed</translation>
-    </message>
-    <message>
-        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Meowcoin aadressiga</translation>
-    </message>
-    <message>
-        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Meowcoin aadressiga</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation>&amp;Fail</translation>
-    </message>
-    <message>
-        <source>&amp;Settings</source>
-        <translation>&amp;Seaded</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation>&amp;Abi</translation>
-    </message>
-    <message>
-        <source>Tabs toolbar</source>
-        <translation>Vahelehe tööriistariba</translation>
-    </message>
-    <message>
-        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja meowcoinsi: URId)</translation>
-    </message>
-    <message>
-        <source>Open a meowcoin: URI or payment request</source>
-        <translation>Ava meowcoinsi: URI või maksepäring</translation>
-    </message>
-    <message>
-        <source>&amp;Command-line options</source>
-        <translation>Käsurea valikud</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n active connection(s) to Meowcoin network</source>
-        <translation><numerusform>%n aktiivne ühendus Meowcoin võrku</numerusform><numerusform>%n aktiivset ühendust Meowcoin võrku</numerusform></translation>
-    </message>
-    <message>
-        <source>Indexing blocks on disk...</source>
-        <translation>Kõvakettal olevate plokkide indekseerimine...</translation>
-    </message>
-    <message>
-        <source>Processing blocks on disk...</source>
-        <translation>Kõvakettal olevate plokkide töötlemine...</translation>
-    </message>
-    <message numerus="yes">
-        <source>Processed %n block(s) of transaction history.</source>
-        <translation><numerusform>Töödeldud %n plokk transaktsioonide ajaloost.</numerusform><numerusform>Töödeldud %n plokki transaktsioonide ajaloost.</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 maas</translation>
-    </message>
-    <message>
-        <source>Last received block was generated %1 ago.</source>
-        <translation>Viimane saabunud blokk loodi %1 tagasi.</translation>
-    </message>
-    <message>
-        <source>Transactions after this will not yet be visible.</source>
-        <translation>Peale seda ei ole tehingud veel nähtavad.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Tõrge</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Hoiatus</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informatsioon</translation>
-    </message>
-    <message>
-        <source>Up to date</source>
-        <translation>Ajakohane</translation>
-    </message>
-    <message>
-        <source>%1 client</source>
-        <translation>%1 klient</translation>
-    </message>
-    <message>
-        <source>Catching up...</source>
-        <translation>Jõuan järgi...</translation>
-    </message>
-    <message>
-        <source>Date: %1
-</source>
-        <translation>Kuupäev: %1
-</translation>
-    </message>
-    <message>
-        <source>Amount: %1
-</source>
-        <translation>Summa: %1
-</translation>
-    </message>
-    <message>
-        <source>Type: %1
-</source>
-        <translation>Tüüp: %1
-</translation>
-    </message>
-    <message>
-        <source>Label: %1
-</source>
-        <translation>&amp;Märgis: %1
-</translation>
-    </message>
-    <message>
-        <source>Address: %1
-</source>
-        <translation>Aadress: %1
-</translation>
-    </message>
-    <message>
-        <source>Sent transaction</source>
-        <translation>Saadetud tehing</translation>
-    </message>
-    <message>
-        <source>Incoming transaction</source>
-        <translation>Sisenev tehing</translation>
-    </message>
-    <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Rahakott on &lt;b&gt;krüpteeritud&lt;/b&gt; ning hetkel &lt;b&gt;avatud&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation>Rahakott on &lt;b&gt;krüpteeritud&lt;/b&gt; ning hetkel &lt;b&gt;suletud&lt;/b&gt;</translation>
     </message>
     </context>
 <context>
@@ -598,6 +351,9 @@
     </message>
 </context>
 <context>
+    <name>CreateAssetDialog</name>
+    </context>
+<context>
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
@@ -652,6 +408,12 @@
     </message>
     </context>
 <context>
+    <name>FreezeAddress</name>
+    </context>
+<context>
+    <name>GUIUtil::SyncWarningMessage</name>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     <message>
         <source>version</source>
@@ -690,6 +452,18 @@
     </message>
     </context>
 <context>
+    <name>MnemonicDialog</name>
+    </context>
+<context>
+    <name>MnemonicDialog1</name>
+    </context>
+<context>
+    <name>MnemonicDialog2</name>
+    </context>
+<context>
+    <name>MnemonicDialog3</name>
+    </context>
+<context>
     <name>ModalOverlay</name>
     <message>
         <source>Form</source>
@@ -703,6 +477,9 @@
         <source>Hide</source>
         <translation>Peida</translation>
     </message>
+    </context>
+<context>
+    <name>MyRestrictedAssetsTableModel</name>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -759,7 +536,7 @@
     </message>
     <message>
         <source>Automatically open the Meowcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Meowcoin kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+        <translation>Meowcoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -792,10 +569,6 @@
     <message>
         <source>&amp;Window</source>
         <translation>&amp;Aken</translation>
-    </message>
-    <message>
-        <source>Hide tray icon</source>
-        <translation>Peida tegumiriba ikoon</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
@@ -917,25 +690,9 @@
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n tund</numerusform><numerusform>%n tundi</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n päev</numerusform><numerusform>%n päeva</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n nädal</numerusform><numerusform>%n nädalat</numerusform></translation>
-    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 ja %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n aasta</numerusform><numerusform>%n aastat</numerusform></translation>
     </message>
     </context>
 <context>
@@ -1051,28 +808,8 @@
         <translation>Puhasta konsool</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Ajaloo sirvimiseks kasuta üles ja alla nooli, ekraani puhastamiseks &lt;b&gt;Ctrl-L&lt;/b&gt;.</translation>
-    </message>
-    <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Ülevaateks võimalikest käsklustest trüki &lt;b&gt;help&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>%1 B</source>
-        <translation>%1 B</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation>%1 B</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation>%1 MB</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 GB</translation>
     </message>
     <message>
         <source>Inbound</source>
@@ -1095,6 +832,243 @@
         <translation>Teadmata</translation>
     </message>
 </context>
+<context>
+    <name>MeowcoinGUI</name>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Signeeri &amp;sõnum</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Võrgusünkimine...</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>&amp;Ülevaade</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Kuva rahakoti üld-ülevaade</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Tehingud</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>Sirvi tehingute ajalugu</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>V&amp;älju</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Väljumine</translation>
+    </message>
+    <message>
+        <source>&amp;About %1</source>
+        <translation>&amp;Teave %1</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>Teave &amp;Qt kohta</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Kuva Qt kohta käiv info</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Valikud...</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Krüpteeri Rahakott</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Varunda Rahakott</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Salafraasi muutmine</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Ava &amp;URI...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Kettal olevate blokkide re-indekseerimine...</translation>
+    </message>
+    <message>
+        <source>Send coins to a Meowcoin address</source>
+        <translation>Saada münte Meowcoini aadressile</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Varunda rahakott teise asukohta</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Rahakoti krüpteerimise salafraasi muutmine</translation>
+    </message>
+    <message>
+        <source>Open debugging and diagnostic console</source>
+        <translation>Ava debugimise ja diagnostika konsool</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;Kontrolli sõnumit...</translation>
+    </message>
+    <message>
+        <source>Meowcoin</source>
+        <translation>Meowcoin</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Rahakott</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Saada</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Võta vastu</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Näita / Peida</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Näita või peida peaaken</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Krüpteeri oma rahakoti privaatvõtmed</translation>
+    </message>
+    <message>
+        <source>Sign messages with your Meowcoin addresses to prove you own them</source>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Meowcoini aadressiga</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified Meowcoin addresses</source>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Meowcoini aadressiga</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Fail</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Abi</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and meowcoin: URIs)</source>
+        <translation>Loo maksepäring (genereerib QR koodid ja meowi: URId)</translation>
+    </message>
+    <message>
+        <source>Open a meowcoin: URI or payment request</source>
+        <translation>Ava meowi: URI või maksepäring</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>Käsurea valikud</translation>
+    </message>
+    <message>
+        <source>Indexing blocks on disk...</source>
+        <translation>Kõvakettal olevate plokkide indekseerimine...</translation>
+    </message>
+    <message>
+        <source>Processing blocks on disk...</source>
+        <translation>Kõvakettal olevate plokkide töötlemine...</translation>
+    </message>
+    <message>
+        <source>%1 behind</source>
+        <translation>%1 maas</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Viimane saabunud blokk loodi %1 tagasi.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Peale seda ei ole tehingud veel nähtavad.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Tõrge</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Hoiatus</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informatsioon</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Ajakohane</translation>
+    </message>
+    <message>
+        <source>%1 client</source>
+        <translation>%1 klient</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Jõuan järgi...</translation>
+    </message>
+    <message>
+        <source>Date: %1
+</source>
+        <translation>Kuupäev: %1
+</translation>
+    </message>
+    <message>
+        <source>Amount: %1
+</source>
+        <translation>Summa: %1
+</translation>
+    </message>
+    <message>
+        <source>Type: %1
+</source>
+        <translation>Tüüp: %1
+</translation>
+    </message>
+    <message>
+        <source>Label: %1
+</source>
+        <translation>&amp;Märgis: %1
+</translation>
+    </message>
+    <message>
+        <source>Address: %1
+</source>
+        <translation>Aadress: %1
+</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Saadetud tehing</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Sisenev tehing</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Rahakott on &lt;b&gt;krüpteeritud&lt;/b&gt; ning hetkel &lt;b&gt;avatud&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Rahakott on &lt;b&gt;krüpteeritud&lt;/b&gt; ning hetkel &lt;b&gt;suletud&lt;/b&gt;</translation>
+    </message>
+    </context>
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
@@ -1193,6 +1167,15 @@
     </message>
     </context>
 <context>
+    <name>ReissueAssetDialog</name>
+    </context>
+<context>
+    <name>RestrictedAssetsDialog</name>
+    </context>
+<context>
+    <name>SendAssetsEntry</name>
+    </context>
+<context>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
@@ -1253,14 +1236,6 @@
     <message>
         <source>Recommended:</source>
         <translation>Soovitatud:</translation>
-    </message>
-    <message>
-        <source>normal</source>
-        <translation>normaalne</translation>
-    </message>
-    <message>
-        <source>fast</source>
-        <translation>kiire</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
@@ -1354,10 +1329,6 @@
         <translation>S&amp;umma:</translation>
     </message>
     <message>
-        <source>Pay &amp;To:</source>
-        <translation>Maksa &amp;:</translation>
-    </message>
-    <message>
         <source>&amp;Label:</source>
         <translation>&amp;Märgis</translation>
     </message>
@@ -1384,10 +1355,6 @@
     <message>
         <source>Message:</source>
         <translation>Sõnum:</translation>
-    </message>
-    <message>
-        <source>Pay To:</source>
-        <translation>Maksa :</translation>
     </message>
     </context>
 <context>
@@ -1452,7 +1419,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Meowcoin address</source>
-        <translation>Allkirjasta sõnum Meowcoin aadressi sulle kuulumise tõestamiseks</translation>
+        <translation>Allkirjasta sõnum Meowcoini aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1476,7 +1443,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Meowcoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Meowcoin aadressiga.</translation>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Meowcoini aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1761,7 +1728,7 @@
     </message>
     <message>
         <source>Meowcoin Core</source>
-        <translation>Meowcoin tuumik</translation>
+        <translation>Meowcoini tuumik</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -1810,10 +1777,6 @@
     <message>
         <source>Verifying blocks...</source>
         <translation>Kontrollin blokke...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation>Kontrollin rahakotti...</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -1876,16 +1839,8 @@
         <translation>-addnode, -seednode ja -connect tohivad kasutada DNS lookup'i</translation>
     </message>
     <message>
-        <source>Loading addresses...</source>
-        <translation>Aadresside laadimine...</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(vaikimisi: %s)</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>Vigane -proxi aadress: '%s'</translation>
     </message>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
@@ -1900,10 +1855,6 @@
         <translation>Klotside indeksi laadimine...</translation>
     </message>
     <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Lisa node ning hoia ühendus avatud</translation>
-    </message>
-    <message>
         <source>Loading wallet...</source>
         <translation>Rahakoti laadimine...</translation>
     </message>
@@ -1912,16 +1863,8 @@
         <translation>Rahakoti vanandamine ebaõnnestus</translation>
     </message>
     <message>
-        <source>Cannot write default address</source>
-        <translation>Tõrge vaikimisi aadressi kirjutamisel</translation>
-    </message>
-    <message>
         <source>Rescanning...</source>
         <translation>Üleskaneerimine...</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation>Laetud</translation>
     </message>
     <message>
         <source>Error</source>

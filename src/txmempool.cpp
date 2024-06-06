@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -447,7 +447,7 @@ void CTxMemPool::addAddressIndex(const CTxMemPoolEntry &entry, const CCoinsViewC
             mapAddress.insert(std::make_pair(key, delta));
             inserted.push_back(key);
         } else {
-            /** MEOWCOIN START */
+            /** MEWC START */
             if (AreAssetsDeployed()) {
                 uint160 hashBytes;
                 std::string assetName;
@@ -459,7 +459,7 @@ void CTxMemPool::addAddressIndex(const CTxMemPoolEntry &entry, const CCoinsViewC
                     inserted.push_back(key);
                 }
             }
-            /** MEOWCOIN END */
+            /** MEWC END */
         }
     }
 
@@ -483,7 +483,7 @@ void CTxMemPool::addAddressIndex(const CTxMemPoolEntry &entry, const CCoinsViewC
             mapAddress.insert(std::make_pair(key, CMempoolAddressDelta(entry.GetTime(), out.nValue)));
             inserted.push_back(key);
         } else {
-            /** MEOWCOIN START */
+            /** MEWC START */
             if (AreAssetsDeployed()) {
                 uint160 hashBytes;
                 std::string assetName;
@@ -495,7 +495,7 @@ void CTxMemPool::addAddressIndex(const CTxMemPoolEntry &entry, const CCoinsViewC
                     inserted.push_back(key);
                 }
             }
-            /** MEOWCOIN END */
+            /** MEWC END */
         }
     }
 
@@ -642,7 +642,7 @@ void CTxMemPool::removeUnchecked(txiter it, MemPoolRemovalReason reason)
     removeAddressIndex(hash);
     removeSpentIndex(hash);
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     // If the transaction being removed from the mempool is locking other reissues. Free them
     if (mapReissuedTx.count(hash)) {
         if (mapReissuedAssets.count(mapReissuedTx.at(hash))) {
@@ -723,7 +723,7 @@ void CTxMemPool::removeUnchecked(txiter it, MemPoolRemovalReason reason)
             }
         }
     }
-    /** MEOWCOIN END */
+    /** MEWC END */
 }
 
 // Calculates descendants of entry that are not already in setDescendants, and adds to
@@ -869,7 +869,7 @@ void CTxMemPool::removeForBlock(const std::vector<CTransactionRef>& vtx, unsigne
             entries.push_back(&*i);
     }
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     // Get the newly added assets, and make sure they are in the entries
     std::vector<CTransaction> trans;
     for (auto it : connectedBlockData.newAssetsToAdd) {
@@ -980,7 +980,7 @@ void CTxMemPool::removeForBlock(const std::vector<CTransactionRef>& vtx, unsigne
             }
         }
     }
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     // Before the txs in the new block have been removed from the mempool, update policy estimates
     if (minerPolicyEstimator) {minerPolicyEstimator->processBlock(nBlockHeight, entries);}
@@ -996,7 +996,7 @@ void CTxMemPool::removeForBlock(const std::vector<CTransactionRef>& vtx, unsigne
         ClearPrioritisation(tx->GetHash());
     }
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     // Remove newly added asset issue transactions from the mempool if they haven't been removed already
     for (auto tx : trans)
     {
@@ -1009,7 +1009,7 @@ void CTxMemPool::removeForBlock(const std::vector<CTransactionRef>& vtx, unsigne
         removeConflicts(tx);
         ClearPrioritisation(tx.GetHash());
     }
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     lastRollingFeeUpdate = GetTime();
     blockSinceLastRollingFeeBump = true;
@@ -1060,14 +1060,14 @@ static void CheckInputsAndUpdateCoins(const CTransaction& tx, CCoinsViewCache& m
     CValidationState state;
     CAmount txfee = 0;
     bool fCheckResult = tx.IsCoinBase() || Consensus::CheckTxInputs(tx, state, mempoolDuplicate, spendheight, txfee);
-    /** MEOWCOIN START */
+    /** MEWC START */
     if (AreAssetsDeployed()) {
         std::vector<std::pair<std::string, uint256>> vReissueAssets;
         bool fCheckAssets = Consensus::CheckTxAssets(tx, state, mempoolDuplicate, passets, false, vReissueAssets);
         assert(fCheckResult && fCheckAssets);
     } else
         assert(fCheckResult);
-    /** MEOWCOIN END */
+    /** MEWC END */
     UpdateCoins(tx, mempoolDuplicate, 1000000);
 }
 

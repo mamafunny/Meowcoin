@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2019 The Raven Core developers
-# Copyright (c) 2020-2021 The Meowcoin Core developers
+# Copyright (c) 2017-2020 The Meowcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -38,8 +37,8 @@ def truncate(number, digits=8):
 def get_tx_issue_hex(node, to_address, asset_name, asset_quantity=1000, verifier_string="true", units=0, reissuable=1, has_ipfs=0, ipfs_hash="", owner_change_address=""):
     change_address = node.getnewaddress()
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > BURN_AMOUNTS['issue_restricted'])
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > BURN_AMOUNTS['issue_restricted'])
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     owner_asset_name = asset_name[1:] + '!'
     owner_unspent = node.listmyassets(owner_asset_name, True)[owner_asset_name]['outpoints'][0]
@@ -47,8 +46,8 @@ def get_tx_issue_hex(node, to_address, asset_name, asset_quantity=1000, verifier
 
     outputs = {
         BURN_ADDRESSES['issue_restricted']: BURN_AMOUNTS['issue_restricted'],
-        change_address: truncate(float(neox_unspent['amount']) - BURN_AMOUNTS['issue_restricted'] - FEE_AMOUNT),
-        to_address: { 
+        change_address: truncate(float(mewc_unspent['amount']) - BURN_AMOUNTS['issue_restricted'] - FEE_AMOUNT),
+        to_address: {
             'issue_restricted': {
                 'asset_name': asset_name,
                 'asset_quantity': asset_quantity,
@@ -64,7 +63,7 @@ def get_tx_issue_hex(node, to_address, asset_name, asset_quantity=1000, verifier
     if len(owner_change_address) > 0:
         outputs[to_address]['issue_restricted']['owner_change_address'] = owner_change_address
 
-    tx_issue = node.createrawtransaction(neox_inputs + owner_inputs, outputs)
+    tx_issue = node.createrawtransaction(mewc_inputs + owner_inputs, outputs)
     tx_issue_signed = node.signrawtransaction(tx_issue)
     tx_issue_hex = tx_issue_signed['hex']
     return tx_issue_hex
@@ -73,8 +72,8 @@ def get_tx_issue_hex(node, to_address, asset_name, asset_quantity=1000, verifier
 def get_tx_reissue_hex(node, to_address, asset_name, asset_quantity, reissuable=1, verifier_string="", ipfs_hash="", owner_change_address=""):
     change_address = node.getnewaddress()
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > BURN_AMOUNTS['reissue_restricted'])
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > BURN_AMOUNTS['reissue_restricted'])
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     owner_asset_name = asset_name[1:] + '!'
     owner_unspent = node.listmyassets(owner_asset_name, True)[owner_asset_name]['outpoints'][0]
@@ -82,7 +81,7 @@ def get_tx_reissue_hex(node, to_address, asset_name, asset_quantity, reissuable=
 
     outputs = {
         BURN_ADDRESSES['reissue_restricted']: BURN_AMOUNTS['reissue_restricted'],
-        change_address: truncate(float(neox_unspent['amount']) - BURN_AMOUNTS['reissue_restricted'] - FEE_AMOUNT),
+        change_address: truncate(float(mewc_unspent['amount']) - BURN_AMOUNTS['reissue_restricted'] - FEE_AMOUNT),
         to_address: {
             'reissue_restricted': {
                 'asset_name': asset_name,
@@ -98,7 +97,7 @@ def get_tx_reissue_hex(node, to_address, asset_name, asset_quantity, reissuable=
     if len(owner_change_address) > 0:
         outputs[to_address]['reissue_restricted']['owner_change_address'] = owner_change_address
 
-    tx_issue = node.createrawtransaction(neox_inputs + owner_inputs, outputs)
+    tx_issue = node.createrawtransaction(mewc_inputs + owner_inputs, outputs)
     tx_issue_signed = node.signrawtransaction(tx_issue)
     tx_issue_hex = tx_issue_signed['hex']
     return tx_issue_hex
@@ -109,8 +108,8 @@ def get_tx_issue_qualifier_hex(node, to_address, asset_name, asset_quantity=1, h
 
     is_sub_qualifier = len(asset_name.split('/')) > 1
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > BURN_AMOUNTS['issue_qualifier'])
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > BURN_AMOUNTS['issue_qualifier'])
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     root_inputs = []
     if is_sub_qualifier:
@@ -122,7 +121,7 @@ def get_tx_issue_qualifier_hex(node, to_address, asset_name, asset_quantity=1, h
     burn_amount = BURN_AMOUNTS['issue_subqualifier'] if is_sub_qualifier else BURN_AMOUNTS['issue_qualifier']
     outputs = {
         burn_address: burn_amount,
-        change_address: truncate(float(neox_unspent['amount']) - burn_amount - FEE_AMOUNT),
+        change_address: truncate(float(mewc_unspent['amount']) - burn_amount - FEE_AMOUNT),
         to_address: {
             'issue_qualifier': {
                 'asset_name': asset_name,
@@ -138,7 +137,7 @@ def get_tx_issue_qualifier_hex(node, to_address, asset_name, asset_quantity=1, h
     if change_qty > 1:
         outputs[to_address]['issue_qualifier']['change_quantity'] = change_qty
 
-    tx_issue = node.createrawtransaction(neox_inputs + root_inputs, outputs)
+    tx_issue = node.createrawtransaction(mewc_inputs + root_inputs, outputs)
     tx_issue_signed = node.signrawtransaction(tx_issue)
     tx_issue_hex = tx_issue_signed['hex']
     return tx_issue_hex
@@ -148,15 +147,15 @@ def get_tx_transfer_hex(node, to_address, asset_name, asset_quantity):
     change_address = node.getnewaddress()
     asset_change_address = node.getnewaddress()
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > FEE_AMOUNT)
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > FEE_AMOUNT)
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     asset_unspent = node.listmyassets(asset_name, True)[asset_name]['outpoints'][0]
     asset_unspent_qty = asset_unspent['amount']
     asset_inputs = [{k: asset_unspent[k] for k in ['txid', 'vout']}]
 
     outputs = {
-        change_address: truncate(float(neox_unspent['amount']) - FEE_AMOUNT),
+        change_address: truncate(float(mewc_unspent['amount']) - FEE_AMOUNT),
         to_address: {
             'transfer': {
                 asset_name: asset_quantity
@@ -170,7 +169,7 @@ def get_tx_transfer_hex(node, to_address, asset_name, asset_quantity):
             }
         }
 
-    tx_transfer = node.createrawtransaction(neox_inputs + asset_inputs, outputs)
+    tx_transfer = node.createrawtransaction(mewc_inputs + asset_inputs, outputs)
     tx_transfer_signed = node.signrawtransaction(tx_transfer)
     tx_transfer_hex = tx_transfer_signed['hex']
     return tx_transfer_hex
@@ -181,15 +180,15 @@ def get_tx_tag_address_hex(node, op, qualifier_name, tag_addresses, qualifier_ch
 
     burn_amount = truncate(float(BURN_AMOUNTS['tag_address'] * len(tag_addresses)))
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > burn_amount)
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > burn_amount)
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     qualifier_unspent = node.listmyassets(qualifier_name, True)[qualifier_name]['outpoints'][0]
     qualifier_inputs = [{k: qualifier_unspent[k] for k in ['txid', 'vout']}]
 
     outputs = {
         BURN_ADDRESSES['tag_address']: burn_amount,
-        change_address: truncate(float(neox_unspent['amount']) - burn_amount - FEE_AMOUNT),
+        change_address: truncate(float(mewc_unspent['amount']) - burn_amount - FEE_AMOUNT),
         qualifier_change_address: {
             f"{op}_addresses": {
                 'qualifier': qualifier_name,
@@ -200,7 +199,7 @@ def get_tx_tag_address_hex(node, op, qualifier_name, tag_addresses, qualifier_ch
     if change_qty > 1:
         outputs[qualifier_change_address][f"{op}_addresses"]['change_quantity'] = change_qty
 
-    tx_tag = node.createrawtransaction(neox_inputs + qualifier_inputs, outputs)
+    tx_tag = node.createrawtransaction(mewc_inputs + qualifier_inputs, outputs)
     tx_tag_signed = node.signrawtransaction(tx_tag)
     tx_tag_hex = tx_tag_signed['hex']
     return tx_tag_hex
@@ -209,15 +208,15 @@ def get_tx_tag_address_hex(node, op, qualifier_name, tag_addresses, qualifier_ch
 def get_tx_freeze_address_hex(node, op, asset_name, freeze_addresses, owner_change_address):
     change_address = node.getnewaddress()
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > FEE_AMOUNT)
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > FEE_AMOUNT)
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     owner_asset_name = asset_name[1:] + '!'
     owner_unspent = node.listmyassets(owner_asset_name, True)[owner_asset_name]['outpoints'][0]
     owner_inputs = [{k: owner_unspent[k] for k in ['txid', 'vout']}]
 
     outputs = {
-        change_address: truncate(float(neox_unspent['amount']) - FEE_AMOUNT),
+        change_address: truncate(float(mewc_unspent['amount']) - FEE_AMOUNT),
         owner_change_address: {
             f"{op}_addresses": {
                 'asset_name': asset_name,
@@ -226,7 +225,7 @@ def get_tx_freeze_address_hex(node, op, asset_name, freeze_addresses, owner_chan
         },
     }
 
-    tx_freeze = node.createrawtransaction(neox_inputs + owner_inputs, outputs)
+    tx_freeze = node.createrawtransaction(mewc_inputs + owner_inputs, outputs)
     tx_freeze_signed = node.signrawtransaction(tx_freeze)
     tx_freeze_hex = tx_freeze_signed['hex']
     return tx_freeze_hex
@@ -236,15 +235,15 @@ def get_tx_freeze_address_hex(node, op, asset_name, freeze_addresses, owner_chan
 def get_tx_freeze_asset_hex(node, op, asset_name, owner_change_address):
     change_address = node.getnewaddress()
 
-    neox_unspent = next(u for u in node.listunspent() if u['amount'] > FEE_AMOUNT)
-    neox_inputs = [{k: neox_unspent[k] for k in ['txid', 'vout']}]
+    mewc_unspent = next(u for u in node.listunspent() if u['amount'] > FEE_AMOUNT)
+    mewc_inputs = [{k: mewc_unspent[k] for k in ['txid', 'vout']}]
 
     owner_asset_name = asset_name[1:] + '!'
     owner_unspent = node.listmyassets(owner_asset_name, True)[owner_asset_name]['outpoints'][0]
     owner_inputs = [{k: owner_unspent[k] for k in ['txid', 'vout']}]
 
     outputs = {
-        change_address: truncate(float(neox_unspent['amount']) - FEE_AMOUNT),
+        change_address: truncate(float(mewc_unspent['amount']) - FEE_AMOUNT),
         owner_change_address: {
             f"{op}_asset": {
                 'asset_name': asset_name,
@@ -252,7 +251,7 @@ def get_tx_freeze_asset_hex(node, op, asset_name, owner_change_address):
         },
     }
 
-    tx_freeze = node.createrawtransaction(neox_inputs + owner_inputs, outputs)
+    tx_freeze = node.createrawtransaction(mewc_inputs + owner_inputs, outputs)
     tx_freeze_signed = node.signrawtransaction(tx_freeze)
     tx_freeze_hex = tx_freeze_signed['hex']
     return tx_freeze_hex

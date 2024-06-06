@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -77,12 +76,12 @@ private:
     const PlatformStyle *platformStyle;
 
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     AssetsDialog *assetsPage;
     CreateAssetDialog *createAssetsPage;
     ReissueAssetDialog *manageAssetsPage;
     RestrictedAssetsDialog *restrictedAssetsPage;
-    /** MEOWCOIN END */
+    /** MEWC END */
 
 public Q_SLOTS:
     /** Switch to overview (home) page */
@@ -104,15 +103,17 @@ public Q_SLOTS:
         The new items are those between start and end inclusive, under the given parent item.
     */
     void processNewTransaction(const QModelIndex& parent, int start, int end);
+    /** Encrypt the wallet */
+    void encryptWallet(bool status);
     /** Backup the wallet */
     void backupWallet();
     /** Change encrypted wallet passphrase */
     void changePassphrase();
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
-    /** Lock the wallet */
-    void lockWallet();
-    void getMnemonic();
+
+    /** Show 12-words */
+    void getMyWords();
 
     /** Show used sending addresses */
     void usedSendingAddresses();
@@ -129,7 +130,7 @@ public Q_SLOTS:
     void requestedSyncWarningInfo();
 
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     /** Switch to assets page */
 
     void gotoAssetsPage();
@@ -137,7 +138,7 @@ public Q_SLOTS:
     void gotoManageAssetsPage();
     void gotoRestrictedAssetsPage();
 
-    /** MEOWCOIN END */
+    /** MEWC END */
 
 Q_SIGNALS:
     /** Signal that we want to show the main window */

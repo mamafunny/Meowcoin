@@ -1,5 +1,5 @@
 // Copyright (c) 2017-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The OLDNAMENEEDKEEP__Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -196,7 +196,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
         if (!MoneyRange(nValueOut))
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-txouttotal-toolarge");
 
-        /** MEOWCOIN START */
+        /** MEWC START */
         // Find and handle all new OP_MEWC_ASSET null data transactions
         if (txout.scriptPubKey.IsNullAsset()) {
             CNullAssetTxData data;
@@ -251,9 +251,9 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
                 fContainsNullAssetVerifierTx = true;
             }
         }
-        /** MEOWCOIN END */
+        /** MEWC END */
 
-        /** MEOWCOIN START */
+        /** MEWC START */
         bool isAsset = false;
         int nType;
         bool fIsOwner;
@@ -363,7 +363,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
         }
     }
 
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     if (fCheckDuplicateInputs) {
         std::set<COutPoint> vInOutPoints;
@@ -395,7 +395,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
                 return state.DoS(10, false, REJECT_INVALID, "bad-txns-prevout-null");
     }
 
-    /** MEOWCOIN START */
+    /** MEWC START */
     if (tx.IsNewAsset()) {
         /** Verify the reissue assets data */
         std::string strError = "";
@@ -537,7 +537,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
                 if (out.scriptPubKey.Find(OP_MEWC_ASSET)) {
                     if (out.scriptPubKey[0] != OP_MEWC_ASSET) {
                         return state.DoS(100, false, REJECT_INVALID,
-                                         "bad-txns-op-neox-asset-not-in-right-script-location");
+                                         "bad-txns-op-mewc-asset-not-in-right-script-location");
                     }
                 }
             }
@@ -554,7 +554,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
     }
 
     // we allow restricted asset reissuance without having a verifier string transaction, we don't force it to be update
-    /** MEOWCOIN END */
+    /** MEWC END */
 
     return true;
 }
@@ -838,7 +838,7 @@ bool Consensus::CheckTxAssets(const CTransaction& tx, CValidationState& state, c
                         if (AreRestrictedAssetsDeployed()) {
                             if (out.scriptPubKey[0] != OP_MEWC_ASSET) {
                                 return state.DoS(100, false, REJECT_INVALID,
-                                                 "bad-txns-op-neox-asset-not-in-right-script-location", false, "", tx.GetHash());
+                                                 "bad-txns-op-mewc-asset-not-in-right-script-location", false, "", tx.GetHash());
                             }
                         } else {
                             return state.DoS(100, false, REJECT_INVALID, "bad-txns-bad-asset-script", false, "", tx.GetHash());

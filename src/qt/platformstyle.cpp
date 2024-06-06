@@ -1,6 +1,5 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2021 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -213,9 +212,11 @@ QColor PlatformStyle::WidgetBackGroundColor() const
 QColor PlatformStyle::SendEntriesBackGroundColor() const
 {
     if (darkModeEnabled)
-        return QColor(21,20,17);
+     // return QColor(21,20,17);
+        return COLOR_SENDENTRIES_BACKGROUND_DARK;
 
-    return QColor("#faf9f6");
+//  return QColor("#faf9f6");
+    return COLOR_SENDENTRIES_BACKGROUND;
 }
 
 QColor PlatformStyle::ShadowColor() const

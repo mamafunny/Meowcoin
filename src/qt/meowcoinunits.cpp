@@ -1,6 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The Meowcoin Core developers
+// Copyright (c) 2017-2019 The Meowcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,9 +52,9 @@ QString MeowcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case MEWC: return QString("Meowcoin");
-    case mMEWC: return QString("Milli-Meowcoin (1 / 1" THIN_SP_UTF8 "000)");
-    case uMEWC: return QString("Micro-Meowcoin (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case MEWC: return QString("Meowcoins");
+    case mMEWC: return QString("Milli-Meowcoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uMEWC: return QString("Micro-Meowcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -121,7 +120,7 @@ QString MeowcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separato
     int q_size = quotient_str.size();
     if (separators == separatorAlways || (separators == separatorStandard && q_size > 4))
         for (int i = 3; i < q_size; i += 3)
-            quotient_str.insert(q_size - i, thin_sp); 
+            quotient_str.insert(q_size - i, thin_sp);
 
     if (n < 0)
         quotient_str.insert(0, '-');
